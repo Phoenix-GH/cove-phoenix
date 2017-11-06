@@ -1,0 +1,29 @@
+{
+  "name": "brava-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
+    "next": "^4.1.4",
+    "react": "^16.0.0",
+    "react-dom": "^16.0.0",
+    "reactstrap": "^5.0.0-alpha.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "next",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jakegibson/brava-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jakegibson/brava-website/issues"
+  },
+  "homepage": "https://github.com/jakegibson/brava-website#readme"
+}
