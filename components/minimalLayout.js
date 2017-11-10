@@ -10,8 +10,6 @@ export default (props) => (
        <link rel="stylesheet" href="../static/css/default.css" />
 
     </Head>
-    <Container fluid>
       {props.children}
-    </Container>
   </div>
 )
