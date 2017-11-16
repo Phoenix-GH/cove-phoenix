@@ -1,34 +1,19 @@
 {
-  "name": "brava-website",
+  "name": "cove-aws",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "dependencies": {
-    "bootstrap": "^4.0.0-beta.2",
-    "next": "^4.1.4",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "reactstrap": "^5.0.0-alpha.3"
-  },
-  "devDependencies": {
-    "node-sass": "^4.6.0",
-    "styled-jsx-plugin-sass": "^0.2.1"
-  },
   "scripts": {
     "dev": "next",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "next build",
-    "export": "next export"
+    "start": "next start"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jakegibson/brava-website.git"
+  "dependencies": {
+    "next": "^4.1.4",
+    "node-sass": "^4.5.3",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-transition-group": "^2.2.1",
+    "reactstrap": "^4.8.0",
+    "styled-jsx-plugin-sass": "^0.2.0"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/jakegibson/brava-website/issues"
-  },
-  "homepage": "https://github.com/jakegibson/brava-website#readme"
+  "license": "ISC"
 }

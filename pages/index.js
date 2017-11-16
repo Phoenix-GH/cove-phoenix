@@ -1,37 +1,39 @@
 import Link from 'next/link'
 import Layout from '../components/minimalLayout'
-import Navbar from '../components/navbar'
+import Header from '../components/homeHeader'
 import PriceComparisonTable from '../components/priceComparisonTable'
-import { Row, Col } from 'reactstrap'
+import { Container, Row, Col } from 'reactstrap'
 
 const Index = () => (
   <Layout>
-    <div style={navContainerStyle}>
-      <Navbar showOrderBtn />
-    </div>
-    <Row className="no-gutters" style={landingHeaderStyle} >
-      <div style={headerCenterTextStyle}>
-        <h1>Fair and Honest Prices.</h1>
-        <h3>Packages starting at $19.99</h3>
-      </div>
-      <Row className="align-items-end justify-content-center">
-        <Col xs={4} className="mx-auto" style={{
-          marginTop: '30px',
-          position: 'relative',
-          bottom: '18%',
-        }}>
-          <Link href="/products">
-            <div style={{
-              ...primaryRectangle,
-               marginRight: 'auto',
-               marginLeft: 'auto',
-             }}>
-              Order Now
-            </div>
-          </Link>
-        </Col>
+      <Row className="no-gutters" style={landingHeaderStyle} >
+        <Container>
+          <div style={navContainerStyle}>
+            <Header showOrderBtn />
+          </div>
+          <div style={headerCenterTextStyle}>
+            <h1>Fair and Honest Prices.</h1>
+            <h3>Packages starting at $19.99</h3>
+          </div>
+          <Row className="align-items-end justify-content-center">
+            <Col xs={4} className="mx-auto" style={{
+              marginTop: '30px',
+              position: 'relative',
+              bottom: '18%',
+            }}>
+              <Link href="/products">
+                <div style={{
+                  ...primaryRectangle,
+                   marginRight: 'auto',
+                   marginLeft: 'auto',
+                 }}>
+                  Order Now
+                </div>
+              </Link>
+            </Col>
+          </Row>
+        </Container>
       </Row>
-    </Row>
     <PriceComparisonTable />
     <Link href="/products">
       <div style={{
@@ -82,7 +84,7 @@ export default Index
 
 
 const landingHeaderStyle = {
-    backgroundImage: 'url("/static/images/bannerReadyToArm.png")',
+    backgroundImage: 'url("/static/images/landingBanner.png")',
     height: '100%',
     minHeight: '400px',
     backgroundPosition: 'center',
@@ -91,8 +93,8 @@ const landingHeaderStyle = {
 }
 
 const navContainerStyle = {
-  position: 'absolute',
-  width:'100%',
+  position: 'relative',
+  top: '80px'
 }
 
 const primaryRectangle = {
