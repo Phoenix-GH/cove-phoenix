@@ -11,6 +11,8 @@
     "node-sass": "^4.5.3",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
+    "react-image-gallery": "^0.8.6",
+    "react-scroll": "^1.6.4",
     "react-transition-group": "^2.2.1",
     "reactstrap": "^4.8.0",
     "styled-jsx-plugin-sass": "^0.2.0"

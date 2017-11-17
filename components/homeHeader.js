@@ -2,7 +2,7 @@ import { Nav, NavItem, Navbar, NavbarBrand, NavbarToggler, NavLink, Collapse } f
 import Link from 'next/link'
 
 export default (props) => (
-  <div>
+  <div className="header">
     <Navbar color="faded" light>
       <NavbarBrand href="/" className="mr-auto"><img src="/static/images/logoWhite.png" /> </NavbarBrand>
       <Nav>
@@ -18,7 +18,7 @@ export default (props) => (
         </Link>
       </Nav>
 
-      <NavbarToggler  className="mr-2" />
+      <NavbarToggler  className="toggler" />
       <Collapse navbar>
         <Nav navbar>
           <NavItem>
@@ -31,9 +31,33 @@ export default (props) => (
       </Collapse>
     </Navbar>
     <style jsx>{`
+      .header {
+        color: #FFFFFF;
+      }
       .signup {
         border: 2px solid #FFFFFF;
+        -webkit-border-radius: 16px;
+        -moz-border-radius: 16px;
+        border-radius: 16px;
+        height: 32px;
+        width: 136px;
         color: #FFFFFF;
+        text-align: center;
+        margin-left:30px;
+        margin-right:30px;
+      }
+
+
+    `}</style>
+    <style jsx global>{`
+      .toggler {
+        border: none;
+        color: #FFFFFF;
+        .navbar-toggler-icon{
+          height:20px;
+          width:24px;
+          background-image: url("/static/images/toggler.png");
+        }
       }
     `}</style>
   </div>
