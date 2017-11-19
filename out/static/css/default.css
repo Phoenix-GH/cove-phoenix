@@ -1,15 +1,29 @@
+@font-face {
+  font-family: GothamRoundedBold;
+  src: url("http://localhost:3000/static/fonts/Gotham-Rounded-Bold.ttf");
+}
+@font-face {
+  font-family: GothamRoundedBook;
+  src: url("http://localhost:3000/static/fonts/Gotham-Rounded-Book.ttf");
+}
+@font-face {
+  font-family: GothamRoundedBookItalic;
+  src: url("http://localhost:3000/static/fonts/Gotham-Rounded-Book-Italic.ttf");
+}
+
 html, body, body>div:first-child, #__next, #__next>div:first-child,#__next>div:first-child>div:first-child, .defaultContainer {
     height: 100%;
+    color: #2C3239;
+    font-family: 'Open Sans', sans-serif;
   }
 
 .row {
   width: 100%;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
-.priceComparisonTable>.row:nth-child(even) {
-  background: #d7d7d7;
-}
-
-.priceComparisonTable>.row:nth-child(n+2) {
-  height: 62px;
-}
+@media (min-width:1440px) {
+   .container {
+         max-width: 1400px;
+   }

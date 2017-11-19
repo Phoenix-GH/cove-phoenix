@@ -3,18 +3,18 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "next build && next export",
     "start": "next start"
   },
   "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
     "next": "^4.1.4",
     "node-sass": "^4.5.3",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
-    "react-image-gallery": "^0.8.6",
     "react-scroll": "^1.6.4",
     "react-transition-group": "^2.2.1",
-    "reactstrap": "^4.8.0",
+    "reactstrap": "^5.0.0-alpha.4",
     "styled-jsx-plugin-sass": "^0.2.0"
   },
   "license": "ISC"
