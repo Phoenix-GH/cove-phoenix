@@ -10,6 +10,10 @@
   font-family: GothamRoundedBookItalic;
   src: url("http://localhost:3000/static/fonts/Gotham-Rounded-Book-Italic.ttf");
 }
+@font-face {
+  font-family: GothamRoundedLight;
+  src: url("http://localhost:3000/static/fonts/Gotham-Rounded-Light.ttf");
+}
 
 html, body, body>div:first-child, #__next, #__next>div:first-child,#__next>div:first-child>div:first-child, .defaultContainer {
     height: 100%;
