@@ -79,10 +79,10 @@ class ShippingInfo extends Component {
               <Row>
                 <Col xs={6}>
                   <div className="mapAddress">
-                    <p class="bold">Jenny Williams</p>
+                    <p className="bold">Jenny Williams</p>
                     <p>10332 S Kestrel Rise Rd.</p>
                     <p>South Jordan, UT 84009</p>
-                    <p><span class="bold">Tel.</span> 801 745.1342</p>
+                    <p><span className="bold">Tel.</span> 801 745.1342</p>
                   </div>
                 </Col>
                 <Col xs={6}>

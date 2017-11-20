@@ -13,16 +13,20 @@ import { getUrlParameter } from '../libs/utils'
 class CheckoutPage extends Component {
   constructor(props) {
     super(props);
-    this.step = 1;
+    this.state = {
+      step: 1,
+    }
   }
 
   componentDidMount() {
-    this.step = getUrlParameter('step')
+    const step =  parseInt(getUrlParameter('step'))
+    console.log('step', step)
+    this.state.step != step  ? this.setState({ step: step }) : '';
   }
 
   render () {
     const props = this.props
-    const activeStage = this.step ? this.step : 1
+    const activeStage = this.state.step ? this.state.step : 1
     return (
       <Layout>
         <Container>
@@ -55,13 +59,15 @@ class CheckoutPage extends Component {
                   </Col>
                 </Row>
               </div>
-              <div className="tab">
+              <div className={`tab ${activeStage == 1 ? 'activePage' : ''}`}>
                 <CustomerInfo />
               </div>
-              <div className="tab">
+              <div className={`tab ${activeStage == 2 ? 'activePage' : ''}`}>
                 <ShippingInfo />
               </div>
-              <PaymentInfo />
+              <div className={`tab ${activeStage == 3 ? 'activePage' : ''}`}>
+                <PaymentInfo />
+              </div>
               <div className="footerControls">
                 <Row>
                   <Col xs={8}>
@@ -137,6 +143,9 @@ class CheckoutPage extends Component {
           }
           .tab {
             display: none;
+          }
+          .activePage.tab {
+            display: block
           }
         `}
         </style>
