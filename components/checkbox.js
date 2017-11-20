@@ -1,79 +1,87 @@
-const Checkbox = (props) => (
-  <div className="control-group">
-    <label className="control control-radio">
-        {props.label}
-            <input type="radio" name="radio"  checked={props.checked || false} />
-        <div className="control_indicator"></div>
-    </label>
-    <style jsx global>{`
-      .control {
-        font-family: arial;
-        display: block;
-        position: relative;
-        padding-left: 40px;
-        margin-bottom: 5px;
-        padding-top: 3px;
-        cursor: pointer;
-        font-size: 16px;
-      }
-      .control input {
-        position: absolute;
-        z-index: -1;
-        opacity: 0;
-      }
-      .control_indicator {
-        position: absolute;
-        top: 2px;
-        left: 0;
-        height: 24px;
-        width: 24px;
-        background: #F0F2F5;
-        border: 1px solid #DFE3E7;
-      }
-      .control-radio .control_indicator {
-        border-radius: 50%;
-      }
-
-      .control:hover input ~ .control_indicator,
-      .control input:focus ~ .control_indicator {
-        background: #E5E8EB;
-      }
-
-      .control input:checked ~ .control_indicator {
-        background: #F0F2F5;
-      }
-      .control:hover input:not([disabled]):checked ~ .control_indicator,
-      .control input:checked:focus ~ .control_indicator {
-        background: #E5E8EB;
-      }
-      .control input:disabled ~ .control_indicator {
-        background: #e6e6e6;
-        opacity: 0.6;
-        pointer-events: none;
-      }
-      .control_indicator:after {
-        box-sizing: unset;
-        content: '';
-        position: absolute;
-        display: none;
-      }
-      .control input:checked ~ .control_indicator:after {
-        display: block;
-      }
-      .control-radio .control_indicator:after {
-        left: 5px;
-        top: 5px;
-        height: 12px;
-        width: 12px;
-        border-radius: 50%;
-        background: #00AD96;
-      }
-      .control-radio input:disabled ~ .control_indicator:after {
-        background: #7b7b7b;
-      }
-    `}
-    </style>
-  </div>
-)
-
+import uuidv4 from 'uuid/v4'
+const Checkbox = (props) => {
+  const id = uuidv4();
+  return (
+    <div>
+      <input type="checkbox" id={id} checked={props.checked} onClick={props.clickHandler}/>
+      <label htmlFor={id}>{props.label}</label>
+      <style jsx>{`
+        /* Base for label styling */
+        [type="checkbox"] {
+          display: none;
+        }
+        [type="checkbox"]:not(:checked),
+        [type="checkbox"]:checked {
+            position: absolute;
+            left: -9999px;
+        }
+        [type="checkbox"]:not(:checked) + label,
+        [type="checkbox"]:checked + label {
+            position: relative;
+            padding-left: 32px;
+            cursor: pointer;
+            margin-bottom: 4px;
+            display: inline-block;
+            font-size: 16px;
+        }
+        /* checkbox aspect */
+        [type="checkbox"]:not(:checked) + label:before,
+        [type="checkbox"]:checked + label:before {
+            content: '';
+            position: absolute;
+            left: 0px; top: 0px;
+            width: 24px; height: 24px;
+            border: 2px solid #cccccc;
+            background: #ffffff;
+            border-radius: 4px;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,.1);
+        }
+        /* checked mark aspect */
+        [type="checkbox"]:not(:checked) + label:after,
+        [type="checkbox"]:checked + label:after {
+            content: '✔';
+            position: absolute;
+            top: 0px; left: 6px;
+            font-size: 20px;
+            line-height: 1.2;
+            color: #09ad7e;
+            transition: all .2s;
+        }
+        /* checked mark aspect changes */
+        [type="checkbox"]:not(:checked) + label:after {
+            opacity: 0;
+            transform: scale(0);
+        }
+        [type="checkbox"]:checked + label:after {
+            opacity: 1;
+            transform: scale(1);
+        }
+        /* disabled checkbox */
+        [type="checkbox"]:disabled:not(:checked) + label:before,
+        [type="checkbox"]:disabled:checked + label:before {
+            box-shadow: none;
+            border-color: #999999;
+            background-color: #dddddd;
+        }
+        [type="checkbox"]:disabled:checked + label:after {
+            color: #999999;
+        }
+        [type="checkbox"]:disabled + label {
+            color: #aaaaaa;
+        }
+        /* accessibility */
+        [type="checkbox"]:checked:focus + label:before,
+        [type="checkbox"]:not(:checked):focus + label:before {
+            border: 2px dotted #0000ff;
+        }
+        /* hover style just for information */
+        label:hover:before {
+            border: 2px solid #4778d9!important;
+            background: #ffffff
+          }
+      `}
+      </style>
+    </div>
+  )
+}
 export default Checkbox

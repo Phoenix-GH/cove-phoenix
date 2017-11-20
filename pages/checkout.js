@@ -5,6 +5,9 @@ import Header from '../components/header'
 import Layout from '../components/minimalLayout'
 import Input from '../components/input'
 import CheckoutSidebar from '../components/checkoutSidebar'
+import CustomerInfo from '../components/customerInfo'
+import ShippingInfo from '../components/shippingInfo'
+import PaymentInfo from '../components/paymentInfo'
 import { getUrlParameter } from '../libs/utils'
 
 class CheckoutPage extends Component {
@@ -25,6 +28,7 @@ class CheckoutPage extends Component {
         <Container>
           <Header color="secondary"/>
           <div className="spacer"></div>
+
           <Row>
             <Col md={8}>
               <div className="checkoutStageRow">
@@ -51,75 +55,28 @@ class CheckoutPage extends Component {
                   </Col>
                 </Row>
               </div>
-              <div className="customerInfo">
-                <h3>Customer Information</h3>
-                <Row>
-                  <Col md={6}>
-                    <Input label="First Name" />
-                  </Col>
-                  <Col md={6}>
-                    <Input label="Last Name" />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col md={6}>
-                    <Input label="Email Address" />
-                  </Col>
-                  <Col md={6}>
-                    <Input label="Phone" />
-                  </Col>
-                </Row>
+              <div className="tab">
+                <CustomerInfo />
               </div>
-              <div className="customerInfo">
-                <h3>Monitoring Information</h3>
+              <ShippingInfo />
+              <div className="footerControls">
                 <Row>
-                  <Col md={8}>
-                    <Input label="Monitoring Address" />
+                  <Col xs={8}>
+                    <ul className="list-inline">
+                      <li className="list-inline-item align-top">
+                        <img src="/static/images/arrowFullLeft.png" />
+                      </li>
+                      <li className="list-inline-item returnLink">
+                        Return to Shop
+                      </li>
+                    </ul>
                   </Col>
-                  <Col md={4}>
-                    <Input label="Apt # or Unit #" />
+                  <Col xs={4}>
+                    <div className="actionBtn">
+                      Continue to Shipping
+                    </div>
                   </Col>
                 </Row>
-                <Row>
-                  <Col md={4}>
-                    <Input label="Postal Code" />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col md={6}>
-                    <Input label="Emergency Contact" />
-                  </Col>
-                  <Col md={6}>
-                    <Input label="Phone" />
-                  </Col>
-                </Row>
-                <Row>
-                  <Col md={6}>
-                    <Input label="Verbal Password" />
-                  </Col>
-                  <Col md={6}>
-                    <Input label="Mastercode" />
-                  </Col>
-                </Row>
-                <div className="footerControls">
-                  <Row>
-                    <Col xs={8}>
-                      <ul className="list-inline">
-                        <li className="list-inline-item align-top">
-                          <img src="/static/images/arrowFullLeft.png" />
-                        </li>
-                        <li className="list-inline-item returnLink">
-                          Return to Shop
-                        </li>
-                      </ul>
-                    </Col>
-                    <Col xs={4}>
-                      <div className="actionBtn">
-                        Continue to Shipping
-                      </div>
-                    </Col>
-                  </Row>
-                </div>
               </div>
             </Col>
             <Col className="justify-content-end" md={4}>
@@ -151,15 +108,6 @@ class CheckoutPage extends Component {
             background: #5BC4B8;
             opacity: 1;
           }
-          .customerInfo {
-            h3 {
-              margin-top: 60px;
-              margin-bottom: 30px;
-              font-size: 24px;
-              font-family: GothamRoundedBold;
-              color: #191E2B;
-            }
-          }
           .footerControls {
             margin-top: 100px;
           }
@@ -183,6 +131,9 @@ class CheckoutPage extends Component {
             font-weight: bold;
             padding-top: 8px;
             cursor: pointer;
+          }
+          .tab {
+            display: none;
           }
         `}
         </style>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Row, Col, Collapse } from 'reactstrap'
 import Input from '../components/input'
-import Checkbox from '../components/checkbox'
+import Radio from '../components/radio'
 
 class CheckoutSidebar extends Component {
   constructor(props){
@@ -11,6 +11,7 @@ class CheckoutSidebar extends Component {
       finance: false,
     }
     this.toggleCoupon = this.toggleCoupon.bind(this);
+    this.toggleFinance = this.toggleFinance.bind(this);
   }
 
   toggleCoupon() {
@@ -33,7 +34,7 @@ class CheckoutSidebar extends Component {
                 Equipment Package
               </p>
               <h4>
-                $499.99 ir $8.33/mo
+                $499.99 or $8.33/mo
               </h4>
             </Col>
           </Row>
@@ -105,14 +106,14 @@ class CheckoutSidebar extends Component {
         <Row>
           <Col xs={12}>
             <div onClick={()=> this.toggleFinance(false)}>
-              <Checkbox label={[<span className='bold'>Pay In Full</span>]} checked={!this.state.finance}/>
+              <Radio label={[<span className='bold'>Pay In Full</span>]} checked={!this.state.finance}/>
             </div>
           </Col>
         </Row>
         <Row>
           <Col xs={12}>
             <div  onClick={() => this.toggleFinance(true)}>
-              <Checkbox label={[<span className='bold'>Finance 0% APR</span>]} checked={this.state.finance}/>
+              <Radio label={[<span className='bold'>Finance 0% APR</span>]} checked={this.state.finance}/>
             </div>
           </Col>
         </Row>
