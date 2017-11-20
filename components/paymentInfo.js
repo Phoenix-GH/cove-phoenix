@@ -1,56 +1,59 @@
 import { Row, Col } from 'reactstrap'
 import Input from '../components/input'
+import Checkbox from '../components/checkbox'
 
 const PaymentInfo = () => (
   <div>
     <div className="customerInfo">
-      <h3>Customer Information</h3>
-      <Row>
-        <Col md={6}>
-          <Input label="First Name" />
+      <h3>Payment Selection</h3>
+      <Row className="justify-content-between">
+        <Col xs="3">
+          <h4>Credit Card</h4>
         </Col>
-        <Col md={6}>
-          <Input label="Last Name" />
+        <Col xs="2">
+          <img src="/static/images/creditcards.png" />
+        </Col>
+      </Row>
+
+      <Row>
+        <Col xs={12}>
+          <Input label="Credit Card" placeholder="0000 - 0000 - 000 - 0000" />
         </Col>
       </Row>
       <Row>
-        <Col md={6}>
-          <Input label="Email Address" />
+        <Col xs={6}>
+          <Input label="Name on Card" />
         </Col>
-        <Col md={6}>
-          <Input label="Phone" />
+        <Col xs={3}>
+          <Input label="Expiration Date" />
         </Col>
-      </Row>
-    </div>
-    <div className="customerInfo">
-      <h3>Monitoring Information</h3>
-      <Row>
-        <Col md={8}>
-          <Input label="Monitoring Address" />
-        </Col>
-        <Col md={4}>
-          <Input label="Apt # or Unit #" />
+        <Col xs={3}>
+          <Input label="CVV Code" />
         </Col>
       </Row>
       <Row>
-        <Col md={4}>
-          <Input label="Postal Code" />
+        <Col xs={1}>
+          <div className="termsCheckbox">
+            <Checkbox />
+          </div>
         </Col>
-      </Row>
-      <Row>
-        <Col md={6}>
-          <Input label="Emergency Contact" />
+        <Col xs={11}>
+          <Input label="Full Name" />
         </Col>
-        <Col md={6}>
-          <Input label="Phone" />
+        <Col xs={12}>
+          <div className="financeAgreement">
+            To accept terms of <span className="linkTertiary">Financing Agreement </span>please type full name below and click accept
+          </div>
         </Col>
-      </Row>
-      <Row>
-        <Col md={6}>
-          <Input label="Verbal Password" />
+        <Col xs={1}>
+          <div className="termsCheckbox">
+            <Checkbox />
+          </div>
         </Col>
-        <Col md={6}>
-          <Input label="Mastercode" />
+        <Col xs={11}>
+          <div className="acceptance">
+            I accept the <span className="linkTertiary"> Terms and Conditons</span>
+          </div>
         </Col>
       </Row>
     </div>
@@ -62,6 +65,25 @@ const PaymentInfo = () => (
           font-size: 24px;
           font-family: GothamRoundedBold;
           color: #191E2B;
+        }
+        h4 {
+          font-family: GothamRoundedBold;
+          font-size: 20px;
+        }
+        .linkTertiary {
+          font-weight: bold;
+          color: #008CFF;
+        }
+        .termsCheckbox {
+        }
+        .financeAgreement {
+          margin-top: 10px;
+          margin-bottom: 10px;
+          font-size: 14px;
+        }
+        .acceptance {
+          font-size: 14px;
+          padding-top: 14px;
         }
       }
     `}</style>

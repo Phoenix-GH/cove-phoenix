@@ -58,7 +58,10 @@ class CheckoutPage extends Component {
               <div className="tab">
                 <CustomerInfo />
               </div>
-              <ShippingInfo />
+              <div className="tab">
+                <ShippingInfo />
+              </div>
+              <PaymentInfo />
               <div className="footerControls">
                 <Row>
                   <Col xs={8}>
