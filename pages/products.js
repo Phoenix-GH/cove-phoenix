@@ -7,11 +7,15 @@ import {
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption
+  CarouselCaption,
+  Modal,
+  ModalHeader,
+  ModalBody,
 } from 'reactstrap';
 import Layout from '../components/minimalLayout'
 import Header from '../components/header'
-import CartAddon from '../components/cartAddon'
+import SidebarCart from '../components/sidebarCart'
+import ProductModal from '../components/productModal'
 
 const items = [
   {
@@ -21,28 +25,42 @@ const items = [
     caption: 'Slide 1'
   },
   {
-    src: '/static/images/placeholderBig.png',
+    src: 'http://localhost:3000/static/images/placeholderBig.png',
     thumb: '/static/images/placeholderThumb.png',
     altText: 'Slide 1',
     caption: 'Slide 1'
   },
   {
-    src: '/static/images/placeholderBig.png',
+    src: 'http://127.0.0.1:3000/static/images/placeholderBig.png',
     thumb: '/static/images/placeholderThumb.png',
     altText: 'Slide 1',
     caption: 'Slide 1'
   }
 ];
 
-class Example extends Component {
+const products = {
+  'productId123' : {
+    id: 'productId123',
+    name: 'Cove Door',
+    price: 19.99,
+    description: 'Cove door sensors are placed on each exterior door. When the door is left open, you’ll know about it. When someone enters the door with the alarm on, you will be notified immediately with our 24/7 monitorin station.',
+  }
+}
+
+class ProductPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { activeIndex: 0 };
+    this.state = {
+      activeIndex: 0,
+      modal: false,
+      activeProduct: 'productId123',
+    };
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
     this.goToIndex = this.goToIndex.bind(this);
     this.onExiting = this.onExiting.bind(this);
     this.onExited = this.onExited.bind(this);
+    this.toggle = this.toggle.bind(this);
   }
 
   onExiting() {
@@ -70,6 +88,12 @@ class Example extends Component {
     this.setState({ activeIndex: newIndex });
   }
 
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
+
   render() {
     const { activeIndex } = this.state;
 
@@ -82,7 +106,6 @@ class Example extends Component {
           src={item.src}
           altText={item.altText}
         >
-          <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
         </CarouselItem>
       );
     });
@@ -94,40 +117,46 @@ class Example extends Component {
           <Container>
             <div className="productContent">
               <Row>
-                <Col md={8}>
+                <Col  md={8}>
                   <h2>Cove Protect</h2>
-                  <Carousel
-                    activeIndex={activeIndex}
-                    next={this.next}
-                    previous={this.previous}
-                  >
-                    <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
-                    {slides}
-                    <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-                    <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
-                  </Carousel>
+                  <div className="productCarousel">
+                    <Row>
+                      <Carousel
+                        activeIndex={activeIndex}
+                        next={this.next}
+                        previous={this.previous}
+                        interval={false}
+                      >
+                        {slides}
+                      </Carousel>
+                    </Row>
+                    <Row>
+                      <ul className="mx-auto list-inline productSliderThumbs">
+                        <li className="list-inline-item link">
+                          <img src="/static/images/arrowLeft.png" />
+                        </li>
+                        {items.map((item, i) => {
+                          return (
+                            <li className="list-inline-item" key={item.thumb + Math.random()}>
+                              <img src={item.thumb} onClick={() => { this.goToIndex(i)} }/>
+                            </li>
+                          )
+                        })}
+                        <li className="list-inline-item link">
+                          <img src="/static/images/arrowRight.png" />
+                        </li>
+                      </ul>
+                    </Row>
+                  </div>
                 </Col>
                 <Col md={4} className="no-gutters">
-                  <div className="cartColumn">
-                    <div className="cartHeader">
-                      <h4>Cove Protect alarm system started pack</h4>
-                      <ul>
-                        <li>1 Cove Protect panel</li>
-                        <li>2 Cove doors</li>
-                        <li>1 Cove remote</li>
-                      </ul>
-                    </div>
-                    <div className="cartSubHeader">
-                      <h4>How many sensors should I add?</h4>
-                      <p>Don’t worry too much, you can add more sensors later, or send the ones you don’t need free of charge.</p>
-                    </div>
-                    <CartAddon />
-                  </div>
+                  <SidebarCart detailAction={this.toggle} />
                 </Col>
               </Row>
             </div>
           </Container>
         </Container>
+        <ProductModal isOpen={this.state.modal} toggle={this.toggle} product={products[this.state.activeProduct]} className="productModal" />
         <style jsx>{`
           .productContent {
             margin-top:60px;
@@ -143,45 +172,48 @@ class Example extends Component {
               padding-left: 0px;
             }
           }
-          .cartHeader {
-            margin: 20px;
+          .productSliderThumbs {
+
           }
-          .cartSubHeader {
-            position: relative;
-            height: 142px;
-            margin-top:40px;
-            margin-bottom: 90px;
-            h4, p {
-              padding-left: 25px;
-              padding-right: 25px;
-            }
-            h4 {
-              padding-top: 0px;
-              color: #00B19A;
-            }
-            &::before {
-              content: "";
-              position: absolute;
-              width: 8px;
-              height: 100%;
-              margin-left: -1px;
-              border-top-right-radius: 4px;
-              border-bottom-right-radius: 4px;
-              background: #00B19A;
+          .productCarousel {
+            width: 656px;
+          }
+        `}
+        </style>
+        <style jsx global>{`
+          .productContent {
+            .carousel-item {
+              border-radius: 16px;
             }
           }
-          .cartColumn {
-            -webkit-box-shadow: 0px 6px 5px 2px rgba(44,50,57,0.2);
-            -moz-box-shadow: 0px 6px 5px 2px rgba(44,50,57,0.2);
-            box-shadow: 0px 6px 5px 2px rgba(44,50,57,0.2);
-            height: 1085px;
-            width: 385px;
-            margin-bottom: 15px;
-            border-radius: 16px;
-            border: 1px solid #F0F4F7;
-            h4 {
-              font-family: GothamRoundedBold;
-              font-size: 24px;
+          .productSliderThumbs {
+            margin-top: 15px;
+            .list-inline-item {
+              border-radius: 8px;
+              padding-left: 8px;
+              padding-right: 8px;
+            }
+          }
+          .link {
+            cursor: pointer;
+          }
+          @media (min-width: 768px) {
+            .modal-dialog .productModal {
+              width: 944px;
+            }
+            .modal-lg  {
+              width: 944px;
+              max-width: 944px;
+              height: 536px;
+            }
+            .productModal {
+              .modal-content {
+                border-radius: 16px;
+                border: 1px solid #F0F4F7;
+              }
+              .modal-header {
+                border: 0px;
+              }
             }
           }
         `}
@@ -192,4 +224,4 @@ class Example extends Component {
 }
 
 
-export default Example;
+export default ProductPage;

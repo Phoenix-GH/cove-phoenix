@@ -30,7 +30,7 @@ const CartAddon = (props) => {
           </div>
         </Col>
         <Col xs={2} className="no-padding-left">
-          <div  className="detailsCol">
+          <div  className="detailsCol" onClick={props.detailAction}>
             Details
           </div>
         </Col>
