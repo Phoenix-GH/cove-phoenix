@@ -1,0 +1,238 @@
+.steps {
+  background-image: url("/static/images/greyRectangle.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  h1 {
+    font-family: GothamRoundedBold;
+    font-size: 60px;
+    margin-top: 80px;
+  }
+  h4 {
+    font-family: GothamRoundedBook;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 48px;
+  }
+
+  @media (max-width: 767px) {
+    margin-top: 32px;
+  }
+}
+
+.stepsOuter {
+  position: relative;
+}
+.stepsPhoto {
+  position: absolute;
+  top: 80px;
+}
+.step {
+  font-size: 18px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Open Sans', sans-serif;
+  p {
+    font-size: 14px;
+    font-style: italic;
+  }
+}
+.headerCenterText {
+  position: relative;
+  color: #FFFFFF;
+  text-align: center;
+  top: 22%;
+  h1 {
+    font-size: 72px;
+    font-family: GothamRoundedBold;
+  }
+  h3 {
+    font-size: 60px;
+    font-family: GothamRoundedLight;
+  }
+}
+
+.tryNowBtn {
+  color: #FFFFFF;
+  width: 162px;
+  height: 40px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: #F17927;
+  font-size: 16px;
+  text-align: center;
+  font-family: GothamRoundedBook;
+  font-weight: bold;
+  padding-top: 8px;
+  cursor: pointer;
+}
+
+.tryNowBtnTwo {
+  margin-top: 48px;
+  margin-bottom: 96px;
+}
+.tryNowBtnThree {
+  position: relative;
+  left: 300px;
+  margin-bottom: 80px;
+  margin-top: 48px;
+}
+.tryNowBtnFour{
+  margin-top: 48px;
+  margin-bottom: 96px;
+}
+.downArrow {
+  margin-top: 40px;
+}
+.savingsHeader {
+  font-size: 60px;
+  font-family: GothamRoundedBold;
+  color: #00B19B;
+  text-align: center;
+  margin-top: 96px;
+}
+.savingsSubheader {
+  font-size: 24px;
+  font-family: GothamRoundedBook;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 48px;
+}
+.testimonial {
+  position: relative;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 96px;
+  color: #00B19B;
+  text-align: center;
+  font-family: GothamRoundedBookItalic;
+  h1 {
+    padding-top: 25px;
+    font-size: 60px;
+  }
+  h3 {
+    padding-bottom: 25px;
+    font-size: 24px;
+  }
+}
+
+.guaranteeHeader {
+  font-size: 60px;
+  font-family: GothamRoundedBold;
+  color: #00B19B;
+  text-align: center;
+  margin-bottom: 48px;
+  margin-top: 48px;
+}
+
+.guaranteeText {
+  @media (max-width: 767px) {
+    text-align: center;
+  }
+}
+
+.footer {
+  margin-bottom: 25px;
+}
+@media (max-width: 767px) {
+  .headerCenterText {
+    h1 {
+      font-size: 60px;
+    }
+    h3 {
+      font-size: 40px;
+    }
+  }
+
+  .steps {
+    margin-top: 32px;
+    h1 {
+      font-size: 40px;
+    }
+  }
+  .stepsPhoto {
+    position: relative;
+    top: 0px;
+  }
+  .tryNowBtnThree {
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .savingsHeader {
+    font-size: 40px;
+  }
+
+  .testimonial {
+    width: 100%;
+    h1 {
+      font-size: 40px;
+    }
+  }
+  .testimonialBorder {
+    &::before {
+      content : "";
+      position: absolute;
+      left: 10%;
+      top: 0;
+      height: 2px;
+      width: 80%;
+      border-bottom:1px solid #00B19B;
+    }
+    &::after {
+      content : "";
+      position: absolute;
+      left: 10%;
+      bottom: 0;
+      height: 2px;
+      width: 80%;
+      border-bottom:1px solid #00B19B;
+    }
+  }
+  .panelBanner {
+    display: none;
+  }
+
+  .guaranteeHeader {
+    font-size: 40px;
+  }
+  .tryNowBtnFive {
+    margin-top: 20px;
+  }
+
+}
+
+@media (min-width: 768px) {
+  .testimonialBorder {
+    &::before {
+      content : "";
+      position: absolute;
+      left: 25%;
+      top: 0;
+      height: 2px;
+      width: 50%;
+      border-bottom:1px solid #00B19B;
+    }
+    &::after {
+      content : "";
+      position: absolute;
+      left: 25%;
+      bottom: 0;
+      height: 2px;
+      width: 50%;
+      border-bottom:1px solid #00B19B;
+    }
+  }
+  .panelBanner{
+    background-image: url("/static/images/panelClose.png");
+    background-size: cover;
+    border-radius: 32px 4px 32px 4px;
+    min-height: 440px;
+    width: 100%;
+  }
+  .panelBannerMobile {
+    display: none;
+  }
+}

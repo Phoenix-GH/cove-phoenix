@@ -37,24 +37,40 @@ class CheckoutPage extends Component {
             <Col md={8}>
               <div className="checkoutStageRow">
                 <Row>
-                  <Col xs={3}>
+                  <div className={`flexCol ${activeStage == 1 ? 'activeStage': ''}`}>
                     <Link href={{ pathname: '/checkout', query: { step: 1 }}}>
-                      <div className={`checkoutStageOne link ${activeStage == 1 ? 'activeStage': ''}`}>
-                        1 Customer Info
+                      <div className={`checkoutStageOne link `}>
+                        1 <span className="stageLabel">Customer Info</span>
                         <div className="stageIndicator"></div>
                       </div>
                     </Link>
-                  </Col>
-                  <Col xs={3}>
-                    <div className={`checkoutStageTwo link ${activeStage == 2 ? 'activeStage': ''}`}>
-                      2 Shipping Info
+                  </div>
+                  <div className={`flexCol ${activeStage == 2 ? 'activeStage': ''}`}>
+                    <div className={`checkoutStageTwo link `}>
+                      2 <span className="stageLabel">Shipping Info</span>
                       <div className="stageIndicator"></div>
                     </div>
-                  </Col>
-                  <Col xs={3}>
-                    <div className={`checkoutStageThree link ${activeStage == 3 ? 'activeStage': ''}`}>
-                      3 Payment Information
+                  </div>
+                  <div className={`flexCol ${activeStage == 3 ? 'activeStage': ''}`}>
+                    <div className={`checkoutStageThree link `}>
+                      3 <span className="stageLabel">Payment Information</span>
                       <div className="stageIndicator"></div>
+                    </div>
+                  </div>
+                </Row>
+              </div>
+              <div className="shoppingCartBtnContainer">
+                <Row>
+                  <Col xs={12}>
+                    <div className="shoppingCartBtn">
+                      <Row>
+                        <Col xs={10}>
+                          View Shopping Cart
+                        </Col>
+                        <Col xs={2}>
+                          <img src="/static/images/arrowFullRight.png" />
+                        </Col>
+                      </Row>
                     </div>
                   </Col>
                 </Row>
@@ -70,8 +86,8 @@ class CheckoutPage extends Component {
               </div>
               <div className="footerControls">
                 <Row>
-                  <Col xs={8}>
-                    <ul className="list-inline">
+                  <Col xs={12} sm={12} md={8}>
+                    <ul className="list-inline returnToShop">
                       <li className="list-inline-item align-top">
                         <img src="/static/images/arrowFullLeft.png" />
                       </li>
@@ -80,7 +96,7 @@ class CheckoutPage extends Component {
                       </li>
                     </ul>
                   </Col>
-                  <Col xs={4}>
+                  <Col xs={12} sm={12} md={4}>
                     <div className="actionBtn">
                       Continue to Shipping
                     </div>
@@ -94,6 +110,51 @@ class CheckoutPage extends Component {
           </Row>
         </Container>
         <style jsx>{`
+
+          .flexCol {
+            position: relative;
+            width: 100%;
+            min-height: 1px;
+            padding-right: 15px;
+            padding-left: 15px;
+            -ms-flex: 0 0 25%;
+            flex: 0 0 25%;
+            max-width: 25%;
+            .stageLabel {
+              @media (max-width: 767px) {
+                display: none;
+              }
+            }
+          }
+
+          .flexCol.activeStage {
+            @media (max-width: 767px) {
+              -ms-flex: 0 0 50%;
+              flex: 0 0 50%;
+              max-width: 50%;
+            }
+            .stageLabel {
+              display: inline;
+            }
+          }
+
+          .shoppingCartBtnContainer {
+            width: 100%;
+            height: 68px;
+            border-radius: 16px;
+            border: 1px solid #F0F4F7;
+            font-size: 20px;
+            font-family: GothamRoundedBold;
+            margin-top: 32px;
+            -webkit-box-shadow: 0px 6px 6px 0px rgba(44,50,57, 0.2);
+            -moz-box-shadow:    0px 6px 6px 0px rgba(44,50,57, 0.2);
+            box-shadow:         0px 6px 6px 0px rgba(44,50,57, 0.2);
+          }
+
+          .shoppingCartBtn {
+            padding-top: 18px;
+          }
+
           .spacer {
             margin-top: 60px;
           }
@@ -147,11 +208,24 @@ class CheckoutPage extends Component {
           .activePage.tab {
             display: block
           }
+
+          .returnToShop {
+            @media (max-width: 767px) {
+              text-align: center;
+            }
+          }
+          .actionBtn {
+            @media (max-width: 767px) {
+              margin-left: auto;
+              margin-right: auto;
+              margin-bottom: 32px;
+            }
+          }
         `}
         </style>
         <style jsx global>{`
           .customerInfo{
-            .row {
+            .col, .col-sm-12 {
               margin-top: 40px;
             }
           }

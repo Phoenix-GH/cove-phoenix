@@ -4,23 +4,21 @@
     <div className="priceComparisonTable">
       <Container>
         <Row className="pctHeader align-items-center">
-          <Col xs={6}>
+          <Col md={{ size: 3, offset: 6 }} xs={6} sm={6} className="pcTableLogo">
+            <img src="/static/images/coveTeal.png"  style={pcTableLogoStyle} />
           </Col>
-          <Col xs={3} className="pcTableLogo">
-            <img src="/static/images/coveTeal.png"  style={pcTableLogoStyle}/>
-          </Col>
-          <Col xs={3}>
+          <Col md={3}  xs={6} sm={6} >
             <h1>Them</h1>
           </Col>
         </Row>
         <Row className="no-gutters">
-          <Col xs={12} md={6} className="pcTableColLeft">
+          <Col xs={12} sm={12} md={6} className="pcTableColLeft">
             Long term contracts
           </Col>
-          <Col xs={6} md={3} className="pcTableColMid">
+          <Col xs={6} sm={6} md={3} className="pcTableColMid">
             Not our style
           </Col>
-          <Col xs={6} md={3} className="pcTableColRight">
+          <Col xs={6}  sm={6} md={3} className="pcTableColRight">
             3-5 years
           </Col>
         </Row>
@@ -107,6 +105,9 @@
             font-size: 16px;
             font-weight: bold;
             padding-left: 100px;
+            @media (max-width: 767px) {
+              padding-left: 0px;
+            }
           }
           .pcTableColMid {
             height: 56px;

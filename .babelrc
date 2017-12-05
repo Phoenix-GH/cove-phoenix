@@ -10,5 +10,14 @@
         }
       }
     ]
+  ],
+  "plugins": [
+    [
+      "css-modules-transform", {
+        "extensions": [".css", ".scss"],
+        "append": [ "postcss-cssnext" ],
+        "extractCss": "./static/css/bundle.css",
+      }
+    ]
   ]
 }
