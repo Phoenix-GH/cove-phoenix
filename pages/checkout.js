@@ -34,7 +34,7 @@ class CheckoutPage extends Component {
           <div className="spacer"></div>
 
           <Row>
-            <Col md={8}>
+            <Col xs={12} sm={12} md={8}>
               <div className="checkoutStageRow">
                 <Row>
                   <div className={`flexCol ${activeStage == 1 ? 'activeStage': ''}`}>
@@ -63,14 +63,16 @@ class CheckoutPage extends Component {
                 <Row>
                   <Col xs={12}>
                     <div className="shoppingCartBtn">
-                      <Row>
-                        <Col xs={10}>
-                          View Shopping Cart
-                        </Col>
-                        <Col xs={2}>
-                          <img src="/static/images/arrowFullRight.png" />
-                        </Col>
-                      </Row>
+                      <Link href="/cart">
+                        <Row>
+                          <Col xs={10}>
+                            View Shopping Cart
+                          </Col>
+                          <Col xs={2}>
+                            <img src="/static/images/arrowFullRight.png" />
+                          </Col>
+                        </Row>
+                      </Link>
                     </div>
                   </Col>
                 </Row>
@@ -104,13 +106,20 @@ class CheckoutPage extends Component {
                 </Row>
               </div>
             </Col>
+
             <Col className="justify-content-end" md={4}>
-              <CheckoutSidebar />
+              <div className="checkoutSidebar">
+                <CheckoutSidebar />
+              </div>
             </Col>
           </Row>
         </Container>
         <style jsx>{`
-
+          .checkoutSidebar {
+            @media (max-width: 767px) {
+              display: none;
+            }
+          }
           .flexCol {
             position: relative;
             width: 100%;
@@ -149,6 +158,10 @@ class CheckoutPage extends Component {
             -webkit-box-shadow: 0px 6px 6px 0px rgba(44,50,57, 0.2);
             -moz-box-shadow:    0px 6px 6px 0px rgba(44,50,57, 0.2);
             box-shadow:         0px 6px 6px 0px rgba(44,50,57, 0.2);
+
+            @media (min-width: 768px) {
+              display: none;
+            }
           }
 
           .shoppingCartBtn {
@@ -225,7 +238,7 @@ class CheckoutPage extends Component {
         </style>
         <style jsx global>{`
           .customerInfo{
-            .col, .col-sm-12 {
+            .coveInput {
               margin-top: 40px;
             }
           }

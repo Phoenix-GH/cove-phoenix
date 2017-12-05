@@ -45,31 +45,31 @@ class ShippingInfo extends Component {
           </div>
           <Collapse isOpen={this.state.differentAddress}>
             <Row>
-              <Col md={6}>
+              <Col xs={12} sm={12} md={6}>
                 <Input label="First Name" />
               </Col>
-              <Col md={6}>
+              <Col xs={12} sm={12} md={6}>
                 <Input label="Last Name" />
               </Col>
             </Row>
             <Row>
-              <Col md={6}>
+              <Col xs={12} sm={12} md={6}>
                 <Input label="Email Address" />
               </Col>
-              <Col md={6}>
+              <Col xs={12} sm={12} md={6}>
                 <Input label="Phone" />
               </Col>
             </Row>
             <Row>
-              <Col md={8}>
+              <Col xs={12} sm={12} md={8}>
                 <Input label="Ship To Address" />
               </Col>
-              <Col md={4}>
+              <Col xs={6} sm={6} md={4}>
                 <Input label="Apt # or Unit #" />
               </Col>
             </Row>
             <Row>
-              <Col md={4}>
+              <Col xs={6} sm={6} md={4}>
                 <Input label="Postal Code" />
               </Col>
             </Row>
@@ -77,7 +77,7 @@ class ShippingInfo extends Component {
           <Collapse isOpen={!this.state.differentAddress}>
             <div className="shippingMap">
               <Row>
-                <Col xs={6}>
+                <Col xs={12} sm={12} md={6}>
                   <div className="mapAddress">
                     <p className="bold">Jenny Williams</p>
                     <p>10332 S Kestrel Rise Rd.</p>
@@ -85,21 +85,23 @@ class ShippingInfo extends Component {
                     <p><span className="bold">Tel.</span> 801 745.1342</p>
                   </div>
                 </Col>
-                <Col xs={6}>
-                  <img src="/static/images/placeholderMap.png" />
+                <Col  xs={12} sm={12} md={6} style={{ paddingLeft: '0px', paddingRight: '0px' }}>
+                  <img className="img-fluid" src="/static/images/placeholderMap.png" />
                 </Col>
               </Row>
             </div>
           </Collapse>
         </div>
-        <div className="customerInfo">
+        <div className="shippingInfo">
           <h3>Shipping Method</h3>
           <Row>
-            <Col md={6}>
+            <Col xs={12} sm={12} md={6}>
               <div className="shipOptionBox">
                 <Row>
                   <Col xs={{ size:11, offset: 1 }}>
-                    <Radio label={[<span className='bold'>Standard Delivery</span>]} checked={this.state.standardDelivery} />
+                    <div className="shipOptionHeader">
+                      <Radio label={[<span className='bold'>Standard Delivery</span>]} checked={this.state.standardDelivery} />
+                    </div>
                   </Col>
                   <Col xs={{ size:10, offset: 2 }}>
                     <h4>Free with Prime</h4>
@@ -112,11 +114,13 @@ class ShippingInfo extends Component {
                 </Row>
               </div>
             </Col>
-            <Col md={6}>
+            <Col xs={12} sm={12} md={6}>
               <div className="shipOptionBox">
                 <Row>
                   <Col xs={{ size:11, offset: 1 }}>
-                    <Radio clickHandler={()=> this.toggleShipMethod(false)} label={[<span className='bold'>Fast Delivery</span>]} checked={!this.state.standardDelivery} />
+                    <div className="shipOptionHeader">
+                      <Radio clickHandler={()=> this.toggleShipMethod(false)} label={[<span className='bold'>Fast Delivery</span>]} checked={!this.state.standardDelivery} />
+                    </div>
                   </Col>
                   <Col xs={{ size:10, offset: 2 }}>
                     <h4>$8.00</h4>
@@ -144,7 +148,7 @@ class ShippingInfo extends Component {
           </ul>
         </div>
         <style jsx>{`
-          .customerInfo {
+          .customerInfo, .shippingInfo {
             h3 {
               margin-top: 60px;
               margin-bottom: 30px;
@@ -152,13 +156,19 @@ class ShippingInfo extends Component {
               font-family: GothamRoundedBold;
               color: #191E2B;
             }
+
+          }
+          .customerInfo .shippingInfo .col-sm-12 {
+            margin-top: 0px;
           }
           .shippingMap {
             border: 1px solid #DEDFE1;
             border-radius: 16px;
             max-width: 656px;
             margin-top: 30px;
+
           }
+
           .mapAddress {
             padding: 30px;
           }
@@ -167,6 +177,9 @@ class ShippingInfo extends Component {
             border: 1px solid #DEDFE1;
             border-radius: 16px;
             margin-right:20px;
+          }
+          .shipOptionHeader {
+            margin-top: 20px;
           }
           .shipMethodDetails {
             margin-top: 20px;

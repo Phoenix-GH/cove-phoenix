@@ -3,7 +3,9 @@ module.exports = {
     return {
       '/': { page: '/' },
       '/products': { page: '/products' },
-      'checkout': { page: '/checkout' },
+      '/checkout': { page: '/checkout' },
+      '/cart': { page: '/cart' },
+      '/coveclub': { page: '/coveclub'}
     }
   }
 }
