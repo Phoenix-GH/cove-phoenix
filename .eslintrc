@@ -1,5 +1,6 @@
 "extends": "eslint-config-airbnb"
 "rules": {
   "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-  "react/react-in-jsx-scope": "off"
+  "react/react-in-jsx-scope": "off",
+  "react/forbid-prop-types": "off"
 }

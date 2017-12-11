@@ -2,7 +2,7 @@ import Link from 'next/link';
 import Scroll from 'react-scroll';
 import { Container, Row, Col } from 'reactstrap';
 import Layout from '../components/minimalLayout';
-import Header from '../components/homeHeader';
+import Header from '../components/header';
 import PriceComparisonTable from '../components/priceComparisonTable';
 import s from './index.scss';
 
@@ -85,7 +85,7 @@ const Index = () => (
         <h3 className={s.savingsSubheader}>
           Every year with Cove is more money in your pocket
         </h3>
-        <img className="img-fluid mx-auto" src="/static/images/tempSlider.png" />
+        <img className="img-fluid mx-auto" src="/static/images/tempSlider.png"  alt="Savings Estimate"/>
         <Link href="/products">
           <div className={`${s.tryNowBtn} ${s.tryNowBtnFour} mx-auto`}>
             Try it now
@@ -98,7 +98,7 @@ const Index = () => (
         </div>
       </Container>
       <div className={s.panelBannerMobile}>
-        <img className="img-fluid" src="/static/images/panelClose.png" />
+        <img className="img-fluid" src="/static/images/panelClose.png" alt="security panel" />
       </div>
       <Container>
         <div className={s.panelBanner} />
@@ -106,7 +106,8 @@ const Index = () => (
         <Row>
           <Col md={{ size: 6, offset: 2 }} sm={12} xs={12}>
             <div className={s.guaranteeText}>
-              Try out Cove for 30 days free, and if you don’t like it better than your current alarm,
+              Try out Cove for 30 days free,
+              and if you don’t like it better than your current alarm,
               send it back for a complete refund.
               (Don’t worry, you don’t need to cancel your current system to try ours.)
             </div>

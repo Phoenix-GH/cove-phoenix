@@ -1,0 +1,31 @@
+.priceComparisonTable {
+  :global {
+    .row {
+      border-bottom: 1px solid #BEC2C5;
+      font-family: GothamRoundedBold;
+      font-size: 20px;
+      padding-top: 20px;
+    }
+    .col {
+      padding-left: 20px;
+    }
+  }
+}
+.pcTableColLeft {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 100px;
+  @media (max-width: 767px) {
+    padding-left: 0px;
+  }
+}
+.pcTableColMid {
+  height: 56px;
+  color: #00B19B;
+}
+
+.pctHeader {
+    padding-bottom: 20px;
+    margin-top: 66px;
+}

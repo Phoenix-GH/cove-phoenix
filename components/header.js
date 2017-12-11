@@ -20,7 +20,7 @@ const Header = (props) => {
         <Nav className={s.authLinks}>
           <Link href="/login">
             <div>
-              Sign in
+              Sign in 
             </div>
           </Link>
           <Link href="/signup">
