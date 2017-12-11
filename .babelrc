@@ -1,14 +1,7 @@
 {
   "presets": [
     [
-      "next/babel",
-      {
-        "styled-jsx": {
-          "plugins": [
-            "styled-jsx-plugin-sass"
-          ]
-        }
-      }
+      "next/babel"
     ]
   ],
   "plugins": [
@@ -16,7 +9,8 @@
       "css-modules-transform", {
         "extensions": [".css", ".scss"],
         "append": [ "postcss-cssnext" ],
-        "extractCss": "./static/css/bundle.css",
+        "preprocessCss": "./pre-processor.js",
+        "extractCss": "./static/css/bundle.css"
       }
     ]
   ]

@@ -1,1 +1,17 @@
-    box-shadow: -6px 0px 6px -6px rgba(44,50,57, 0.2), 60px 0px 100px -90px rgba(44,50,57, 0.2);
+@media (min-width: 767px) {
+  .mobile {
+    display: none;
+  }
+  .full {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile {
+    display: block;
+  }
+  .full {
+    display: none;
+  }
+}

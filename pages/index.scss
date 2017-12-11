@@ -1,3 +1,11 @@
+.landingHeaderStyle {
+  background-image: url("/static/images/landingBanner.png");
+  height: 100%;
+  min-height: 400px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .steps {
   background-image: url("/static/images/greyRectangle.png");
   background-repeat: no-repeat;

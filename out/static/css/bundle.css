@@ -11,6 +11,198 @@
     display: block; }
   .coveclub__full___2cmpu {
     display: none; } }
+/*  imported from index.scss  */
+
+.index__steps___2BmVR {
+  background-image: url("/static/images/greyRectangle.png");
+  background-repeat: no-repeat;
+  background-size: cover; }
+  .index__steps___2BmVR h1 {
+    font-family: GothamRoundedBold;
+    font-size: 60px;
+    margin-top: 80px; }
+  .index__steps___2BmVR h4 {
+    font-family: GothamRoundedBook;
+    font-size: 24px;
+    margin-top: 20px;
+    margin-bottom: 48px; }
+  @media (max-width: 767px) {
+    .index__steps___2BmVR {
+      margin-top: 32px; } }
+
+.index__stepsOuter___2cCvR {
+  position: relative; }
+
+.index__stepsPhoto___DRDGE {
+  position: absolute;
+  top: 80px; }
+
+.index__step___3Q7VV {
+  font-size: 18px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  font-family: 'Open Sans', sans-serif; }
+  .index__step___3Q7VV p {
+    font-size: 14px;
+    font-style: italic; }
+
+.index__headerCenterText___2rvbJ {
+  position: relative;
+  color: #FFFFFF;
+  text-align: center;
+  top: 22%; }
+  .index__headerCenterText___2rvbJ h1 {
+    font-size: 72px;
+    font-family: GothamRoundedBold; }
+  .index__headerCenterText___2rvbJ h3 {
+    font-size: 60px;
+    font-family: GothamRoundedLight; }
+
+.index__tryNowBtn___3AwvN {
+  color: #FFFFFF;
+  width: 162px;
+  height: 40px;
+  border-radius: 20px;
+  background: #F17927;
+  font-size: 16px;
+  text-align: center;
+  font-family: GothamRoundedBook;
+  font-weight: bold;
+  padding-top: 8px;
+  cursor: pointer; }
+
+.index__tryNowBtnTwo___1PCbc {
+  margin-top: 48px;
+  margin-bottom: 96px; }
+
+.index__tryNowBtnThree___9GSg- {
+  position: relative;
+  left: 300px;
+  margin-bottom: 80px;
+  margin-top: 48px; }
+
+.index__tryNowBtnFour___1JCeo {
+  margin-top: 48px;
+  margin-bottom: 96px; }
+
+.index__downArrow___1iubN {
+  margin-top: 40px; }
+
+.index__savingsHeader___D2wxF {
+  font-size: 60px;
+  font-family: GothamRoundedBold;
+  color: #00B19B;
+  text-align: center;
+  margin-top: 96px; }
+
+.index__savingsSubheader___yJb5x {
+  font-size: 24px;
+  font-family: GothamRoundedBook;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 48px; }
+
+.index__testimonial___3dKCh {
+  position: relative;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 96px;
+  color: #00B19B;
+  text-align: center;
+  font-family: GothamRoundedBookItalic; }
+  .index__testimonial___3dKCh h1 {
+    padding-top: 25px;
+    font-size: 60px; }
+  .index__testimonial___3dKCh h3 {
+    padding-bottom: 25px;
+    font-size: 24px; }
+
+.index__guaranteeHeader___D03HN {
+  font-size: 60px;
+  font-family: GothamRoundedBold;
+  color: #00B19B;
+  text-align: center;
+  margin-bottom: 48px;
+  margin-top: 48px; }
+
+@media (max-width: 767px) {
+  .index__guaranteeText___1GNwN {
+    text-align: center; } }
+
+.index__footer___231Fr {
+  margin-bottom: 25px; }
+
+@media (max-width: 767px) {
+  .index__headerCenterText___2rvbJ h1 {
+    font-size: 60px; }
+  .index__headerCenterText___2rvbJ h3 {
+    font-size: 40px; }
+  .index__steps___2BmVR {
+    margin-top: 32px; }
+    .index__steps___2BmVR h1 {
+      font-size: 40px; }
+  .index__stepsPhoto___DRDGE {
+    position: relative;
+    top: 0px; }
+  .index__tryNowBtnThree___9GSg- {
+    left: 0;
+    margin-left: auto;
+    margin-right: auto; }
+  .index__savingsHeader___D2wxF {
+    font-size: 40px; }
+  .index__testimonial___3dKCh {
+    width: 100%; }
+    .index__testimonial___3dKCh h1 {
+      font-size: 40px; }
+  .index__testimonialBorder___2yHgm::before {
+    content: "";
+    position: absolute;
+    left: 10%;
+    top: 0;
+    height: 2px;
+    width: 80%;
+    border-bottom: 1px solid #00B19B; }
+  .index__testimonialBorder___2yHgm::after {
+    content: "";
+    position: absolute;
+    left: 10%;
+    bottom: 0;
+    height: 2px;
+    width: 80%;
+    border-bottom: 1px solid #00B19B; }
+  .index__panelBanner___rP_Bx {
+    display: none; }
+  .index__guaranteeHeader___D03HN {
+    font-size: 40px; }
+  .index__tryNowBtnFive___2BDAl {
+    margin-top: 20px; } }
+
+@media (min-width: 768px) {
+  .index__testimonialBorder___2yHgm::before {
+    content: "";
+    position: absolute;
+    left: 25%;
+    top: 0;
+    height: 2px;
+    width: 50%;
+    border-bottom: 1px solid #00B19B; }
+  .index__testimonialBorder___2yHgm::after {
+    content: "";
+    position: absolute;
+    left: 25%;
+    bottom: 0;
+    height: 2px;
+    width: 50%;
+    border-bottom: 1px solid #00B19B; }
+  .index__panelBanner___rP_Bx {
+    background-image: url("/static/images/panelClose.png");
+    background-size: cover;
+    border-radius: 32px 4px 32px 4px;
+    min-height: 440px;
+    width: 100%; }
+  .index__panelBannerMobile___3QbAS {
+    display: none; } }
 /*  imported from header.scss  */
 
 @media (max-width: 767px) {
@@ -35,122 +227,6 @@
 
 .header__toggler___2uOGP.header__secondary___jurm6 .navbar-toggler-icon {
   background-image: url("/static/images/togglerTeal.svg"); }
-/*  imported from coveClubMobile.scss  */
-
-.coveClubMobile__mobileContainer___3rxTC {
-  padding: 20px; }
-
-.coveClubMobile__header___2SeU_ {
-  margin-top: 50px; }
-  .coveClubMobile__header___2SeU_ h2 {
-    font-size: 24px;
-    font-family: GothamRoundedBold; }
-
-.coveClubMobile__headerSubText___18cQ6 {
-  font-size: 20px;
-  font-family: GothamRoundedBook;
-  position: relative;
-  padding-left: 25px;
-  margin-top: 25px; }
-  .coveClubMobile__headerSubText___18cQ6::before {
-    content: "";
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 8px;
-    height: 100%;
-    border-radius: 4px;
-    background: #01CDB9; }
-
-.coveClubMobile__compareTable___EOm2m {
-  text-align: center; }
-
-.coveClubMobile__colHeader___3CxhQ {
-  margin-top: 40px;
-  margin-bottom: 16px;
-  text-align: center; }
-  .coveClubMobile__colHeader___3CxhQ h4 {
-    font-size: 24px;
-    font-family: GothamRoundedBold; }
-
-.coveClubMobile__highlight___uqEri {
-  color: #00CDB9; }
-
-.coveClubMobile__alert___2ov-y {
-  color: #EA5B5B; }
-
-.coveClubMobile__colLabel___1vRzC {
-  margin-bottom: 32px;
-  font-weight: bold;
-  font-size: 12px; }
-  .coveClubMobile__colLabel___1vRzC h5 {
-    font-size: 16px;
-    font-weight: bold; }
-
-.coveClubMobile__rowLabel___226e3 {
-  text-align: left;
-  font-weight: bold;
-  margin-bottom: 8px; }
-
-.coveClubMobile__nonClubRow___2ROrE {
-  background: #F0F4F7;
-  height: 40px;
-  border-radius: 16px; }
-
-.coveClubMobile__compareRow___3HYRw {
-  margin-bottom: 24px;
-  font-weight: bold; }
-  .coveClubMobile__compareRow___3HYRw .col-6 {
-    padding-left: 0px;
-    padding-right: 0px; }
-
-.coveClubMobile__cell___1AEm2 {
-  padding-top: 4px; }
-  .coveClubMobile__cell___1AEm2 img {
-    height: 24px; }
-
-.coveClubMobile__selectionBox___1H9zm {
-  background: #FFFFFF;
-  border-radius: 16px;
-  border: 1px solid #DEDFE1;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  text-align: left;
-  margin-bottom: 20px; }
-  .coveClubMobile__selectionBox___1H9zm .coveClubMobile__optionLabel___bcql7 {
-    font-weight: bold; }
-  .coveClubMobile__selectionBox___1H9zm .coveClubMobile__highlight___uqEri {
-    color: #00B19A;
-    font-family: GothamRoundedBold;
-    font-size: 20px;
-    margin-top: 10px; }
-  .coveClubMobile__selectionBox___1H9zm .coveClubMobile__alert___2ov-y {
-    color: #EA5B5B;
-    font-family: GothamRoundedBold;
-    font-size: 20px; }
-
-.coveClubMobile__financeOption___4iK4m {
-  text-align: left;
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 20px; }
-
-.coveClubMobile__selectBtn___19AN- {
-  color: #FFFFFF;
-  width: 130px;
-  height: 40px;
-  border-radius: 20px;
-  background: #F17927;
-  font-size: 16px;
-  text-align: center;
-  font-family: GothamRoundedBold;
-  font-weight: bold;
-  padding-top: 8px;
-  margin-bottom: 20px;
-  cursor: pointer; }
 /*  imported from coveClubFullsize.scss  */
 
 .coveClubFullsize__header___22aWl {
@@ -286,11 +362,6 @@
     -moz-filter: blur(1px);
     -o-filter: blur(1px);
     -ms-filter: blur(1px); }
-  @media (max-width: 991px) {
-    .coveClubFullsize__coveClubTableFooter___3a1tB {
-      height: 560px; }
-      .coveClubFullsize__coveClubTableFooter___3a1tB::before, .coveClubFullsize__coveClubTableFooter___3a1tB:after {
-        height: 549px; } }
 
 .coveClubFullsize__coveNonClubTableHeader___2u1Lt {
   height: 120px;
@@ -441,3 +512,34 @@
   padding-top: 8px;
   margin-bottom: 20px;
   cursor: pointer; }
+/*  imported from coveClubMobile.scss  */
+
+.coveClubMobile__header___2SeU_ {
+  margin-top: 50px; }
+  .coveClubMobile__header___2SeU_ h2 {
+    font-size: 24px;
+    font-family: GothamRoundedBold; }
+
+.coveClubMobile__headerSubText___18cQ6 {
+  font-size: 20px;
+  font-family: GothamRoundedBook;
+  position: relative;
+  padding-left: 25px; }
+  .coveClubMobile__headerSubText___18cQ6::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 8px;
+    height: 100%;
+    border-radius: 4px;
+    background: #01CDB9; }
+/*  imported from shoppingCartMobile.scss  */
+
+.shoppingCartMobile__mobileCartHeader___v2DRF {
+  height: 56px;
+  background: #F0F4F7;
+  padding-top: 14px;
+  padding-left: 20px; }
+  .shoppingCartMobile__mobileCartHeader___v2DRF li {
+    padding-right: 10px; }
