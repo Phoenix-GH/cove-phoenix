@@ -1,0 +1,15 @@
+.customerInfo {
+  h3 {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-family: GothamRoundedBold;
+    color: #191E2B;
+  }
+  
+  :global {
+    .coveInput {
+      margin-top: 40px;
+    }
+  }
+}

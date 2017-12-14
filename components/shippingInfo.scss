@@ -1,0 +1,59 @@
+.customerInfo, .shippingInfo {
+  h3 {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-family: GothamRoundedBold;
+    color: #191E2B;
+  }
+  :global {
+    .coveInput {
+      margin-top: 40px;
+    }
+  }
+}
+.customerInfo .shippingInfo .col-sm-12 {
+  margin-top: 0px;
+}
+.shippingMap {
+  border: 1px solid #DEDFE1;
+  border-radius: 16px;
+  max-width: 656px;
+  margin-top: 30px;
+
+}
+
+.mapAddress {
+  padding: 30px;
+}
+.shipOptionBox {
+  height: 197px;
+  border: 1px solid #DEDFE1;
+  border-radius: 16px;
+  margin-right:20px;
+}
+.shipOptionHeader {
+  margin-top: 20px;
+}
+.shipMethodDetails {
+  margin-top: 20px;
+}
+h4 {
+  font-family: GothamRoundedBold;
+  font-size: 20px;
+  color: #00B19A;
+}
+.warrantyControls {
+  li {
+    margin-right: 50px;
+  }
+}
+
+:global {
+  .customerInfo .shippingMap .row {
+    margin-top: 0px;
+  }
+  .bold {
+    font-weight: bold;
+  }
+}

@@ -22,7 +22,9 @@ const CartAddon = (props) => {
               <Col xs={12}>
                 <ul className="list-inline">
                   <li className="list-inline-item">1</li>
-                  <li className="list-inline-item"><img src="/static/images/plusIcon.png" /></li>
+                  <li className="list-inline-item" onClick={props.changeQuantity(props.product.id, 1)}>
+                    <img src="/static/images/plusIcon.png" alt="add icon" />
+                  </li>
                   <li className="list-inline-item"><img src="/static/images/minusIcon.png" /></li>
                 </ul>
               </Col>

@@ -6,6 +6,9 @@ import {
   Carousel,
   CarouselItem,
 } from 'reactstrap';
+import { bindActionCreators } from 'redux';
+import withRedux from 'next-redux-wrapper';
+import { makeStore, changeQuantity } from '../store';
 import Layout from '../components/minimalLayout';
 import Header from '../components/header';
 import SidebarCart from '../components/sidebarCart';
@@ -35,7 +38,7 @@ const items = [
 
 const products = {
   productId123: {
-    id: 'productId123',
+    id: 'productId123e',
     name: 'Cove Door',
     price: 19.99,
     description: 'Cove door sensors are placed on each exterior door. When the door is left open, you’ll know about it. When someone enters the door with the alarm on, you will be notified immediately with our 24/7 monitorin station.',
@@ -43,6 +46,7 @@ const products = {
 };
 
 class ProductPage extends Component {
+
   constructor(props) {
     super(props);
     this.state = {
@@ -89,6 +93,10 @@ class ProductPage extends Component {
     });
   }
 
+  add = () => {
+      this.props.changeQuantity(33)
+  }
+
   render() {
     const { activeIndex } = this.state;
 
@@ -104,10 +112,10 @@ class ProductPage extends Component {
 
     return (
       <Layout>
-        <Container>
+        <Container >
           <Header color="secondary" />
           <Container>
-            <div className={s.productContent}>
+            <div className={s.productContent} >
               <Row>
                 <Col xl={8} lg={7} md={6}>
                   <h2>Cove Protect</h2>
@@ -141,7 +149,7 @@ class ProductPage extends Component {
                   </div>
                 </Col>
                 <Col xl={4} lg={5} md={6} className="no-gutters">
-                  <SidebarCart detailAction={this.toggle} />
+                  <SidebarCart detailAction={this.toggle} changeQuantity={() => this.add} />
                 </Col>
               </Row>
             </div>
@@ -159,4 +167,10 @@ class ProductPage extends Component {
 }
 
 
-export default ProductPage;
+const mapDispatchToProps = dispatch => {
+  return {
+  changeQuantity: bindActionCreators(changeQuantity, dispatch),
+}
+}
+
+export default withRedux(makeStore, null, mapDispatchToProps)(ProductPage);

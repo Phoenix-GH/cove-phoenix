@@ -19,7 +19,7 @@ const SidebarCart = props => (
         or send the ones you don’t need free of charge.
       </p>
     </div>
-    <CartAddon detailAction={props.detailAction} />
+    <CartAddon product={{id: 123}} detailAction={props.detailAction} changeQuantity={props.changeQuantity}/>
     <Row>
       <Col xs={12}>
         <div className={s.footerLink}>

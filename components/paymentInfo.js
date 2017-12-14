@@ -1,17 +1,18 @@
-import { Row, Col } from 'reactstrap'
-import Input from '../components/input'
-import Checkbox from '../components/checkbox'
+import { Row, Col } from 'reactstrap';
+import Input from '../components/input';
+import Checkbox from '../components/checkbox';
+import s from './paymentInfo.scss';
 
 const PaymentInfo = () => (
   <div>
-    <div className="customerInfo">
+    <div className={s.customerInfo}>
       <h3>Payment Selection</h3>
       <Row className="justify-content-between">
         <Col xs="3">
           <h4>Credit Card</h4>
         </Col>
         <Col xs="2">
-          <img src="/static/images/creditcards.png" />
+          <img src="/static/images/creditcards.png" alt="credit card icon" />
         </Col>
       </Row>
 
@@ -33,7 +34,7 @@ const PaymentInfo = () => (
       </Row>
       <Row>
         <Col xs={1}>
-          <div className="termsCheckbox">
+          <div className={s.termsCheckbox}>
             <Checkbox />
           </div>
         </Col>
@@ -41,53 +42,25 @@ const PaymentInfo = () => (
           <Input label="Full Name" />
         </Col>
         <Col xs={12}>
-          <div className="financeAgreement">
-            To accept terms of <span className="linkTertiary">Financing Agreement </span>please type full name below and click accept
+          <div className={s.financeAgreement}>
+            To accept terms of
+            <span className={s.linkTertiary}>Financing Agreement </span>
+            please type full name below and click accept
           </div>
         </Col>
         <Col xs={1}>
-          <div className="termsCheckbox">
+          <div className={s.termsCheckbox}>
             <Checkbox />
           </div>
         </Col>
         <Col xs={11}>
-          <div className="acceptance">
-            I accept the <span className="linkTertiary"> Terms and Conditons</span>
+          <div className={s.acceptance}>
+            I accept the <span className={s.linkTertiary}> Terms and Conditons</span>
           </div>
         </Col>
       </Row>
     </div>
-    <style jsx>{`
-      .customerInfo {
-        h3 {
-          margin-top: 60px;
-          margin-bottom: 30px;
-          font-size: 24px;
-          font-family: GothamRoundedBold;
-          color: #191E2B;
-        }
-        h4 {
-          font-family: GothamRoundedBold;
-          font-size: 20px;
-        }
-        .linkTertiary {
-          font-weight: bold;
-          color: #008CFF;
-        }
-        .termsCheckbox {
-        }
-        .financeAgreement {
-          margin-top: 10px;
-          margin-bottom: 10px;
-          font-size: 14px;
-        }
-        .acceptance {
-          font-size: 14px;
-          padding-top: 14px;
-        }
-      }
-    `}</style>
   </div>
-)
+);
 
-export default PaymentInfo
+export default PaymentInfo;
