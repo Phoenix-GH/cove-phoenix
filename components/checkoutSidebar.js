@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Link from 'next/link';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux'
 import { Row, Col, Collapse } from 'reactstrap';
 import Input from '../components/input';
 import Radio from '../components/radio';
@@ -25,6 +28,14 @@ class CheckoutSidebar extends Component {
 
   render() {
     const toggleImage = this.state.collapse ? 'arrowUp.png' : 'arrowDown.png';
+    const { cart, products, payment } = this.props;
+    const cartList = cart.cartItemIds.map((val) => {
+      return (
+        <li>
+          {cart.quantityById[val]} {products[val].name}
+        </li>
+      )
+    });
     return (
       <div className={s.sidebarContainer}>
         <div className={s.equipmentPackage}>
@@ -48,18 +59,7 @@ class CheckoutSidebar extends Component {
                 <li>
                   17" Touchscreen Control Panel
                 </li>
-                <li>
-                  3 Doors
-                </li>
-                <li>
-                  2 Motions
-                </li>
-                <li>
-                  1 Smoke
-                </li>
-                <li>
-                  2 Key Fobs
-                </li>
+                {cartList}
               </ul>
             </Col>
           </Row>
@@ -173,4 +173,11 @@ class CheckoutSidebar extends Component {
   }
 }
 
-export default CheckoutSidebar;
+const mapStateToProps = ({ cart, products, payment }) => ({ cart, products, payment });
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CheckoutSidebar);

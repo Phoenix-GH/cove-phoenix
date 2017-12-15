@@ -1,52 +1,98 @@
+import React, { Component } from 'react';
+import Link from 'next/link';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux'
 import { Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
 import CartAddon from '../components/cartAddon';
+import { changeQuantity } from '../store';
 import s from './sidebarCart.scss';
 
-const SidebarCart = props => (
-  <div className={s.cartColumn}>
-    <div className={s.cartHeader}>
-      <h4>Cove Protect alarm system started pack</h4>
-      <ul>
-        <li>1 Cove Protect panel</li>
-        <li>2 Cove doors</li>
-        <li>1 Cove remote</li>
-      </ul>
-    </div>
-    <div className={s.cartSubHeader}>
-      <h4>How many sensors should I add?</h4>
-      <p>Don’t worry too much, you can add more sensors later,
-        or send the ones you don’t need free of charge.
-      </p>
-    </div>
-    <CartAddon product={{id: 123}} detailAction={props.detailAction} changeQuantity={props.changeQuantity}/>
-    <Row>
-      <Col xs={12}>
-        <div className={s.footerLink}>
-          <span className={`${s.link} ${s.linkTertiary}`}>Click here</span> to add Smoke, Carbon, or Flood
+class SidebarCart extends Component {
+  constructor(props) {
+    super(props);
+    this.changeQuantity = this.changeQuantity.bind(this)
+  }
+  changeQuantity(id, oldQuantity, newQuantity)  {
+    if (newQuantity < 0) {
+      return;
+    }
+      this.props.changeQuantity(id, oldQuantity, newQuantity)
+  }
+
+  render() {
+    //console.log('cart',this.props.cart, this.props.products)
+    const props = this.props;
+    return (
+      <div className={s.cartColumn}>
+        <div className={s.cartHeader}>
+          <h4>Cove Protect alarm system started pack</h4>
+          <ul>
+            <li>1 Cove Protect panel</li>
+            <li>2 Cove doors</li>
+            <li>1 Cove remote</li>
+          </ul>
         </div>
-      </Col>
-    </Row>
-    <Row>
-      <Col xs={6}>
-          1 Cove Protect alarm system started pack
-      </Col>
-      <Col xs={6}>
-        <span className={s.bold}>$249 or $4.15/mo</span>
-      </Col>
-    </Row>
-    <Row>
-      <Col xs={{ size: 6, offset: 6 }}>
-        <div className={s.addToCartBtn}>
-            Add to cart
+        <div className={s.cartSubHeader}>
+          <h4>How many sensors should I add?</h4>
+          <p>Don’t worry too much, you can add more sensors later,
+            or send the ones you don’t need free of charge.
+          </p>
         </div>
-      </Col>
-    </Row>
-  </div>
-);
+        {
+          Object.keys(props.products).map((key) => {
+          //  console.log('car p ', props)
+            return (
+              <CartAddon
+                product={props.products[key]}
+                quantity={props.cart.quantityById[key]}
+                detailAction={props.detailAction}
+                changeQuantity={this.changeQuantity}
+              />
+            )
+          })
+        }
+        <Row>
+          <Col xs={12}>
+            <div className={s.footerLink}>
+              <span className={`${s.link} ${s.linkTertiary}`}>Click here</span> to add Smoke, Carbon, or Flood
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={6}>
+              1 Cove Protect alarm system started pack
+          </Col>
+          <Col xs={6}>
+            <span className={s.bold}>$249 or $4.15/mo</span>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={{ size: 6, offset: 6 }}>
+            <Link href="/coveclub">
+              <div className={s.addToCartBtn}>
+                  Add to cart
+              </div>
+            </Link>
+          </Col>
+        </Row>
+      </div>
+    )
+  }
+}
+
+
 
 SidebarCart.propTypes = {
   detailAction: PropTypes.func,
 };
 
-export default SidebarCart;
+const mapStateToProps = ({ cart, products }) => ({ cart, products})
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    changeQuantity: bindActionCreators(changeQuantity, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SidebarCart)

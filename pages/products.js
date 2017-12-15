@@ -8,7 +8,7 @@ import {
 } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
-import { initStore, changeQuantity, loadProducts } from '../store';
+import { initStore, loadProducts } from '../store';
 import Layout from '../components/minimalLayout';
 import Header from '../components/header';
 import SidebarCart from '../components/sidebarCart';
@@ -36,15 +36,6 @@ const items = [
   },
 ];
 
-const products = {
-  productId123: {
-    id: 'productId123e',
-    name: 'Cove Door',
-    price: 19.99,
-    description: 'Cove door sensors are placed on each exterior door. When the door is left open, you’ll know about it. When someone enters the door with the alarm on, you will be notified immediately with our 24/7 monitorin station.',
-  },
-};
-
 class ProductPage extends Component {
   static getInitialProps({store, isServer, pathname, query}) {
       //    store.dispatch({type: 'LOAD_PRODUCTS', payload: [{id:3}]}); // component will be able to read from store's state when rendered
@@ -55,7 +46,7 @@ class ProductPage extends Component {
     this.state = {
       activeIndex: 0,
       modal: false,
-      activeProduct: 'productId123',
+      activeProduct: 2,
     };
     this.load();
     this.next = this.next.bind(this);
@@ -64,7 +55,6 @@ class ProductPage extends Component {
     this.onExiting = this.onExiting.bind(this);
     this.onExited = this.onExited.bind(this);
     this.toggle = this.toggle.bind(this);
-    this.add = this.add.bind(this)
   }
 
   onExiting() {
@@ -92,14 +82,11 @@ class ProductPage extends Component {
     this.setState({ activeIndex: newIndex });
   }
 
-  toggle() {
+  toggle(productId) {
     this.setState({
       modal: !this.state.modal,
+      activeProduct: productId
     });
-  }
-
-  add (id, oldQuantity, newQuantity)  {
-      this.props.changeQuantity(id, oldQuantity, newQuantity)
   }
 
   load = () => {
@@ -107,6 +94,7 @@ class ProductPage extends Component {
   }
 
   render() {
+    console.log('aaaa', this.props, this.state)
     const { activeIndex } = this.state;
 
     const slides = items.map(item => (
@@ -158,29 +146,37 @@ class ProductPage extends Component {
                   </div>
                 </Col>
                 <Col xl={4} lg={5} md={6} className="no-gutters">
-                  <SidebarCart detailAction={this.toggle} changeQuantity={this.add} />
+                  <SidebarCart detailAction={this.toggle} />
                 </Col>
               </Row>
             </div>
           </Container>
         </Container>
-        <ProductModal
-          isOpen={this.state.modal}
-          toggle={this.toggle}
-          product={products[this.state.activeProduct]}
-          className="productModal"
-        />
+        {this.props.products[this.state.activeProduct] ?
+          <ProductModal
+            isOpen={this.state.modal}
+            toggle={this.toggle}
+            product={this.props.products[this.state.activeProduct]}
+            className="productModal"
+          />
+          :''
+        }
       </Layout>
     );
   }
 }
 
+const mapStateToProps = ({ cart, products }) => ({ cart, products})
 
 const mapDispatchToProps = dispatch => {
   return {
-  changeQuantity: bindActionCreators(changeQuantity, dispatch),
-  loadProducts: bindActionCreators(loadProducts, dispatch)
-}
+    loadProducts: bindActionCreators(loadProducts, dispatch)
+  }
 }
 
-export default withRedux(initStore, null, mapDispatchToProps)(ProductPage);
+export default withRedux({
+  createStore: initStore,
+  mapStateToProps,
+  mapDispatchToProps,
+  storeKey: 'rootRedux',
+})(ProductPage);

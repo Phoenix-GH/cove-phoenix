@@ -1,3 +1,4 @@
+import { combineReducers } from 'redux';
 import types from '../actionTypes';
 
 const initialState = {
@@ -8,7 +9,7 @@ const initialState = {
 const cartItemIds = (state = initialState.cartItemIds, action) => {
   switch (action.type) {
     case types.ADD_TO_CART:
-     console.log('ADD_TOCA')
+     console.log('ADD_TOCA', action, state)
       if (state.indexOf(action.productId) !== -1) {
         return state;
       }
@@ -25,18 +26,12 @@ const cartItemIds = (state = initialState.cartItemIds, action) => {
 
 const quantityById = (state = initialState.quantityById, action) => {
   switch (action.type) {
-    case types.ADD_TO_CART:
-     console.log('ADD_TOCA')
-      const { productId } = action;
+    case types.UPDATE_QUANTITY: {
+      console.log('update quantity', action)
+      const { productId, quantity } = action;
       return {
         ...state,
-        [productId]: (state[productId] || 0) + 1,
-      };
-    case types.UPDATE_QUANTIY: {
-      const { productId, newQuantity } = action;
-      return {
-        ...state,
-        [productId]: newQuantity,
+        [productId]: quantity,
       };
     }
     default:
@@ -56,17 +51,13 @@ const cart = (state = initialState, action) => {
       return initialState;
     case types.CHECKOUT_FAILURE:
       return action.cart;
-    case types.LOAD_PRODUCTS:{
-      console.log('l')
-      return ['b']
-    }
-
     default:
-      return {
-        cartItemIds: cartItemIds(state.addedIds, action),
-        quantityById: quantityById(state.quantityById, action),
-      };
+      return state;
   }
 };
 
-export default cart;
+export default combineReducers({
+  cartItemIds,
+  quantityById,
+  cart,
+});

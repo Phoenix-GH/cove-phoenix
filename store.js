@@ -17,17 +17,19 @@ export const addProductToCart = product => dispatch => dispatch({ type: types.AD
 
 export const changeQuantity = (productId, previousQuantity, newQuantity) => (dispatch) => {
   if (newQuantity === 0) {
-    dispatch({ type: types.REMOVE_FROM_CART, product: productId });
+    dispatch({ type: types.REMOVE_FROM_CART, productId });
   } else if (previousQuantity === 0 && newQuantity === 1) {
-    console.log('changeQuantity action', productId, previousQuantity, dispatch);
+    console.log('changeQuantity action', productId, previousQuantity, newQuantity);
 
-    dispatch({ type: types.ADD_TO_CART, product: productId });
+    dispatch({ type: types.ADD_TO_CART, productId });
   }
 
-  //dispatch({ type: types.CHANGE_QUANTITY, product: productId, quantity: newQuantity });
+  dispatch({ type: types.UPDATE_QUANTITY, productId, quantity: newQuantity });
 };
 
-export const initStore = initialState => createStore(reducer, initialState, composeWithDevTools(applyMiddleware(thunkMiddleware)));
+export const toggleFinance = () => dispatch => dispatch({ type: types.TOGGLE_FINANCE });
+export const selectSubscriptionType = subscription => dispatch => dispatch({ type: types.SELECT_SUBSCRIPTION_TYPE, subscription });
+export const initStore = (initialState = typeof window !== 'undefined' ? window.rootRedux : {}) => createStore(reducer, initialState, composeWithDevTools(applyMiddleware(thunkMiddleware)));
 
 
 /* temp test data */

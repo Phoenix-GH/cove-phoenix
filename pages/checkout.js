@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import Link from 'next/link';
+import { bindActionCreators } from 'redux';
+import withRedux from 'next-redux-wrapper';
+import { initStore, loadProducts } from '../store';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
 import Input from '../components/input';
@@ -17,6 +20,11 @@ class CheckoutPage extends Component {
 
   render() {
     const activeStage = this.props.stage ? this.props.stage : 'customer';
+    let nextLinkText = activeStage === 'payment' ? 'Complete Purchase' : 'Continue Shopping';
+    let nextLink = '/shipping';
+    if(activeStage === 'shipping') {
+      nextLink = '/payment'
+    }
     return (
       <Layout>
         <Container>
@@ -78,19 +86,21 @@ class CheckoutPage extends Component {
               <div className={s.footerControls}>
                 <Row>
                   <Col xs={12} sm={12} md={8}>
-                    <ul className={`list-inline ${s.returnToShop}`}>
-                      <li className="list-inline-item align-top">
-                        <img src="/static/images/arrowFullLeft.png" alt="arrow left" />
-                      </li>
-                      <li className={`list-inline-item ${s.returnLink}`}>
-                        Return to Shop
-                      </li>
-                    </ul>
+                    <Link href="/products">
+                      <ul className={`list-inline ${s.returnToShop}`}>
+                        <li className="list-inline-item align-top">
+                          <img src="/static/images/arrowFullLeft.png" alt="arrow left" />
+                        </li>
+                        <li className={`list-inline-item ${s.returnLink}`}>
+                          Return to Shop
+                        </li>
+                      </ul>
+                    </Link>
                   </Col>
                   <Col xs={12} sm={12} md={4}>
-                    <Link href="/checkout/shipping">
+                    <Link href={`/checkout${nextLink}`}>
                       <div className={s.actionBtn}>
-                        Continue to Shipping
+                        {nextLinkText}
                       </div>
                     </Link>
                   </Col>
@@ -110,4 +120,17 @@ class CheckoutPage extends Component {
   }
 }
 
-export default CheckoutPage;
+const mapStateToProps = ({ cart, products }) => ({ cart, products})
+
+const mapDispatchToProps = dispatch => {
+  return {
+    loadProducts: bindActionCreators(loadProducts, dispatch)
+  }
+}
+
+export default withRedux({
+  createStore: initStore,
+  mapStateToProps,
+  mapDispatchToProps,
+  storeKey: 'rootRedux',
+})(CheckoutPage);

@@ -40,7 +40,12 @@
   font-weight: bold;
   padding-top: 8px;
   margin-top: 28px;
+  cursor: pointer;
 }
+.disabled {
+  opacity: 0.2;
+}
+
 
 :global {
   .productThumbs {
