@@ -60,6 +60,50 @@
 
 .header__toggler___2uOGP.header__secondary___jurm6 .navbar-toggler-icon {
   background-image: url("/static/images/togglerTeal.svg"); }
+/*  imported from productModal.scss  */
+
+.productModal__modalHeader___3h-K- {
+  font-family: 'GothamRoundedBold';
+  font-size: 40px;
+  margin-bottom: 30px; }
+
+.productModal__closeIcon___1D9Go {
+  text-align: right; }
+
+.productModal__cartControlRow___3LaJ9 {
+  margin-top: 40px; }
+
+.productModal__productPrice___yly_M {
+  padding-top: 28px;
+  font-size: 24px;
+  font-weight: bold; }
+
+.productModal__quantityLabel___3GFCo {
+  font-family: GothamRoundedBook;
+  font-size: 12px;
+  padding-bottom: 5px; }
+
+.productModal__quantiyControls___VkJPr {
+  margin-top: 10px; }
+
+.productModal__addToCartBtn___A3Q97 {
+  color: #FFFFFF;
+  width: 162px;
+  height: 40px;
+  border-radius: 20px;
+  background: #F17927;
+  font-size: 16px;
+  text-align: center;
+  font-family: GothamRoundedBook;
+  font-weight: bold;
+  padding-top: 8px;
+  margin-top: 28px; }
+
+.productThumbs {
+  margin-top: 20px; }
+  .productThumbs li {
+    margin-left: 8px;
+    margin-right: 20px; }
 /*  imported from sidebarCart.scss  */
 
 .sidebarCart__cartHeader___nFkYa {
@@ -122,47 +166,3 @@
   padding-top: 8px;
   margin-top: 28px;
   margin-bottom: 28px; }
-/*  imported from productModal.scss  */
-
-.productModal__modalHeader___3h-K- {
-  font-family: 'GothamRoundedBold';
-  font-size: 40px;
-  margin-bottom: 30px; }
-
-.productModal__closeIcon___1D9Go {
-  text-align: right; }
-
-.productModal__cartControlRow___3LaJ9 {
-  margin-top: 40px; }
-
-.productModal__productPrice___yly_M {
-  padding-top: 28px;
-  font-size: 24px;
-  font-weight: bold; }
-
-.productModal__quantityLabel___3GFCo {
-  font-family: GothamRoundedBook;
-  font-size: 12px;
-  padding-bottom: 5px; }
-
-.productModal__quantiyControls___VkJPr {
-  margin-top: 10px; }
-
-.productModal__addToCartBtn___A3Q97 {
-  color: #FFFFFF;
-  width: 162px;
-  height: 40px;
-  border-radius: 20px;
-  background: #F17927;
-  font-size: 16px;
-  text-align: center;
-  font-family: GothamRoundedBook;
-  font-weight: bold;
-  padding-top: 8px;
-  margin-top: 28px; }
-
-.productThumbs {
-  margin-top: 20px; }
-  .productThumbs li {
-    margin-left: 8px;
-    margin-right: 20px; }

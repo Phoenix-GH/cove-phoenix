@@ -1,9 +1,11 @@
-import { LOAD_PRODUCTS, ADD_TO_CART } from '../store';
+import types from '../actionTypes';
 
 
-const product = (state = {}, action) => {
+const products = (state = {}, action) => {
+  console.log('pp', action.type, types.LOAD_PRODUCTS)
   switch (action.type) {
-    case LOAD_PRODUCTS: {
+    case types.LOAD_PRODUCTS: {
+      console.log('zz', action)
       return {
         ...state,
         ...action.products.reduce((obj, product) => {
@@ -18,4 +20,4 @@ const product = (state = {}, action) => {
   }
 };
 
-export default product;
+export default products;

@@ -8,7 +8,7 @@ import {
 } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
-import { makeStore, changeQuantity } from '../store';
+import { initStore, changeQuantity, loadProducts } from '../store';
 import Layout from '../components/minimalLayout';
 import Header from '../components/header';
 import SidebarCart from '../components/sidebarCart';
@@ -46,7 +46,10 @@ const products = {
 };
 
 class ProductPage extends Component {
-
+  static getInitialProps({store, isServer, pathname, query}) {
+      //    store.dispatch({type: 'LOAD_PRODUCTS', payload: [{id:3}]}); // component will be able to read from store's state when rendered
+          return {custom: 'custom'}; // you can pass some custom props to component from here
+      }
   constructor(props) {
     super(props);
     this.state = {
@@ -54,12 +57,14 @@ class ProductPage extends Component {
       modal: false,
       activeProduct: 'productId123',
     };
+    this.load();
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
     this.goToIndex = this.goToIndex.bind(this);
     this.onExiting = this.onExiting.bind(this);
     this.onExited = this.onExited.bind(this);
     this.toggle = this.toggle.bind(this);
+    this.add = this.add.bind(this)
   }
 
   onExiting() {
@@ -93,8 +98,12 @@ class ProductPage extends Component {
     });
   }
 
-  add = () => {
-      this.props.changeQuantity(33)
+  add (id, oldQuantity, newQuantity)  {
+      this.props.changeQuantity(id, oldQuantity, newQuantity)
+  }
+
+  load = () => {
+    this.props.loadProducts();
   }
 
   render() {
@@ -149,7 +158,7 @@ class ProductPage extends Component {
                   </div>
                 </Col>
                 <Col xl={4} lg={5} md={6} className="no-gutters">
-                  <SidebarCart detailAction={this.toggle} changeQuantity={() => this.add} />
+                  <SidebarCart detailAction={this.toggle} changeQuantity={this.add} />
                 </Col>
               </Row>
             </div>
@@ -170,7 +179,8 @@ class ProductPage extends Component {
 const mapDispatchToProps = dispatch => {
   return {
   changeQuantity: bindActionCreators(changeQuantity, dispatch),
+  loadProducts: bindActionCreators(loadProducts, dispatch)
 }
 }
 
-export default withRedux(makeStore, null, mapDispatchToProps)(ProductPage);
+export default withRedux(initStore, null, mapDispatchToProps)(ProductPage);
