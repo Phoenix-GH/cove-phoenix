@@ -1,0 +1,139 @@
+.mobileContainer {
+  padding: 20px;
+}
+.header {
+  margin-top: 50px;
+  h2 {
+    font-size: 24px;
+    font-family: GothamRoundedBold;
+  }
+}
+
+.headerSubText {
+  font-size: 20px;
+  font-family: GothamRoundedBook;
+  position: relative;
+  padding-left: 25px;
+  margin-top: 25px;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 8px;
+    height: 100%;
+    border-radius: 4px;
+    background: #01CDB9;
+  }
+}
+
+.compareTable {
+  text-align: center;
+}
+
+.colHeader {
+  margin-top: 40px;
+  margin-bottom: 16px;
+  text-align: center;
+  h4 {
+    font-size: 24px;
+    font-family: GothamRoundedBold;
+  }
+}
+
+.highlight {
+  color: #00CDB9;
+}
+
+.alert {
+  color: #EA5B5B;
+}
+
+.colLabel {
+  margin-bottom: 32px;
+  font-weight: bold;
+  font-size: 12px;
+  h5 {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}
+
+.rowLabel {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.nonClubRow {
+  background: #F0F4F7;
+  height: 40px;
+  border-radius: 16px;
+}
+
+.compareRow {
+  margin-bottom:24px;
+  font-weight: bold;
+  :global {
+    .col-6 {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+}
+
+.cell {
+  padding-top: 4px;
+  img {
+    height: 24px;
+  }
+}
+
+.selectionBox {
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid #DEDFE1;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: left;
+  margin-bottom: 20px;
+  .optionLabel {
+    font-weight: bold;
+  }
+  .highlight {
+    color: #00B19A;
+    font-family: GothamRoundedBold;
+    font-size: 20px;
+    margin-top: 10px;
+  }
+  .alert {
+    color: #EA5B5B;
+    font-family: GothamRoundedBold;
+    font-size: 20px;
+  }
+}
+
+.financeOption {
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+.selectBtn {
+  color: #FFFFFF;
+  width: 130px;
+  height: 40px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: #F17927;
+  font-size: 16px;
+  text-align: center;
+  font-family: GothamRoundedBold;
+  font-weight: bold;
+  padding-top: 8px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}

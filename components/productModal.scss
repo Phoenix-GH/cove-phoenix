@@ -1,0 +1,58 @@
+.modalHeader {
+  font-family: 'GothamRoundedBold';
+  font-size: 40px;
+  margin-bottom:30px;
+}
+.closeIcon {
+  text-align: right;
+}
+.productImageMain {
+
+}
+
+.cartControlRow {
+  margin-top: 40px;
+}
+.productPrice {
+  padding-top: 28px;
+  font-size: 24px;
+  font-weight: bold;
+}
+.quantityLabel {
+  font-family: GothamRoundedBook;
+  font-size: 12px;
+  padding-bottom: 5px;
+}
+.quantiyControls {
+  margin-top: 10px;
+}
+.addToCartBtn {
+  color: #FFFFFF;
+  width: 162px;
+  height: 40px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: #F17927;
+  font-size: 16px;
+  text-align: center;
+  font-family: GothamRoundedBook;
+  font-weight: bold;
+  padding-top: 8px;
+  margin-top: 28px;
+  cursor: pointer;
+}
+.disabled {
+  opacity: 0.2;
+}
+
+
+:global {
+  .productThumbs {
+    margin-top: 20px;
+    li {
+      margin-left:8px;
+      margin-right:20px;
+    }
+  }
+}

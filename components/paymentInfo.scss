@@ -1,0 +1,34 @@
+.customerInfo {
+  h3 {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-family: GothamRoundedBold;
+    color: #191E2B;
+  }
+  h4 {
+    font-family: GothamRoundedBold;
+    font-size: 20px;
+  }
+  .linkTertiary {
+    font-weight: bold;
+    color: #008CFF;
+  }
+  .termsCheckbox {
+  }
+  .financeAgreement {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+  .acceptance {
+    font-size: 14px;
+    padding-top: 14px;
+  }
+
+  :global {
+    .coveInput {
+      margin-top: 40px;
+    }
+  }
+}

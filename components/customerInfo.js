@@ -1,12 +1,13 @@
-import { Row, Col } from 'reactstrap'
-import Input from '../components/input'
+import { Row, Col } from 'reactstrap';
+import Input from '../components/input';
+import s from './customerInfo.scss';
 
 const CustomerInfo = () => (
   <div>
-    <div className="customerInfo">
+    <div className={s.customerInfo}>
       <h3>Customer Information</h3>
       <Row>
-        <Col  xs={12} sm={12} md={6}>
+        <Col xs={12} sm={12} md={6}>
           <Input label="First Name" />
         </Col>
         <Col xs={12} sm={12} md={6}>
@@ -22,7 +23,7 @@ const CustomerInfo = () => (
         </Col>
       </Row>
     </div>
-    <div className="customerInfo">
+    <div className={s.customerInfo}>
       <h3>Monitoring Information</h3>
       <Row>
         <Col xs={12} sm={12} md={8}>
@@ -53,18 +54,7 @@ const CustomerInfo = () => (
         </Col>
       </Row>
     </div>
-    <style jsx>{`
-      .customerInfo {
-        h3 {
-          margin-top: 60px;
-          margin-bottom: 30px;
-          font-size: 24px;
-          font-family: GothamRoundedBold;
-          color: #191E2B;
-        }
-      }
-    `}</style>
   </div>
-)
+);
 
-export default CustomerInfo
+export default CustomerInfo;

@@ -3,8 +3,90 @@
   background: #F0F4F7;
   padding-top: 14px;
   padding-left: 20px;
-  
+
   li {
     padding-right: 10px;
   }
 }
+
+.sidebarContainer {
+  padding: 20px 10px 20px 10px;
+  min-height: 500px;
+  margin-bottom: 15px;
+  margin-left: auto;
+  h3 {
+    font-family: GothamRoundedBold;
+    font-size: 24px;
+    margin-bottom:30px;
+  }
+  h4 {
+    font-family: GothamRoundedBold;
+    font-size: 20px;
+    color: #00B19A;
+  }
+}
+.cartProductList {
+  list-style: none;
+  font-size: 12px;
+  padding-left: 0px;
+}
+.equipmentPackage {
+  margin-bottom: 30px;
+}
+.monthlyService {
+  margin-bottom: 30px;
+}
+.coupon {
+  border-top: 1px solid #00B19A;
+  border-bottom: 1px solid #00B19A;
+  padding-top: 10px;
+  margin-bottom: 30px;
+}
+.cartPricing {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  border-bottom: 1px solid #00B19A;
+  :global {
+    .row {
+      margin-bottom: 15px;
+    }
+  }
+}
+.totalLabel {
+  font-family: GothamRoundedLight;
+  font-size: 20px;
+}
+.totalPrice {
+  font-family: GothamRoundedBold;
+  font-size: 20px;
+}
+.bold {
+  font-weight: bold;
+}
+.actionBtn {
+  color: #FFFFFF;
+  height: 40px;
+  width: 236px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: #F17927;
+  font-size: 16px;
+  text-align: center;
+  font-family: GothamRoundedBook;
+  font-weight: bold;
+  padding-top: 8px;
+  cursor: pointer;
+}
+.returnLink {
+  font-family: GothamRoundedBold;
+  font-size: 16px;
+  color: #8A9097;
+  padding-top: 3px;
+}
+.returnToShop {
+  margin-top: 32px;
+  @media (max-width: 767px) {
+    text-align: center;
+  }

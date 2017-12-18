@@ -1,0 +1,127 @@
+.checkoutSidebar {
+  @media (max-width: 767px) {
+    display: none;
+  }
+}
+.flexCol {
+  position: relative;
+  width: 100%;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  -ms-flex: 0 0 25%;
+  flex: 0 0 25%;
+  max-width: 125%;
+  .stageLabel {
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+}
+
+.flexCol.activeStage {
+  @media (max-width: 767px) {
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  .stageLabel {
+    display: inline;
+  }
+}
+
+.shoppingCartBtnContainer {
+  width: 100%;
+  height: 68px;
+  border-radius: 16px;
+  border: 1px solid #F0F4F7;
+  font-size: 20px;
+  font-family: GothamRoundedBold;
+  margin-top: 32px;
+  -webkit-box-shadow: 0px 6px 6px 0px rgba(44,50,57, 0.2);
+  -moz-box-shadow:    0px 6px 6px 0px rgba(44,50,57, 0.2);
+  box-shadow:         0px 6px 6px 0px rgba(44,50,57, 0.2);
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.shoppingCartBtn {
+  padding-top: 18px;
+}
+
+.spacer {
+  margin-top: 60px;
+}
+.checkoutStageRow {
+  font-family: GothamRoundedBold;
+  font-size: 14px;
+  color: #8A9097;
+}
+.stageIndicator {
+  width: 100%;
+  height: 8px;
+  border-radius: 4px;
+  background: #BEC1C5;
+  opacity: 0.5;
+  margin-top: 6px;
+}
+.activeStage {
+  color: #191E2B;
+}
+.activeStage .stageIndicator {
+  background: #5BC4B8;
+  opacity: 1;
+}
+.footerControls {
+  margin-top: 100px;
+}
+.returnLink {
+  font-family: GothamRoundedBold;
+  font-size: 16px;
+  color: #8A9097;
+  padding-top: 3px;
+}
+.actionBtn {
+  color: #FFFFFF;
+  height: 40px;
+  width: 236px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: #F17927;
+  font-size: 16px;
+  text-align: center;
+  font-family: GothamRoundedBook;
+  font-weight: bold;
+  padding-top: 8px;
+  cursor: pointer;
+}
+.tab {
+  display: none;
+}
+.activePage.tab {
+  display: block
+}
+
+.returnToShop {
+  @media (max-width: 767px) {
+    text-align: center;
+  }
+}
+.actionBtn {
+  @media (max-width: 767px) {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 32px;
+  }
+}
+
+:global {
+  .customerInfo {
+    .coveInput {
+      margin-top: 40px;
+    }
+  }
+}

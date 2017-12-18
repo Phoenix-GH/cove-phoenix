@@ -5,56 +5,50 @@ import {
   Col,
   Carousel,
   CarouselItem,
-  CarouselControl,
-  CarouselIndicators,
-  CarouselCaption,
-  Modal,
-  ModalHeader,
-  ModalBody,
 } from 'reactstrap';
-import Layout from '../components/minimalLayout'
-import Header from '../components/header'
-import SidebarCart from '../components/sidebarCart'
-import ProductModal from '../components/productModal'
+import { bindActionCreators } from 'redux';
+import withRedux from 'next-redux-wrapper';
+import { initStore, loadProducts } from '../store';
+import Layout from '../components/minimalLayout';
+import Header from '../components/header';
+import SidebarCart from '../components/sidebarCart';
+import ProductModal from '../components/productModal';
+import s from './product.scss';
 
 const items = [
   {
     src: '/static/images/placeholderBig.png',
     thumb: '/static/images/placeholderThumb.png',
     altText: 'Slide 1',
-    caption: 'Slide 1'
+    caption: 'Slide 1',
   },
   {
     src: 'http://localhost:3000/static/images/placeholderBig.png',
     thumb: '/static/images/placeholderThumb.png',
     altText: 'Slide 1',
-    caption: 'Slide 1'
+    caption: 'Slide 1',
   },
   {
     src: 'http://127.0.0.1:3000/static/images/placeholderBig.png',
     thumb: '/static/images/placeholderThumb.png',
     altText: 'Slide 1',
-    caption: 'Slide 1'
-  }
+    caption: 'Slide 1',
+  },
 ];
 
-const products = {
-  'productId123' : {
-    id: 'productId123',
-    name: 'Cove Door',
-    price: 19.99,
-    description: 'Cove door sensors are placed on each exterior door. When the door is left open, you’ll know about it. When someone enters the door with the alarm on, you will be notified immediately with our 24/7 monitorin station.',
-  }
-}
-
 class ProductPage extends Component {
+  static getInitialProps({store, isServer, pathname, query}) {
+      //    store.dispatch({type: 'LOAD_PRODUCTS', payload: [{id:3}]}); // component will be able to read from store's state when rendered
+          return {custom: 'custom'}; // you can pass some custom props to component from here
+      }
   constructor(props) {
     super(props);
     this.state = {
       activeIndex: 0,
       modal: false,
-      activeProduct: 'productId123',
+      activeProduct: 2,
     };
+    this.load();
     this.next = this.next.bind(this);
     this.previous = this.previous.bind(this);
     this.goToIndex = this.goToIndex.bind(this);
@@ -88,60 +82,62 @@ class ProductPage extends Component {
     this.setState({ activeIndex: newIndex });
   }
 
-  toggle() {
+  toggle(productId) {
     this.setState({
-      modal: !this.state.modal
+      modal: !this.state.modal,
+      activeProduct: productId
     });
   }
 
+  load = () => {
+    this.props.loadProducts();
+  }
+
   render() {
+    console.log('aaaa', this.props, this.state)
     const { activeIndex } = this.state;
 
-    const slides = items.map((item) => {
-      return (
-        <CarouselItem
-          onExiting={this.onExiting}
-          onExited={this.onExited}
-          key={item.src}
-          src={item.src}
-          altText={item.altText}
-        >
-        </CarouselItem>
-      );
-    });
+    const slides = items.map(item => (
+      <CarouselItem
+        onExiting={this.onExiting}
+        onExited={this.onExited}
+        key={item.src}
+        src={item.src}
+        altText={item.altText}
+      />
+    ));
 
     return (
       <Layout>
-        <Container>
-          <Header color="secondary"/>
+        <Container >
+          <Header color="secondary" />
           <Container>
-            <div className="productContent">
+            <div className={s.productContent} >
               <Row>
-                <Col  md={8}>
+                <Col xl={8} lg={7} md={6}>
                   <h2>Cove Protect</h2>
-                  <div className="productCarousel">
+                  <div className={s.productCarousel}>
                     <Row>
                       <Carousel
                         activeIndex={activeIndex}
                         next={this.next}
                         previous={this.previous}
                         interval={false}
+                        className="mx-auto"
                       >
                         {slides}
                       </Carousel>
                     </Row>
                     <Row>
-                      <ul className="mx-auto list-inline productSliderThumbs">
+                      <ul className={`mx-auto list-inline ${s.productSliderThumbs}`}>
                         <li className="list-inline-item link">
                           <img src="/static/images/arrowLeft.png" />
                         </li>
-                        {items.map((item, i) => {
-                          return (
-                            <li className="list-inline-item" key={item.thumb + Math.random()}>
-                              <img src={item.thumb} onClick={() => { this.goToIndex(i)} }/>
-                            </li>
-                          )
-                        })}
+                        {items.map((item, i) => (
+                          <li className="list-inline-item" key={item.thumb + Math.random()}>
+                            <img src={item.thumb} onClick={() => { this.goToIndex(i); }} />
+                          </li>
+                          ))}
                         <li className="list-inline-item link">
                           <img src="/static/images/arrowRight.png" />
                         </li>
@@ -149,79 +145,38 @@ class ProductPage extends Component {
                     </Row>
                   </div>
                 </Col>
-                <Col md={4} className="no-gutters">
+                <Col xl={4} lg={5} md={6} className="no-gutters">
                   <SidebarCart detailAction={this.toggle} />
                 </Col>
               </Row>
             </div>
           </Container>
         </Container>
-        <ProductModal isOpen={this.state.modal} toggle={this.toggle} product={products[this.state.activeProduct]} className="productModal" />
-        <style jsx>{`
-          .productContent {
-            margin-top:60px;
-            width: 100%;
-            h2 {
-              margin-top: 55px;
-              margin-bottom: 35px;
-              font-family: GothamRoundedBold;
-              font-size: 40px;
-            }
-            ul {
-              list-style: none;
-              padding-left: 0px;
-            }
-          }
-          .productSliderThumbs {
-
-          }
-          .productCarousel {
-            width: 656px;
-          }
-        `}
-        </style>
-        <style jsx global>{`
-          .productContent {
-            .carousel-item {
-              border-radius: 16px;
-            }
-          }
-          .productSliderThumbs {
-            margin-top: 15px;
-            .list-inline-item {
-              border-radius: 8px;
-              padding-left: 8px;
-              padding-right: 8px;
-            }
-          }
-          .link {
-            cursor: pointer;
-          }
-          @media (min-width: 768px) {
-            .modal-dialog .productModal {
-              width: 944px;
-            }
-            .modal-lg  {
-              width: 944px;
-              max-width: 944px;
-              height: 536px;
-            }
-            .productModal {
-              .modal-content {
-                border-radius: 16px;
-                border: 1px solid #F0F4F7;
-              }
-              .modal-header {
-                border: 0px;
-              }
-            }
-          }
-        `}
-        </style>
+        {this.props.products[this.state.activeProduct] ?
+          <ProductModal
+            isOpen={this.state.modal}
+            toggle={this.toggle}
+            product={this.props.products[this.state.activeProduct]}
+            className="productModal"
+          />
+          :''
+        }
       </Layout>
     );
   }
 }
 
+const mapStateToProps = ({ cart, products }) => ({ cart, products})
 
-export default ProductPage;
+const mapDispatchToProps = dispatch => {
+  return {
+    loadProducts: bindActionCreators(loadProducts, dispatch)
+  }
+}
+
+export default withRedux({
+  createStore: initStore,
+  mapStateToProps,
+  mapDispatchToProps,
+  storeKey: 'rootRedux',
+})(ProductPage);

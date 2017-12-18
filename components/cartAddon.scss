@@ -1,0 +1,48 @@
+.cartAddons {
+  border-top: 1px solid #F0F4F7;
+  border-bottom: 1px solid #F0F4F7;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.controlCol {
+  padding-top: 8px;
+  padding-left: 15px;
+}
+.thumbCol {
+  padding: 0px;
+}
+.controlCol.col {
+  text-align: center;
+}
+.detailsCol {
+  color: #008CFF;
+  font-weight: bold;
+  padding-top: 25px;
+  padding-left: 0px;
+}
+
+.quantity {
+  padding-right: 15px;
+  font-weight: bold;
+}
+.noPadding {
+  padding: 0px;
+}
+.noPaddingLeft{
+  padding-left: 0px;
+
+}
+
+.price {
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.productLabel {
+  padding-bottom: 15px;
+  text-align: left;
+}
+
+.disabled {
+  opacity: 0.2;
+}

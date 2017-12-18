@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Link from 'next/link';
 import {
   Container,
   Row,
@@ -6,127 +7,82 @@ import {
   Modal,
   ModalHeader,
   ModalBody,
-} from 'reactstrap'
+} from 'reactstrap';
+import PropTypes from 'prop-types';
+import s from './productModal.scss';
 
-export default class ProductModal extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
-  render () {
-    const product = this.props.product
-    return (
-      <Modal isOpen={this.props.isOpen} toggle={this.props.toggle} className={this.props.className} size="lg">
-        <ModalBody>
-          <Row>
-            <Col xs={11}>
-              <h2 className="modalHeader">Cove Door</h2>
-            </Col>
-            <Col xs={1}>
-              <div className="closeIcon">
-                <img onClick={this.props.toggle} src="/static/images/closeIcon.png" />
-              </div>
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={6}>
-              <div className="productImageMain">
-                <img src="/static/images/placeholderBig.png" className="img-fluid"/>
-              </div>
-              <ul className="list-inline productThumbs">
-                <li className="list-inline-item">
-                  <img src="/static/images/placeholderThumb.png" />
-                </li>
-                <li className="list-inline-item">
-                  <img src="/static/images/placeholderThumb.png" />
-                </li>
-                <li className="list-inline-item">
-                  <img src="/static/images/placeholderThumb.png" />
-                </li>
-              </ul>
-            </Col>
-            <Col xs={6}>
-              {product.description}
-              <div className="cartControlRow">
-                <Row>
-                  <Col xs={3}>
-                    <div className="productPrice">
-                      $15
-                    </div>
-                  </Col>
-                  <Col xs={3}>
-                    <span className="quantityLabel">Quantity</span>
-                    <ul className="list-inline quantityControls">
-                      <li className="list-inline-item">1</li>
-                      <li className="list-inline-item"><img src="/static/images/plusIcon.png" /></li>
-                      <li className="list-inline-item"><img src="/static/images/minusIcon.png" /></li>
-                    </ul>
-                  </Col>
-                  <Col xs={6}>
-                    <div className="addToCartBtn mx-auto">
+const ProductModal = (props) => {
+  const { product } = props;
+  const quantity = props.quantity || 0;
+  return (
+    <Modal isOpen={props.isOpen} toggle={props.toggle} className={props.className} size="lg">
+      <ModalBody>
+        <Row>
+          <Col xs={11}>
+            <h2 className={s.modalHeader}>{product.name}</h2>
+          </Col>
+          <Col xs={1}>
+            <div className={s.closeIcon}>
+              <img onClick={props.toggle} src="/static/images/closeIcon.png" />
+            </div>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={6}>
+            <div className={s.productImageMain}>
+              <img src="/static/images/placeholderBig.png" className="img-fluid" />
+            </div>
+            <ul className="list-inline productThumbs">
+              <li className="list-inline-item">
+                <img src="/static/images/placeholderThumb.png" />
+              </li>
+              <li className="list-inline-item">
+                <img src="/static/images/placeholderThumb.png" />
+              </li>
+              <li className="list-inline-item">
+                <img src="/static/images/placeholderThumb.png" />
+              </li>
+            </ul>
+          </Col>
+          <Col xs={6}>
+            {product.description}
+            <div className={s.cartControlRow}>
+              <Row>
+                <Col xs={3}>
+                  <div className={s.productPrice}>
+                    ${product.price}
+                  </div>
+                </Col>
+                <Col xs={3}>
+                  <span className={s.quantityLabel}>Quantity</span>
+                  <ul className="list-inline quantityControls">
+                    <li className="list-inline-item">{quantity}</li>
+                    <li className="list-inline-item">
+                      <img src="/static/images/plusIcon.png" alt="plus icon" onClick={() => props.changeQuantity(product.id, quantity, quantity + 1)} />
+                    </li>
+                    <li className={`list-inline-item ${quantity === 0 ? s.disabled: '' }`}>
+                      <img src="/static/images/minusIcon.png" alt="minus icon"  onClick={() => props.changeQuantity(product.id, quantity, quantity - 1)}/>
+                    </li>
+                  </ul>
+                </Col>
+                <Col xs={6}>
+                  <Link href="/coveclub">
+                    <div className={`${s.addToCartBtn} mx-auto`}>
                       Add to cart
                     </div>
-                  </Col>
-                </Row>
-              </div>
+                  </Link>
+                </Col>
+              </Row>
+            </div>
+          </Col>
+        </Row>
+      </ModalBody>
+    </Modal>
+  );
+};
 
-            </Col>
-          </Row>
-        </ModalBody>
-        <style jsx>{`
-          .modalHeader {
-            font-family: 'GothamRoundedBold';
-            font-size: 40px;
-            margin-bottom:30px;
-          }
-          .closeIcon {
-            text-align: right;
-          }
-          .productImageMain {
+ProductModal.propTypes = {
+  product: PropTypes.object.isRequired,
+};
 
-          }
-          .productThumbs {
-            margin-top: 20px;
-            li {
-              margin-left:8px;
-              margin-right:20px;
-            }
-          }
-          .cartControlRow {
-            margin-top: 40px;
-          }
-          .productPrice {
-            padding-top: 28px;
-            font-size: 24px;
-            font-weight: bold;
-          }
-          .quantityLabel {
-            font-family: GothamRoundedBook;
-            font-size: 12px;
-            padding-bottom: 5px;
-          }
-          .quantiyControls {
-            margin-top: 10px;
-          }
-          .addToCartBtn {
-            color: #FFFFFF;
-            width: 162px;
-            height: 40px;
-            -webkit-border-radius: 20px;
-            -moz-border-radius: 20px;
-            border-radius: 20px;
-            background: #F17927;
-            font-size: 16px;
-            text-align: center;
-            font-family: GothamRoundedBook;
-            font-weight: bold;
-            padding-top: 8px;
-            margin-top: 28px;
-          }
-        `}
-        </style>
-      </Modal>
-    )
-  }
-}
+export default ProductModal;

@@ -1,23 +1,36 @@
-import Link from 'next/link'
-import Layout from '../components/minimalLayout'
-import Header from '../components/header'
-import PriceComparisonTable from '../components/priceComparisonTable'
-import { Container, Row, Col } from 'reactstrap'
+import React, { Component } from 'react';
+import { Container } from 'reactstrap';
+import withRedux from 'next-redux-wrapper';
+import { initStore } from '../store';
+import Layout from '../components/minimalLayout';
+import Header from '../components/header';
+import CoveClubFullSize from '../components/coveClubFullsize';
+import CoveClubMobile from '../components/coveClubMobile';
+import s from './coveclub.scss';
 
-const CoveClub = () => (
-  <Layout>
-    <Container>
-      <Header color="secondary" />
-      <Row>
-        <Col>
-          <h2>Cove members to Cove Pay</h2>
-          <div className="titleSubText">
-            Save $5/mo on your monitoring and use CoveClub EasyPay to pay your equipment off over time with 0% APR
-          </div>
-        </Col>
-      </Row>
-    </Container>
-  </Layout>
-)
+class CoveClub extends Component {
+  static getInitialProps({ store }) {
 
-export default CoveClub
+  }
+  render() {
+    return (
+      <Layout>
+        <Container>
+          <Header color="secondary" />
+        </Container>
+        <div className={s.full}>
+          <CoveClubFullSize />
+        </div>
+        <div className={s.mobile}>
+          <CoveClubMobile />
+        </div>
+      </Layout>
+    );
+  }
+}
+
+
+export default withRedux({
+  createStore: initStore,
+  storeKey: 'rootRedux',
+})(CoveClub);

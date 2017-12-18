@@ -1,47 +1,48 @@
-import React, { Component } from 'react'
-import { Row, Col, Collapse } from 'reactstrap'
-import Input from '../components/input'
-import Checkbox from '../components/checkbox'
-import Radio from '../components/radio'
+import React, { Component } from 'react';
+import { Row, Col, Collapse } from 'reactstrap';
+import Input from '../components/input';
+import Checkbox from '../components/checkbox';
+import Radio from '../components/radio';
+import s from './shippingInfo.scss';
 
 class ShippingInfo extends Component {
   constructor(props) {
     super(props);
 
-    this.state= {
+    this.state = {
       differentAddress: false,
       standardDelivery: true,
       warranty: null,
-    }
+    };
     this.toggleShippingAddress = this.toggleShippingAddress.bind(this);
     this.toggleShippMethod = this.toggleShipMethod.bind(this);
   }
 
-  toggleShippingAddress () {
+  toggleShippingAddress() {
     this.setState({
       differentAddress: !this.state.differentAddress,
     });
   }
 
-  toggleShipMethod (val) {
+  toggleShipMethod(val) {
     this.setState({
       standardDelivery: val,
-    })
+    });
   }
 
-  toggleWarranty (val) {
+  toggleWarranty(val) {
     this.setState({
       warranty: val,
-    })
+    });
   }
 
-  render () {
+  render() {
     return (
       <div>
-        <div className="customerInfo">
+        <div className={s.customerInfo}>
           <h3>Shipping Information</h3>
           <div >
-            <Checkbox clickHandler={this.toggleShippingAddress} checked={this.state.differentAddress} label="Shipping info is different than Monitored Address."/>
+            <Checkbox clickHandler={this.toggleShippingAddress} checked={this.state.differentAddress} label="Shipping info is different than Monitored Address." />
           </div>
           <Collapse isOpen={this.state.differentAddress}>
             <Row>
@@ -75,39 +76,42 @@ class ShippingInfo extends Component {
             </Row>
           </Collapse>
           <Collapse isOpen={!this.state.differentAddress}>
-            <div className="shippingMap">
+            <div className={s.shippingMap}>
               <Row>
                 <Col xs={12} sm={12} md={6}>
-                  <div className="mapAddress">
-                    <p className="bold">Jenny Williams</p>
+                  <div className={s.mapAddress}>
+                    <p className={s.bold}>Jenny Williams</p>
                     <p>10332 S Kestrel Rise Rd.</p>
                     <p>South Jordan, UT 84009</p>
-                    <p><span className="bold">Tel.</span> 801 745.1342</p>
+                    <p><span className={s.bold}>Tel.</span> 801 745.1342</p>
                   </div>
                 </Col>
-                <Col  xs={12} sm={12} md={6} style={{ paddingLeft: '0px', paddingRight: '0px' }}>
+                <Col xs={12} sm={12} md={6} style={{ paddingLeft: '0px', paddingRight: '0px' }}>
                   <img className="img-fluid" src="/static/images/placeholderMap.png" />
                 </Col>
               </Row>
             </div>
           </Collapse>
         </div>
-        <div className="shippingInfo">
+        <div className={s.shippingInfo}>
           <h3>Shipping Method</h3>
           <Row>
             <Col xs={12} sm={12} md={6}>
-              <div className="shipOptionBox">
+              <div className={s.shipOptionBox}>
                 <Row>
-                  <Col xs={{ size:11, offset: 1 }}>
-                    <div className="shipOptionHeader">
-                      <Radio label={[<span className='bold'>Standard Delivery</span>]} checked={this.state.standardDelivery} />
+                  <Col xs={{ size: 11, offset: 1 }}>
+                    <div className={s.shipOptionHeader}>
+                      <Radio
+                        label={[<span className={s.bold}>Standard Delivery</span>]}
+                        checked={this.state.standardDelivery}
+                      />
                     </div>
                   </Col>
-                  <Col xs={{ size:10, offset: 2 }}>
+                  <Col xs={{ size: 10, offset: 2 }}>
                     <h4>Free with Prime</h4>
                   </Col>
-                  <Col xs={{ size:10, offset: 1 }}>
-                    <div className="shipMethodDetails">
+                  <Col xs={{ size: 10, offset: 1 }}>
+                    <div className={s.shipMethodDetails}>
                       Estimated 14-20 Day Shipping (Duties and taxes may be due upon delivery)
                     </div>
                   </Col>
@@ -115,18 +119,18 @@ class ShippingInfo extends Component {
               </div>
             </Col>
             <Col xs={12} sm={12} md={6}>
-              <div className="shipOptionBox">
+              <div className={s.shipOptionBox}>
                 <Row>
-                  <Col xs={{ size:11, offset: 1 }}>
-                    <div className="shipOptionHeader">
-                      <Radio clickHandler={()=> this.toggleShipMethod(false)} label={[<span className='bold'>Fast Delivery</span>]} checked={!this.state.standardDelivery} />
+                  <Col xs={{ size: 11, offset: 1 }}>
+                    <div className={s.shipOptionHeader}>
+                      <Radio clickHandler={() => this.toggleShipMethod(false)} label={[<span className={s.bold}>Fast Delivery</span>]} checked={!this.state.standardDelivery} />
                     </div>
                   </Col>
-                  <Col xs={{ size:10, offset: 2 }}>
+                  <Col xs={{ size: 10, offset: 2 }}>
                     <h4>$8.00</h4>
                   </Col>
-                  <Col xs={{ size:10, offset: 1 }}>
-                    <div className="shipMethodDetails">
+                  <Col xs={{ size: 10, offset: 1 }}>
+                    <div className={s.shipMethodDetails}>
                       Estimated 2-5 Day Shipping (Duties and taxes may be due upon delivery)
                     </div>
                   </Col>
@@ -135,77 +139,31 @@ class ShippingInfo extends Component {
             </Col>
           </Row>
         </div>
-        <div className="customerInfo">
+        <div className={s.customerInfo}>
           <h3>Extended Warranty - $3/mo</h3>
-          <p>Extended Warranty provides free replacement of equipment and shipping no matter what the cause of the equipment to malfunction or break.</p>
-          <ul className="list-inline warrantyControls">
+          <p>Extended Warranty provides free replacement of equipment and
+            shipping no matter what the cause of the equipment to malfunction or break.
+          </p>
+          <ul className={`list-inline ${s.warrantyControls}`}>
             <li className="list-inline-item">
-              <Radio clickHandler={()=> this.toggleWarranty('accept')} label={[<span className='bold'>Accept</span>]} checked={this.state.warranty == 'accept'} />
+              <Radio
+                clickHandler={() => this.toggleWarranty('accept')}
+                label={[<span className={s.bold}>Accept</span>]}
+                checked={this.state.warranty === 'accept'}
+              />
             </li>
             <li className="list-inline-item">
-              <Radio clickHandler={()=> this.toggleWarranty('decline')} label={[<span className='bold'>Decline</span>]} defaultChecked={false} checked={this.state.warranty == 'decline'} />
+              <Radio
+                clickHandler={() => this.toggleWarranty('decline')}
+                label={[<span className={s.bold}>Decline</span>]}
+                defaultChecked={false}
+                checked={this.state.warranty === 'decline'}
+              />
             </li>
           </ul>
         </div>
-        <style jsx>{`
-          .customerInfo, .shippingInfo {
-            h3 {
-              margin-top: 60px;
-              margin-bottom: 30px;
-              font-size: 24px;
-              font-family: GothamRoundedBold;
-              color: #191E2B;
-            }
-
-          }
-          .customerInfo .shippingInfo .col-sm-12 {
-            margin-top: 0px;
-          }
-          .shippingMap {
-            border: 1px solid #DEDFE1;
-            border-radius: 16px;
-            max-width: 656px;
-            margin-top: 30px;
-
-          }
-
-          .mapAddress {
-            padding: 30px;
-          }
-          .shipOptionBox {
-            height: 197px;
-            border: 1px solid #DEDFE1;
-            border-radius: 16px;
-            margin-right:20px;
-          }
-          .shipOptionHeader {
-            margin-top: 20px;
-          }
-          .shipMethodDetails {
-            margin-top: 20px;
-          }
-          h4 {
-            font-family: GothamRoundedBold;
-            font-size: 20px;
-            color: #00B19A;
-          }
-          .warrantyControls {
-            li {
-              margin-right: 50px;
-            }
-          }
-        `}</style>
-        <style jsx global>{`
-          .customerInfo .shippingMap .row {
-            margin-top: 0px;
-          }
-          .bold {
-            font-weight: bold;
-          }
-        `}
-        </style>
       </div>
-    )
+    );
   }
 }
-export default ShippingInfo
+export default ShippingInfo;
