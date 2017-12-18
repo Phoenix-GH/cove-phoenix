@@ -2,16 +2,17 @@
   "name": "cove-aws",
   "version": "1.0.0",
   "scripts": {
+    "d": "next",
     "dev": "nodemon -e scss --ignore *.js --watch components --watch pages -x \"npm run dev-build\"",
     "dev-build": "rm -rf ./node_modules/.cache/babel-loader && node server.js",
-    "build": "next build && next export",
+    "build": "rm -rf ./node_modules/.cache/babel-loader && next build && next export",
     "start": "node start server.js"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-beta.2",
     "css-loader": "^0.28.7",
     "lodash": "^4.17.4",
-    "next": "^4.1.4",
+    "next": "^4.2.1",
     "next-redux-wrapper": "^1.3.5",
     "next-routes": "^1.2.0",
     "prop-types": "^15.6.0",

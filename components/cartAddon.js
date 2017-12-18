@@ -5,7 +5,6 @@ const CartAddon = (props) => {
   const thumbSrc = props.thumbSrc ? props.thumbSrc : "/static/images/placeholderThumbSquare.png";
   const { product } = props;
   const quantity = props.quantity || 0;
-  console.log('render', props.quantity, quantity)
   return (
     <div className={s.cartAddons}>
       <Row>

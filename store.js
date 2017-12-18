@@ -9,7 +9,6 @@ import  types from './actionTypes';
 // ACTIONS
 export const loadProducts = () => (dispatch, getState) => {
   if(_.isEmpty(getState().products)) {
-    console.log('test', dispatch)
     dispatch({ type: types.LOAD_PRODUCTS, products: coveProducts });
   }
 }
@@ -19,7 +18,6 @@ export const changeQuantity = (productId, previousQuantity, newQuantity) => (dis
   if (newQuantity === 0) {
     dispatch({ type: types.REMOVE_FROM_CART, productId });
   } else if (previousQuantity === 0 && newQuantity === 1) {
-    console.log('changeQuantity action', productId, previousQuantity, newQuantity);
 
     dispatch({ type: types.ADD_TO_CART, productId });
   }
