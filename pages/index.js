@@ -4,6 +4,7 @@ import { Container, Row, Col } from 'reactstrap';
 import Layout from '../components/minimalLayout';
 import Header from '../components/header';
 import PriceComparisonTable from '../components/priceComparisonTable';
+import EstimateSlider from '../components/estimateSlider';
 import s from './index.scss';
 
 const LocalLink = Scroll.Link;
@@ -85,7 +86,8 @@ const Index = () => (
         <h3 className={s.savingsSubheader}>
           Every year with Cove is more money in your pocket
         </h3>
-        <img className="img-fluid mx-auto" src="/static/images/tempSlider.png"  alt="Savings Estimate"/>
+        <EstimateSlider />
+        <div id="__react-content"></div>
         <Link href="/products">
           <div className={`${s.tryNowBtn} ${s.tryNowBtnFour} mx-auto`}>
             Try it now

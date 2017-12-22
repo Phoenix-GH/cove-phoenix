@@ -1,0 +1,91 @@
+.sliderContainer {
+  position: relative;
+  margin-top: 140px;
+}
+.savingsContainer {
+  position: absolute;
+  width: 100%;
+  top: -120px;
+}
+
+.detailLabel {
+  position: absolute;
+  text-align: center;
+  font-family: GothamRoundedBookItalic;
+  display: none;
+  h1 {
+    font-size: 60px;
+  }
+  p {
+    font-size: 20px;
+  }
+}
+
+.detailLabel.detailLabelActive {
+  display: block;
+}
+
+.detailLabelOne {
+  left: 15%;
+}
+
+.detailLabelTwo {
+  left: 35%;
+}
+.detailLabelThree {
+  left: 55%;
+}
+.detailLabelFour {
+  left: 75%;
+}
+.detailLabelFive {
+  left: 95%;
+}
+.stepContainer {
+  position: absolute;
+  width: 99%;
+  margin-left: .75%;
+}
+
+.stepIndicator {
+  position: absolute;
+  top: 13px;
+  width: 19.5%;
+  height: 8px;
+  border-radius: 4px;
+  background: #BEC2C5;
+  z-index: 2;
+}
+
+.stepIndicatorActive {
+  background: #5BC4B8;
+}
+
+.stepIndicatorOne {
+  left: 0%;
+}
+
+.stepIndicatorOne.stepIndicatorActive {
+  opacity: .2;
+}
+.stepIndicatorTwo {
+  left: 20%;
+}
+.stepIndicatorTwo.stepIndicatorActive {
+  opacity: .4;
+}
+.stepIndicatorThree {
+  left: 40%;
+}
+.stepIndicatorThree.stepIndicatorActive {
+  opacity: .6;
+}
+.stepIndicatorFour {
+  left: 60%;
+}
+.stepIndicatorFour.stepIndicatorActive {
+  opacity: .8;
+}
+.stepIndicatorFive {
+  left: 80%;
+}
