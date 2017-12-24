@@ -1,3 +1,449 @@
+/*  imported from coveclub.scss  */
+
+@media (min-width: 767px) {
+  .coveclub__mobile___1Gy4z {
+    display: none; }
+  .coveclub__full___2cmpu {
+    display: block; } }
+
+@media (max-width: 768px) {
+  .coveclub__mobile___1Gy4z {
+    display: block; }
+  .coveclub__full___2cmpu {
+    display: none; } }
+/*  imported from header.scss  */
+
+@media (max-width: 767px) {
+  .header__authLinks___2A3lB {
+    display: none; } }
+
+.header__signup___2Fbva {
+  border-radius: 16px;
+  height: 32px;
+  width: 136px;
+  text-align: center;
+  margin-left: 30px;
+  margin-right: 30px; }
+
+.header__toggler___2uOGP {
+  border: none;
+  color: #FFFFFF; }
+  .header__toggler___2uOGP .navbar-toggler-icon {
+    height: 20px;
+    width: 24px;
+    background-image: url("/static/images/togglerWhite.svg"); }
+
+.header__toggler___2uOGP.header__secondary___jurm6 .navbar-toggler-icon {
+  background-image: url("/static/images/togglerTeal.svg"); }
+/*  imported from coveClubMobile.scss  */
+
+.coveClubMobile__mobileContainer___3rxTC {
+  padding: 20px; }
+
+.coveClubMobile__header___2SeU_ {
+  margin-top: 50px; }
+  .coveClubMobile__header___2SeU_ h2 {
+    font-size: 24px;
+    font-family: GothamRoundedBold; }
+
+.coveClubMobile__headerSubText___18cQ6 {
+  font-size: 20px;
+  font-family: GothamRoundedBook;
+  position: relative;
+  padding-left: 25px;
+  margin-top: 25px; }
+  .coveClubMobile__headerSubText___18cQ6::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 8px;
+    height: 100%;
+    border-radius: 4px;
+    background: #01CDB9; }
+
+.coveClubMobile__compareTable___EOm2m {
+  text-align: center; }
+
+.coveClubMobile__colHeader___3CxhQ {
+  margin-top: 40px;
+  margin-bottom: 16px;
+  text-align: center; }
+  .coveClubMobile__colHeader___3CxhQ h4 {
+    font-size: 24px;
+    font-family: GothamRoundedBold; }
+
+.coveClubMobile__highlight___uqEri {
+  color: #00CDB9; }
+
+.coveClubMobile__alert___2ov-y {
+  color: #EA5B5B; }
+
+.coveClubMobile__colLabel___1vRzC {
+  margin-bottom: 32px;
+  font-weight: bold;
+  font-size: 12px; }
+  .coveClubMobile__colLabel___1vRzC h5 {
+    font-size: 16px;
+    font-weight: bold; }
+
+.coveClubMobile__rowLabel___226e3 {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 8px; }
+
+.coveClubMobile__nonClubRow___2ROrE {
+  background: #F0F4F7;
+  height: 40px;
+  border-radius: 16px; }
+
+.coveClubMobile__compareRow___3HYRw {
+  margin-bottom: 24px;
+  font-weight: bold; }
+  .coveClubMobile__compareRow___3HYRw .col-6 {
+    padding-left: 0px;
+    padding-right: 0px; }
+
+.coveClubMobile__cell___1AEm2 {
+  padding-top: 4px; }
+  .coveClubMobile__cell___1AEm2 img {
+    height: 24px; }
+
+.coveClubMobile__selectionBox___1H9zm {
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid #DEDFE1;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: left;
+  margin-bottom: 20px; }
+  .coveClubMobile__selectionBox___1H9zm .coveClubMobile__optionLabel___bcql7 {
+    font-weight: bold; }
+  .coveClubMobile__selectionBox___1H9zm .coveClubMobile__highlight___uqEri {
+    color: #00B19A;
+    font-family: GothamRoundedBold;
+    font-size: 20px;
+    margin-top: 10px; }
+  .coveClubMobile__selectionBox___1H9zm .coveClubMobile__alert___2ov-y {
+    color: #EA5B5B;
+    font-family: GothamRoundedBold;
+    font-size: 20px; }
+
+.coveClubMobile__financeOption___4iK4m {
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 20px; }
+
+.coveClubMobile__selectBtn___19AN- {
+  color: #FFFFFF;
+  width: 130px;
+  height: 40px;
+  border-radius: 20px;
+  background: #F17927;
+  font-size: 16px;
+  text-align: center;
+  font-family: GothamRoundedBold;
+  font-weight: bold;
+  padding-top: 8px;
+  margin-bottom: 20px;
+  cursor: pointer; }
+/*  imported from coveClubFullsize.scss  */
+
+.coveClubFullsize__header___22aWl {
+  margin-top: 80px; }
+  .coveClubFullsize__header___22aWl h2 {
+    font-size: 40px;
+    font-family: GothamRoundedBold; }
+
+.coveClubFullsize__titleSubText___2f94e {
+  font-size: 20px;
+  font-family: GothamRoundedBook;
+  position: relative;
+  padding-left: 25px;
+  margin-top: 20px;
+  margin-bottom: 35px; }
+  .coveClubFullsize__titleSubText___2f94e::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 8px;
+    height: 100%;
+    border-radius: 4px;
+    background: #01CDB9; }
+
+.coveClubFullsize__coveClubTableHeader___3mAhn {
+  height: 120px;
+  border-radius: 16px 16px 0px 0px;
+  border-left: 1px solid #F0F4F7;
+  border-top: 1px solid #F0F4F7;
+  border-right: 1px solid #F0F4F7;
+  padding-top: 32px;
+  text-align: center;
+  position: relative; }
+  .coveClubFullsize__coveClubTableHeader___3mAhn h4 {
+    font-size: 24px;
+    font-family: GothamRoundedBold;
+    color: #00CDB9; }
+  .coveClubFullsize__coveClubTableHeader___3mAhn h5 {
+    color: #00CDB9;
+    font-size: 16px;
+    font-weight: bold; }
+  .coveClubFullsize__coveClubTableHeader___3mAhn p {
+    font-size: 12px;
+    font-weight: bold; }
+  .coveClubFullsize__coveClubTableHeader___3mAhn::before {
+    content: "";
+    height: 106px;
+    width: 2px;
+    position: absolute;
+    left: -2px;
+    top: 0px;
+    background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
+    background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
+    top: 15px;
+    border-radius: 3px 0px 0px 0px;
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="1" /></filter></svg>#filter');
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px); }
+  .coveClubFullsize__coveClubTableHeader___3mAhn::after {
+    content: "";
+    height: 106px;
+    width: 2px;
+    position: absolute;
+    right: -3px;
+    top: 0px;
+    background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
+    background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
+    top: 15px;
+    border-radius: 0px 3px 0px 0px;
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="1" /></filter></svg>#filter');
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px); }
+
+.coveClubFullsize__coveClubTableFooter___3a1tB {
+  height: 480px;
+  border-radius: 0px 0px 16px 16px;
+  border-left: 1px solid #F0F4F7;
+  border-bottom: 1px solid #F0F4F7;
+  border-right: 1px solid #F0F4F7;
+  padding-top: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+  position: relative;
+  -webkit-box-shadow: 0px 6px 3px 0px rgba(44, 50, 57, .1);
+  box-shadow: 0px 6px 3px 0px rgba(44, 50, 57, .1); }
+  .coveClubFullsize__coveClubTableFooter___3a1tB h4 {
+    font-size: 24px;
+    font-family: GothamRoundedBold;
+    color: #00CDB9; }
+  .coveClubFullsize__coveClubTableFooter___3a1tB h5 {
+    color: #00CDB9;
+    font-size: 16px;
+    font-weight: bold; }
+  .coveClubFullsize__coveClubTableFooter___3a1tB p {
+    font-size: 12px;
+    font-weight: bold; }
+  .coveClubFullsize__coveClubTableFooter___3a1tB::before {
+    content: "";
+    height: 471px;
+    width: 2px;
+    position: absolute;
+    left: -2px;
+    bottom: 10px;
+    background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
+    background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
+    border-radius: 3px 0px 0px 0px;
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="1" /></filter></svg>#filter');
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px); }
+  .coveClubFullsize__coveClubTableFooter___3a1tB::after {
+    content: "";
+    height: 471px;
+    width: 2px;
+    position: absolute;
+    right: -3px;
+    bottom: 10px;
+    background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
+    background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
+    border-radius: 0px 3px 0px 0px;
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="1" /></filter></svg>#filter');
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px); }
+  @media (max-width: 991px) {
+    .coveClubFullsize__coveClubTableFooter___3a1tB {
+      height: 560px; }
+      .coveClubFullsize__coveClubTableFooter___3a1tB::before, .coveClubFullsize__coveClubTableFooter___3a1tB:after {
+        height: 549px; } }
+
+.coveClubFullsize__coveNonClubTableHeader___2u1Lt {
+  height: 120px;
+  padding-top: 32px;
+  text-align: center;
+  background: #F0F4F7;
+  border-radius: 16px 16px 0px 0px; }
+  .coveClubFullsize__coveNonClubTableHeader___2u1Lt h4 {
+    font-size: 24px;
+    font-family: GothamRoundedBold; }
+  .coveClubFullsize__coveNonClubTableHeader___2u1Lt h5 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #EA5B5B; }
+  .coveClubFullsize__coveNonClubTableHeader___2u1Lt p {
+    font-size: 12px;
+    font-weight: bold; }
+
+.coveClubFullsize__nonClubTableFooter___o2Vil {
+  height: 338px;
+  background: #F0F4F7;
+  padding-top: 32px;
+  border-radius: 0px 0px 16px 16px; }
+
+.coveClubFullsize__coveClubCol___2cQvy {
+  border: 1px solid #F0F4F7; }
+
+.coveClubFullsize__colLeftFirst___342_l {
+  border-top: 1px solid  #BEC2C5;
+  border-left: 1px solid  #BEC2C5;
+  border-bottom: 1px solid  #BEC2C5;
+  border-radius: 16px 0px 0px 0px;
+  min-height: 73px; }
+
+.coveClubFullsize__colLeftContent___3w5Ul {
+  font-size: 16px;
+  font-weight: bold;
+  padding: 23px; }
+
+.coveClubFullsize__colLeft___3IhoZ {
+  border-left: 1px solid  #BEC2C5;
+  border-bottom: 1px solid  #BEC2C5; }
+
+.coveClubFullsize__colLeftLast___hUibt {
+  border-radius: 0px 0px 0px 16px; }
+
+.coveClubFullsize__firstCol___2J9Hu {
+  border-top: 1px solid  #BEC2C5; }
+
+.coveClubFullsize__colMid___1a4us {
+  min-height: 73px;
+  border-bottom: 1px solid  #BEC2C5;
+  border-left: 1px solid #F0F4F7;
+  border-right: 1px solid #F0F4F7;
+  position: relative; }
+  .coveClubFullsize__colMid___1a4us::before {
+    content: "";
+    height: 100%;
+    width: 2px;
+    position: absolute;
+    left: -2px;
+    top: 0px;
+    background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
+    background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="1" /></filter></svg>#filter');
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px); }
+  .coveClubFullsize__colMid___1a4us::after {
+    content: "";
+    height: 100%;
+    width: 2px;
+    position: absolute;
+    right: -3px;
+    top: 0px;
+    background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
+    background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
+    filter: url('data:image/svg+xml;charset=utf-8,<svg xmlns="http://www.w3.org/2000/svg"><filter id="filter"><feGaussianBlur stdDeviation="1" /></filter></svg>#filter');
+    filter: blur(1px);
+    -webkit-filter: blur(1px);
+    -moz-filter: blur(1px);
+    -o-filter: blur(1px);
+    -ms-filter: blur(1px); }
+
+.coveClubFullsize__colSpacer___JCN2H {
+  border-bottom: 1px solid  #BEC2C5; }
+
+.coveClubFullsize__colRight___20yma {
+  border-bottom: 1px solid  #BEC2C5;
+  background: #F0F4F7;
+  position: relative; }
+
+.coveClubFullsize__compareContent___3WpDO {
+  position: relative;
+  text-align: center;
+  font-weight: bold; }
+  .coveClubFullsize__compareContent___3WpDO img, .coveClubFullsize__compareContent___3WpDO div {
+    position: absolute;
+    top: 50%;
+    margin-top: -12px;
+    height: 24px; }
+  .coveClubFullsize__compareContent___3WpDO div {
+    width: 100%; }
+  .coveClubFullsize__compareContent___3WpDO .coveClubFullsize__highlight___2wlH2 {
+    color: #00CDB9; }
+
+.coveClubFullsize__selectionBox___26_A4 {
+  background: #FFFFFF;
+  border-radius: 16px;
+  border: 1px solid #DEDFE1;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: left;
+  margin-bottom: 20px; }
+  .coveClubFullsize__selectionBox___26_A4 .coveClubFullsize__optionLabel___2R7SC {
+    font-weight: bold; }
+  .coveClubFullsize__selectionBox___26_A4 .coveClubFullsize__highlight___2wlH2 {
+    color: #00B19A;
+    font-family: GothamRoundedBold;
+    font-size: 20px;
+    margin-top: 10px; }
+  .coveClubFullsize__selectionBox___26_A4 .coveClubFullsize__alert___2iZA- {
+    color: #EA5B5B;
+    font-family: GothamRoundedBold;
+    font-size: 20px; }
+
+.coveClubFullsize__financeOption___1RiCH {
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 20px; }
+
+.coveClubFullsize__selectBtn___2Hyzm {
+  color: #FFFFFF;
+  width: 130px;
+  height: 40px;
+  border-radius: 20px;
+  background: #F17927;
+  font-size: 16px;
+  text-align: center;
+  font-family: GothamRoundedBold;
+  font-weight: bold;
+  padding-top: 8px;
+  margin-bottom: 20px;
+  cursor: pointer; }
+
+.coveClubFullsize__disabled___2FIRN {
+  opacity: .5; }
 /*  imported from index.scss  */
 
 .index__landingHeaderStyle___eJRUn {
@@ -198,6 +644,33 @@
     width: 100%; }
   .index__panelBannerMobile___3QbAS {
     display: none; } }
+/*  imported from priceComparisonTable.scss  */
+
+.priceComparisonTable__priceComparisonTable___mKAq6 .row {
+  border-bottom: 1px solid #BEC2C5;
+  font-family: GothamRoundedBold;
+  font-size: 20px;
+  padding-top: 20px; }
+
+.priceComparisonTable__priceComparisonTable___mKAq6 .col {
+  padding-left: 20px; }
+
+.priceComparisonTable__pcTableColLeft___TzweA {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  padding-left: 100px; }
+  @media (max-width: 767px) {
+    .priceComparisonTable__pcTableColLeft___TzweA {
+      padding-left: 0px; } }
+
+.priceComparisonTable__pcTableColMid___1olkl {
+  height: 56px;
+  color: #00B19B; }
+
+.priceComparisonTable__pctHeader___2fFmO {
+  padding-bottom: 20px;
+  margin-top: 66px; }
 /*  imported from estimateSlider.scss  */
 
 .estimateSlider__sliderContainer___26E-V {
@@ -280,54 +753,3 @@
 
 .estimateSlider__stepIndicatorFive___1o_k4 {
   left: 80%; }
-/*  imported from priceComparisonTable.scss  */
-
-.priceComparisonTable__priceComparisonTable___mKAq6 .row {
-  border-bottom: 1px solid #BEC2C5;
-  font-family: GothamRoundedBold;
-  font-size: 20px;
-  padding-top: 20px; }
-
-.priceComparisonTable__priceComparisonTable___mKAq6 .col {
-  padding-left: 20px; }
-
-.priceComparisonTable__pcTableColLeft___TzweA {
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  font-weight: bold;
-  padding-left: 100px; }
-  @media (max-width: 767px) {
-    .priceComparisonTable__pcTableColLeft___TzweA {
-      padding-left: 0px; } }
-
-.priceComparisonTable__pcTableColMid___1olkl {
-  height: 56px;
-  color: #00B19B; }
-
-.priceComparisonTable__pctHeader___2fFmO {
-  padding-bottom: 20px;
-  margin-top: 66px; }
-/*  imported from header.scss  */
-
-@media (max-width: 767px) {
-  .header__authLinks___2A3lB {
-    display: none; } }
-
-.header__signup___2Fbva {
-  border-radius: 16px;
-  height: 32px;
-  width: 136px;
-  text-align: center;
-  margin-left: 30px;
-  margin-right: 30px; }
-
-.header__toggler___2uOGP {
-  border: none;
-  color: #FFFFFF; }
-  .header__toggler___2uOGP .navbar-toggler-icon {
-    height: 20px;
-    width: 24px;
-    background-image: url("/static/images/togglerWhite.svg"); }
-
-.header__toggler___2uOGP.header__secondary___jurm6 .navbar-toggler-icon {
-  background-image: url("/static/images/togglerTeal.svg"); }

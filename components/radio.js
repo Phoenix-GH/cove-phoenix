@@ -4,9 +4,17 @@ const Radio = (props) => {
   return (
     <div className="control-group">
       <label className="control control-radio" htmlFor={id}>
-          {props.label}
-              <input type="radio" name={id}  id={id} checked={props.checked}  onClick={props.clickHandler} defaultChecked={props.defaultChecked} />
-          <div className="control_indicator"></div>
+        {props.label}
+        <input
+          type="radio"
+          name={id}
+          id={id}
+          checked={props.checked}
+          onClick={props.clickHandler}
+          defaultChecked={props.defaultChecked}
+          disabled={props.disabled || false}
+        />
+        <div className="control_indicator"></div>
       </label>
       <style jsx global>{`
         .control {

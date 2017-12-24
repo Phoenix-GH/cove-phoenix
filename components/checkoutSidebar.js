@@ -57,7 +57,7 @@ class CheckoutSidebar extends Component {
             <Col xs={8}>
               <ul className={s.cartProductList}>
                 <li>
-                  17" Touchscreen Control Panel
+                  7" Touchscreen Control Panel
                 </li>
                 {cartList}
               </ul>
