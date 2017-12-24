@@ -8,10 +8,9 @@ module.exports = {
     return {
       '/': { page: '/' },
       '/products': { page: '/products' },
-      '/checkout': { page: '/checkout' },
-      '/checkout/customer': { page: '/checkout' },
-      '/checkout/shipping': { page: '/checkout' },
-      '/checkout/payment': { page: '/checkout' },
+      '/checkout': { page: '/checkout',query : { stage: 'customer' }  },
+      '/shipping': { page: '/shipping', query : { stage: 'shipping' } },
+      '/payment': { page: '/payment', query : { stage: 'payment' } },
       '/cart': { page: '/cart' },
       '/coveclub': { page: '/coveclub' },
     };

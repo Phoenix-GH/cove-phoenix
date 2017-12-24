@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
@@ -25,6 +26,23 @@ class CoveClubFullsize extends Component {
 
   render() {
     const { payment } = this.props;
+    const coveClub = payment.subscriptionType === 'clubBasic' || payment.subscriptionType === 'clubPremium';
+    let clubSelectBtn;
+    let ncSelectionBtn;
+    const activeSelect = (
+      <Link href="/checkout">
+        <div className={`${s.selectBtn} mx-auto`}>
+          Select
+        </div>
+      </Link>
+    );
+    const disabledSelect = (
+      <div className={`${s.selectBtn} ${s.disabled} mx-auto`}>
+        Select
+      </div>
+    )
+    clubSelectBtn = coveClub ? activeSelect : disabledSelect;
+    ncSelectionBtn = (payment.subscriptionType && !coveClub) ? activeSelect : disabledSelect;
     return (
       <Container>
         <Row>
@@ -77,19 +95,19 @@ class CoveClubFullsize extends Component {
           </Col>
           <Col className={`${s.colMid} ${s.firstCol} row`} md={4}>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
           <Col className={`${s.colSpacer} ${s.firstCol}`} md={1} />
           <Col className={`${`${s.colRight} row`} ${s.firstCol}`} md={4}>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
         </Row>
@@ -101,19 +119,19 @@ class CoveClubFullsize extends Component {
           </Col>
           <Col className={`${s.colMid} row`} md={4}>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/x.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
             </Col>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
           <Col className={s.colSpacer} md={1} />
           <Col className={`${s.colRight} row`} md={4}>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/x.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
             </Col>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
         </Row>
@@ -125,19 +143,19 @@ class CoveClubFullsize extends Component {
           </Col>
           <Col className={`${s.colMid} row`} md={4}>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/x.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
             </Col>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
           <Col className={s.colSpacer} md={1} />
           <Col className={`${s.colRight} row`} md={4}>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/x.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
             </Col>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
         </Row>
@@ -149,19 +167,19 @@ class CoveClubFullsize extends Component {
           </Col>
           <Col className={`${s.colMid} row`} md={4}>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/x.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
             </Col>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
           <Col className={s.colSpacer} md={1} />
           <Col className={`${s.colRight} row`} md={4}>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/x.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
             </Col>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
         </Row>
@@ -199,19 +217,19 @@ class CoveClubFullsize extends Component {
           </Col>
           <Col className={`${s.colMid} row`} md={4}>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/x.svg" />
+              <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
             </Col>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="check icon" />
             </Col>
           </Col>
           <Col className={s.colSpacer} md={1} />
           <Col className={`${s.colRight} row`} md={4}>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/x.svg" />
+              <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
             </Col>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="check icon" />
             </Col>
           </Col>
         </Row>
@@ -223,19 +241,19 @@ class CoveClubFullsize extends Component {
           </Col>
           <Col className={`${s.colMid} row`} md={4}>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/x.svg" />
+              <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
             </Col>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="check icon" />
             </Col>
           </Col>
           <Col className={s.colSpacer} md={1} />
           <Col className={`${s.colRight} row`} md={4}>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/x.svg" />
+              <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
             </Col>
             <Col className={s.compareContent} xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" />
+              <img className="img-fluid" src="/static/images/check.svg" alt="check icon" />
             </Col>
           </Col>
         </Row>
@@ -293,25 +311,23 @@ class CoveClubFullsize extends Component {
                 <Col className={s.financeOption} xs={{ size: 10, offset: 1 }}>
                   <Radio
                     clickHandler={() => this.toggleFinance()}
-                    label={[<span>Pay equipment in full</span>]}
+                    label={[<span className={!coveClub ? s.disabled : ''}>Pay equipment in full</span>]}
                     checked={!payment.finance}
+                    disabled={!coveClub}
                   />
                 </Col>
                 <Col className={s.financeOption} xs={{ size: 10, offset: 1 }}>
                   <Radio
                     clickHandler={() => this.toggleFinance()}
-                    label={[<span>Finance equipment at<br /> 0% APR for 60 months</span>]}
+                    label={[<span className={!coveClub ? s.disabled : ''}>Finance equipment at<br /> 0% APR for 60 months</span>]}
                     checked={payment.finance}
+                    disabled={!coveClub}
                   />
                 </Col>
               </Row>
               <Row>
                 <Col xs={12}>
-                  <Link href="/checkout">
-                    <div className={`${s.selectBtn} mx-auto`}>
-                      Select
-                    </div>
-                  </Link>
+                  {clubSelectBtn}
                 </Col>
               </Row>
             </div>
@@ -367,11 +383,7 @@ class CoveClubFullsize extends Component {
               </div>
               <Row>
                 <Col xs={12}>
-                  <Link href="/checkout">
-                    <div className={`${s.selectBtn} mx-auto`}>
-                      Select
-                    </div>
-                  </Link>
+                  {ncSelectionBtn}
                 </Col>
               </Row>
             </div>
@@ -382,6 +394,10 @@ class CoveClubFullsize extends Component {
   }
 }
 
+CoveClubFullsize.propTypes = {
+  selectSubscriptionType: PropTypes.func.isRequired,
+  toggleFinance: PropTypes.func.isRequired,
+};
 
 const mapStateToProps = ({ payment }) => ({ payment });
 
@@ -389,7 +405,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     toggleFinance: bindActionCreators(toggleFinance, dispatch),
     selectSubscriptionType: bindActionCreators(selectSubscriptionType, dispatch),
-  }
+  };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoveClubFullsize);

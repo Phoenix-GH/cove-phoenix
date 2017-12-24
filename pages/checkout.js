@@ -19,6 +19,7 @@ class CheckoutPage extends Component {
   }
 
   render() {
+    console.log('stage', this.props.stage)
     const activeStage = this.props.stage ? this.props.stage : 'customer';
     let nextLinkText = activeStage === 'payment' ? 'Complete Purchase' : 'Continue Shopping';
     let nextLink = '/shipping';
@@ -98,7 +99,7 @@ class CheckoutPage extends Component {
                     </Link>
                   </Col>
                   <Col xs={12} sm={12} md={4}>
-                    <Link href={`/checkout${nextLink}`}>
+                    <Link href={`${nextLink}`}>
                       <div className={s.actionBtn}>
                         {nextLinkText}
                       </div>

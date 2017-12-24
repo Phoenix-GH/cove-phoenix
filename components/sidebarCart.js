@@ -21,7 +21,6 @@ class SidebarCart extends Component {
   }
 
   render() {
-    //console.log('cart',this.props.cart, this.props.products)
     const props = this.props;
     return (
       <div className={s.cartColumn}>
@@ -41,7 +40,6 @@ class SidebarCart extends Component {
         </div>
         {
           Object.keys(props.products).map((key) => {
-          //  console.log('car p ', props)
             return (
               <CartAddon
                 product={props.products[key]}

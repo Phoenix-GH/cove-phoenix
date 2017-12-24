@@ -9,7 +9,6 @@ const initialState = {
 const cartItemIds = (state = initialState.cartItemIds, action) => {
   switch (action.type) {
     case types.ADD_TO_CART:
-     console.log('ADD_TOCA', action, state)
       if (state.indexOf(action.productId) !== -1) {
         return state;
       }
@@ -27,7 +26,6 @@ const cartItemIds = (state = initialState.cartItemIds, action) => {
 const quantityById = (state = initialState.quantityById, action) => {
   switch (action.type) {
     case types.UPDATE_QUANTITY: {
-      console.log('update quantity', action)
       const { productId, quantity } = action;
       return {
         ...state,
@@ -45,7 +43,6 @@ export const getQuantity = (state, productId) =>
 export const getCartItemIds = state => state.cartItemIds;
 
 const cart = (state = initialState, action) => {
-  console.log('a', action)
   switch (action.type) {
     case types.CHECKOUT_REQUEST:
       return initialState;

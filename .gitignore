@@ -1,7 +1,8 @@
 # build output
 dist
 .next
-
+out*.zip
+§:wq
 # dependencies
 node_modules
 package-lock.json

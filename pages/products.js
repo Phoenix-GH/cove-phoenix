@@ -94,7 +94,6 @@ class ProductPage extends Component {
   }
 
   render() {
-    console.log('aaaa', this.props, this.state)
     const { activeIndex } = this.state;
 
     const slides = items.map(item => (
