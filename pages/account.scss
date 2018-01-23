@@ -1,0 +1,59 @@
+.accountContainer {
+  padding: 45px 35px 45px 35px;
+  -webkit-box-shadow: 0px 6px 5px 2px rgba(44,50,57,0.2);
+  -moz-box-shadow: 0px 6px 5px 2px rgba(44,50,57,0.2);
+  box-shadow: 0px 6px 5px 2px rgba(44,50,57,0.2);
+  min-height: 500px;
+  margin-bottom: 15px;
+  border-radius: 16px;
+  border: 1px solid #F0F4F7;
+  margin-left: auto;
+  margin-top: 85px;
+  font-family: GothamRoundedBold;
+}
+
+.pageHeader {
+  margin-bottom: 40px;
+}
+h1 {
+  font-size: 40px;
+}
+
+h3 {
+  font-size: 24px;
+}
+.sectionDivider {
+  height: 2px;
+  border-radius: 4px;
+  background: #C5CAD0;
+  margin-bottom: 20px;
+}
+.accountLink {
+  color: #008CFF;
+}
+
+.actionBtn {
+  color: #F17927;
+  height: 40px;
+  width: 100%;
+  max-width: 236px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  border: 2px solid #F17927;
+  font-size: 16px;
+  text-align: center;
+  font-family: GothamRoundedBook;
+  font-weight: bold;
+  padding-top: 8px;
+  cursor: pointer;
+}
+
+.firstBtn {
+  margin-bottom: 32px;
+  margin-top: 32px;
+}
+
+.linkCol {
+  padding-bottom: 24px;
+}

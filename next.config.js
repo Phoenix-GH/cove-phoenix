@@ -8,11 +8,12 @@ module.exports = {
     return {
       '/': { page: '/' },
       '/products': { page: '/products' },
-      '/checkout': { page: '/checkout',query : { stage: 'customer' }  },
-      '/shipping': { page: '/shipping', query : { stage: 'shipping' } },
-      '/payment': { page: '/payment', query : { stage: 'payment' } },
+      '/checkout/customer': { page: '/checkout', query: { stage: 'customer' }  },
+      '/checkout/shipping': { page: '/checkout', query: { stage: 'shipping' } },
+      '/checkout/payment': { page: '/checkout', query: { stage: 'payment' } },
       '/cart': { page: '/cart' },
       '/coveclub': { page: '/coveclub' },
+      '/account': { page: '/account' },
     };
   },
   webpack: (config) => {
