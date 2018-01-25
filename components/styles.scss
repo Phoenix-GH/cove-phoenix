@@ -30,3 +30,37 @@
 .bold {
   font-weight: bold;
 }
+
+.actionBtn {
+  color: #FFFFFF;
+  height: 40px;
+  width: 100%;
+  max-width:236px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: #F17927;
+  font-size: 16px;
+  text-align: center;
+  font-family: GothamRoundedBook;
+  font-weight: bold;
+  padding-top: 8px;
+  cursor: pointer;
+}
+
+.actionBtnInverse {
+  color: #F17927;
+  height: 40px;
+  width: 100%;
+  max-width: 236px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  border: 2px solid #F17927;
+  font-size: 16px;
+  text-align: center;
+  font-family: GothamRoundedBook;
+  font-weight: bold;
+  padding-top: 8px;
+  cursor: pointer;
+}

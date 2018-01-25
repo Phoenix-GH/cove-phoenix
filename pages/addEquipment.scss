@@ -1,0 +1,65 @@
+.header {
+  margin-bottom: 25px;
+}
+
+.leftSection {
+  padding-right: 45px;
+}
+
+.rightSection {
+  padding-left: 415px;
+}
+.paymentRow {
+  height: 70px;
+  border-bottom: 1px solid #F0F4F7;
+  font-size: 16px;
+  font-family: Open Sans;
+  padding-top: 27px;
+  padding-left: 10px;
+}
+
+.costCol {
+  font-weight: bold;
+  text-align: right;
+}
+
+.newTotalHeading {
+  font-family: GothamRoundedBook;
+  font-size: 20px;
+  margin-top:20px;
+}
+
+.newTotal {
+  font-family: GothamRoundedBold;
+  font-size: 24px;
+}
+
+.paymentSummaryRow {
+  padding: 20px 10px;
+}
+
+:global {
+  .carousel-item {
+    border-radius: 16px;
+  }
+
+}
+
+.productSliderThumbs {
+  :global {
+    margin-top: 15px;
+      .list-inline-item {
+        border-radius: 8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+  }
+}
+.productTitle {
+  font-family: GothamRoundedBold;
+  font-size : 24px;
+  margin-top: 20px;
+}
+.productDescription {
+  font-family: Open Sans;
+}

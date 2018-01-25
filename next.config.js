@@ -15,6 +15,7 @@ module.exports = {
       '/coveclub': { page: '/coveclub' },
       '/account': { page: '/account' },
       '/account/equipment': { page: '/equipment' },
+      '/account/addequipment': { page: '/addequipment' },
     };
   },
   webpack: (config) => {

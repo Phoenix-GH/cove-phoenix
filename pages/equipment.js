@@ -10,7 +10,7 @@ import Header from '../components/header';
 import Layout from '../components/minimalLayout';
 import EquipmentListItem from '../components/equipmentListItem.js';
 import gs from '../components/styles.scss';
-import s from '../equipment.scss';
+import s from './equipment.scss';
 
 class EquipmentPage extends Component {
   static async getInitialProps({ query }) {
@@ -42,9 +42,15 @@ class EquipmentPage extends Component {
                     Return
                   </Col>
                 </Row>
-                <EquipmentListItem />
               </Col>
+
+            </Row>
+            <Row>
               <Col md={6}>
+                <EquipmentListItem />
+
+              </Col>
+              <Col md={6} className={s.optionsRow}>
                 <ul className="list-inline">
                   <li className="list-inline-item">
                     <Radio label={[<span className={gs.bold}>Front door</span>]} />
@@ -54,6 +60,25 @@ class EquipmentPage extends Component {
                   </li>
                 </ul>
 
+              </Col>
+            </Row>
+            <Row>
+              <Col md={6}>
+                <Row className={s.bottomMenuRow}>
+                  <Col xs={6}>
+                    <p className={gs.primaryLink}>
+                      Exchange Sensors
+                    </p>
+                    <p className={gs.primaryLink}>
+                      Return Sensors
+                    </p>
+                  </Col>
+                  <Col xs={6} className={s.actionBtnCol}>
+                    <div className={gs.actionBtn}>
+                      Add More Sensors
+                    </div>
+                  </Col>
+                </Row>
               </Col>
             </Row>
           </div>
