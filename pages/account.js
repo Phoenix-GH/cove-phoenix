@@ -20,7 +20,7 @@ class AccountPage extends Component {
       <Layout>
         <Container>
           <Header color="secondary" />
-          <div class={s.accountContainer}>
+          <div className={s.accountContainer}>
             <Row>
               <Col>
                 <h1 className={s.pageHeader}>Account</h1>
