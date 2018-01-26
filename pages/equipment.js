@@ -8,7 +8,7 @@ import Input from '../components/input';
 import Radio from '../components/radio';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
-import EquipmentListItem from '../components/equipmentListItem.js';
+import EquipmentListItem from '../components/equipmentListItem';
 import gs from '../components/styles.scss';
 import s from './equipment.scss';
 

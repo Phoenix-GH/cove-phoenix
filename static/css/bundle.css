@@ -4,7 +4,7 @@
   padding: 45px 35px 45px 35px;
   -webkit-box-shadow: 0px 6px 5px 2px rgba(44, 50, 57, .2);
   box-shadow: 0px 6px 5px 2px rgba(44, 50, 57, .2);
-  min-height: 500px;
+  min-height: 300px;
   margin-bottom: 15px;
   border-radius: 16px;
   border: 1px solid #F0F4F7;
@@ -15,6 +15,9 @@
 .styles__pageHeader___7THzX {
   font-size: 40px;
   font-family: GothamRoundedBold; }
+
+.styles__pageHeaderRow___3BmCj {
+  margin-bottom: 25px; }
 
 .styles__primaryLink___Cyfsn {
   color: #008CFF;
@@ -53,105 +56,63 @@
   font-weight: bold;
   padding-top: 8px;
   cursor: pointer; }
-/*  imported from addEquipment.scss  */
 
-.addEquipment__header___1YTOy {
-  margin-bottom: 25px; }
+.styles__centerBlock___2HlDS {
+  margin-left: auto;
+  margin-right: auto; }
+/*  imported from cancelmembership.scss  */
 
-.addEquipment__leftSection___ztHl7 {
-  padding-right: 15px; }
-
-.addEquipment__rightSection___1iOE_ {
-  padding-left: 15px; }
-
-.addEquipment__paymentRow___2k-x6 {
-  height: 70px;
-  border-bottom: 1px solid #F0F4F7;
-  font-size: 16px;
-  font-family: Open Sans;
-  padding-top: 27px;
-  padding-left: 10px; }
-
-.addEquipment__costCol___2RRSP {
-  font-weight: bold;
-  text-align: right; }
-
-.addEquipment__newTotalHeading___1FBRY {
+.cancelmembership__stepContent___3fiuS {
   font-family: GothamRoundedBook;
-  font-size: 20px;
-  margin-top: 20px; }
+  font-size: 20px; }
 
-.addEquipment__newTotal___1qct9 {
-  font-family: GothamRoundedBold;
-  font-size: 24px; }
+.cancelmembership__bold___T8UPY {
+  font-family: GothamRoundedBold; }
 
-.addEquipment__paymentSummaryRow___AQi0H {
-  padding: 20px 10px; }
+.cancelmembership__bottomLeftRow___ij22g {
+  margin-top: 30px; }
 
-.carousel-item {
-  border-radius: 16px; }
+.cancelmembership__leftHighlight___yP-M4::before {
+  content: "";
+  position: absolute;
+  left: -12px;
+  height: 100%;
+  width: 8px;
+  border-radius: 4px;
+  background: #01CDB9; }
 
-.addEquipment__productSliderThumbs___2DriV {
-  margin-top: 15px; }
-  .addEquipment__productSliderThumbs___2DriV .list-inline-item {
-    border-radius: 8px;
-    padding-left: 8px;
-    padding-right: 8px; }
+.cancelmembership__rightCol___2w3BV::before {
+  content: "";
+  position: absolute;
+  left: -2px;
+  width: 2px;
+  background: #8A9097;
+  border-radius: 4px; }
 
-.addEquipment__productTitle___pSGL6 {
-  font-family: GothamRoundedBold;
-  font-size: 24px;
-  margin-top: 20px; }
+.cancelmembership__cancelLink___3xb0X {
+  font-size: 16px;
+  font-family: GothamRoundedBold; }
 
-.addEquipment__productDescription___26LXD {
-  font-family: Open Sans; }
-/*  imported from addEquipmentRow.scss  */
+.cancelmembership__smallPrint___28nx8 {
+  margin-top: -5px;
+  font-size: 14px; }
 
-.addEquipmentRow__itemRow___3ZBA8 {
-  border: 1px solid #F0F4F7;
+.cancelmembership__actionRow___2Flxd {
+  margin-top: 30px; }
+
+.cancelmembership__disclaimer___t3j4b {
+  font-size: 16px;
+  margin-bottom: 20px; }
+
+.cancelmembership__summaryRow____Ytg9 {
+  margin-top: 30px; }
+
+.cancelmembership__bottomSpacer___2x-NX {
+  margin-bottom: 20px; }
+
+.cancelmembership__actionBtnDisclaimer___2SzSg {
   font-size: 14px;
-  margin-top: 5px;
-  width: 100%; }
-
-.addEquipmentRow__controlCol___2omjt {
-  padding-top: 8px;
-  padding-left: 15px; }
-
-.addEquipmentRow__thumbCol___1mYln {
-  padding: 0px; }
-
-.addEquipmentRow__controlCol___2omjt.addEquipmentRow__col___K9I7K {
   text-align: center; }
-
-.addEquipmentRow__detailsCol___3axZ0 {
-  color: #008CFF;
-  font-weight: bold;
-  padding-top: 40px;
-  padding-left: 0px; }
-
-.addEquipmentRow__addCol___2i2QT {
-  padding-top: 30px; }
-
-.addEquipmentRow__quantity___2zgtr {
-  padding-right: 15px;
-  font-weight: bold; }
-
-.addEquipmentRow__noPadding___gh9qV {
-  padding: 0px; }
-
-.addEquipmentRow__noPaddingLeft___2R4OS {
-  padding-left: 0px; }
-
-.addEquipmentRow__price___efX_Q {
-  font-weight: bold;
-  padding-left: 10px; }
-
-.addEquipmentRow__productLabel___2XXyQ {
-  padding-bottom: 15px;
-  text-align: left; }
-
-.addEquipmentRow__disabled___1a62p {
-  opacity: 0.2; }
 /*  imported from input.scss  */
 
 .input__coveInput___2A75v {
