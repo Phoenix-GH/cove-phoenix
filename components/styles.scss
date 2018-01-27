@@ -10,7 +10,6 @@
   margin-left: auto;
   margin-top: 85px;
   font-family: GothamRoundedBold;
-
 }
 
 .pageHeader {
@@ -27,6 +26,11 @@
   cursor: pointer;
 }
 
+.mutedLink {
+  color: #8A9097;
+  cursor: pointer;
+}
+
 .noPadding {
   padding: 0px;
 }
@@ -35,6 +39,9 @@
   font-weight: bold;
 }
 
+.text {
+  font-family: GothamRoundedBook;
+}
 .actionBtn {
   color: #FFFFFF;
   height: 40px;
@@ -72,4 +79,20 @@
 .centerBlock {
   margin-left: auto;
   margin-right: auto;
+}
+
+.leftHighlight {
+  &::before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    height: 100%;
+    width: 8px;
+    border-radius: 4px;
+    background: #01CDB9;
+  }
+}
+
+.spacerTop {
+  margin-top: 20px;
 }

@@ -1,0 +1,71 @@
+.stepContent {
+  font-family: GothamRoundedBook;
+  font-size: 20px;
+  display: none;
+
+}
+.stepContent.active {
+  display: block;
+}
+.bold {
+  font-family: GothamRoundedBold;
+}
+
+.bottomLeftRow {
+  margin-top: 30px;
+}
+
+.leftHighlight {
+  &::before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    height: 100%;
+    width: 8px;
+    border-radius: 4px;
+    background: #01CDB9;
+  }
+}
+
+.rightCol {
+  &::before {
+    content: "";
+    position: absolute;
+    left: -2px;
+    width: 2px;
+    height: 100%;
+    background: #8A9097;
+    border-radius: 4px;
+  }
+}
+
+.cancelLink {
+  font-size: 16px;
+  font-family: GothamRoundedBold;
+}
+.smallPrint {
+  margin-top: -5px;
+  font-size: 14px;
+}
+
+.actionRow {
+  margin-top: 30px;
+}
+
+.disclaimer {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.summaryRow {
+  margin-top: 30px;
+}
+
+.bottomSpacer {
+  margin-bottom: 20px;
+}
+
+.actionBtnDisclaimer {
+  font-size: 14px;
+  text-align: center;
+}

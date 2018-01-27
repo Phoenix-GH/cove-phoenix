@@ -23,11 +23,18 @@
   color: #008CFF;
   cursor: pointer; }
 
+.styles__mutedLink___r4ecT {
+  color: #8A9097;
+  cursor: pointer; }
+
 .styles__noPadding___3AKZf {
   padding: 0px; }
 
 .styles__bold___Pv9tP {
   font-weight: bold; }
+
+.styles__text___2dNMf {
+  font-family: GothamRoundedBook; }
 
 .styles__actionBtn___3aNqh {
   color: #FFFFFF;
@@ -60,19 +67,8 @@
 .styles__centerBlock___2HlDS {
   margin-left: auto;
   margin-right: auto; }
-/*  imported from cancelmembership.scss  */
 
-.cancelmembership__stepContent___3fiuS {
-  font-family: GothamRoundedBook;
-  font-size: 20px; }
-
-.cancelmembership__bold___T8UPY {
-  font-family: GothamRoundedBold; }
-
-.cancelmembership__bottomLeftRow___ij22g {
-  margin-top: 30px; }
-
-.cancelmembership__leftHighlight___yP-M4::before {
+.styles__leftHighlight___1axgv::before {
   content: "";
   position: absolute;
   left: -12px;
@@ -81,38 +77,21 @@
   border-radius: 4px;
   background: #01CDB9; }
 
-.cancelmembership__rightCol___2w3BV::before {
+.styles__spacerTop___1B-Vt {
+  margin-top: 20px; }
+/*  imported from phonenumber.scss  */
+
+.phonenumber__rightCol___3HIVU::before {
   content: "";
   position: absolute;
-  left: -2px;
+  left: -8px;
   width: 2px;
+  height: 100%;
   background: #8A9097;
   border-radius: 4px; }
 
-.cancelmembership__cancelLink___3xb0X {
-  font-size: 16px;
-  font-family: GothamRoundedBold; }
-
-.cancelmembership__smallPrint___28nx8 {
-  margin-top: -5px;
-  font-size: 14px; }
-
-.cancelmembership__actionRow___2Flxd {
-  margin-top: 30px; }
-
-.cancelmembership__disclaimer___t3j4b {
-  font-size: 16px;
-  margin-bottom: 20px; }
-
-.cancelmembership__summaryRow____Ytg9 {
-  margin-top: 30px; }
-
-.cancelmembership__bottomSpacer___2x-NX {
-  margin-bottom: 20px; }
-
-.cancelmembership__actionBtnDisclaimer___2SzSg {
-  font-size: 14px;
-  text-align: center; }
+.phonenumber__cancelLink___1BZSW {
+  padding-top: 16px; }
 /*  imported from input.scss  */
 
 .input__coveInput___2A75v {
@@ -175,3 +154,16 @@
 
 .header__toggler___2uOGP.header__secondary___jurm6 .navbar-toggler-icon {
   background-image: url("/static/images/togglerTeal.svg"); }
+/*  imported from email.scss  */
+
+.email__rightCol____lrL7::before {
+  content: "";
+  position: absolute;
+  left: -8px;
+  width: 2px;
+  height: 100%;
+  background: #8A9097;
+  border-radius: 4px; }
+
+.email__cancelLink___1PA0v {
+  padding-top: 16px; }
