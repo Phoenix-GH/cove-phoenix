@@ -1,0 +1,33 @@
+.actionRow {
+  margin-top: 110px;
+}
+
+.rightCol {
+  &::before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    width: 2px;
+    height: 120px;
+    background: #8A9097;
+    border-radius: 4px;
+  }
+}
+
+.balanceLabel {
+  font-family: GothamRoundedBook;
+  font-size: 12px;
+  margin-top: -5px;
+}
+
+.paymentInput {
+  margin-top: 30px;
+}
+
+.leftActionRow {
+  margin-top: 30px;
+}
+
+.cancelLink {
+  padding-top: 16px;
+}

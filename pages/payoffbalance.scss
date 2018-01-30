@@ -1,0 +1,19 @@
+.actionRow {
+  margin-top: 150px;
+}
+
+.rightCol {
+  &::before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    width: 2px;
+    height: 120px;
+    background: #8A9097;
+    border-radius: 4px;
+  }
+}
+
+.cancelLink {
+  padding-top: 16px;
+}
