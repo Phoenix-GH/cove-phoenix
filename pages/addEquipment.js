@@ -39,9 +39,7 @@ const items = [
 ];
 
 class AddEquipmentPage extends Component {
-  static async getInitialProps({ query }) {
-    return { stage: query.stage };
-  }
+
   constructor(props) {
     super(props);
     this.state = {

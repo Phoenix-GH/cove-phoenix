@@ -11,9 +11,6 @@ import AccountDataField from '../components/accountDataField';
 import s from './account.scss';
 
 class AccountPage extends Component {
-  static async getInitialProps({ query }) {
-    return { stage: query.stage };
-  }
 
   render() {
     return (
@@ -32,9 +29,11 @@ class AccountPage extends Component {
                 <div className={`${s.actionBtn} ${s.firstBtn}`}>
                   Change Membership
                 </div>
-                <div className={s.actionBtn}>
-                  Cancel Membership
-                </div>
+                <Link href="/account/cancel">
+                  <div className={s.actionBtn}>
+                    Cancel Membership
+                  </div>
+                </Link>
               </Col>
               <Col md={8} xs={12} sm={12}>
                 <Row>
@@ -42,7 +41,9 @@ class AccountPage extends Component {
                     <AccountDataField label="Email" content="jordan.h@covesmart.com" />
                   </Col>
                   <Col>
-                    <div className={s.accountLink}>Change email</div>
+                    <Link href="/account/email/">
+                      <div className={s.accountLink}>Change email</div>
+                    </Link>
                   </Col>
                 </Row>
                 <Row>
@@ -50,7 +51,9 @@ class AccountPage extends Component {
                     <AccountDataField label="Password" content="**************" />
                   </Col>
                   <Col>
-                    <div className={s.accountLink}>Change password</div>
+                    <Link href="/account/password">
+                      <div className={s.accountLink}>Change password</div>
+                    </Link>
                   </Col>
                 </Row>
                 <Row>
@@ -58,7 +61,9 @@ class AccountPage extends Component {
                     <AccountDataField label="Phone" content="(801) 123-1234" />
                   </Col>
                   <Col>
-                    <div className={s.accountLink}>Change phone number</div>
+                    <Link href="/account/phone">
+                      <div className={s.accountLink}>Change phone number</div>
+                    </Link>
                   </Col>
                 </Row>
                 <Row>
@@ -100,7 +105,9 @@ class AccountPage extends Component {
                     <AccountDataField label="Balance Remaining" content="$342.21" />
                   </Col>
                   <Col>
-                    <div className={s.accountLink}>Pay off balance</div>
+                    <Link href="/account/payoffbalance">
+                      <div className={s.accountLink}>Pay off balance</div>
+                    </Link>
                   </Col>
                 </Row>
                 <Row>
@@ -162,7 +169,9 @@ class AccountPage extends Component {
               <Col md={8} xs={12} sm={12}>
                 <Row>
                   <Col className={s.linkCol}>
-                    <div className={s.accountLink}>My Equipment</div>
+                    <Link href="/account/equipment">
+                      <div className={s.accountLink}>My Equipment</div>
+                    </Link>
                   </Col>
                 </Row>
                 <Row>
@@ -172,7 +181,9 @@ class AccountPage extends Component {
                 </Row>
                 <Row>
                   <Col className={s.linkCol}>
-                    <div className={s.accountLink}>Add Equipment</div>
+                    <Link href="/account/addequipment">
+                      <div className={s.accountLink}>Add Equipment</div>
+                    </Link>
                   </Col>
                 </Row>
               </Col>
@@ -185,12 +196,16 @@ class AccountPage extends Component {
               <Col md={8} xs={12} sm={12}>
                 <Row>
                   <Col className={s.linkCol}>
-                    <div className={s.accountLink}>Refer a friend</div>
+                    <Link href="/account/refer">
+                      <div className={s.accountLink}>Refer a friend</div>
+                    </Link>
                   </Col>
                 </Row>
                 <Row>
                   <Col className={s.linkCol}>
-                    <div className={s.accountLink}>Loyalty Credits</div>
+                    <Link href="/account/loyalty">
+                      <div className={s.accountLink}>Loyalty Credits</div>
+                    </Link>
                   </Col>
                 </Row>
               </Col>

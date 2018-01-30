@@ -12,9 +12,6 @@ import gs from '../components/styles.scss';
 import s from './email.scss';
 
 class EmailPage extends Component {
-  static async getInitialProps({ query }) {
-    return { stage: query.stage };
-  }
 
   constructor(props) {
     super(props);
@@ -64,7 +61,9 @@ class EmailPage extends Component {
                 </Row>
                 <Row>
                   <Col xs={{ offset: 4, size: 2 }} className={s.cancelLink}>
-                    <div className={gs.mutedLink}> Cancel</div>
+                    <Link href="/account">
+                      <div className={gs.mutedLink}> Cancel</div>
+                    </Link>
                   </Col>
                   <Col xs={6}>
                     <div className={gs.actionBtn} style={{ maxWidth: '350px' }}>

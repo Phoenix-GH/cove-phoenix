@@ -12,9 +12,6 @@ import gs from '../components/styles.scss';
 import s from './phonenumber.scss';
 
 class PasswordPage extends Component {
-  static async getInitialProps({ query }) {
-    return { stage: query.stage };
-  }
 
   constructor(props) {
     super(props);

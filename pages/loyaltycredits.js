@@ -12,9 +12,6 @@ import gs from '../components/styles.scss';
 import s from './loyaltycredits.scss';
 
 class LoyaltyCreditsPage extends Component {
-  static async getInitialProps({ query }) {
-    return { stage: query.stage };
-  }
 
   render() {
     return (
@@ -64,7 +61,9 @@ class LoyaltyCreditsPage extends Component {
                 </Row>
                 <Row className={s.actionRow}>
                   <Col xs={{ offset: 5, size: 2 }} className={s.cancelLink}>
-                    <div className={gs.mutedLink}>Cancel</div>
+                    <Link href="/account">
+                      <div className={gs.mutedLink}>Cancel</div>
+                    </Link>
                   </Col>
                   <Col xs={5}>
                     <div className={gs.actionBtnInverse} style={{ maxWidth: '350px' }}>

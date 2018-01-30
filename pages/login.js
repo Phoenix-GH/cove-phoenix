@@ -11,9 +11,6 @@ import gs from '../components/styles.scss';
 import s from './login.scss';
 
 class LoginPage extends Component {
-  static async getInitialProps({ query }) {
-    return { stage: query.stage };
-  }
 
   render() {
     return (

@@ -12,9 +12,6 @@ import gs from '../components/styles.scss';
 import s from './refer.scss';
 
 class ReferPage extends Component {
-  static async getInitialProps({ query }) {
-    return { stage: query.stage };
-  }
 
   render() {
     return (

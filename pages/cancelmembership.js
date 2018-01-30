@@ -11,10 +11,7 @@ import Layout from '../components/minimalLayout';
 import gs from '../components/styles.scss';
 import s from './cancelmembership.scss';
 
-class EquipmentPage extends Component {
-  static async getInitialProps({ query }) {
-    return { stage: query.stage };
-  }
+class CancelmembershipPage extends Component {
 
   constructor(props) {
     super(props);
@@ -168,4 +165,4 @@ export default withRedux({
   mapStateToProps,
   mapDispatchToProps,
   storeKey: 'rootRedux',
-})(EquipmentPage);
+})(CancelmembershipPage);
