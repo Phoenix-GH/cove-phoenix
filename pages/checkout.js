@@ -99,7 +99,7 @@ class CheckoutPage extends Component {
                     </Link>
                   </Col>
                   <Col xs={12} sm={12} md={4}>
-                    <Link href={`${nextLink}`}>
+                    <Link href={`/checkout${nextLink}`}>
                       <div className={s.actionBtn}>
                         {nextLinkText}
                       </div>

@@ -2,19 +2,10 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const dev = process.env.NODE_ENV !== 'production';
 const path = require('path');
+const getRoutes = require('./routes');
 
 module.exports = {
-  exportPathMap() {
-    return {
-      '/': { page: '/' },
-      '/products': { page: '/products' },
-      '/checkout': { page: '/checkout',query : { stage: 'customer' }  },
-      '/shipping': { page: '/shipping', query : { stage: 'shipping' } },
-      '/payment': { page: '/payment', query : { stage: 'payment' } },
-      '/cart': { page: '/cart' },
-      '/coveclub': { page: '/coveclub' },
-    };
-  },
+  exportPathMap: getRoutes,
   webpack: (config) => {
     config.module.rules.push({
       test: /\.scss$/,

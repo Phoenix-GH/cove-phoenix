@@ -1,0 +1,24 @@
+.label {
+  font-size: 14px;
+}
+
+.summaryRow {
+  margin-top: 75px;
+}
+
+.rightCol {
+  &::before {
+    content: "";
+    position: absolute;
+    left: -8px;
+    width: 2px;
+    height: 100%;
+    background: #8A9097;
+    border-radius: 4px;
+  }
+}
+
+.actionRow {
+  margin-top: 50px;
+  text-align: center;
+}

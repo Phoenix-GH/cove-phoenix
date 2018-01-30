@@ -1,0 +1,61 @@
+.itemName {
+  font-family: Open Sans;
+  font-size: 16px;
+  padding-top: 26px;
+}
+
+.itemRow {
+  border-top: 1px solid #F0F4F7;
+  border-bottom: 1px solid #F0F4F7;
+  font-size: 14px;
+  margin-top: 5px;
+  text-align: center;
+  height: 84px;
+}
+.quantityCol {
+  padding-top: 26px;
+  font-size: 20px;
+}
+.controlCol {
+  padding-top: 26px;
+  border-left: 1px solid #F0F4F7;
+  border-right: 1px solid #F0F4F7;
+}
+.thumbCol {
+  padding: 0px;
+}
+.controlCol.col {
+  text-align: center;
+}
+.detailsCol {
+  color: #008CFF;
+  font-weight: bold;
+  padding-top: 25px;
+  padding-left: 0px;
+}
+
+.quantity {
+  padding-right: 15px;
+  font-weight: bold;
+}
+.noPadding {
+  padding: 0px;
+}
+.noPaddingLeft{
+  padding-left: 0px;
+
+}
+
+.price {
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.productLabel {
+  padding-bottom: 15px;
+  text-align: left;
+}
+
+.disabled {
+  opacity: 0.2;
+}

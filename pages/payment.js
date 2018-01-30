@@ -13,10 +13,8 @@ import ShippingInfo from '../components/shippingInfo';
 import PaymentInfo from '../components/paymentInfo';
 import s from './checkout.scss';
 
-class CheckoutPage extends Component {
-  static async getInitialProps({ query }) {
-    return { stage: query.stage };
-  }
+class PaymentPage extends Component {
+
 
   render() {
     console.log('stage', this.props.stage)
@@ -134,4 +132,4 @@ export default withRedux({
   mapStateToProps,
   mapDispatchToProps,
   storeKey: 'rootRedux',
-})(CheckoutPage);
+})(PaymentPage);
