@@ -93,6 +93,23 @@
   }
 }
 
+.leftHighlightShort {
+  &::before {
+    content: "";
+    position: absolute;
+    left: -2px;
+    height: 50px;
+    width: 8px;
+    border-radius: 4px;
+    background: #01CDB9;
+  }
+}
+
+
 .spacerTop {
   margin-top: 20px;
+}
+
+.spacerTop40 {
+  margin-top: 40px;
 }

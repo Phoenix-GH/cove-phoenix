@@ -13,8 +13,8 @@ import gs from '../components/styles.scss';
 import s from './equipment.scss';
 
 class EquipmentPage extends Component {
-  static async getInitialProps({ query }) {
-    return { stage: query.stage };
+  static async getInitialProps({  }) {
+    return { };
   }
 
   render() {
