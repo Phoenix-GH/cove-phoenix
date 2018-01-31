@@ -4,8 +4,11 @@ import { Container, Row, Col } from 'reactstrap';
 import Layout from '../components/minimalLayout';
 import Header from '../components/header';
 import PriceComparisonTable from '../components/priceComparisonTable';
+import CoveLiveAssist from '../components/coveLiveAssist';
+import Winwin from '../components/winwin';
 import EstimateSlider from '../components/estimateSlider';
 import s from './index.scss';
+import gs from '../components/styles.scss';
 
 const LocalLink = Scroll.Link;
 const ElementLink = Scroll.Element;
@@ -51,6 +54,48 @@ const Index = () => (
         Try it now
       </div>
     </Link>
+    <CoveLiveAssist />
+    <Container className={s.markupComparisonContainer}>
+      <Row>
+        <Col md={{ offset: 1, size: 4 }} className={s.markupTextCol}>
+          <h1>Less Markup <br /><span className={gs.primaryHighlight}>More Security</span></h1>
+          <p>
+            When you pay more for home security,
+            you’re paying for more middlemen and more mark-up.
+            We cut out the middlemen and sell direct to you.
+            You get exceptional security at a fraction of the price.
+          </p>
+          <div className={`${s.tryNowBtn} ${gs.blockCenter}`}>
+            Try it now
+          </div>
+        </Col>
+        <Col md={{ offset: 2, size: 2 }}>
+          <img src="/static/images/markupChain.png" alt="industry markup" />
+        </Col>
+        <Col md={2}>
+          <img src="/static/images/coveMarkupChain.png" alt="Cove doesn't have a middleman" />
+        </Col>
+      </Row>
+    </Container>
+    <Winwin />
+    <div className={s.testimonial}>
+      <div className={s.testimonialBorder} />
+      <h1>"Something nice about Cove"</h1>
+      <h3>- Someone</h3>
+    </div>
+    <Container className={s.dontbefooled}>
+      <Row>
+        <Col md={6} className={s.dontbefooledLeftCol}>
+          <div className={`${gs.tryNowBtn} ${s.dontbefooledTryNow}`}>
+            Try it now
+          </div>
+        </Col>
+        <Col md={6}>
+          <h1>Don’t be fooled by cheap DIY Security</h1>
+          With Cove, you have Crash and Connection alerts so no one can mess with your home or security system.
+        </Col>
+      </Row>
+    </Container>
     <div className={s.stepsOuter}>
       <div className={s.stepsPhoto}>
         <img src="/static/images/panelPhoto.png" className="img-fluid" />
@@ -58,7 +103,7 @@ const Index = () => (
       <Container>
         <div className={s.steps}>
           <Row>
-            <Col md={{ size: 7, offset: 5 }}>
+            <Col md={{ size: 7, offset: 1 }}>
               <h1>Switching is easy</h1>
               <h4>80% of equipment is compatible</h4>
               <div className={s.step}>
@@ -74,7 +119,7 @@ const Index = () => (
               <div className={s.step}>
                 <b>3.</b> Send back unused equipment
               </div>
-              <div className={`${s.tryNowBtn} ${s.tryNowBtnThree}`}>
+              <div className={`${s.tryNowBtn}`}>
                 Try it now
               </div>
             </Col>
@@ -104,7 +149,7 @@ const Index = () => (
       </div>
       <Container>
         <div className={s.panelBanner} />
-        <h1 className={s.guaranteeHeader}>100% satisfaction gauranteed</h1>
+        <h1 className={s.guaranteeHeader}>100% satisfaction guaranteed</h1>
         <Row>
           <Col md={{ size: 6, offset: 2 }} sm={12} xs={12}>
             <div className={s.guaranteeText}>

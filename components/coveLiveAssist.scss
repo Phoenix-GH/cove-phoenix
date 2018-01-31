@@ -1,0 +1,33 @@
+.outer {
+  position: relative;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.container {
+  background: #F0F5F7;
+  border-radius: 32px 4px 32px 4px;
+  padding-top: 80px;
+  padding-bottom: 30px;
+  height: 630px;
+}
+
+.listItem {
+  margin-bottom: 45px;
+}
+
+.leftImg {
+  position: absolute;
+  top: 80px;
+  border-radius: 0px 16px 16px 0px;
+}
+h1 {
+  font-family: GothamRoundedBold;
+  font-size: 60px;
+  margin-bottom: 40px;
+}
+
+h3 {
+  font-family: GothamRoundedBook;
+  font-size: 24px;
+}
