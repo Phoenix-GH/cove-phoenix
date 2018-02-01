@@ -21,6 +21,17 @@
   margin-top: 90px;
 }
 
+.mainNav {
+  padding-top: 8px;
+  :global {
+    .nav-item {
+      font-family: GothamRoundedBold;
+      font-size: 18px;
+
+    }
+  }
+}
+
 .steps {
   background: #F0F5F7;
   border-radius: 4px 32px 4px 32px;

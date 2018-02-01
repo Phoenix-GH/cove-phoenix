@@ -21,4 +21,4 @@ module.exports = () => {
     '/account/loyalty': { page: '/loyaltycredits' },
     '/account/email': { page: '/email' },
   };
-}
+};

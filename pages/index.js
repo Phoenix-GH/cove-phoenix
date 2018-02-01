@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Scroll from 'react-scroll';
-import { Container, Row, Col } from 'reactstrap';
+import { Container, Row, Col, Nav, NavItem } from 'reactstrap';
 import Layout from '../components/minimalLayout';
 import Header from '../components/header';
 import PriceComparisonTable from '../components/priceComparisonTable';
@@ -17,7 +17,16 @@ const Index = () => (
   <Layout>
     <Row className={`${s.landingHeaderStyle} no-gutters`}>
       <Container>
-        <Header />
+        <Header>
+          <Nav className={`${s.mainNav} nav-fill`}>
+            <Link href="/login">
+              <NavItem>Alarm System</NavItem>
+            </Link>
+            <NavItem>Life Safety</NavItem>
+            <NavItem>Medical Button</NavItem>
+            <NavItem>Camera</NavItem>
+          </Nav>
+        </Header>
         <div className={s.headerCenterText}>
           <h1>Fair prices, real security</h1>
           <h3>Starting at $19.99</h3>
@@ -65,9 +74,11 @@ const Index = () => (
             We cut out the middlemen and sell direct to you.
             You get exceptional security at a fraction of the price.
           </p>
-          <div className={`${s.tryNowBtn} ${gs.blockCenter}`}>
-            Try it now
-          </div>
+          <Link href="/products">
+            <div className={`${s.tryNowBtn} ${gs.blockCenter}`}>
+              Try it now
+            </div>
+          </Link>
         </Col>
         <Col md={{ offset: 2, size: 2 }}>
           <img src="/static/images/markupChain.png" alt="industry markup" />
@@ -86,9 +97,11 @@ const Index = () => (
     <Container className={s.dontbefooled}>
       <Row>
         <Col md={6} className={s.dontbefooledLeftCol}>
-          <div className={`${gs.tryNowBtn} ${s.dontbefooledTryNow}`}>
-            Try it now
-          </div>
+          <Link href="/products">
+            <div className={`${gs.tryNowBtn} ${s.dontbefooledTryNow}`}>
+              Try it now
+            </div>
+          </Link>
         </Col>
         <Col md={6}>
           <h1>Don’t be fooled by cheap DIY Security</h1>
@@ -119,9 +132,11 @@ const Index = () => (
               <div className={s.step}>
                 <b>3.</b> Send back unused equipment
               </div>
-              <div className={`${s.tryNowBtn}`}>
-                Try it now
-              </div>
+              <Link href="/products">
+                <div className={`${s.tryNowBtn}`}>
+                  Try it now
+                </div>
+              </Link>
             </Col>
           </Row>
         </div>
