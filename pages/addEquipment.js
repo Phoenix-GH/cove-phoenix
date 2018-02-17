@@ -8,7 +8,8 @@ import {
 } from 'reactstrap';import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
-import { initStore, loadProducts } from '../store';
+import initStore from '../store';
+import { loadProducts } from '../actions';
 import Input from '../components/input';
 import Radio from '../components/radio';
 import Header from '../components/header';
@@ -229,9 +230,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default withRedux({
-  createStore: initStore,
-  mapStateToProps,
-  mapDispatchToProps,
-  storeKey: 'rootRedux',
-})(AddEquipmentPage);
+export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(AddEquipmentPage);

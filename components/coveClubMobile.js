@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { toggleFinance, selectSubscriptionType } from '../store'
+import { toggleFinance, selectSubscriptionType } from '../actions';
 import { Row, Col, Collapse } from 'reactstrap';
 import Radio from '../components/radio';
 import s from './coveClubMobile.scss';

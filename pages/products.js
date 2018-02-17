@@ -8,7 +8,8 @@ import {
 } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
-import { initStore, loadProducts } from '../store';
+import initStore from '../store';
+import { loadProducts } from '../actions.js';
 import Layout from '../components/minimalLayout';
 import Header from '../components/header';
 import SidebarCart from '../components/sidebarCart';
@@ -165,7 +166,7 @@ class ProductPage extends Component {
   }
 }
 
-const mapStateToProps = ({ cart, products }) => ({ cart, products})
+const mapStateToProps = ({ cart, products }) => ({ cart, products })
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -173,9 +174,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default withRedux({
-  createStore: initStore,
-  mapStateToProps,
-  mapDispatchToProps,
-  storeKey: 'rootRedux',
-})(ProductPage);
+export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(ProductPage);

@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import { Container, Row, Col } from 'reactstrap';
-import { toggleFinance, selectSubscriptionType } from '../store'
+import { toggleFinance, selectSubscriptionType } from '../actions';
 import Radio from '../components/radio';
 import s from './coveClubFullsize.scss';
 

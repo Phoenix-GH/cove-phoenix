@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
-import { initStore, loadProducts } from '../store';
+import initStore from '../store';
 import Input from '../components/input';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
@@ -218,17 +218,6 @@ class AccountPage extends Component {
 }
 
 
-const mapStateToProps = ({ cart, products }) => ({ cart, products});
+const mapStateToProps = ({ cart, products }) => ({ cart, products });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    loadProducts: bindActionCreators(loadProducts, dispatch)
-  }
-}
-
-export default withRedux({
-  createStore: initStore,
-  mapStateToProps,
-  mapDispatchToProps,
-  storeKey: 'rootRedux',
-})(AccountPage);
+export default withRedux(initStore, mapStateToProps, null)(AccountPage);
