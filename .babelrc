@@ -1,16 +1,25 @@
 {
   "presets": [
     [
-      "next/babel"
+      "next/babel",
+      {
+       "preset-env": { "modules": "commonjs" }
+      }
+
     ]
   ],
   "plugins": [
     [
-      "css-modules-transform", {
-        "extensions": [".css", ".scss"],
-        "append": [ "postcss-cssnext" ],
-        "preprocessCss": "./pre-processor.js",
-        "extractCss": "./static/css/bundle.css"
+      "styled-jsx/babel",
+      { "plugins": [
+          ["styled-jsx-plugin-sass", {
+              "sassOptions": {
+                "includePaths": ["./styles"],
+                "precision": 2
+              }
+            }
+          ]
+        ]
       }
     ]
   ]

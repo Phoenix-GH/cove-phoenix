@@ -6,7 +6,7 @@ import { Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
 import CartAddon from '../components/cartAddon';
 import { changeQuantity } from '../actions';
-import s from './sidebarCart.scss';
+import styles from './sidebarCart.scss';
 
 class SidebarCart extends Component {
   constructor(props) {
@@ -23,8 +23,8 @@ class SidebarCart extends Component {
   render() {
     const props = this.props;
     return (
-      <div className={s.cartColumn}>
-        <div className={s.cartHeader}>
+      <div className="cartColumn">
+        <div className="cartHeader">
           <h4>Cove Protect alarm system started pack</h4>
           <ul>
             <li>1 Cove Protect panel</li>
@@ -32,7 +32,7 @@ class SidebarCart extends Component {
             <li>1 Cove remote</li>
           </ul>
         </div>
-        <div className={s.cartSubHeader}>
+        <div className="cartSubHeader">
           <h4>How many sensors should I add?</h4>
           <p>Don’t worry too much, you can add more sensors later,
             or send the ones you don’t need free of charge.
@@ -52,8 +52,8 @@ class SidebarCart extends Component {
         }
         <Row>
           <Col xs={12}>
-            <div className={s.footerLink}>
-              <span className={`${s.link} ${s.linkTertiary}`}>Click here</span> to add Smoke, Carbon, or Flood
+            <div className="footerLink">
+              <span className="link linkTertiary">Click here</span> to add Smoke, Carbon, or Flood
             </div>
           </Col>
         </Row>
@@ -62,18 +62,19 @@ class SidebarCart extends Component {
               1 Cove Protect alarm system started pack
           </Col>
           <Col xs={6}>
-            <span className={s.bold}>$249 or $4.15/mo</span>
+            <span className="bold">$249 or $4.15/mo</span>
           </Col>
         </Row>
         <Row>
           <Col xs={{ size: 6, offset: 6 }}>
             <Link href="/coveclub">
-              <div className={s.addToCartBtn}>
+              <div className="addToCartBtn">
                   Add to cart
               </div>
             </Link>
           </Col>
         </Row>
+        <style jsx>{styles}</style>
       </div>
     )
   }

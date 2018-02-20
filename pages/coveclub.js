@@ -18,12 +18,32 @@ class CoveClub extends Component {
         <Container>
           <Header color="secondary" />
         </Container>
-        <div className={s.full}>
+        <div className="full">
           <CoveClubFullSize />
         </div>
-        <div className={s.mobile}>
+        <div className="mobile">
           <CoveClubMobile />
         </div>
+        <style jsx>{`
+          @media (min-width: 767px) {
+            .mobile {
+              display: none;
+            }
+            .full {
+              display: block;
+            }
+          }
+
+          @media (max-width: 768px) {
+            .mobile {
+              display: block;
+            }
+            .full {
+              display: none;
+            }
+          }
+
+        `}</style>
       </Layout>
     );
   }
