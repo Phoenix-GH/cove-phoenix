@@ -37,14 +37,14 @@ class CoveClubFullsize extends Component {
       </Link>
     );
     const disabledSelect = (
-      <div className="selectBtn disabled} mx-auto">
+      <div className="selectBtn disabled mx-auto">
         Select
       </div>
     )
     clubSelectBtn = coveClub ? activeSelect : disabledSelect;
     ncSelectionBtn = (payment.subscriptionType && !coveClub) ? activeSelect : disabledSelect;
     return (
-      <Container>
+      <Container className="coveClubFull">
         <Row>
           <Col className="header">
             <h2>Cove members to Cove Pay</h2>
@@ -389,7 +389,7 @@ class CoveClubFullsize extends Component {
             </div>
           </Col>
         </Row>
-        <style jsx>{styles}</style>
+        <style jsx global>{styles}</style>
       </Container>
     )
   }
