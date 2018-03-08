@@ -3,7 +3,8 @@ import { Container, Row, Col } from 'reactstrap';
 import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
-import { initStore, loadProducts } from '../store';
+import initStore from '../store';
+import { loadProducts } from '../actions';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
 import Input from '../components/input';
@@ -129,9 +130,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default withRedux({
-  createStore: initStore,
-  mapStateToProps,
-  mapDispatchToProps,
-  storeKey: 'rootRedux',
-})(CheckoutPage);
+export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(CheckoutPage);

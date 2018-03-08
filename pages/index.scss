@@ -1,4 +1,6 @@
-.landingHeaderStyle {
+@import "../styles/variables";
+
+:global(.landingHeaderStyle){
   background-image: url("/static/images/landingBanner.png");
   height: 100%;
   min-height: 400px;
@@ -6,10 +8,36 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.coveLiveAssistContainer {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.markupComparisonContainer {
+  margin-top: 30px;
+  margin-bottom: 80px;
+}
+
+.markupTextCol {
+  margin-top: 90px;
+}
+
+.mainNav {
+  padding-top: 8px;
+  :global {
+    .nav-item {
+      font-family: GothamRoundedBold;
+      font-size: 18px;
+
+    }
+  }
+}
+
 .steps {
-  background-image: url("/static/images/greyRectangle.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: #F0F5F7;
+  border-radius: 4px 32px 4px 32px;
+  padding-bottom: 55px;
   h1 {
     font-family: GothamRoundedBold;
     font-size: 60px;
@@ -33,6 +61,8 @@
 .stepsPhoto {
   position: absolute;
   top: 80px;
+  right: 0px;
+  border-radius: 16px 0px 0px 16px;
 }
 .step {
   font-size: 18px;
@@ -59,6 +89,25 @@
   }
 }
 
+.dontbefooled {
+  font-size: 24px;
+  font-family: GothamRoundedBook;
+  margin-bottom: 95px;
+  :global {
+    .col {
+      padding:30px;
+    }
+  }
+}
+.dontbefooledLeftCol {
+  background: #F0F5F7;
+}
+.dontbefooledTryNow {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  margin-left: -81px;
+}
 .tryNowBtn {
   color: #FFFFFF;
   width: 162px;

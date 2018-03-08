@@ -8,12 +8,13 @@ import {
 } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
-import { initStore, loadProducts } from '../store';
+import initStore from '../store';
+import { loadProducts } from '../actions.js';
 import Layout from '../components/minimalLayout';
 import Header from '../components/header';
 import SidebarCart from '../components/sidebarCart';
 import ProductModal from '../components/productModal';
-import s from './product.scss';
+import styles from './product.scss';
 
 const items = [
   {
@@ -111,11 +112,11 @@ class ProductPage extends Component {
         <Container >
           <Header color="secondary" />
           <Container>
-            <div className={s.productContent} >
+            <div className="productContent" >
               <Row>
                 <Col xl={8} lg={7} md={6}>
                   <h2>Cove Protect</h2>
-                  <div className={s.productCarousel}>
+                  <div className="productCarousel">
                     <Row>
                       <Carousel
                         activeIndex={activeIndex}
@@ -128,7 +129,7 @@ class ProductPage extends Component {
                       </Carousel>
                     </Row>
                     <Row>
-                      <ul className={`mx-auto list-inline ${s.productSliderThumbs}`}>
+                      <ul className="mx-auto list-inline productSliderThumbs">
                         <li className="list-inline-item link">
                           <img src="/static/images/arrowLeft.png" />
                         </li>
@@ -160,12 +161,13 @@ class ProductPage extends Component {
           />
           :''
         }
+        <style jsx>{styles}</style>
       </Layout>
     );
   }
 }
 
-const mapStateToProps = ({ cart, products }) => ({ cart, products})
+const mapStateToProps = ({ cart, products }) => ({ cart, products })
 
 const mapDispatchToProps = dispatch => {
   return {
@@ -173,9 +175,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default withRedux({
-  createStore: initStore,
-  mapStateToProps,
-  mapDispatchToProps,
-  storeKey: 'rootRedux',
-})(ProductPage);
+export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(ProductPage);

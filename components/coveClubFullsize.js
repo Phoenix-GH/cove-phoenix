@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux'
 import { Container, Row, Col } from 'reactstrap';
-import { toggleFinance, selectSubscriptionType } from '../store'
+import { toggleFinance, selectSubscriptionType } from '../actions';
 import Radio from '../components/radio';
-import s from './coveClubFullsize.scss';
+import styles from './coveClubFullsize.scss';
 
 
 class CoveClubFullsize extends Component {
@@ -31,24 +31,24 @@ class CoveClubFullsize extends Component {
     let ncSelectionBtn;
     const activeSelect = (
       <Link href="/checkout">
-        <div className={`${s.selectBtn} mx-auto`}>
+        <div className="selectBtn mx-auto">
           Select
         </div>
       </Link>
     );
     const disabledSelect = (
-      <div className={`${s.selectBtn} ${s.disabled} mx-auto`}>
+      <div className="selectBtn disabled mx-auto">
         Select
       </div>
     )
     clubSelectBtn = coveClub ? activeSelect : disabledSelect;
     ncSelectionBtn = (payment.subscriptionType && !coveClub) ? activeSelect : disabledSelect;
     return (
-      <Container>
+      <Container className="coveClubFull">
         <Row>
-          <Col className={s.header}>
+          <Col className="header">
             <h2>Cove members to Cove Pay</h2>
-            <div className={s.titleSubText}>
+            <div className="titleSubText">
               Save $5/mo on your monitoring and use CoveClub EasyPay to pay your
               <br />equipment off over time with 0% APR
             </div>
@@ -57,7 +57,7 @@ class CoveClubFullsize extends Component {
         <Row className="no-gutters">
           <Col md={3} />
           <Col md={4}>
-            <div className={`${s.coveClubTableHeader}  row`}>
+            <div className="coveClubTableHeader row">
               <Col xs={12}>
                 <h4>Cove Club - $99</h4>
               </Col>
@@ -72,7 +72,7 @@ class CoveClubFullsize extends Component {
             </div>
           </Col>
           <Col md={{ size: 4, offset: 1 }}>
-            <div className={`${s.coveNonClubTableHeader}  row`}>
+            <div className="coveNonClubTableHeader">
               <Col xs={12}>
                 <h4>Non-Club</h4>
               </Col>
@@ -88,171 +88,171 @@ class CoveClubFullsize extends Component {
           </Col>
         </Row>
         <Row className="no-gutters">
-          <Col className={s.colLeftFirst} md={3}>
-            <div className={s.colLeftContent}>
+          <Col className="colLeftFirst" md={3}>
+            <div className="colLeftContent">
               24/7 Monitoring
             </div>
           </Col>
-          <Col className={`${s.colMid} ${s.firstCol} row`} md={4}>
-            <Col className={s.compareContent} xs={6}>
+          <Col className="colMid firstCol" md={4}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
-            <Col className={s.compareContent} xs={6}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
-          <Col className={`${s.colSpacer} ${s.firstCol}`} md={1} />
-          <Col className={`${`${s.colRight} row`} ${s.firstCol}`} md={4}>
-            <Col className={s.compareContent} xs={6}>
+          <Col className="colSpacer firstCol" md={1} />
+          <Col className="colRight row firstCol" md={4}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
-            <Col className={s.compareContent} xs={6}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
         </Row>
         <Row className="no-gutters">
-          <Col className={s.colLeft} md={3}>
-            <div className={s.colLeftContent}>
+          <Col className="colLeft" md={3}>
+            <div className="colLeftContent">
               App Support
             </div>
           </Col>
-          <Col className={`${s.colMid} row`} md={4}>
-            <Col className={s.compareContent} xs={6}>
+          <Col className="colMid row" md={4}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
             </Col>
-            <Col className={s.compareContent} xs={6}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
-          <Col className={s.colSpacer} md={1} />
-          <Col className={`${s.colRight} row`} md={4}>
-            <Col className={s.compareContent} xs={6}>
+          <Col className="colSpacer" md={1} />
+          <Col className="colRight row" md={4}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
             </Col>
-            <Col className={s.compareContent} xs={6}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
         </Row>
         <Row className="no-gutters">
-          <Col className={s.colLeft} md={3}>
-            <div className={s.colLeftContent}>
+          <Col className="colLeft" md={3}>
+            <div className="colLeftContent">
               Remote Control
             </div>
           </Col>
-          <Col className={`${s.colMid} row`} md={4}>
-            <Col className={s.compareContent} xs={6}>
+          <Col className="colMid row" md={4}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
             </Col>
-            <Col className={s.compareContent} xs={6}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
-          <Col className={s.colSpacer} md={1} />
-          <Col className={`${s.colRight} row`} md={4}>
-            <Col className={s.compareContent} xs={6}>
+          <Col className="colSpacer" md={1} />
+          <Col className="colRight row" md={4}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
             </Col>
-            <Col className={s.compareContent} xs={6}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
         </Row>
         <Row className="no-gutters">
-          <Col className={s.colLeft} md={3}>
-            <div className={s.colLeftContent}>
+          <Col className="colLeft" md={3}>
+            <div className="colLeftContent">
               $5/month Loyalty Credit
             </div>
           </Col>
-          <Col className={`${s.colMid} row`} md={4}>
-            <Col className={s.compareContent} xs={6}>
+          <Col className="colMid row" md={4}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
             </Col>
-            <Col className={s.compareContent} xs={6}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
-          <Col className={s.colSpacer} md={1} />
-          <Col className={`${s.colRight} row`} md={4}>
-            <Col className={s.compareContent} xs={6}>
+          <Col className="colSpacer" md={1} />
+          <Col className="colRight row" md={4}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
             </Col>
-            <Col className={s.compareContent} xs={6}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
             </Col>
           </Col>
         </Row>
         <Row className="no-gutters">
-          <Col className={s.colLeft} md={3}>
-            <div className={s.colLeftContent}>
+          <Col className="colLeft" md={3}>
+            <div className="colLeftContent">
               Warranty
             </div>
           </Col>
-          <Col className={`${s.colMid} row`} md={4}>
-            <Col className={s.compareContent} xs={6}>
+          <Col className="colMid row" md={4}>
+            <Col className="compareContent" xs={6}>
               <div>3 years</div>
             </Col>
-            <Col className={s.compareContent} xs={6}>
-              <div className={s.highlight}>Lifetime</div>
+            <Col className="compareContent" xs={6}>
+              <div className="highlight">Lifetime</div>
             </Col>
           </Col>
-          <Col className={s.colSpacer} md={1} />
-          <Col className={`${s.colRight} row`} md={4}>
-            <Col className={s.compareContent} xs={6}>
+          <Col className="colSpacer" md={1} />
+          <Col className="colRight row" md={4}>
+            <Col className="compareContent" xs={6}>
               <div>3 years</div>
             </Col>
-            <Col className={s.compareContent} xs={6}>
-              <div className={s.highlight}>
+            <Col className="compareContent" xs={6}>
+              <div className="highlight">
                 Lifetime
               </div>
             </Col>
           </Col>
         </Row>
         <Row className="no-gutters">
-          <Col className={s.colLeft} md={3}>
-            <div className={s.colLeftContent}>
+          <Col className="colLeft" md={3}>
+            <div className="colLeftContent">
               Live Voice Assistance
             </div>
           </Col>
-          <Col className={`${s.colMid} row`} md={4}>
-            <Col className={s.compareContent} xs={6}>
+          <Col className="colMid row" md={4}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
             </Col>
-            <Col className={s.compareContent} xs={6}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="check icon" />
             </Col>
           </Col>
-          <Col className={s.colSpacer} md={1} />
-          <Col className={`${s.colRight} row`} md={4}>
-            <Col className={s.compareContent} xs={6}>
+          <Col className="colSpacer" md={1} />
+          <Col className="colRight row" md={4}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
             </Col>
-            <Col className={s.compareContent} xs={6}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="check icon" />
             </Col>
           </Col>
         </Row>
         <Row className="no-gutters">
-          <Col className={`${s.colLeft} ${s.colLeftLast}`} md={3}>
-            <div className={s.colLeftContent}>
+          <Col className="colLeft colLeftLast" md={3}>
+            <div className="colLeftContent">
               Camera
             </div>
           </Col>
-          <Col className={`${s.colMid} row`} md={4}>
-            <Col className={s.compareContent} xs={6}>
+          <Col className="colMid row" md={4}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
             </Col>
-            <Col className={s.compareContent} xs={6}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="check icon" />
             </Col>
           </Col>
-          <Col className={s.colSpacer} md={1} />
-          <Col className={`${s.colRight} row`} md={4}>
-            <Col className={s.compareContent} xs={6}>
+          <Col className="colSpacer" md={1} />
+          <Col className="colRight row" md={4}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
             </Col>
-            <Col className={s.compareContent} xs={6}>
+            <Col className="compareContent" xs={6}>
               <img className="img-fluid" src="/static/images/check.svg" alt="check icon" />
             </Col>
           </Col>
@@ -260,8 +260,8 @@ class CoveClubFullsize extends Component {
         <Row className="no-gutters">
 
           <Col md={{ size: 4, offset: 3 }}>
-            <div className={s.coveClubTableFooter}>
-              <div className={s.selectionBox}>
+            <div className="coveClubTableFooter">
+              <div className="selectionBox">
                 <Row className="no-gutters">
                   <Col xs={{ size: 2, offset: 1 }}>
                     <div>
@@ -272,19 +272,19 @@ class CoveClubFullsize extends Component {
                       />
                     </div>
                   </Col>
-                  <Col className={s.optionLabel} xs={8}>
+                  <Col className="optionLabel" xs={8}>
                     Basic
                   </Col>
                 </Row>
                 <Row className="no-gutters">
                   <Col xs={{ size: 10, offset: 3 }}>
-                    <div className={s.highlight}>
+                    <div className="highlight">
                       $19.99/mo
                     </div>
                   </Col>
                 </Row>
               </div>
-              <div className={s.selectionBox}>
+              <div className="selectionBox">
                 <Row className="no-gutters">
                   <Col xs={{ size: 2, offset: 1 }}>
                     <div>
@@ -295,31 +295,31 @@ class CoveClubFullsize extends Component {
                       />
                     </div>
                   </Col>
-                  <Col className={s.optionLabel} xs={8}>
+                  <Col className="optionLabel" xs={8}>
                     Premium
                   </Col>
                 </Row>
                 <Row className="no-gutters">
                   <Col xs={{ size: 10, offset: 3 }}>
-                    <div className={s.highlight}>
+                    <div className="highlight">
                       $29.99/mo
                     </div>
                   </Col>
                 </Row>
               </div>
               <Row>
-                <Col className={s.financeOption} xs={{ size: 10, offset: 1 }}>
+                <Col className="financeOption" xs={{ size: 10, offset: 1 }}>
                   <Radio
                     clickHandler={() => this.toggleFinance()}
-                    label={[<span className={!coveClub ? s.disabled : ''}>Pay equipment in full</span>]}
+                    label={[<span className={!coveClub ? "disabled" : ''}>Pay equipment in full</span>]}
                     checked={!payment.finance}
                     disabled={!coveClub}
                   />
                 </Col>
-                <Col className={s.financeOption} xs={{ size: 10, offset: 1 }}>
+                <Col className="financeOption" xs={{ size: 10, offset: 1 }}>
                   <Radio
                     clickHandler={() => this.toggleFinance()}
-                    label={[<span className={!coveClub ? s.disabled : ''}>Finance equipment at<br /> 0% APR for 60 months</span>]}
+                    label={[<span className={!coveClub ? "disabled" : ''}>Finance equipment at<br /> 0% APR for 60 months</span>]}
                     checked={payment.finance}
                     disabled={!coveClub}
                   />
@@ -334,8 +334,8 @@ class CoveClubFullsize extends Component {
           </Col>
           <Col md={1} />
           <Col md={4}>
-            <div className={s.nonClubTableFooter}>
-              <div className={s.selectionBox}>
+            <div className="nonClubTableFooter">
+              <div className="selectionBox">
                 <Row className="no-gutters">
                   <Col xs={{ size: 2, offset: 1 }}>
                     <div>
@@ -346,19 +346,19 @@ class CoveClubFullsize extends Component {
                       />
                     </div>
                   </Col>
-                  <Col className={s.optionLabel} xs={8}>
+                  <Col className="optionLabel" xs={8}>
                     Basic
                   </Col>
                 </Row>
                 <Row className="no-gutters">
                   <Col xs={{ size: 10, offset: 3 }}>
-                    <div className={s.alert}>
+                    <div className="alert">
                       $19.99/mo
                     </div>
                   </Col>
                 </Row>
               </div>
-              <div className={s.selectionBox}>
+              <div className="selectionBox">
                 <Row className="no-gutters">
                   <Col xs={{ size: 2, offset: 1 }}>
                     <div>
@@ -369,13 +369,13 @@ class CoveClubFullsize extends Component {
                       />
                     </div>
                   </Col>
-                  <Col className={s.optionLabel} xs={8}>
+                  <Col className="optionLabel" xs={8}>
                     Premium
                   </Col>
                 </Row>
                 <Row className="no-gutters">
                   <Col xs={{ size: 10, offset: 3 }}>
-                    <div className={s.alert}>
+                    <div className="alert">
                       $29.99/mo
                     </div>
                   </Col>
@@ -389,6 +389,7 @@ class CoveClubFullsize extends Component {
             </div>
           </Col>
         </Row>
+        <style jsx global>{styles}</style>
       </Container>
     )
   }

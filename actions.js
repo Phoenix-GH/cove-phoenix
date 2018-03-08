@@ -1,12 +1,22 @@
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
-import thunkMiddleware from 'redux-thunk';
-import _ from 'lodash';
-import reducer from './reducers';
-import  types from './actionTypes';
-
-
 // ACTIONS
+import uuid from "uuid/v1";
+import _ from 'lodash';
+import types from './actionTypes';
+
+export const actionTypes = {
+  DATA_LOAD_SUCCESS: "DATA_LOAD_SUCCESS",
+
+  SAVE_MY_DATA: "SAVE_MY_DATA"
+};
+
+export const saveMyData = data => {
+  const id = uuid();
+  return {type: actionTypes.SAVE_MY_DATA, payload: {[id]: data}};
+};
+
+export const loadSuccess = () => {
+  return {type: actionTypes.DATA_LOAD_SUCCESS};
+};
 export const loadProducts = () => (dispatch, getState) => {
   if(_.isEmpty(getState().products)) {
     dispatch({ type: types.LOAD_PRODUCTS, products: coveProducts });
@@ -27,7 +37,6 @@ export const changeQuantity = (productId, previousQuantity, newQuantity) => (dis
 
 export const toggleFinance = () => dispatch => dispatch({ type: types.TOGGLE_FINANCE });
 export const selectSubscriptionType = subscription => dispatch => dispatch({ type: types.SELECT_SUBSCRIPTION_TYPE, subscription });
-export const initStore = (initialState = typeof window !== 'undefined' ? window.rootRedux : {}) => createStore(reducer, initialState, composeWithDevTools(applyMiddleware(thunkMiddleware)));
 
 
 /* temp test data */

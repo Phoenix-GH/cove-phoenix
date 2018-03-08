@@ -3,6 +3,13 @@
   border-bottom: 1px solid #F0F4F7;
   font-size: 14px;
   margin-top: 5px;
+  :global(.noPaddingLeft){
+    padding-left: 0px;
+
+  }
+  :global(.noPadding) {
+    padding: 0px;
+  }
 }
 .controlCol {
   padding-top: 8px;
@@ -25,13 +32,8 @@
   padding-right: 15px;
   font-weight: bold;
 }
-.noPadding {
-  padding: 0px;
-}
-.noPaddingLeft{
-  padding-left: 0px;
 
-}
+
 
 .price {
   font-weight: bold;
