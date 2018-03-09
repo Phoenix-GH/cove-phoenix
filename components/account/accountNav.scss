@@ -1,0 +1,34 @@
+@import './styles/variables';
+
+.accountNav {
+  background-color: #fff;
+}
+
+.navBtn__inner {
+  padding-left: 30px;
+  border-radius: 4px;
+  position: relative;
+}
+
+a.navBtn {
+  color: #404040;
+  font-family: "GothamRoundedBold";
+  font-size: 20px;
+  display: block;
+
+  &:hover {
+    text-decoration: none;
+  }
+
+  &.active .navBtn__inner::before {
+    content: '';
+    width: 12px;
+    background-color: $primary-color;
+    position: absolute;
+    display: block;
+    left: -10px;
+    top: -10px;
+    bottom: -10px;
+    border-radius: 4px;
+  }
+}
