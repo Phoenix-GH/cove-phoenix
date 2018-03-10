@@ -31,37 +31,37 @@ class CheckoutPage extends Component {
       <Layout>
         <Container>
           <Header color="secondary" />
-          <div className={s.spacer} />
+          <div className="spacer" />
           <Row>
             <Col xs={12} sm={12} md={8}>
-              <div className={s.checkoutStageRow}>
+              <div className="checkoutStageRow">
                 <Row>
-                  <div className={`${s.flexCol} ${activeStage === 'customer' ? s.activeStage : ''}`}>
+                  <div className={`flexCol ${activeStage === 'customer' ? 'activeStage' : ''}`}>
                     <Link href={{ pathname: '/checkout', query: { step: 1 } }}>
-                      <div className={`${s.checkoutStageOne} ${s.link}`}>
-                        1 <span className={s.stageLabel}>Customer Info</span>
-                        <div className={s.stageIndicator} />
+                      <div className="checkoutStageOne link">
+                        1 <span className="stageLabel">Customer Info</span>
+                        <div className="stageIndicator" />
                       </div>
                     </Link>
                   </div>
-                  <div className={`${s.flexCol} ${activeStage === 'shipping' ? s.activeStage : ''}`}>
+                  <div className={`flexCol ${activeStage === 'shipping' ? 'activeStage' : ''}`}>
                     <div className={`${s.checkoutStageTwo} ${s.link}`}>
-                      2 <span className={s.stageLabel}>Shipping Info</span>
-                      <div className={s.stageIndicator} />
+                      2 <span className="stageLabel">Shipping Info</span>
+                      <div className="stageIndicator" />
                     </div>
                   </div>
-                  <div className={`${s.flexCol} ${activeStage === 'payment' ? s.activeStage : ''}`}>
+                  <div className={`flexCol ${activeStage === 'payment' ? 'activeStage' : ''}`}>
                     <div className={`${s.checkoutStageThree} ${s.link}`}>
-                      3 <span className={s.stageLabel}>Payment Information</span>
-                      <div className={s.stageIndicator} />
+                      3 <span className="stageLabel">Payment Information</span>
+                      <div className="stageIndicator" />
                     </div>
                   </div>
                 </Row>
               </div>
-              <div className={s.shoppingCartBtnContainer}>
+              <div className="shoppingCartBtnContainer">
                 <Row>
                   <Col xs={12}>
-                    <div className={s.shoppingCartBtn}>
+                    <div className="shoppingCartBtn">
                       <Link href="/cart">
                         <Row>
                           <Col xs={10}>
@@ -76,24 +76,24 @@ class CheckoutPage extends Component {
                   </Col>
                 </Row>
               </div>
-              <div className={`${s.tab} ${activeStage === 'customer' ? s.activePage : ''}`}>
+              <div className={`tab ${activeStage === 'customer' ? 'activePage' : ''}`}>
                 <CustomerInfo />
               </div>
-              <div className={`${s.tab} ${activeStage === 'shipping' ? s.activePage : ''}`}>
+              <div className={`tab ${activeStage === 'shipping' ? 'activePage' : ''}`}>
                 <ShippingInfo />
               </div>
-              <div className={`${s.tab} ${activeStage === 'payment' ? s.activePage : ''}`}>
+              <div className={`tab ${activeStage === 'payment' ? 'activePage' : ''}`}>
                 <PaymentInfo />
               </div>
-              <div className={s.footerControls}>
+              <div className="footerControls">
                 <Row>
                   <Col xs={12} sm={12} md={8}>
                     <Link href="/products">
-                      <ul className={`list-inline ${s.returnToShop}`}>
+                      <ul className={`list-inline returnToShop`}>
                         <li className="list-inline-item align-top">
                           <img src="/static/images/arrowFullLeft.png" alt="arrow left" />
                         </li>
-                        <li className={`list-inline-item ${s.returnLink}`}>
+                        <li className={`list-inline-item returnLink`}>
                           Return to Shop
                         </li>
                       </ul>
@@ -101,7 +101,7 @@ class CheckoutPage extends Component {
                   </Col>
                   <Col xs={12} sm={12} md={4}>
                     <Link href={`/checkout${nextLink}`}>
-                      <div className={s.actionBtn}>
+                      <div className="actionBtn">
                         {nextLinkText}
                       </div>
                     </Link>
@@ -111,12 +111,13 @@ class CheckoutPage extends Component {
             </Col>
 
             <Col className="justify-content-end" md={4}>
-              <div className={s.checkoutSidebar}>
+              <div className="checkoutSidebar">
                 <CheckoutSidebar />
               </div>
             </Col>
           </Row>
         </Container>
+        <style jsx>{s}</style>
       </Layout>
     );
   }

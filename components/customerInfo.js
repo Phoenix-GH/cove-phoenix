@@ -4,7 +4,7 @@ import s from './customerInfo.scss';
 
 const CustomerInfo = () => (
   <div>
-    <div className={s.customerInfo}>
+    <div className="customerInfo">
       <h3>Customer Information</h3>
       <Row>
         <Col xs={12} sm={12} md={6}>
@@ -23,7 +23,7 @@ const CustomerInfo = () => (
         </Col>
       </Row>
     </div>
-    <div className={s.customerInfo}>
+    <div className="customerInfo">
       <h3>Monitoring Information</h3>
       <Row>
         <Col xs={12} sm={12} md={8}>
@@ -54,6 +54,7 @@ const CustomerInfo = () => (
         </Col>
       </Row>
     </div>
+    <style jsx>{s}</style>
   </div>
 );
 
