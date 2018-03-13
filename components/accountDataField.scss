@@ -1,8 +1,17 @@
-.label {
+.dataField {
+  margin-bottom: 14px;
 
-}
+  .content {
+    font-family: 'Gotham';
+  }
 
-.content {
-  font-family: GothamRoundedBook;
-  margin-bottom: 24px;
+  .edit {
+    float: right;
+    display: block;
+    cursor: pointer;
+
+    img {
+      height: 16px;
+    }
+  }
 }

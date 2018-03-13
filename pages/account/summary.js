@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import Link from 'next/link';
 
-import Header from '../../components/header';
-import Layout from '../../components/minimalLayout';
+import DashboardHeader from '../../components/dashboardHeader';
+import Layout from '../../components/account/accountLayout';
 import AccountDataField from '../../components/accountDataField';
 import AccountCard from '../../components/account/accountCard';
 import AccountNav from '../../components/account/accountNav';
@@ -14,13 +14,12 @@ export default class AccountPage extends Component {
   render() {
     return (
       <Layout>
+        <DashboardHeader />
         <Container>
-          <Header color="secondary" />
-
           <AccountCard className="card">
             <Row>
               <Col>
-                <h2 className="title">Summary</h2>
+                <h2 className="mb-md">Summary</h2>
               </Col>
             </Row>
             <Row>
@@ -31,38 +30,153 @@ export default class AccountPage extends Component {
                 <AccountCard>
                   <AccountGroup
                     title="Account/Alarm Info"
-                    subTitle="Manage account/alarm info"
+                    link="Manage account/alarm info"
+                    route="/account/info"
                   >
                     <div>
-                      <h3>Account Info</h3>
+                      <h4>Account Info</h4>
+                      <AccountDataField label="Email" content="jordan.h@covesmart.com" />
+                      <AccountDataField label="Password" content="**************" />
+                      <AccountDataField label="Phone" content="(801) 123-1234" />
+                      <AccountDataField label="Bill Date" content="21st of each month"/>
                     </div>
                     <div>
-                      <h3>Alarm Info</h3>
+                      <h4>Alarm Info</h4>
+                      <AccountDataField
+                        label="Monitored Address"
+                        content={
+                          <div>
+                            <div>1154 N 190 E</div>
+                            <div>Lehi, UT 84043</div>
+                          </div>
+                        }
+                      />
+                      <AccountDataField
+                        label="Emergency Contacts"
+                        content={
+                          <div>
+                            <div>Dallin Harmon</div>
+                            <div>208-384-9384</div>
+                          </div>
+                        }
+                      />
+                      <AccountDataField
+                        label="Add Equipment"
+                        content={
+                          <div>
+                            <div>Add doors</div>
+                            <div>Add motions</div>
+                          </div>
+                        }
+                      />
+                      <AccountDataField
+                        label="Add Equipment"
+                        content={
+                          <div>
+                            <div>Front Door</div>
+                            <div>Back Door</div>
+                          </div>
+                        }
+                      />
+                      <AccountDataField
+                        label="Alarm Permit"
+                        content="Alarm Permit Info"
+                      />
                     </div>
                   </AccountGroup>
                   <AccountGroup
                     title="Subscriptions/Agreements"
-                    subTitle="Manage subscriptions"
+                    link="Manage subscriptions"
+                    route="/account/subscriptions"
                   >
-                    <div>
-                      <div>Home</div>
-                      <div>Basic Monitoring: $19.99/mo</div>
-                      <div>Status: Current</div>
-                    </div>
-                    <div>
-                      <div>Finance Agreement</div>
-                      <div>Documents for Esign Agreement</div>
-                    </div>
+                    <AccountDataField
+                      label="Home"
+                      content={
+                        <div>
+                          <div>Basic Monitoring: $19.99/mo</div>
+                          <div>Status: Current</div>
+                        </div>
+                      }
+                    />
+                    <AccountDataField
+                      label="Finance Agreement"
+                      content="Documents for Esign Agreement"
+                    />
                   </AccountGroup>
                   <AccountGroup
                     title="Payment Methods"
-                    subTitle="Manage payments"
+                    link="Manage payments"
+                    route="/account/payment-methods"
                   >
-                    <div>
-                      <div>Primary</div>
-                      <div>Jordan Harmon</div>
-                      <div>Visa ending in 4567</div>
-                    </div>
+                    <AccountDataField
+                      label="Primary"
+                      content={
+                        <div>
+                          <div>Jordan Harmon</div>
+                          <div>Visa ending in 4567</div>
+                        </div>
+                      }
+                    />
+                  </AccountGroup>
+                  <AccountGroup
+                    title="Shipping Addresses"                  
+                    link="Manage shipping/monitored addresses"
+                    route="/account/shipping-addresses"
+                  >
+                    <AccountDataField
+                      label="Shipping Address"
+                      content={
+                        <div>
+                          1154 N 190 E<br/>Lehi, UT 84043
+                        </div>
+                      }
+                    />
+                    <AccountDataField
+                      label="Monitored Address"
+                      content={
+                        <div>
+                          1154 N 190 E<br/>Lehi, UT 84043
+                        </div>
+                      }
+                    />
+                  </AccountGroup>
+                  <AccountGroup
+                    title="Order history"                  
+                    link="See all order history"
+                    route="/account/order-history"
+                  >
+                    <AccountDataField
+                      label="Latest Order"
+                      content={
+                        <div>
+                          Order number: CV3873720494<br/>
+                          Status: Completed
+                        </div>
+                      }
+                    />
+                    <AccountDataField
+                      label="Monthly Monitoring and Monthly Equip. Pmt."
+                      content="Completed"
+                    />
+                  </AccountGroup>
+                  <AccountGroup
+                    title="Rewards"                  
+                    link="Manage rewards"
+                    route="/account/rewards"
+                  >
+                    <AccountDataField
+                      label="Friends Referred"
+                      content={
+                        <div>
+                          Dave Nilson<br/>
+                          Steven Gibson
+                        </div>
+                      }
+                    />
+                    <AccountDataField
+                      label="Loyalty Credit Earned"
+                      content="$50"
+                    />
                   </AccountGroup>
                 </AccountCard>
               </Col>
@@ -72,16 +186,6 @@ export default class AccountPage extends Component {
         <style jsx>{`
           .card {
             padding: 34px 24px;
-          }
-          .h3 {
-
-          }
-          .title {
-            font-family: 'GothamRoundedBold';
-            margin-bottom: 16px;
-          }
-          .account-group {
-            font-family: 'GothamRoundedBook'
           }
         `}</style>
       </Layout>

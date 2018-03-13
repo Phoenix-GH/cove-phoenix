@@ -19,25 +19,6 @@ class AccountPage extends Component {
       <Layout>
         <Container>
           <Header color="secondary" />
-
-          <AccountCard>
-            <Row>
-              <Col>
-                <h1 className="pageHeader">Summary</h1>
-              </Col>
-            </Row>
-            <Row>
-              <Col md={4}>
-                <AccountNav />
-              </Col>
-              <Col>
-                <AccountCard>
-                  content
-                </AccountCard>
-              </Col>
-            </Row>
-          </AccountCard>
-
           <div className="accountContainer">
             <Row>
               <Col>
