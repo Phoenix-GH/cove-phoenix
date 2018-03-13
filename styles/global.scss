@@ -1,5 +1,6 @@
 @import './utilities';
 @import './types';
+@import './buttons';
 
 body {
   font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
@@ -27,4 +28,8 @@ a, a:not([href]):not([tabindex]) {
     text-decoration: underline;
     color: $accent-color;
   }
+}
+
+input[type=checkbox] {
+  margin-right: $space-xs;
 }

@@ -76,3 +76,12 @@
 .pull-left {
   float: left !important;
 }
+
+
+.flex-col {
+  display: flex;
+
+  > * {
+    width: 100%;
+  }
+}

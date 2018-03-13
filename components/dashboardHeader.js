@@ -20,8 +20,8 @@ export default class DashboardHeader extends Component {
             <img className="dashboard-header__logo" src="/static/images/logoteal.png" height="32px" alt="Cove Logo" />
 
             <div className="dashboard-header__links">
-              { links.map(link => (
-                <div>
+              { links.map((link, i) => (
+                <div key={i}>
                   <a>{link.name}</a>
                 </div>
               ))}

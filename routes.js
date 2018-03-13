@@ -12,6 +12,8 @@ module.exports = () => {
     '/account': { page: '/account' },
     '/account/summary': { page: '/account/summary' },
     '/account/info': { page: '/account/info' },
+    '/account/info/notifications': { page: '/account/info/notifications' },
+    '/account/info/permitnumber': { page: '/account/info/permitNumber' },
     '/account/equipment': { page: '/equipment', query: {} },
     '/account/addequipment': { page: '/addequipment' },
     '/account/cancel': { page: '/cancelmembership' },

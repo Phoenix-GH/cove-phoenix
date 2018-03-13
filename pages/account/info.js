@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import Link from 'next/link';
 
-import Header from '../../components/header';
 import AccountDataField from '../../components/accountDataField';
 import Layout from '../../components/account/accountLayout';
 import AccountCard from '../../components/account/accountCard';
@@ -10,15 +9,7 @@ import AccountNav from '../../components/account/accountNav';
 import AccountGroup from '../../components/account/accountGroup';
 import DashboardHeader from '../../components/dashboardHeader';
 
-export default class AccountPage extends Component {
-
-  editAccount = (type) => {
-    console.log(type);
-  }
-
-  editAlarm = (type, id) => {
-    console.log(type, id);
-  }
+export default class Info extends Component {
 
   render() {
     return (
@@ -137,7 +128,7 @@ export default class AccountPage extends Component {
                         <a>Add user</a>
                       </div>
                       <div className="text-center">
-                        <a>
+                        <a href="/account/info/notifications">
                           <div>Manage Cove Notifications and Communications</div>
                         </a>
                       </div>
@@ -163,21 +154,13 @@ export default class AccountPage extends Component {
                     </Row>
                   </AccountGroup>
                   <div className="text-center">
-                    <button className="btn btn-primary btn-block">Add Equipment</button>
+                    <button className="btn btn--primary-inverse btn-block">Add Equipment</button>
                   </div>
                 </AccountCard>
               </Col>
             </Row>
           </AccountCard>
         </Container>
-        <style jsx>{`
-          .card {
-            padding: 34px 24px;
-          }
-          a {
-            font-size: 12px;
-          }
-        `}</style>
       </Layout>
     );
   }
