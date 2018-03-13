@@ -19,8 +19,23 @@ class CheckoutPage extends Component {
     return { stage: query.stage };
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      customerInfo: {},
+      shippingInfo: {},
+      paymentInfo: {},
+      account: {},
+    }
+    this.onChangeHandler = this.onChangeHandler.bind(this);
+  }
+  onChangeHandler(section, changeValue) {
+    console.log('onchange', section, changeValue)
+    this.setState({ [section]: { ...this.state[section], ...changeValue } });
+  }
+
   render() {
-    console.log('stage', this.props.stage)
+    console.log('stage', this.state)
     const activeStage = this.props.stage ? this.props.stage : 'customer';
     let nextLinkText = activeStage === 'payment' ? 'Complete Purchase' : 'Continue Shopping';
     let nextLink = '/shipping';
@@ -77,7 +92,7 @@ class CheckoutPage extends Component {
                 </Row>
               </div>
               <div className={`tab ${activeStage === 'customer' ? 'activePage' : ''}`}>
-                <CustomerInfo />
+                <CustomerInfo  onChangeHandler={this.onChangeHandler} fields={this.state.customerInfo} />
               </div>
               <div className={`tab ${activeStage === 'shipping' ? 'activePage' : ''}`}>
                 <ShippingInfo />

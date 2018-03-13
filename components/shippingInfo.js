@@ -22,6 +22,7 @@ class ShippingInfo extends Component {
     this.setState({
       differentAddress: !this.state.differentAddress,
     });
+    this.props.onChangeHandler('shippingAddress', { shipToMonitorAddress: !this.state.differentAddress });
   }
 
   toggleShipMethod(val) {
@@ -37,41 +38,46 @@ class ShippingInfo extends Component {
   }
 
   render() {
+    const { onChangeHandler } = this.props;
     return (
       <div>
         <div className="customerInfo">
           <h3>Shipping Information</h3>
           <div >
-            <Checkbox clickHandler={this.toggleShippingAddress} checked={this.state.differentAddress} label="Shipping info is different than Monitored Address." />
+            <Checkbox
+              clickHandler={this.toggleShippingAddress}
+              checked={this.state.differentAddress}
+              label="Shipping info is different than Monitored Address."
+            />
           </div>
           <Collapse isOpen={this.state.differentAddress}>
             <Row>
               <Col xs={12} sm={12} md={6}>
-                <Input label="First Name" />
+                <Input label="First Name" onChangeHandler={(changeValue) => { onChangeHandler('shippingAddress', { firstName: changeValue }); }} />
               </Col>
               <Col xs={12} sm={12} md={6}>
-                <Input label="Last Name" />
+                <Input label="Last Name" onChangeHandler={(changeValue) => { onChangeHandler('shippingAddress', { lastName: changeValue }); }} />
               </Col>
             </Row>
             <Row>
               <Col xs={12} sm={12} md={6}>
-                <Input label="Email Address" />
+                <Input label="Email Address" onChangeHandler={(changeValue) => { onChangeHandler('shippingAddress', { email: changeValue }); }} />
               </Col>
               <Col xs={12} sm={12} md={6}>
-                <Input label="Phone" />
+                <Input label="Phone" onChangeHandler={(changeValue) => { onChangeHandler('shippingAddress', { phone: changeValue }); }} />
               </Col>
             </Row>
             <Row>
               <Col xs={12} sm={12} md={8}>
-                <Input label="Ship To Address" />
+                <Input label="Ship To Address" onChangeHandler={(changeValue) => { onChangeHandler('shippingAddress', { line2: changeValue }); }} />
               </Col>
               <Col xs={6} sm={6} md={4}>
-                <Input label="Apt # or Unit #" />
+                <Input label="Apt # or Unit #" onChangeHandler={(changeValue) => { onChangeHandler('shippingAddress', { line3: changeValue }); }} />
               </Col>
             </Row>
             <Row>
               <Col xs={6} sm={6} md={4}>
-                <Input label="Postal Code" />
+                <Input label="Postal Code" onChangeHandler={(changeValue) => { onChangeHandler('shippingAddress', { postal: changeValue }); }} />
               </Col>
             </Row>
           </Collapse>
