@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import Router from 'next/router';
 import { Container, Row, Col } from 'reactstrap';
-import Link from 'next/link';
 
 import AccountDataField from '../../components/accountDataField';
 import Layout from '../../components/account/accountLayout';
@@ -90,7 +90,7 @@ export default class Info extends Component {
                       <AccountDataField
                         label="Alarm Permit Number:"
                         content="#3857484"
-                        edit={() => this.editAlarm('permitNumber')}
+                        edit={() => Router.push('/account/info/permitnumber')}
                       />
                       <AccountDataField
                         label="Alarm Insurance Certificate:"

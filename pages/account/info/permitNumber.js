@@ -1,25 +1,29 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import Link from 'next/link';
+import Router from 'next/router';
 
-import AccountDataField from '../../../components/accountDataField';
 import Layout from '../../../components/account/accountLayout';
 import AccountCard from '../../../components/account/accountCard';
 import AccountNav from '../../../components/account/accountNav';
-import AccountGroup from '../../../components/account/accountGroup';
 import DashboardHeader from '../../../components/dashboardHeader';
+import AccountCardMessage from '../../../components/account/accountCardMessage';
 
 export default class PermitNumber extends Component {
-
-  editAccount = (type) => {
-    console.log(type);
+  state = {
+    type: 'edit', // edit | message
   }
 
-  editAlarm = (type, id) => {
-    console.log(type, id);
+  changeType = (type) => {
+    this.setState(() => ({ type }));
+  }
+
+  save = () => {
+    // save stuff then change type
+    this.changeType('message');
   }
 
   render() {
+    const { type } = this.state;
     return (
       <Layout>
         <DashboardHeader />
@@ -32,18 +36,40 @@ export default class PermitNumber extends Component {
             </Row>
             <Row>
               <Col md={4}>
-                <AccountNav pathname={this.props.url.pathname} />
+                <AccountNav />
               </Col>
               <Col>
                 <AccountCard>
-                  <h4 className="text-center mb-lg">Change Permit Number</h4>
-                  <div className="mb-lg text-center">
-                    <input type="text" className="form-control"/>
-                  </div>
-                  <div className="text-right">
-                    <button className="btn btn--white">Cancel</button>
-                    <button className="btn btn--primary ml-sm">Update Notifications</button>
-                  </div>
+                  {type === 'edit' ?
+                    <div>
+                      <h4 className="text-center mb-lg">Change Permit Number</h4>
+                      <div className="mb-lg text-center">
+                        <input type="text" className="form-control" />
+                      </div>
+                      <div className="text-right">
+                        <button
+                          className="btn btn--white"
+                          onClick={() => Router.push('/account/info')}
+                        >
+                          Cancel
+                        </button>
+                        <button
+                          className="btn btn--primary ml-sm"
+                          onClick={this.save}
+                        >
+                          Update Alarm Permit
+                        </button>
+                      </div>
+                    </div>
+                  : ''}
+
+                  {type === 'message' ?
+                    <AccountCardMessage
+                      title="Alarm Permit Number Updated"
+                      description="You have successfully updated your alarm number"
+                      action={() => this.changeType('edit')}
+                    />
+                  : ''}
                 </AccountCard>
               </Col>
             </Row>

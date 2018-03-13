@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { string } from 'prop-types';
-import { Link } from 'next-routes';
 
 import AccountCard from './accountCard';
 import s from './accountNav.scss';
@@ -12,7 +11,7 @@ const navigation = [
   { name: 'Payment Methods',    route: '/account/payment-methods' },
   { name: 'Shipping Addresses', route: '/account/shipping-addresses' },
   { name: 'Order History',      route: '/account/order-history' },
-  { name: 'Rewards',            route: '/account/rewards' },  
+  { name: 'Rewards',            route: '/account/rewards' },
 ];
 
 export default class AccountNav extends Component {

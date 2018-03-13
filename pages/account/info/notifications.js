@@ -1,18 +1,23 @@
 import React, { Component } from 'react';
-import Router from 'next/router';
+import { object } from 'prop-types';
 import { Container, Row, Col } from 'reactstrap';
-import Link from 'next/link';
 
-import AccountDataField from '../../../components/accountDataField';
 import Layout from '../../../components/account/accountLayout';
 import AccountCard from '../../../components/account/accountCard';
 import AccountNav from '../../../components/account/accountNav';
-import AccountGroup from '../../../components/account/accountGroup';
 import DashboardHeader from '../../../components/dashboardHeader';
 import EditNotifications from '../../../components/account/editNotifications';
 import CustomizeAlarmEvents from '../../../components/account/customizeAlarmEvents';
+import AccountCardMessage from '../../../components/account/accountCardMessage';
 
 export default class Notifications extends Component {
+  static propTypes = {
+    url: object,
+  }
+
+  static defaultProps = {
+    url: {},
+  }
 
   state = {
     type: 'edit', // edit | customize | messageNotifications | messageEvents
@@ -42,45 +47,36 @@ export default class Notifications extends Component {
                 <AccountCard>
 
                   {/* EDIT */}
-                  {type==='edit' ?
-                  <EditNotifications
-                    changeType={this.changeType}
-                  />
-                :''}
+                  {type === 'edit' ?
+                    <EditNotifications
+                      changeType={this.changeType}
+                    />
+                  : ''}
 
-                {/* CUSTOMIZE */}
-                {type==='customize' ?
-                  <CustomizeAlarmEvents
-                    changeType={this.changeType}
-                  />
-                :''}
+                  {/* CUSTOMIZE */}
+                  { type === 'customize' ?
+                    <CustomizeAlarmEvents
+                      changeType={this.changeType}
+                    />
+                  : ''}
 
-                {/* MESSAGE UPDATED */}
-                {type==='messageEvents' || type==='messageNotifications' ?
-                  <div>
-                    <div className="pb-lg text-center">
-                      {type==='messageEvents'?
-                        <div>
-                          <h5>Alarm Events Updated</h5>
-                          <div>You have successfully updated your alarm event settings.</div>
-                        </div>
-                      :
-                        <div>
-                          <h5>Notifications/Communications Updated</h5>
-                          <div>You have successfully updated your alarm notifications.</div>
-                        </div>
-                      }
-                    </div>
-                    <div className="text-right">
-                      <button
-                        className="btn btn--primary ml-sm"
-                        onClick={() => this.changeType('edit')}
-                      >
-                        Go Back
-                      </button>
-                    </div>
-                  </div>
-                :''}
+                  {/* EVENTS UPDATED */}
+                  {type === 'messageEvents' ?
+                    <AccountCardMessage
+                      title="Alarm Events Updated"
+                      description="You have successfully updated your alarm event settings."
+                      action={() => this.changeType('edit')}
+                    />
+                  : ''}
+
+                  {/* NOTIFICATIONS UPDATED */}
+                  {type === 'messageNotifications' ?
+                    <AccountCardMessage
+                      title="Notifications/Communications Updated"
+                      description="You have successfully updated your alarm notifications."
+                      action={() => this.changeType('edit')}
+                    />
+                  : ''}
                 </AccountCard>
               </Col>
             </Row>
