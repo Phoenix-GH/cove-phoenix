@@ -36,7 +36,7 @@
   },
   "license": "ISC",
   "devDependencies": {
-    "babel-eslint": "^8.2.1",
+    "babel-eslint": "^8.2.2",
     "babel-plugin-css-modules-transform": "^1.4.0",
     "eslint": "^4.16.0",
     "eslint-config-airbnb": "^16.1.0",

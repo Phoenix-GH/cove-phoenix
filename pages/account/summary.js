@@ -183,11 +183,6 @@ export default class AccountPage extends Component {
             </Row>
           </AccountCard>
         </Container>
-        <style jsx>{`
-          .card {
-            padding: 34px 24px;
-          }
-        `}</style>
       </Layout>
     );
   }
