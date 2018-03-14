@@ -118,10 +118,7 @@
   }
 }
 
-:global {
-  .customerInfo {
-    .coveInput {
-      margin-top: 40px;
-    }
-  }
+
+  :global(.customerInfo .coveInput) {
+    margin-top: 40px;
 }
