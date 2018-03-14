@@ -5,7 +5,7 @@ import s from './paymentInfo.scss';
 
 const PaymentInfo = () => (
   <div>
-    <div className={s.customerInfo}>
+    <div className="customerInfo">
       <h3>Payment Selection</h3>
       <Row className="justify-content-between">
         <Col xs="3">
@@ -34,7 +34,7 @@ const PaymentInfo = () => (
       </Row>
       <Row>
         <Col xs={1}>
-          <div className={s.termsCheckbox}>
+          <div className="termsCheckbox">
             <Checkbox />
           </div>
         </Col>
@@ -42,24 +42,25 @@ const PaymentInfo = () => (
           <Input label="Full Name" />
         </Col>
         <Col xs={12}>
-          <div className={s.financeAgreement}>
+          <div className="financeAgreement">
             To accept terms of
-            <span className={s.linkTertiary}>Financing Agreement </span>
+            <span className="linkTertiary">Financing Agreement </span>
             please type full name below and click accept
           </div>
         </Col>
         <Col xs={1}>
-          <div className={s.termsCheckbox}>
+          <div className="termsCheckbox">
             <Checkbox />
           </div>
         </Col>
         <Col xs={11}>
-          <div className={s.acceptance}>
-            I accept the <span className={s.linkTertiary}> Terms and Conditons</span>
+          <div className="acceptance">
+            I accept the <span className="linkTertiary"> Terms and Conditons</span>
           </div>
         </Col>
       </Row>
     </div>
+    <style jsx>{s}</style>
   </div>
 );
 

@@ -6,6 +6,7 @@ class Input extends Component {
     super(props);
     this.state = {
       active: false,
+      val: null,
     };
     this.toggle = this.toggle.bind(this);
   }
@@ -17,11 +18,12 @@ class Input extends Component {
   render() {
     const { props } = this;
     return (
-      <div className={s.inputBlock}>
-        <div onFocus={this.toggle} onBlur={this.toggle} className={`${s.coveInput} coveInput ${this.state.active ? 'activeInput' : ''}`}>
-          <input type={props.type || 'text'} placeholder={props.placeholder} />
+      <div className="inputBlock">
+        <div onFocus={this.toggle} onBlur={this.toggle} className={`coveInput ${this.state.active ? 'activeInput' : ''}`}>
+          <input type={props.type || 'text'} placeholder={props.placeholder} onChange={(e) => { props.onChangeHandler(e.target.value); }} />
         </div>
-        <div className={s.inputLabel}>{props.label}</div>
+        <div className="inputLabel">{props.label}</div>
+        <style jsx>{s}</style>
       </div>
     );
   }
