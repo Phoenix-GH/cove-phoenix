@@ -33,24 +33,24 @@ export default class Info extends Component {
                       <AccountDataField
                         label="Email:"
                         content="jordan.h@covesmart.com"
-                        edit={() => this.editAccount('email')}
+                        edit={() => Router.push('/account/info/email')}
                       />
                       <AccountDataField
                         label="Password:"
                         content="**************"
-                        edit={() => this.editAccount('password')}
+                        edit={() => Router.push('/account/info/password')}
                       />
                     </div>
                     <div>
                       <AccountDataField
                         label="Phone:"
                         content="385-208-2877"
-                        edit={() => this.editAccount('phone')}
+                        edit={() => Router.push('/account/info/phone')}
                       />
                       <AccountDataField
                         label="Bill Date:"
                         content="21st of each month"
-                        edit={() => this.editAccount('billDate')}
+                        edit={() => Router.push('/account/info/billDate')}
                       />
                     </div>
                   </AccountGroup>

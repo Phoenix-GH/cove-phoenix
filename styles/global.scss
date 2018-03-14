@@ -30,6 +30,12 @@ a, a:not([href]):not([tabindex]) {
   }
 }
 
+input {
+  font-family: 'Gotham';
+  font-weight: 500;
+  font-size: 14px;
+}
+
 input[type=checkbox] {
   margin-right: $space-xs;
 }
