@@ -8,6 +8,8 @@ import Input from '../components/input';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
 import AccountDataField from '../components/accountDataField';
+import AccountCard from '../components/account/accountCard';
+import AccountNav from '../components/account/accountNav';
 import s from './account.scss';
 
 class AccountPage extends Component {
@@ -17,20 +19,20 @@ class AccountPage extends Component {
       <Layout>
         <Container>
           <Header color="secondary" />
-          <div className={s.accountContainer}>
+          <div className="accountContainer">
             <Row>
               <Col>
-                <h1 className={s.pageHeader}>Account</h1>
+                <h1 className="pageHeader">Account thing</h1>
               </Col>
             </Row>
             <Row>
               <Col md={4}>
                 <h3>Membership and Billing</h3>
-                <div className={`${s.actionBtn} ${s.firstBtn}`}>
+                <div className="actionBtn firstBtn">
                   Change Membership
                 </div>
                 <Link href="/account/cancel">
-                  <div className={s.actionBtn}>
+                  <div className="actionBtn">
                     Cancel Membership
                   </div>
                 </Link>
@@ -212,6 +214,7 @@ class AccountPage extends Component {
             </Row>
           </div>
         </Container>
+        <style jsx>{s}</style>
       </Layout>
     );
   }

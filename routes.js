@@ -10,6 +10,8 @@ module.exports = () => {
     '/cart': { page: '/cart' },
     '/coveclub': { page: '/coveclub' },
     '/account': { page: '/account' },
+    '/account/summary': { page: '/account/summary' },
+    '/account/info': { page: '/account/info' },
     '/account/equipment': { page: '/equipment', query: {} },
     '/account/addequipment': { page: '/addequipment' },
     '/account/cancel': { page: '/cancelmembership' },
