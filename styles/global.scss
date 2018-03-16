@@ -1,3 +1,4 @@
+@import './variables';
 @import './utilities';
 @import './types';
 @import './buttons';
@@ -7,12 +8,12 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Gotham';
+  font-family: $font-gotham-rounded;
   font-weight: 700;
 }
 
 label {
-  font-family: 'Gotham';
+  font-family: $font-gotham-rounded;
   font-weight: 700;
   font-size: 14px;
   margin-bottom: 0;
@@ -21,7 +22,7 @@ label {
 a, a:not([href]):not([tabindex]) {
   cursor: pointer;
   color: $accent-color;
-  font-family: 'Gotham';
+  font-family: $font-gotham-rounded;
   font-weight: 700;
 
   &:hover {
@@ -30,8 +31,12 @@ a, a:not([href]):not([tabindex]) {
   }
 }
 
+p {
+  font-family: $font-gotham-rounded;
+}
+
 input {
-  font-family: 'Gotham';
+  font-family: $font-gotham-rounded;
   font-weight: 500;
   font-size: 14px;
 }

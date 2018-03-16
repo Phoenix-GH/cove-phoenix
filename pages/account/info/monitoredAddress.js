@@ -8,7 +8,7 @@ import AccountNav from '../../../components/account/accountNav';
 import DashboardHeader from '../../../components/dashboardHeader';
 import AccountCardMessage from '../../../components/account/accountCardMessage';
 
-export default class AccountInfoEmail extends Component {
+export default class AccountInfoMonitoredAddress extends Component {
   state = {
     type: 'edit', // edit | message
   }
@@ -42,13 +42,42 @@ export default class AccountInfoEmail extends Component {
                 <AccountCard>
                   {type === 'edit' ?
                     <div>
-                      <h4 className="text-center mb-lg">Change Email</h4>
-                      <div className="mb-lg text-center">
-                        <div className="form-group">
-                          <input type="text" className="form-control" placeholder="New Email" />
+                      <h4 className="text-center mb-lg">Change Monitored Address</h4>
+                      <div className="mb-lg">
+                        <label>Current monitored address</label>
+                        <p>
+                          1154 N 190 E<br />
+                          Lehi, UT 84043
+                        </p>
+                        <div className="mb-xs">
+                          <label>Enter new monitored address:</label>
+                        </div>
+                        <div className="form-group mb-lg">
+                          <Row className="mb-sm">
+                            <Col xs="8">
+                              <input type="text" className="form-control" placeholder="Address" />
+                            </Col>
+                            <Col xs="4">
+                              <input type="text" className="form-control" placeholder="Apt/Suite #" />
+                            </Col>
+                          </Row>
+                          <Row className="mb-sm">
+                            <Col>
+                              <input type="text" className="form-control" placeholder="City" />
+                            </Col>
+                            <Col>
+                              <input type="text" className="form-control" placeholder="State" />
+                            </Col>
+                            <Col>
+                              <input type="text" className="form-control" placeholder="Zipcode" />
+                            </Col>
+                          </Row>
                         </div>
                         <div className="form-group">
-                          <input type="text" className="form-control" placeholder="Password" />
+                          <input type="password" className="form-control" placeholder="Password" />
+                        </div>
+                        <div className="text-left">
+                          <a>Forgot Password</a>
                         </div>
                       </div>
                       <div className="text-right">
@@ -62,19 +91,19 @@ export default class AccountInfoEmail extends Component {
                           className="btn btn--primary ml-sm"
                           onClick={this.save}
                         >
-                          Update Email Address
+                          Update Monitored Address
                         </button>
                       </div>
                     </div>
-                  : ''}
+                    : ''}
 
                   {type === 'message' ?
                     <AccountCardMessage
-                      title="Email Updated"
-                      description={`Your email address has been updated to ${'some@email.com'}.`}
+                      title="Monitored Address Updated"
+                      description="You have successfully updated your monitored address."
                       action={() => Router.push('/account/info')}
                     />
-                  : ''}
+                    : ''}
                 </AccountCard>
               </Col>
             </Row>

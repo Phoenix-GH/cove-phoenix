@@ -8,7 +8,7 @@ import AccountNav from '../../../components/account/accountNav';
 import DashboardHeader from '../../../components/dashboardHeader';
 import AccountCardMessage from '../../../components/account/accountCardMessage';
 
-export default class PermitNumber extends Component {
+export default class AccountInfoPrimaryPhone extends Component {
   state = {
     type: 'edit', // edit | message
   }
@@ -42,9 +42,17 @@ export default class PermitNumber extends Component {
                 <AccountCard>
                   {type === 'edit' ?
                     <div>
-                      <h4 className="text-center mb-lg">Change Permit Number</h4>
+                      <h4 className="text-center mb-lg">Change Primary Phone</h4>
                       <div className="mb-lg text-center">
-                        <input type="text" className="form-control" placeholder="New Alarm Permit Number" />
+                        <div className="form-group">
+                          <input type="text" className="form-control" placeholder="New Primary Phone Number" />
+                        </div>
+                        <div className="form-group">
+                          <input type="text" className="form-control" placeholder="Password" />
+                        </div>
+                        <div className="text-left">
+                          <a>Forgot Password</a>
+                        </div>
                       </div>
                       <div className="text-right">
                         <button
@@ -57,7 +65,7 @@ export default class PermitNumber extends Component {
                           className="btn btn--primary ml-sm"
                           onClick={this.save}
                         >
-                          Update Alarm Permit
+                          Update Primary Phone Number
                         </button>
                       </div>
                     </div>
@@ -65,8 +73,8 @@ export default class PermitNumber extends Component {
 
                   {type === 'message' ?
                     <AccountCardMessage
-                      title="Alarm Permit Number Updated"
-                      description="You have successfully updated your alarm number"
+                      title="Primary Phone Updated"
+                      description={`Your primary phone number has been successfully updated to ${'385-555-5555'}.`}
                       action={() => Router.push('/account/info')}
                     />
                   : ''}

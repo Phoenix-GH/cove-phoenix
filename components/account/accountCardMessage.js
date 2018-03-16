@@ -11,7 +11,7 @@ export default class AccountCardMessage extends Component {
 
   static defaultProps = {
     action: false,
-    actionTitle: 'Go Back',
+    actionTitle: 'Okay',
   }
 
   render() {

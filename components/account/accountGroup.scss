@@ -7,14 +7,14 @@
   border-radius: 6px;
 
   .account-group__title {
-    font-family: 'Gotham';
+    font-family: $font-gotham-rounded;
     font-weight: 700;
     font-size: 24px;
     line-height: 1.8rem;
   }
 
   .account-group__sub-title {
-    font-family: 'Gotham';
+    font-family: $font-gotham-rounded;
     font-weight: 700;
     font-size: 16px;
     color: $accent-color;

@@ -85,7 +85,7 @@ export default class AccountInfoBillDate extends Component {
                     <AccountCardMessage
                       title="Bill Date Updated"
                       description="You have successfully updated your bill date."
-                      action={() => this.changeType('edit')}
+                      action={() => Router.push('/account/info')}
                     />
                   : ''}
                 </AccountCard>

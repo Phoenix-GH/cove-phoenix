@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { object } from 'prop-types';
 import Router from 'next/router';
 import { Container, Row, Col } from 'reactstrap';
 
@@ -10,6 +11,13 @@ import AccountGroup from '../../components/account/accountGroup';
 import DashboardHeader from '../../components/dashboardHeader';
 
 export default class Info extends Component {
+  static propTypes = {
+    url: object,
+  }
+
+  static defaultProps = {
+    url: {},
+  }
 
   render() {
     return (
@@ -33,24 +41,24 @@ export default class Info extends Component {
                       <AccountDataField
                         label="Email:"
                         content="jordan.h@covesmart.com"
-                        edit={() => Router.push('/account/info/email')}
+                        edit="/account/info/email"
                       />
                       <AccountDataField
                         label="Password:"
                         content="**************"
-                        edit={() => Router.push('/account/info/password')}
+                        edit="/account/info/password"
                       />
                     </div>
                     <div>
                       <AccountDataField
                         label="Phone:"
                         content="385-208-2877"
-                        edit={() => Router.push('/account/info/phone')}
+                        edit="/account/info/phone"
                       />
                       <AccountDataField
                         label="Bill Date:"
                         content="21st of each month"
-                        edit={() => Router.push('/account/info/billDate')}
+                        edit="/account/info/billdate"
                       />
                     </div>
                   </AccountGroup>
@@ -64,15 +72,15 @@ export default class Info extends Component {
                             <div>Lehi, UT 84043</div>
                           </div>
                         }
-                        edit={() => this.editAlarm('monitoredAddress')}
+                        edit="/account/info/monitoredaddress"
                       />
                       <label>Emergency Contacts:</label>
                       <AccountDataField
                         edit={() => this.editAlarm('contact', 'id')}
                         content={
                           <div>
-                            Emergency Contact 1:<br/>
-                            Dallin Harmon<br/>
+                            Emergency Contact 1:<br />
+                            Dallin Harmon<br />
                             208-384-9384
                           </div>
                         }
@@ -81,12 +89,15 @@ export default class Info extends Component {
                         edit={() => this.editAlarm('contact', 'id')}
                         content={
                           <div>
-                            Emergency Contact 2:<br/>
-                            Dallin Harmon<br/>
+                            Emergency Contact 2:<br />
+                            Dallin Harmon<br />
                             208-384-9384
                           </div>
                         }
                       />
+                      <div className="mb-sm">
+                        <a href="/account/info/addemergencycontact">Add Emergency Contact</a>
+                      </div>
                       <AccountDataField
                         label="Alarm Permit Number:"
                         content="#3857484"
@@ -102,12 +113,12 @@ export default class Info extends Component {
                       <AccountDataField
                         label="Primary Phone:"
                         content="385-208-2877"
-                        edit={() => this.editAlarm('primaryPhone')}
+                        edit="/account/info/primaryphone"
                       />
                       <AccountDataField
                         label="Secondary Phone:"
                         content="385-208-2877"
-                        edit={() => this.editAlarm('secondaryPhone')}
+                        edit="/account/info/secondaryphone"
                       />
                       <AccountDataField
                         label="Mastercode:"

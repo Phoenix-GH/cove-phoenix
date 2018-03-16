@@ -72,7 +72,7 @@ export default class AccountInfoPhone extends Component {
                     <AccountCardMessage
                       title="Phone Updated"
                       description={`Your phone number has been successfully updated to ${'385-555-5555'}.`}
-                      action={() => this.changeType('edit')}
+                      action={() => Router.push('/account/info')}
                     />
                   : ''}
                 </AccountCard>

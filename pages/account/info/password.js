@@ -78,7 +78,7 @@ export default class AccountInfoPassword extends Component {
                     <AccountCardMessage
                       title="Password Updated"
                       description="You have successfully updated your password."
-                      action={() => this.changeType('edit')}
+                      action={() => Router.push('/account/info')}
                     />
                   : ''}
                 </AccountCard>
