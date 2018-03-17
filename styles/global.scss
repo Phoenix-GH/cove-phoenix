@@ -1,13 +1,15 @@
-@import './variables';
-@import './utilities';
-@import './types';
-@import './buttons';
+@import 'variables';
+@import 'utilities';
+@import 'types';
+@import 'buttons';
+@import 'components/list';
 
 body {
   font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: $font-gotham-rounded;
   font-weight: 700;
 }

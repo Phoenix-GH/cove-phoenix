@@ -1,7 +1,7 @@
 @import './variables';
 
 .equipment-list-item {
-  border: solid 1px $grey-50;
+  border: solid 1px $grey-100;
   display: flex;
   align-items: center;
   position: relative;
@@ -13,37 +13,22 @@
   display: flex;
   height: 84px;
   align-items: center;
-  border-left: solid 1px $grey-50;
+  border-left: solid 1px $grey-100;
   padding: 0 $space-md;
-
-  button {
-    width: 24px;
-    height: 24px;
-    border: solid 1px $secondary-color;
-    border-radius: 24px;
-    padding: 0;
-    text-align: center;
-    fill: $secondary-color;
-    background-color: transparent;
-
-    &:hover {
-      background-color: $secondary-color;
-      fill: #fff;
-    }
-
-    &.disabled, &.disabled.hover {
-      background-color: transparent;
-      fill: $secondary-color;
-      opacity: .4;
-      cursor: default;
-    }
-  }
 
   > div:nth-child(2) {
     width: 40px;
     text-align: center;
     font-weight: bold;
   }
+}
+
+.equipment-list-item__img {
+  width: 112px;
+  height: 84px;
+  background-color: $grey-50;
+  background-position: center;
+  background-size: contain;
 }
 
 .equipment-list-item__name {

@@ -26,7 +26,7 @@
 .pb-lg          { padding-bottom: $space-lg !important; }
 .pb-xl          { padding-bottom: $space-xl !important; }
 .p-none         { padding: 0 !important; }
-.p-xs          { padding: $space-xs !important; }
+.p-xs           { padding: $space-xs !important; }
 .p-sm           { padding: $space-sm !important; }
 .p-md           { padding: $space-md !important; }
 .p-lg           { padding: $space-lg !important; }
@@ -59,12 +59,15 @@
 .mb-lg          { margin-bottom: $space-lg !important; }
 .mb-xl          { margin-bottom: $space-xl !important; }
 .m-none         { margin: 0 !important; }
-.m-xs          { margin: $space-xs !important; }
+.m-xs           { margin: $space-xs !important; }
 .m-sm           { margin: $space-sm !important; }
 .m-md           { margin: $space-md !important; }
 .m-lg           { margin: $space-lg !important; }
 .m-xl           { margin: $space-xl !important; }
 
+
+.font-gotham-rounded  { font-family: $font-gotham-rounded !important; }
+.font-open-sans       { font-family: $font-open-sans !important; }
 
 
 .text-right {

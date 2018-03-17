@@ -1,27 +1,34 @@
-import { number, func, string } from 'prop-types';
+import React from 'react';
+import { number, object, func, string } from 'prop-types';
 
 import Icon from './elements/icon';
 import s from './equipmentListItem.scss';
 
 const EquipmentListItem = (props) => {
-  const thumbSrc = props.thumbSrc ? props.thumbSrc : '/static/images/placeholderThumbSquare.png';
-  const product = {};
-  const quantity = props.quantity || 0;
+  const {
+    thumbSrc,
+    product,
+    changeQuantity,
+    quantity,
+  } = props;
   return (
     <div className="equipment-list-item">
-      <div>
-        <img src={thumbSrc} />
+      <div className="equipment-list-item__img">
+        {thumbSrc ?
+          <img src={thumbSrc} alt={product.name} />
+        : ''}
       </div>
       <div className="equipment-list-item__name">
-        Door Sensors
+        {product.name}
       </div>
       <div className="equipment-list-item__owned">
-        2
+        {product.quantity}
       </div>
       <div className="equipment-list-item__quantity">
         <div>
           <button
-            className={`list-inline-item ${quantity === 0 ? 'disabled' : ''}`}
+            className="btn btn--circle-icon"
+            disabled={quantity === 0}
             onClick={() => props.changeQuantity(product.id, quantity, quantity - 1)}
           >
             <Icon name="minus" size={12} />
@@ -32,7 +39,7 @@ const EquipmentListItem = (props) => {
         </div>
         <div>
           <button
-            className="list-inline-item"
+            className="btn btn--circle-icon"
             onClick={() => props.changeQuantity(product.id, quantity, quantity + 1)}
           >
             <Icon name="plus" size={12} />
@@ -47,11 +54,13 @@ const EquipmentListItem = (props) => {
 EquipmentListItem.propTypes = {
   changeQuantity: func.isRequired,
   quantity: number.isRequired,
+  product: object,
   thumbSrc: string,
 };
 
 EquipmentListItem.defaultProps = {
   thumbSrc: '',
+  product: {},
 };
 
 export default EquipmentListItem;

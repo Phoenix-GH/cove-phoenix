@@ -2,9 +2,15 @@
 
 .account-group {
   border: solid 1px $primary-color;
-  margin-bottom: 24px;
-  padding: 24px;
+  padding: 0 $space-md;
+  margin-bottom: $space-md;
   border-radius: 6px;
+
+  .account-group__title-group {
+    padding-top: $space-sm;
+    padding-bottom: $space-sm;
+    border-bottom: solid 1px $grey-300;
+  }
 
   .account-group__title {
     font-family: $font-gotham-rounded;
@@ -18,22 +24,20 @@
     font-weight: 700;
     font-size: 16px;
     color: $accent-color;
-    margin-bottom: 14px;
     display: block;
   }
 
   .account-group__content {
-    border-top: solid 1px #d3d3d3;
-
     > div {
-      padding-top: 14px;
-      padding-bottom: 10px;
+      padding-top: $space-md;
+      padding-bottom: $space-md;
     }
   }
 
   &.account-group--dual {
     .account-group__content {
       display: flex;
+      margin-bottom: $space-md;
 
       > div {
         flex-grow: 1;
@@ -41,7 +45,7 @@
       }
 
       > div:first-child {
-        border-right: solid 1px #d3d3d3;
+        border-right: solid 1px $grey-300;
         padding-right: 20px;
       }
 

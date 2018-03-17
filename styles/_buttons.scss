@@ -10,6 +10,8 @@
   text-transform: uppercase;
 }
 
+
+// PRIMARY
 .btn--primary {
   background-color: $primary-color;
   color: #fff;
@@ -19,6 +21,7 @@
   }
 }
 
+// PRIMARY INVERSE
 .btn--primary-inverse {
   background-color: transparent;
   border: solid 2px $primary-color;
@@ -30,8 +33,42 @@
   }
 }
 
+// WHITE
 .btn--white {
   &:hover {
     background-color: darken(#fff, 10%);
+  }
+}
+
+
+
+// CIRCLE ICON BUTTON
+.btn--circle-icon {
+  width: 24px;
+  height: 24px;
+  border: solid 1px $secondary-color;
+  border-radius: 24px;
+  padding: 0;
+  text-align: center;
+  fill: $secondary-color;
+  background-color: transparent;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    background-color: $secondary-color;
+    fill: #fff;
+  }
+
+  &:disabled {
+    background-color: transparent;
+    fill: $secondary-color;
+    opacity: .4;
+    cursor: default;
+
+    &:hover {
+      background-color: transparent;
+      fill: $secondary-color;
+    }
   }
 }

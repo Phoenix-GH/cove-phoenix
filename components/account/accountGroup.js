@@ -15,8 +15,14 @@ export default class AccountGroup extends Component {
     const dual = children && typeof children === 'object' && children.length === 2;
     return (
       <div className={`account-group ${dual ? 'account-group--dual' : ''}`}>
-        <div className="account-group__title">{title}</div>
-        <a className="account-group__sub-title" href={route}>{link}</a>
+        {title ?
+          <div className="account-group__title-group">
+            <div className="account-group__title">{title}</div>
+            {link ?
+              <a className="account-group__sub-title" href={route}>{link}</a>
+            : ''}
+          </div>
+        : ''}
         <div className="account-group__content">
           {dual
             ? children.map((child, i) => (
