@@ -12,7 +12,7 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-label {
+label, .label {
   font-family: $font-gotham-rounded;
   font-weight: 700;
   font-size: 14px;
@@ -31,6 +31,15 @@ a, a:not([href]):not([tabindex]) {
   }
 }
 
+button {
+  cursor: pointer;
+
+  &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
 p {
   font-family: $font-gotham-rounded;
 }
@@ -43,4 +52,8 @@ input {
 
 input[type=checkbox] {
   margin-right: $space-xs;
+}
+
+.icon {
+  display: inline-block;
 }

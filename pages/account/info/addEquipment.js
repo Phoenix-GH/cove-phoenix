@@ -7,8 +7,9 @@ import AccountCard from '../../../components/account/accountCard';
 import AccountNav from '../../../components/account/accountNav';
 import DashboardHeader from '../../../components/dashboardHeader';
 import AccountCardMessage from '../../../components/account/accountCardMessage';
+import EquipmentListItem from '../../../components/equipmentListItem';
 
-export default class AccountInfoBillDate extends Component {
+export default class AccountInfoAddUser extends Component {
   state = {
     type: 'edit', // edit | message
   }
@@ -17,6 +18,9 @@ export default class AccountInfoBillDate extends Component {
     this.setState(() => ({ type }));
   }
 
+  changeQuantity = (thing) => {
+    console.log(thing);
+  }
   save = () => {
     // save stuff then change type
     this.changeType('message');
@@ -42,27 +46,14 @@ export default class AccountInfoBillDate extends Component {
                 <AccountCard>
                   {type === 'edit' ?
                     <div>
-                      <h4 className="text-center mb-lg">Change Bill Date</h4>
+                      <h4 className="text-center mb-lg">Add Equipment</h4>
                       <div className="mb-lg">
-                        <p>
-                          Current Bill Date: 21st of each month
-                        </p>
-                        <div className="form-group">
-                          <label>New Bill Date</label>
-                          <div>
-                            <select>
-                              {[...Array(31).keys()].map(date => (
-                                <option key={date}>{date + 1}</option>
-                              ))}
-                            </select>
-                          </div>
-                        </div>
-                        <div className="form-group mb-lg">
-                          <input type="password" className="form-control" placeholder="Password" />
-                        </div>
-                        <div className="text-left">
-                          <a>Forgot Password</a>
-                        </div>
+                        <div></div>
+                        <div className="label mb-xs">My Equipment</div>
+                        <EquipmentListItem changeQuantity={this.changeQuantity} quantity={1} />
+                        <EquipmentListItem changeQuantity={this.changeQuantity} quantity={0} />
+                        <EquipmentListItem changeQuantity={this.changeQuantity} quantity={1} />
+                        <EquipmentListItem changeQuantity={this.changeQuantity} quantity={1} />
                       </div>
                       <div className="text-right">
                         <button
@@ -75,19 +66,19 @@ export default class AccountInfoBillDate extends Component {
                           className="btn btn--primary ml-sm"
                           onClick={this.save}
                         >
-                          Update Bill Date
+                          Add New User
                         </button>
                       </div>
                     </div>
-                  : ''}
+                    : ''}
 
                   {type === 'message' ?
                     <AccountCardMessage
-                      title="Bill Date Updated"
-                      description="You have successfully updated your bill date."
+                      title="User 3 Added"
+                      description={`Awesome job, User ${'3'} is now added to your alarm system.`}
                       action={() => Router.push('/account/info')}
                     />
-                  : ''}
+                    : ''}
                 </AccountCard>
               </Col>
             </Row>

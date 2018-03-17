@@ -44,13 +44,13 @@ export default class AccountInfoMonitoredAddress extends Component {
                     <div>
                       <h4 className="text-center mb-lg">Change Monitored Address</h4>
                       <div className="mb-lg">
-                        <label>Current monitored address</label>
+                        <div className="label">Current monitored address</div>
                         <p>
                           1154 N 190 E<br />
                           Lehi, UT 84043
                         </p>
                         <div className="mb-xs">
-                          <label>Enter new monitored address:</label>
+                          <div className="label">Enter new monitored address:</div>
                         </div>
                         <div className="form-group mb-lg">
                           <Row className="mb-sm">

@@ -19,7 +19,6 @@ export default class accountDataField extends Component {
   render() {
     const { label, content, edit } = this.props;
     const linkProps = {};
-    console.log(typeof edit);
     linkProps[typeof edit === 'function' ? 'onClick' : 'href'] = edit;
     return (
       <div className="dataField">
@@ -29,7 +28,7 @@ export default class accountDataField extends Component {
           </a>
           : ''}
         {label ?
-          <label htmlFor=" ">{label}</label>
+          <div className="label">{label}</div>
           : ''}
         <div className="content">{content}</div>
         <style jsx>{s}</style>

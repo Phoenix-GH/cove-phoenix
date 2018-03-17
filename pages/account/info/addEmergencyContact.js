@@ -44,34 +44,13 @@ export default class AccountInfoAddEmergencyContact extends Component {
                     <div>
                       <h4 className="text-center mb-lg">Add Emergency Contact</h4>
                       <div className="mb-lg">
-                        <label>Current monitored address</label>
-                        <p>
-                          1154 N 190 E<br />
-                          Lehi, UT 84043
-                        </p>
-                        <div className="mb-xs">
-                          <label>Enter new monitored address:</label>
-                        </div>
                         <div className="form-group mb-lg">
-                          <Row className="mb-sm">
-                            <Col xs="8">
-                              <input type="text" className="form-control" placeholder="Address" />
-                            </Col>
-                            <Col xs="4">
-                              <input type="text" className="form-control" placeholder="Apt/Suite #" />
-                            </Col>
-                          </Row>
-                          <Row className="mb-sm">
-                            <Col>
-                              <input type="text" className="form-control" placeholder="City" />
-                            </Col>
-                            <Col>
-                              <input type="text" className="form-control" placeholder="State" />
-                            </Col>
-                            <Col>
-                              <input type="text" className="form-control" placeholder="Zipcode" />
-                            </Col>
-                          </Row>
+                          <div className="form-group">
+                            <input type="text" className="form-control" placeholder="Full Name" />
+                          </div>
+                          <div className="form-group">
+                            <input type="text" className="form-control" placeholder="Phone" />
+                          </div>
                         </div>
                         <div className="form-group">
                           <input type="password" className="form-control" placeholder="Password" />
@@ -91,7 +70,7 @@ export default class AccountInfoAddEmergencyContact extends Component {
                           className="btn btn--primary ml-sm"
                           onClick={this.save}
                         >
-                          Update Monitored Address
+                          Add Emergency Contact
                         </button>
                       </div>
                     </div>
@@ -99,8 +78,8 @@ export default class AccountInfoAddEmergencyContact extends Component {
 
                   {type === 'message' ?
                     <AccountCardMessage
-                      title="Monitored Address Updated"
-                      description="You have successfully updated your monitored address."
+                      title="Emergency Contact 2 Added"
+                      description="You have successfully added Emergency Contact 2."
                       action={() => Router.push('/account/info')}
                     />
                     : ''}

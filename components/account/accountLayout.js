@@ -1,5 +1,4 @@
 import Head from 'next/head';
-import { Container } from 'reactstrap';
 import GlobalStyles from '../../styles/global.scss';
 
 export default props => (

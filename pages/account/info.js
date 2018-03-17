@@ -58,7 +58,7 @@ export default class Info extends Component {
                       <AccountDataField
                         label="Bill Date:"
                         content="21st of each month"
-                        edit="/account/info/billdate"
+                        edit="/account/info/bill-date"
                       />
                     </div>
                   </AccountGroup>
@@ -72,11 +72,11 @@ export default class Info extends Component {
                             <div>Lehi, UT 84043</div>
                           </div>
                         }
-                        edit="/account/info/monitoredaddress"
+                        edit="/account/info/monitored-address"
                       />
-                      <label>Emergency Contacts:</label>
+                      <div className="label">Emergency Contacts:</div>
                       <AccountDataField
-                        edit={() => this.editAlarm('contact', 'id')}
+                        edit="/account/info/edit-emergency-contact"
                         content={
                           <div>
                             Emergency Contact 1:<br />
@@ -86,7 +86,7 @@ export default class Info extends Component {
                         }
                       />
                       <AccountDataField
-                        edit={() => this.editAlarm('contact', 'id')}
+                        edit="/account/info/edit-emergency-contact"
                         content={
                           <div>
                             Emergency Contact 2:<br />
@@ -96,12 +96,12 @@ export default class Info extends Component {
                         }
                       />
                       <div className="mb-sm">
-                        <a href="/account/info/addemergencycontact">Add Emergency Contact</a>
+                        <a href="/account/info/add-emergency-contact">Add Emergency Contact</a>
                       </div>
                       <AccountDataField
                         label="Alarm Permit Number:"
                         content="#3857484"
-                        edit={() => Router.push('/account/info/permitnumber')}
+                        edit={() => Router.push('/account/info/permit-number')}
                       />
                       <AccountDataField
                         label="Alarm Insurance Certificate:"
@@ -113,12 +113,12 @@ export default class Info extends Component {
                       <AccountDataField
                         label="Primary Phone:"
                         content="385-208-2877"
-                        edit="/account/info/primaryphone"
+                        edit="/account/info/primary-phone"
                       />
                       <AccountDataField
                         label="Secondary Phone:"
                         content="385-208-2877"
-                        edit="/account/info/secondaryphone"
+                        edit="/account/info/secondary-phone"
                       />
                       <AccountDataField
                         label="Mastercode:"
@@ -128,15 +128,15 @@ export default class Info extends Component {
                       <AccountDataField
                         label="User 1:"
                         content="****"
-                        edit={() => this.editAlarm('userCode', 1)}
+                        edit="/account/info/edit-user"
                       />
                       <AccountDataField
                         label="User 2:"
                         content="****"
-                        edit={() => this.editAlarm('userCode', 2)}
+                        edit="/account/info/edit-user"
                       />
                       <div className="text-center mb-md">
-                        <a>Add user</a>
+                        <a href="/account/info/add-user">Add user</a>
                       </div>
                       <div className="text-center">
                         <a href="/account/info/notifications">
@@ -149,7 +149,7 @@ export default class Info extends Component {
                     <Row>
                       <Col>
                         <div>
-                          <a>Add Equipment</a>
+                          <a href="/account/info/add-equipment">Add Equipment</a>
                         </div>
                       </Col>
                       <Col>

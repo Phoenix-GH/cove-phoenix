@@ -8,7 +8,7 @@ import AccountNav from '../../../components/account/accountNav';
 import DashboardHeader from '../../../components/dashboardHeader';
 import AccountCardMessage from '../../../components/account/accountCardMessage';
 
-export default class AccountInfoBillDate extends Component {
+export default class AccountInfoAddEmergencyContact extends Component {
   state = {
     type: 'edit', // edit | message
   }
@@ -42,22 +42,25 @@ export default class AccountInfoBillDate extends Component {
                 <AccountCard>
                   {type === 'edit' ?
                     <div>
-                      <h4 className="text-center mb-lg">Change Bill Date</h4>
+                      <h4 className="text-center mb-lg">Edit Emergency Contact</h4>
                       <div className="mb-lg">
+                        <div className="label">Current Emergency Contact</div>
                         <p>
-                          Current Bill Date: 21st of each month
+                          Dallin Harmon<br />
+                          659-555-5555
                         </p>
-                        <div className="form-group">
-                          <label>New Bill Date</label>
-                          <div>
-                            <select>
-                              {[...Array(31).keys()].map(date => (
-                                <option key={date}>{date + 1}</option>
-                              ))}
-                            </select>
-                          </div>
+                        <div className="mb-xs">
+                          <label>Enter New Emergency Contact:</label>
                         </div>
                         <div className="form-group mb-lg">
+                          <div className="form-group">
+                            <input type="text" className="form-control" placeholder="Full Name" />
+                          </div>
+                          <div className="form-group">
+                            <input type="text" className="form-control" placeholder="Phone" />
+                          </div>
+                        </div>
+                        <div className="form-group">
                           <input type="password" className="form-control" placeholder="Password" />
                         </div>
                         <div className="text-left">
@@ -75,19 +78,19 @@ export default class AccountInfoBillDate extends Component {
                           className="btn btn--primary ml-sm"
                           onClick={this.save}
                         >
-                          Update Bill Date
+                          Update Emergency Contact
                         </button>
                       </div>
                     </div>
-                  : ''}
+                    : ''}
 
                   {type === 'message' ?
                     <AccountCardMessage
-                      title="Bill Date Updated"
-                      description="You have successfully updated your bill date."
+                      title="Emergency Contact 2 Updated"
+                      description="You have successfully updated Emergency Contact 2."
                       action={() => Router.push('/account/info')}
                     />
-                  : ''}
+                    : ''}
                 </AccountCard>
               </Col>
             </Row>
