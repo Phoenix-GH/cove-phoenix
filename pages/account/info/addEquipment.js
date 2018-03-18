@@ -8,6 +8,7 @@ import AccountNav from '../../../components/account/accountNav';
 import DashboardHeader from '../../../components/dashboardHeader';
 import AccountCardMessage from '../../../components/account/accountCardMessage';
 import EquipmentListItem from '../../../components/equipmentListItem';
+import EquipmentListHeader from '../../../components/equipmentListHeader';
 import Radio from '../../../components/radio';
 import AccountGroup from '../../../components/account/accountGroup';
 
@@ -36,7 +37,7 @@ export default class AccountInfoAddUser extends Component {
           <AccountCard className="card">
             <Row>
               <Col>
-                <h2 className="mb-md">Info</h2>
+                <h2 className="mb-md">Account/Alarm Info</h2>
               </Col>
             </Row>
             <Row>
@@ -49,29 +50,28 @@ export default class AccountInfoAddUser extends Component {
                     <div>
                       <h4 className="text-center mb-lg">Add Equipment</h4>
                       <div>
-                        <div className="label mb-xs">My Equipment</div>
+                        <EquipmentListHeader
+                          listLabel="My Equipment"
+                          actionLabel="Add"
+                        />
                         <EquipmentListItem
-                          changeQuantity={this.changeQuantity}
+                          onChange={this.changeQuantity}
                           quantity={0}
-                          thumbSrc=""
                           product={{ name: 'Door Sensors', quantity: 1 }}
                         />
                         <EquipmentListItem
-                          changeQuantity={this.changeQuantity}
+                          onChange={this.changeQuantity}
                           quantity={0}
-                          thumbSrc=""
                           product={{ name: 'Window Sensors', quantity: 1 }}
                         />
                         <EquipmentListItem
-                          changeQuantity={this.changeQuantity}
+                          onChange={this.changeQuantity}
                           quantity={1}
-                          thumbSrc=""
                           product={{ name: 'Motion Sensors', quantity: 12 }}
                         />
                         <EquipmentListItem
-                          changeQuantity={this.changeQuantity}
+                          onChange={this.changeQuantity}
                           quantity={2}
-                          thumbSrc=""
                           product={{ name: 'Key Fobs', quantity: 1 }}
                         />
                       </div>

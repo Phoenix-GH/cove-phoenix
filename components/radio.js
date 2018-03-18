@@ -1,14 +1,15 @@
-import uuidv4 from 'uuid/v4'
+import uuidv4 from 'uuid/v4';
+
 const Radio = (props) => {
   const id = uuidv4();
   return (
     <div className="control-group">
-      <label className="control control-radio" htmlFor={id}>
+      <label className="control control-radio" htmlFor="some-id">
         {props.label}
         <input
           type="radio"
-          name={id}
-          id={id}
+          name="some-name"
+          id="some-id"
           checked={props.checked}
           onClick={props.clickHandler}
           defaultChecked={props.defaultChecked}

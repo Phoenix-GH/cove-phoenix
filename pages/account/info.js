@@ -106,7 +106,7 @@ export default class Info extends Component {
                       <AccountDataField
                         label="Alarm Insurance Certificate:"
                         content="#3857484"
-                        edit={() => this.editAlarm('insuranceCert')}
+                        edit="/account/info/alarm-insurance-certificate"
                       />
                     </div>
                     <div>
@@ -154,7 +154,7 @@ export default class Info extends Component {
                       </Col>
                       <Col>
                         <div className="text-center">
-                          <a>Return Equipment</a>
+                          <a href="/account/info/return-equipment">Return Equipment</a>
                         </div>
                       </Col>
                       <Col>

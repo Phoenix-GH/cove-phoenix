@@ -69,7 +69,6 @@
 .font-gotham-rounded  { font-family: $font-gotham-rounded !important; }
 .font-open-sans       { font-family: $font-open-sans !important; }
 
-
 .text-right {
   text-align: right;
 }
@@ -80,6 +79,10 @@
 
 .text-center {
   text-align: center;
+}
+
+.text-sm {
+  font-size: .8em;
 }
 
 .pull-right {

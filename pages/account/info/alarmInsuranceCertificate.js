@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import Router from 'next/router';
 
 import Layout from '../../../components/account/accountLayout';
 import AccountCard from '../../../components/account/accountCard';
@@ -8,9 +7,9 @@ import AccountNav from '../../../components/account/accountNav';
 import DashboardHeader from '../../../components/dashboardHeader';
 import AccountCardMessage from '../../../components/account/accountCardMessage';
 
-export default class AccountInfoPassword extends Component {
+export default class AccountInfoAddUser extends Component {
   state = {
-    type: 'edit', // edit | message
+    type: 'cert', // cert | send | message
   }
 
   changeType = (type) => {
@@ -40,27 +39,41 @@ export default class AccountInfoPassword extends Component {
               </Col>
               <Col>
                 <AccountCard>
-                  {type === 'edit' ?
+                  {type === 'cert' ?
                     <div>
-                      <h4 className="text-center mb-lg">Change Password</h4>
-                      <div className="mb-lg text-center">
-                        <div className="form-group">
-                          <input type="text" className="form-control" placeholder="Current Password" />
-                        </div>
-                        <div className="form-group">
-                          <input type="text" className="form-control" placeholder="New Password" />
-                        </div>
-                        <div className="form-group mb-lg">
-                          <input type="text" className="form-control" placeholder="Confirm Password" />
-                        </div>
-                        <div className="text-left">
-                          <a>Forgot Password</a>
-                        </div>
+                      <h4 className="text-center mb-md">Alarm Insurance Certificate</h4>
+                      <div className="mb-md">
+                        <img
+                          className="img-fluid"
+                          src="/static/images/cove-cert.jpg"
+                          alt="Alarm Insurance Certificate"
+                        />
                       </div>
+                      <div className="text-center mb-md">
+                        <button className="btn btn--primary">Download Certificate</button>
+                      </div>
+                      <div className="pl-xl pr-xl mb-md">
+                        <button className="btn btn--primary-inverse btn-block" onClick={() => this.changeType('send')}>
+                          Send Certificate to Insurance
+                        </button>
+                      </div>
+                    </div>
+                  : ''}
+
+                  {type === 'send' ?
+                    <div>
+                      <h4 className="text-center mb-md">
+                        Send Alarm Certificate
+                      </h4>
+
+                      <div className="form-group">
+                        <input type="text" className="form-control" placeholder="Email Address" />
+                      </div>
+
                       <div className="text-right">
                         <button
                           className="btn btn--white"
-                          onClick={() => Router.push('/account/info')}
+                          onClick={() => this.changeType('cert')}
                         >
                           Cancel
                         </button>
@@ -68,7 +81,7 @@ export default class AccountInfoPassword extends Component {
                           className="btn btn--primary ml-sm"
                           onClick={this.save}
                         >
-                          Update Password
+                          Send Certificate
                         </button>
                       </div>
                     </div>
@@ -76,11 +89,11 @@ export default class AccountInfoPassword extends Component {
 
                   {type === 'message' ?
                     <AccountCardMessage
-                      title="Password Updated"
-                      description="You have successfully updated your password."
-                      action={() => Router.push('/account/info')}
+                      title="Alarm Certificate Sent"
+                      description={`You have successfully sent your Alarm Monitoring Certificate to ${'email@email.com'}.`}
+                      action={() => this.changeType('cert')}
                     />
-                  : ''}
+                    : ''}
                 </AccountCard>
               </Col>
             </Row>

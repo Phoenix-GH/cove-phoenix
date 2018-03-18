@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { string, func, node, oneOfType } from 'prop-types';
+import { string, func, node, oneOfType, bool } from 'prop-types';
 import s from './accountCardMessage.scss';
 
 export default class AccountCardMessage extends Component {
   static propTypes = {
     title: string.isRequired,
     description: oneOfType([string, node]).isRequired,
-    action: func,
+    action: oneOfType([func, bool]),
     actionTitle: string,
   }
 

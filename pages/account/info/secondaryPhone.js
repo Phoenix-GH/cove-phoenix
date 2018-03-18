@@ -31,7 +31,7 @@ export default class AccountInfoSecondaryPhone extends Component {
           <AccountCard className="card">
             <Row>
               <Col>
-                <h2 className="mb-md">Info</h2>
+                <h2 className="mb-md">Account/Alarm Info</h2>
               </Col>
             </Row>
             <Row>

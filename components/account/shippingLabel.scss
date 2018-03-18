@@ -1,0 +1,31 @@
+@import "variables";
+
+.shipping-label {
+  display: flex;
+
+  .shipping-label__block {
+    height: 800px;
+    width: 460px;
+    background-color: $grey-50;
+    flex-shrink: 0;
+  }
+
+  .shipping-label__helpers {
+    font-family: $font-gotham-rounded;
+    padding: 0 $space-sm;
+
+    .shipping-label__helpers-item {
+      display: flex;
+      align-items: center;
+    }
+
+    .icon {
+      height: 20px;
+      width: 20px;
+      line-height: 20px;
+      margin-right: $space-xs;
+      display: inline-block;
+    }
+  }
+}
+

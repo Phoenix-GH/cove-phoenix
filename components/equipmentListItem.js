@@ -6,16 +6,15 @@ import s from './equipmentListItem.scss';
 
 const EquipmentListItem = (props) => {
   const {
-    thumbSrc,
     product,
-    changeQuantity,
+    onChange,
     quantity,
   } = props;
   return (
     <div className="equipment-list-item">
       <div className="equipment-list-item__img">
-        {thumbSrc ?
-          <img src={thumbSrc} alt={product.name} />
+        {product.thumbSrc ?
+          <img src={product.thumbSrc} alt={product.name} />
         : ''}
       </div>
       <div className="equipment-list-item__name">
@@ -29,7 +28,11 @@ const EquipmentListItem = (props) => {
           <button
             className="btn btn--circle-icon"
             disabled={quantity === 0}
-            onClick={() => props.changeQuantity(product.id, quantity, quantity - 1)}
+            onClick={() => onChange({
+              id: product.id,
+              prevQuantity: quantity,
+              nextQuantity: quantity - 1,
+            })}
           >
             <Icon name="minus" size={12} />
           </button>
@@ -40,7 +43,11 @@ const EquipmentListItem = (props) => {
         <div>
           <button
             className="btn btn--circle-icon"
-            onClick={() => props.changeQuantity(product.id, quantity, quantity + 1)}
+            onClick={() => onChange({
+              id: product.id,
+              prevQuantity: quantity,
+              nextQuantity: quantity + 1,
+            })}
           >
             <Icon name="plus" size={12} />
           </button>
@@ -52,14 +59,12 @@ const EquipmentListItem = (props) => {
 };
 
 EquipmentListItem.propTypes = {
-  changeQuantity: func.isRequired,
+  onChange: func.isRequired,
   quantity: number.isRequired,
   product: object,
-  thumbSrc: string,
 };
 
 EquipmentListItem.defaultProps = {
-  thumbSrc: '',
   product: {},
 };
 

@@ -26,6 +26,8 @@ module.exports = () => {
     '/account/info/add-user': { page: '/account/info/addUser' },
     '/account/info/edit-user': { page: '/account/info/editUser' },
     '/account/info/add-equipment': { page: '/account/info/addEquipment' },
+    '/account/info/return-equipment': { page: '/account/info/returnEquipment' },
+    '/account/info/alarm-insurance-certificate': { page: '/account/info/alarmInsuranceCertificate' },
     '/account/equipment': { page: '/equipment', query: {} },
     '/account/addequipment': { page: '/addequipment' },
     '/account/cancel': { page: '/cancelmembership' },

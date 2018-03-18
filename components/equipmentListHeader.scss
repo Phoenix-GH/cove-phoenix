@@ -1,0 +1,26 @@
+@import './variables';
+
+.equipment-list__header {
+  display: flex;
+  margin-bottom: $space-xs;
+
+  div {
+    font-weight: 700;
+    font-family: $font-gotham-rounded;
+    font-size: 14px;
+  }
+
+  > div:nth-child(1) {
+    flex-grow: 1;
+  }
+
+  > div:nth-child(2) {
+    text-align: center;
+    width: 100px;
+  }
+
+  > div:nth-child(3) {
+    text-align: center;
+    width: 137px;
+  }
+}

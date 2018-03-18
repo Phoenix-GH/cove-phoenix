@@ -21,7 +21,7 @@
     text-align: center;
 
     > div {
-      flex-grow: 1;      
+      flex-grow: 1;
     }
 
     a {
@@ -40,17 +40,18 @@
 
     a {
       color: $primary-color;
-      display: inline-block;      
+      display: inline-block;
       font-size: 14px;
       margin-left: $space-md;
     }
 
-    img {
+    .icon {
       width: 24px;
       height: 24px;
       display: inline-block;
       margin-left: $space-md;
       cursor: pointer;
+      fill: $primary-color;
     }
   }
 }
