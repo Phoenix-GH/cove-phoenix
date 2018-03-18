@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
-import { string, func } from 'prop-types';
+import { string, func, node, oneOfType, bool } from 'prop-types';
+import s from './accountCardMessage.scss';
 
 export default class AccountCardMessage extends Component {
   static propTypes = {
     title: string.isRequired,
-    description: string.isRequired,
-    action: func,
+    description: oneOfType([string, node]).isRequired,
+    action: oneOfType([func, bool]),
     actionTitle: string,
   }
 
   static defaultProps = {
     action: false,
-    actionTitle: 'Go Back',
+    actionTitle: 'Okay',
   }
 
   render() {
@@ -20,9 +21,11 @@ export default class AccountCardMessage extends Component {
     } = this.props;
     return (
       <div>
-        <div className="pb-lg text-center">
-          <h5>{title}</h5>
-          <div>{description}</div>
+        <div className="pb-lg">
+          <h5 className="text-center">{title}</h5>
+          <div className="message-card-description">
+            {description}
+          </div>
         </div>
         {action ?
           <div className="text-right">
@@ -34,6 +37,7 @@ export default class AccountCardMessage extends Component {
             </button>
           </div>
         : ''}
+        <style jsx>{s}</style>
       </div>
     );
   }

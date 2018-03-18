@@ -31,7 +31,7 @@ export default class AccountInfoBillDate extends Component {
           <AccountCard className="card">
             <Row>
               <Col>
-                <h2 className="mb-md">Info</h2>
+                <h2 className="mb-md">Account/Alarm Info</h2>
               </Col>
             </Row>
             <Row>
@@ -52,7 +52,7 @@ export default class AccountInfoBillDate extends Component {
                           <div>
                             <select>
                               {[...Array(31).keys()].map(date => (
-                                <option key={date}>{date+1}</option>
+                                <option key={date}>{date + 1}</option>
                               ))}
                             </select>
                           </div>
@@ -85,7 +85,7 @@ export default class AccountInfoBillDate extends Component {
                     <AccountCardMessage
                       title="Bill Date Updated"
                       description="You have successfully updated your bill date."
-                      action={() => this.changeType('edit')}
+                      action={() => Router.push('/account/info')}
                     />
                   : ''}
                 </AccountCard>

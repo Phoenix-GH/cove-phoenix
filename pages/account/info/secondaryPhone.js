@@ -8,7 +8,7 @@ import AccountNav from '../../../components/account/accountNav';
 import DashboardHeader from '../../../components/dashboardHeader';
 import AccountCardMessage from '../../../components/account/accountCardMessage';
 
-export default class AccountInfoPassword extends Component {
+export default class AccountInfoSecondaryPhone extends Component {
   state = {
     type: 'edit', // edit | message
   }
@@ -42,16 +42,13 @@ export default class AccountInfoPassword extends Component {
                 <AccountCard>
                   {type === 'edit' ?
                     <div>
-                      <h4 className="text-center mb-lg">Change Password</h4>
+                      <h4 className="text-center mb-lg">Change Secondary Phone</h4>
                       <div className="mb-lg text-center">
                         <div className="form-group">
-                          <input type="text" className="form-control" placeholder="Current Password" />
+                          <input type="text" className="form-control" placeholder="New Secondary Phone Number" />
                         </div>
                         <div className="form-group">
-                          <input type="text" className="form-control" placeholder="New Password" />
-                        </div>
-                        <div className="form-group mb-lg">
-                          <input type="text" className="form-control" placeholder="Confirm Password" />
+                          <input type="text" className="form-control" placeholder="Password" />
                         </div>
                         <div className="text-left">
                           <a>Forgot Password</a>
@@ -68,7 +65,7 @@ export default class AccountInfoPassword extends Component {
                           className="btn btn--primary ml-sm"
                           onClick={this.save}
                         >
-                          Update Password
+                          Update Secondary Phone Number
                         </button>
                       </div>
                     </div>
@@ -76,8 +73,8 @@ export default class AccountInfoPassword extends Component {
 
                   {type === 'message' ?
                     <AccountCardMessage
-                      title="Password Updated"
-                      description="You have successfully updated your password."
+                      title="Secondary Phone Updated"
+                      description={`Your secondary phone number has been successfully updated to ${'385-555-5555'}.`}
                       action={() => Router.push('/account/info')}
                     />
                   : ''}

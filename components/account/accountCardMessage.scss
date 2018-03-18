@@ -1,0 +1,18 @@
+@import './variables';
+
+.message-card-description {
+  margin: $space-xs $space-xl;
+  padding-left: $space-md;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    width: 8px;
+    border-radius: 10px;
+    background-color: $primary-color;
+  }
+}

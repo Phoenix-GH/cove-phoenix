@@ -31,7 +31,7 @@ export default class AccountInfoEmail extends Component {
           <AccountCard className="card">
             <Row>
               <Col>
-                <h2 className="mb-md">Info</h2>
+                <h2 className="mb-md">Account/Alarm Info</h2>
               </Col>
             </Row>
             <Row>
@@ -72,7 +72,7 @@ export default class AccountInfoEmail extends Component {
                     <AccountCardMessage
                       title="Email Updated"
                       description={`Your email address has been updated to ${'some@email.com'}.`}
-                      action={() => this.changeType('edit')}
+                      action={() => Router.push('/account/info')}
                     />
                   : ''}
                 </AccountCard>

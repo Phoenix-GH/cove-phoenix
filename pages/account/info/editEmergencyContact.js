@@ -8,7 +8,7 @@ import AccountNav from '../../../components/account/accountNav';
 import DashboardHeader from '../../../components/dashboardHeader';
 import AccountCardMessage from '../../../components/account/accountCardMessage';
 
-export default class AccountInfoPassword extends Component {
+export default class AccountInfoAddEmergencyContact extends Component {
   state = {
     type: 'edit', // edit | message
   }
@@ -42,16 +42,26 @@ export default class AccountInfoPassword extends Component {
                 <AccountCard>
                   {type === 'edit' ?
                     <div>
-                      <h4 className="text-center mb-lg">Change Password</h4>
-                      <div className="mb-lg text-center">
-                        <div className="form-group">
-                          <input type="text" className="form-control" placeholder="Current Password" />
-                        </div>
-                        <div className="form-group">
-                          <input type="text" className="form-control" placeholder="New Password" />
+                      <h4 className="text-center mb-lg">Edit Emergency Contact</h4>
+                      <div className="mb-lg">
+                        <div className="label">Current Emergency Contact</div>
+                        <p>
+                          Dallin Harmon<br />
+                          659-555-5555
+                        </p>
+                        <div className="mb-xs">
+                          <label>Enter New Emergency Contact:</label>
                         </div>
                         <div className="form-group mb-lg">
-                          <input type="text" className="form-control" placeholder="Confirm Password" />
+                          <div className="form-group">
+                            <input type="text" className="form-control" placeholder="Full Name" />
+                          </div>
+                          <div className="form-group">
+                            <input type="text" className="form-control" placeholder="Phone" />
+                          </div>
+                        </div>
+                        <div className="form-group">
+                          <input type="password" className="form-control" placeholder="Password" />
                         </div>
                         <div className="text-left">
                           <a>Forgot Password</a>
@@ -68,19 +78,19 @@ export default class AccountInfoPassword extends Component {
                           className="btn btn--primary ml-sm"
                           onClick={this.save}
                         >
-                          Update Password
+                          Update Emergency Contact
                         </button>
                       </div>
                     </div>
-                  : ''}
+                    : ''}
 
                   {type === 'message' ?
                     <AccountCardMessage
-                      title="Password Updated"
-                      description="You have successfully updated your password."
+                      title="Emergency Contact 2 Updated"
+                      description="You have successfully updated Emergency Contact 2."
                       action={() => Router.push('/account/info')}
                     />
-                  : ''}
+                    : ''}
                 </AccountCard>
               </Col>
             </Row>

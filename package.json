@@ -38,6 +38,7 @@
   "devDependencies": {
     "babel-eslint": "^8.2.2",
     "babel-plugin-css-modules-transform": "^1.4.0",
+    "babel-plugin-inline-react-svg": "^0.5.2",
     "eslint": "^4.16.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-plugin-import": "^2.8.0",

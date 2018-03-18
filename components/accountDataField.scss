@@ -1,8 +1,10 @@
+@import './variables';
+
 .dataField {
   margin-bottom: 14px;
 
   .content {
-    font-family: 'Gotham';
+    font-family: $font-gotham-rounded;
   }
 
   .edit {

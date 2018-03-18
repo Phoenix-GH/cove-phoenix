@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 
 // import Menu from './menu';
 import s from './dashboardHeader.scss';
+import Icon from './elements/icon';
 
 const links = [
   { name: 'Alarm System', route: '' },
@@ -29,7 +30,9 @@ export default class DashboardHeader extends Component {
 
             <div className="dashboard-header__actions">
               <a>Sign Out</a>
-              <img src="/static/images/person.svg" alt=""/>
+              <div className="icon">
+                <Icon name="user" size={24} />
+              </div>
             </div>
           </div>
         </Container>

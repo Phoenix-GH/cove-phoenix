@@ -8,7 +8,7 @@ import AccountNav from '../../../components/account/accountNav';
 import DashboardHeader from '../../../components/dashboardHeader';
 import AccountCardMessage from '../../../components/account/accountCardMessage';
 
-export default class AccountInfoPassword extends Component {
+export default class AccountInfoAddUser extends Component {
   state = {
     type: 'edit', // edit | message
   }
@@ -42,16 +42,19 @@ export default class AccountInfoPassword extends Component {
                 <AccountCard>
                   {type === 'edit' ?
                     <div>
-                      <h4 className="text-center mb-lg">Change Password</h4>
-                      <div className="mb-lg text-center">
+                      <h4 className="text-center mb-lg">Add New User</h4>
+                      <div className="mb-lg">
+                        <h6>Add New User:</h6>
                         <div className="form-group">
-                          <input type="text" className="form-control" placeholder="Current Password" />
+                          <input type="text" className="form-control" placeholder="Full Name" />
                         </div>
+                        <div style={{ width: 140 }}>
+                          <input type="text" className="form-control" placeholder="Pin" />
+                        </div>
+                      </div>
+                      <div className="mb-lg">
                         <div className="form-group">
-                          <input type="text" className="form-control" placeholder="New Password" />
-                        </div>
-                        <div className="form-group mb-lg">
-                          <input type="text" className="form-control" placeholder="Confirm Password" />
+                          <input type="text" className="form-control" placeholder="Password" />
                         </div>
                         <div className="text-left">
                           <a>Forgot Password</a>
@@ -68,19 +71,19 @@ export default class AccountInfoPassword extends Component {
                           className="btn btn--primary ml-sm"
                           onClick={this.save}
                         >
-                          Update Password
+                          Add New User
                         </button>
                       </div>
                     </div>
-                  : ''}
+                    : ''}
 
                   {type === 'message' ?
                     <AccountCardMessage
-                      title="Password Updated"
-                      description="You have successfully updated your password."
+                      title="User 3 Added"
+                      description={`Awesome job, User ${'3'} is now added to your alarm system.`}
                       action={() => Router.push('/account/info')}
                     />
-                  : ''}
+                    : ''}
                 </AccountCard>
               </Col>
             </Row>
