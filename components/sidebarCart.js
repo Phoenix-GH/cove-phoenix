@@ -13,11 +13,12 @@ class SidebarCart extends Component {
     super(props);
     this.changeQuantity = this.changeQuantity.bind(this)
   }
+  
   changeQuantity(id, oldQuantity, newQuantity)  {
     if (newQuantity < 0) {
       return;
     }
-      this.props.changeQuantity(id, oldQuantity, newQuantity)
+    this.props.changeQuantity(id, oldQuantity, newQuantity);
   }
 
   render() {
@@ -69,7 +70,7 @@ class SidebarCart extends Component {
           <Col xs={{ size: 6, offset: 6 }}>
             <Link href="/coveclub">
               <div className="addToCartBtn">
-                  Add to cart
+                Add to cart
               </div>
             </Link>
           </Col>
@@ -79,8 +80,6 @@ class SidebarCart extends Component {
     )
   }
 }
-
-
 
 SidebarCart.propTypes = {
   detailAction: PropTypes.func,

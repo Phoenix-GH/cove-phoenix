@@ -37,7 +37,7 @@ class CheckoutPage extends Component {
   render() {
     console.log('stage', this.state)
     const activeStage = this.props.stage ? this.props.stage : 'customer';
-    let nextLinkText = activeStage === 'payment' ? 'Complete Purchase' : 'Continue Shopping';
+    let nextLinkText = activeStage === 'payment' ? 'Complete Purchase' : 'Continue to Shipping Method';
     let nextLink = '/shipping';
     if(activeStage === 'shipping') {
       nextLink = '/payment'
@@ -92,7 +92,7 @@ class CheckoutPage extends Component {
                 </Row>
               </div>
               <div className={`tab ${activeStage === 'customer' ? 'activePage' : ''}`}>
-                <CustomerInfo  onChangeHandler={this.onChangeHandler} fields={this.state.customerInfo} />
+                <CustomerInfo onChangeHandler={this.onChangeHandler} fields={this.state.customerInfo} />
               </div>
               <div className={`tab ${activeStage === 'shipping' ? 'activePage' : ''}`}>
                 <ShippingInfo />
@@ -101,30 +101,31 @@ class CheckoutPage extends Component {
                 <PaymentInfo />
               </div>
               <div className="footerControls">
-                <Row>
-                  <Col xs={12} sm={12} md={8}>
-                    <Link href="/products">
-                      <ul className={`list-inline returnToShop`}>
-                        <li className="list-inline-item align-top">
-                          <img src="/static/images/arrowFullLeft.png" alt="arrow left" />
-                        </li>
-                        <li className={`list-inline-item returnLink`}>
-                          Return to Shop
-                        </li>
-                      </ul>
-                    </Link>
-                  </Col>
-                  <Col xs={12} sm={12} md={4}>
-                    <Link href={`/checkout${nextLink}`}>
-                      <div className="actionBtn">
-                        {nextLinkText}
-                      </div>
-                    </Link>
-                  </Col>
-                </Row>
+                <Col xs={12}>
+                  <Row>
+                    <div className="returnColumn">
+                      <Link href="/products">
+                        <ul className={`list-inline returnToShop`}>
+                          <li className="list-inline-item align-top">
+                            <img src="/static/images/arrowFullLeft.png" alt="arrow left" />
+                          </li>
+                          <li className={`list-inline-item returnLink`}>
+                            Return to Shop
+                          </li>
+                        </ul>
+                      </Link>
+                    </div>
+                    <div>
+                      <Link href={`/checkout${nextLink}`}>
+                        <div className="actionBtn">
+                          {nextLinkText}
+                        </div>
+                      </Link>
+                    </div>
+                  </Row>
+                </Col>
               </div>
             </Col>
-
             <Col className="justify-content-end" md={4}>
               <div className="checkoutSidebar">
                 <CheckoutSidebar />

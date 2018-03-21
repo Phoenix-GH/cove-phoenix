@@ -9,8 +9,8 @@
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
-  -ms-flex: 0 0 25%;
-  flex: 0 0 25%;
+  -ms-flex: 0 0 33%;
+  flex: 0 0 33%;
   max-width: 125%;
   .stageLabel {
     @media (max-width: 767px) {
@@ -59,6 +59,7 @@
   font-family: GothamRoundedBold;
   font-size: 14px;
   color: #8A9097;
+  margin-bottom: 80px;
 }
 
 .stageIndicator {
@@ -81,6 +82,9 @@
 
 .footerControls {
   margin-top: 100px;
+  .returnColumn {
+    flex: 1;
+  }
 }
 
 .returnLink {
@@ -96,13 +100,13 @@
   width: 236px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
-  border-radius: 20px;
+  border-radius: 4px;
   background: #F17927;
-  font-size: 16px;
+  font-size: 12px;
   text-align: center;
   font-family: GothamRoundedBook;
   font-weight: bold;
-  padding-top: 8px;
+  padding-top: 12px;
   cursor: pointer;
 }
 
@@ -129,5 +133,5 @@
 }
 
 :global(.customerInfo .coveInput) {
-  margin-top: 40px;
+  margin-bottom: 40px;
 }

@@ -5,7 +5,11 @@ import s from './customerInfo.scss';
 const CustomerInfo = ({ onChangeHandler, fields }) => (
   <div>
     <div className="customerInfo">
-      <h3>Customer Information</h3>
+      <Row>
+        <Col xs={12} sm={12}>
+          <h3>Customer Information</h3>
+        </Col>
+      </Row>
       <Row>
         <Col xs={12} sm={12} md={6}>
           <Input 
@@ -44,7 +48,11 @@ const CustomerInfo = ({ onChangeHandler, fields }) => (
       </Row>
     </div>
     <div className="customerInfo">
-      <h3>Monitoring Info</h3>
+      <Row>
+        <Col xs={12} sm={12}>
+          <h3>Monitoring Info</h3>
+        </Col>
+      </Row>
       <Row>
         <Col xs={12} sm={12} md={8}>
           <Input 

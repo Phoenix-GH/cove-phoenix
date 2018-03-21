@@ -1,5 +1,5 @@
 .sidebarContainer {
-  padding: 20px 10px 20px 10px;
+  padding: 40px 10px 20px 10px;
   -webkit-box-shadow: 0px 6px 5px 2px rgba(44,50,57,0.2);
   -moz-box-shadow: 0px 6px 5px 2px rgba(44,50,57,0.2);
   box-shadow: 0px 6px 5px 2px rgba(44,50,57,0.2);
@@ -12,7 +12,7 @@
   h3 {
     font-family: GothamRoundedBold;
     font-size: 24px;
-    margin-bottom:30px;
+    margin-bottom: 18px;
   }
   h4 {
     font-family: GothamRoundedBold;
@@ -20,23 +20,28 @@
     color: #00B19A;
   }
 }
+
 .cartProductList {
   list-style: none;
   font-size: 12px;
   padding-left: 0px;
 }
+
 .equipmentPackage {
   margin-bottom: 30px;
 }
+
 .monthlyService {
   margin-bottom: 30px;
 }
+
 .coupon {
   border-top: 1px solid #00B19A;
   border-bottom: 1px solid #00B19A;
   padding-top: 10px;
   margin-bottom: 30px;
 }
+
 .cartPricing {
   margin-top: 30px;
   margin-bottom: 20px;
@@ -46,14 +51,17 @@
     margin-bottom: 15px;
   }
 }
+
 .totalLabel {
   font-family: GothamRoundedLight;
   font-size: 20px;
 }
+
 .totalPrice {
   font-family: GothamRoundedBold;
   font-size: 20px;
 }
+
 .bold {
   font-weight: bold;
 }
