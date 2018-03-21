@@ -27,9 +27,9 @@ class CheckoutPage extends Component {
       paymentInfo: {},
       account: {},
     }
-    this.onChangeHandler = this.onChangeHandler.bind(this);
   }
-  onChangeHandler(section, changeValue) {
+  
+  onChangeHandler = (section, changeValue) => {
     console.log('onchange', section, changeValue)
     this.setState({ [section]: { ...this.state[section], ...changeValue } });
   }
