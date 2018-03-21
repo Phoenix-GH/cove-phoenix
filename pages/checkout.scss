@@ -54,11 +54,13 @@
 .spacer {
   margin-top: 60px;
 }
+
 .checkoutStageRow {
   font-family: GothamRoundedBold;
   font-size: 14px;
   color: #8A9097;
 }
+
 .stageIndicator {
   width: 100%;
   height: 8px;
@@ -67,22 +69,27 @@
   opacity: 0.5;
   margin-top: 6px;
 }
+
 .activeStage {
   color: #191E2B;
 }
+
 .activeStage .stageIndicator {
   background: #5BC4B8;
   opacity: 1;
 }
+
 .footerControls {
   margin-top: 100px;
 }
+
 .returnLink {
   font-family: GothamRoundedBold;
   font-size: 16px;
   color: #8A9097;
   padding-top: 3px;
 }
+
 .actionBtn {
   color: #FFFFFF;
   height: 40px;
@@ -98,9 +105,11 @@
   padding-top: 8px;
   cursor: pointer;
 }
+
 .tab {
   display: none;
 }
+
 .activePage.tab {
   display: block
 }
@@ -110,6 +119,7 @@
     text-align: center;
   }
 }
+
 .actionBtn {
   @media (max-width: 767px) {
     margin-left: auto;
@@ -118,7 +128,6 @@
   }
 }
 
-
-  :global(.customerInfo .coveInput) {
-    margin-top: 40px;
+:global(.customerInfo .coveInput) {
+  margin-top: 40px;
 }
