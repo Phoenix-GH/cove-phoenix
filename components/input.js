@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import InfoBox from './infoBox/infobox';
 import s from './input.scss';
 
 class Input extends Component {
@@ -22,14 +23,15 @@ class Input extends Component {
   }
 
   render() {
-    const { props } = this;
+    const { label, type, hasInfo } = this.props;
     const { active, val } = this.state;
-    const inputLabelClass = cx('inputLabel', {
-      'visible': val,
-      'hidden': !val,
+    const toggleClass = cx({
+      active: val,
+      inactive: !val,
     });
+    const inputLabelClass = cx('inputLabel', toggleClass);
     const coveInputClass = cx('coveInput', {
-      'activeInput': active,
+      activeInput: active,
     });
     return (
       <div className="inputBlockClass">
@@ -38,13 +40,17 @@ class Input extends Component {
           onBlur={this.toggle}
           className={coveInputClass}
         >
-          <div className={inputLabelClass}>{props.label}</div>
+          <div className={inputLabelClass}>{label}</div>
           <input
-            type={props.type}
-            placeholder={props.label}
-            onChange={this.handleChange} 
+            className={toggleClass}
+            type={type}
+            placeholder={label}
+            onChange={this.handleChange}
           />
         </div>
+        {
+          hasInfo && <InfoBox />
+        }
         <style jsx>{s}</style>
       </div>
     );
@@ -55,11 +61,14 @@ Input.propTypes = {
   type: PropTypes.string,
   label: PropTypes.string,
   onChangeHandler: PropTypes.func,
-}
+  hasInfo: PropTypes.bool,
+};
 
 Input.defaultProps = {
   type: 'text',
   label: '',
-}
+  hasInfo: false,
+  onChangeHandler: '',
+};
 
 export default Input;
