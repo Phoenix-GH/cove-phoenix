@@ -37,16 +37,22 @@ class CheckoutSidebar extends Component {
       )
     });
     return (
-      <div className={s.sidebarContainer}>
-        <div className={s.equipmentPackage}>
+      <div className="sidebarContainer">
+        <Row>
+          <Col xs={12}>
+            <h3>Shopping Cart</h3>
+          </Col>
+        </Row>
+        <div className="equipmentPackage">
           <Row>
             <Col xs={12}>
-              <h3>Shopping Cart</h3>
-              <p className={s.bold}>
+              <p className="bold">
                 Equipment Package
               </p>
               <h4>
-                $499.99 or $8.33/mo
+                $499.99 or
+                <br />
+                $6.66/mo with $99 down
               </h4>
             </Col>
           </Row>
@@ -55,19 +61,19 @@ class CheckoutSidebar extends Component {
               <img src="/static/images/placeholderThumbSquare.png" />
             </Col>
             <Col xs={8}>
-              <ul className={s.cartProductList}>
+              <ul className="cartProductList">
                 <li>
-                  7" Touchscreen Control Panel
+                  17" Touchscreen Control Panel
                 </li>
                 {cartList}
               </ul>
             </Col>
           </Row>
         </div>
-        <div className={s.monthlyService}>
+        <div className="monthlyService">
           <Row>
             <Col xs={12}>
-              <p className={s.bold}>
+              <p className="bold">
                 Monthly Monitoring Service
               </p>
               <h4>
@@ -83,10 +89,10 @@ class CheckoutSidebar extends Component {
         </div>
         <Row>
           <Col xs={12}>
-            <div className={s.coupon}>
+            <div className="coupon">
               <Row>
                 <Col xs={10}>
-                  <p className={s.bold}>
+                  <p className="bold">
                     Have a Coupon
                   </p>
                 </Col>
@@ -118,13 +124,13 @@ class CheckoutSidebar extends Component {
             </div>
           </Col>
         </Row>
-        <div className={s.cartPricing}>
+        <div className="cartPricing">
           <Row>
             <Col xs={9}>
               5 year Prime Subscription
             </Col>
             <Col xs={3}>
-              <span className={s.bold}>$99.99</span>
+              <span className="bold">$99.99</span>
             </Col>
           </Row>
           <Row>
@@ -132,7 +138,7 @@ class CheckoutSidebar extends Component {
               Monthly Monitoring
             </Col>
             <Col xs={3}>
-              <span className={s.bold}>$19.99</span>
+              <span className="bold">$19.99</span>
             </Col>
           </Row>
           <Row>
@@ -140,7 +146,7 @@ class CheckoutSidebar extends Component {
               Equipment Payment
             </Col>
             <Col xs={3}>
-              <span className={s.bold}>$8.33</span>
+              <span className="bold">$8.33</span>
             </Col>
           </Row>
           <Row>
@@ -148,7 +154,7 @@ class CheckoutSidebar extends Component {
               Subtotal
             </Col>
             <Col xs={3}>
-              <span className={s.bold}>$128.31</span>
+              <span className="bold">$128.31</span>
             </Col>
           </Row>
           <Row>
@@ -156,18 +162,19 @@ class CheckoutSidebar extends Component {
               Shipping
             </Col>
             <Col xs={3}>
-              <span className={s.bold}>Free</span>
+              <span className="bold">Free</span>
             </Col>
           </Row>
         </div>
         <Row>
           <Col xs={{ size: 3, offset: 5 }}>
-            <span className={s.totalLabel}>Total</span>
+            <span className="totalLabel">Total</span>
           </Col>
           <Col xs={4}>
-            <span className={s.totalPrice}>$128.31</span>
+            <span className="totalPrice">$128.31</span>
           </Col>
         </Row>
+        <style jsx>{s}</style>
       </div>
     );
   }

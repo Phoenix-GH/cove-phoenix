@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
@@ -7,7 +8,6 @@ import initStore from '../store';
 import { loadProducts } from '../actions';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
-import Input from '../components/input';
 import CheckoutSidebar from '../components/checkoutSidebar';
 import CustomerInfo from '../components/customerInfo';
 import ShippingInfo from '../components/shippingInfo';
@@ -26,21 +26,19 @@ class CheckoutPage extends Component {
       shippingInfo: {},
       paymentInfo: {},
       account: {},
-    }
+    };
   }
-  
+
   onChangeHandler = (section, changeValue) => {
-    console.log('onchange', section, changeValue)
     this.setState({ [section]: { ...this.state[section], ...changeValue } });
   }
 
   render() {
-    console.log('stage', this.state)
     const activeStage = this.props.stage ? this.props.stage : 'customer';
-    let nextLinkText = activeStage === 'payment' ? 'Complete Purchase' : 'Continue Shopping';
+    const nextLinkText = activeStage === 'payment' ? 'Complete Purchase' : 'Continue to Shipping Method';
     let nextLink = '/shipping';
-    if(activeStage === 'shipping') {
-      nextLink = '/payment'
+    if (activeStage === 'shipping') {
+      nextLink = '/payment';
     }
     return (
       <Layout>
@@ -83,7 +81,7 @@ class CheckoutPage extends Component {
                             View Shopping Cart
                           </Col>
                           <Col xs={2}>
-                            <img src="/static/images/arrowFullRight.png" />
+                            <img src="/static/images/arrowFullRight.png" alt="arrow" />
                           </Col>
                         </Row>
                       </Link>
@@ -92,7 +90,10 @@ class CheckoutPage extends Component {
                 </Row>
               </div>
               <div className={`tab ${activeStage === 'customer' ? 'activePage' : ''}`}>
-                <CustomerInfo  onChangeHandler={this.onChangeHandler} fields={this.state.customerInfo} />
+                <CustomerInfo
+                  onChangeHandler={this.onChangeHandler}
+                  fields={this.state.customerInfo}
+                />
               </div>
               <div className={`tab ${activeStage === 'shipping' ? 'activePage' : ''}`}>
                 <ShippingInfo />
@@ -101,30 +102,31 @@ class CheckoutPage extends Component {
                 <PaymentInfo />
               </div>
               <div className="footerControls">
-                <Row>
-                  <Col xs={12} sm={12} md={8}>
-                    <Link href="/products">
-                      <ul className={`list-inline returnToShop`}>
-                        <li className="list-inline-item align-top">
-                          <img src="/static/images/arrowFullLeft.png" alt="arrow left" />
-                        </li>
-                        <li className={`list-inline-item returnLink`}>
-                          Return to Shop
-                        </li>
-                      </ul>
-                    </Link>
-                  </Col>
-                  <Col xs={12} sm={12} md={4}>
-                    <Link href={`/checkout${nextLink}`}>
-                      <div className="actionBtn">
-                        {nextLinkText}
-                      </div>
-                    </Link>
-                  </Col>
-                </Row>
+                <Col xs={12}>
+                  <Row>
+                    <div className="returnColumn">
+                      <Link href="/products">
+                        <ul className="list-inline returnToShop">
+                          <li className="list-inline-item align-top">
+                            <img src="/static/images/arrowFullLeft.png" alt="arrow left" />
+                          </li>
+                          <li className="list-inline-item returnLink">
+                            Return to Shop
+                          </li>
+                        </ul>
+                      </Link>
+                    </div>
+                    <div>
+                      <Link href={`/checkout${nextLink}`}>
+                        <div className="actionBtn">
+                          {nextLinkText}
+                        </div>
+                      </Link>
+                    </div>
+                  </Row>
+                </Col>
               </div>
             </Col>
-
             <Col className="justify-content-end" md={4}>
               <div className="checkoutSidebar">
                 <CheckoutSidebar />
@@ -138,12 +140,18 @@ class CheckoutPage extends Component {
   }
 }
 
-const mapStateToProps = ({ cart, products }) => ({ cart, products})
+CheckoutPage.propTypes = {
+  stage: PropTypes.string,
+};
 
-const mapDispatchToProps = dispatch => {
-  return {
-    loadProducts: bindActionCreators(loadProducts, dispatch)
-  }
-}
+CheckoutPage.defaultProps = {
+  stage: 'customer',
+};
+
+const mapStateToProps = ({ cart, products }) => ({ cart, products });
+
+const mapDispatchToProps = dispatch => ({
+  loadProducts: bindActionCreators(loadProducts, dispatch),
+});
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(CheckoutPage);
