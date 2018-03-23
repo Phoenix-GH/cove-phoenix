@@ -90,7 +90,6 @@ const CustomerInfo = ({ onChangeHandler }) => (
           />
         </Col>
       </Row>
-
       <Row>
         <Col xs={12} sm={12} md={6}>
           <Input
@@ -113,7 +112,12 @@ const CustomerInfo = ({ onChangeHandler }) => (
       </Row>
       <Row>
         <Col xs={12} sm={12} md={6}>
-          <Checkbox label="Add Addtional Contact" />
+          <Checkbox
+            label="Add Addtional Contact"
+            clickHandler={(changeValue) => {
+              onChangeHandler('account', { additionalContact: changeValue });
+            }}
+          />
         </Col>
       </Row>
       <Row>
@@ -137,7 +141,8 @@ CustomerInfo.propTypes = {
 };
 
 CustomerInfo.defaultProps = {
-  onChangeHandler: '',
+  onChangeHandler: () => {
+  },
 };
 
 export default CustomerInfo;

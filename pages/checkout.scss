@@ -1,5 +1,7 @@
+@import "styles/_variables";
+
 .checkoutSidebar {
-  @media (max-width: 767px) {
+  @media (max-width: $width-md) {
     display: none;
   }
 }
@@ -14,14 +16,14 @@
   flex: 0 0 33%;
   max-width: 125%;
   .stageLabel {
-    @media (max-width: 767px) {
+    @media (max-width: $width-md) {
       display: none;
     }
   }
 }
 
 .flexCol.activeStage {
-  @media (max-width: 767px) {
+  @media (max-width: $width-md) {
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     max-width: 50%;
@@ -42,7 +44,7 @@
   -moz-box-shadow:    0px 6px 6px 0px rgba(44,50,57, 0.2);
   box-shadow:         0px 6px 6px 0px rgba(44,50,57, 0.2);
 
-  @media (min-width: 768px) {
+  @media (min-width: $width-md+1) {
     display: none;
   }
 }
@@ -86,6 +88,13 @@
   .returnColumn {
     flex: 1;
   }
+  
+  @media (max-width: $width-sm) {
+    .continueColumn, .returnColumn {
+      flex: none;
+      margin: 0 auto 32px;
+    }
+  }
 }
 
 .returnLink {
@@ -121,19 +130,19 @@
 
 .returnToShop {
   margin-top: 5px;
-  @media (max-width: 567px) {
+  @media (max-width: $width-sm) {
     text-align: center;
   }
 }
 
 .actionBtn {
-  @media (max-width: 767px) {
+  @media (max-width: $width-md) {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 32px;
   }
 }
 
-:global(.customerInfo .coveInput) {
+:global(.coveInput) {
   margin-bottom: 40px;
 }

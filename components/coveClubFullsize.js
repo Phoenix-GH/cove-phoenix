@@ -2,12 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import { toggleFinance, selectSubscriptionType } from '../actions';
 import Radio from '../components/radio';
 import styles from './coveClubFullsize.scss';
-
 
 class CoveClubFullsize extends Component {
   constructor(props) {
@@ -27,8 +26,6 @@ class CoveClubFullsize extends Component {
   render() {
     const { payment } = this.props;
     const coveClub = payment.subscriptionType === 'clubBasic' || payment.subscriptionType === 'clubPremium';
-    let clubSelectBtn;
-    let ncSelectionBtn;
     const activeSelect = (
       <Link href="/checkout">
         <div className="selectBtn mx-auto">
@@ -40,9 +37,9 @@ class CoveClubFullsize extends Component {
       <div className="selectBtn disabled mx-auto">
         Select
       </div>
-    )
-    clubSelectBtn = coveClub ? activeSelect : disabledSelect;
-    ncSelectionBtn = (payment.subscriptionType && !coveClub) ? activeSelect : disabledSelect;
+    );
+    const clubSelectBtn = coveClub ? activeSelect : disabledSelect;
+    const ncSelectionBtn = (payment.subscriptionType && !coveClub) ? activeSelect : disabledSelect;
     return (
       <Container className="coveClubFull">
         <Row>
@@ -311,7 +308,7 @@ class CoveClubFullsize extends Component {
                 <Col className="financeOption" xs={{ size: 10, offset: 1 }}>
                   <Radio
                     clickHandler={() => this.toggleFinance()}
-                    label={[<span className={!coveClub ? "disabled" : ''}>Pay equipment in full</span>]}
+                    label={[<span className={!coveClub ? 'disabled' : ''}>Pay equipment in full</span>]}
                     checked={!payment.finance}
                     disabled={!coveClub}
                   />
@@ -319,7 +316,7 @@ class CoveClubFullsize extends Component {
                 <Col className="financeOption" xs={{ size: 10, offset: 1 }}>
                   <Radio
                     clickHandler={() => this.toggleFinance()}
-                    label={[<span className={!coveClub ? "disabled" : ''}>Finance equipment at<br /> 0% APR for 60 months</span>]}
+                    label={[<span className={!coveClub ? 'disabled' : ''}>Finance equipment at<br /> 0% APR for 60 months</span>]}
                     checked={payment.finance}
                     disabled={!coveClub}
                   />
@@ -391,7 +388,7 @@ class CoveClubFullsize extends Component {
         </Row>
         <style jsx global>{styles}</style>
       </Container>
-    )
+    );
   }
 }
 
@@ -402,11 +399,17 @@ CoveClubFullsize.propTypes = {
 
 const mapStateToProps = ({ payment }) => ({ payment });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    toggleFinance: bindActionCreators(toggleFinance, dispatch),
-    selectSubscriptionType: bindActionCreators(selectSubscriptionType, dispatch),
-  };
+const mapDispatchToProps = dispatch => ({
+  toggleFinance: bindActionCreators(toggleFinance, dispatch),
+  selectSubscriptionType: bindActionCreators(selectSubscriptionType, dispatch),
+});
+
+CoveClubFullsize.propTypes = {
+  payment: PropTypes.object,
+};
+
+CoveClubFullsize.defaultProps = {
+  payment: null,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoveClubFullsize);

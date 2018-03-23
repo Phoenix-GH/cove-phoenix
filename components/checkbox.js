@@ -4,10 +4,10 @@ import s from './checkbox.scss';
 
 const Checkbox = (props) => {
   const id = uuidv4();
-  const { checked, label, clickHandler } = props;
+  const { label, clickHandler } = props;
   return (
     <div className="checkBox">
-      <input type="checkbox" id={id} checked={checked} onClick={clickHandler} />
+      <input type="checkbox" id={id} onClick={clickHandler} />
       <label htmlFor={id}>{label}</label>
       <style jsx>{s}</style>
     </div>
@@ -15,15 +15,14 @@ const Checkbox = (props) => {
 };
 
 Checkbox.propTypes = {
-  checked: PropTypes.bool,
   label: PropTypes.string,
   clickHandler: PropTypes.func,
 };
 
 Checkbox.defaultProps = {
-  checked: false,
   label: '',
-  clickHandler: '',
+  clickHandler: () => {
+  },
 };
 
 export default Checkbox;

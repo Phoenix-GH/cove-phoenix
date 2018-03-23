@@ -68,7 +68,8 @@ Input.defaultProps = {
   type: 'text',
   label: '',
   hasInfo: false,
-  onChangeHandler: '',
+  onChangeHandler: () => {
+  },
 };
 
 export default Input;

@@ -116,7 +116,7 @@ class CheckoutPage extends Component {
                         </ul>
                       </Link>
                     </div>
-                    <div>
+                    <div className="continueColumn">
                       <Link href={`/checkout${nextLink}`}>
                         <div className="actionBtn">
                           {nextLinkText}
