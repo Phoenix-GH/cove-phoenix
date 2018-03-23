@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import Link from 'next/link';
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux'
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Row, Col, Collapse } from 'reactstrap';
 import Input from '../components/input';
 import Radio from '../components/radio';
@@ -14,28 +13,24 @@ class CheckoutSidebar extends Component {
       collapse: false,
       finance: false,
     };
-    this.toggleCoupon = this.toggleCoupon.bind(this);
-    this.toggleFinance = this.toggleFinance.bind(this);
   }
 
-  toggleCoupon() {
+  toggleCoupon = () => {
     this.setState({ collapse: !this.state.collapse });
   }
 
-  toggleFinance(val) {
+  toggleFinance = (val) => {
     this.setState({ finance: val });
   }
 
   render() {
     const toggleImage = this.state.collapse ? 'arrowUp.png' : 'arrowDown.png';
-    const { cart, products, payment } = this.props;
-    const cartList = cart.cartItemIds.map((val) => {
-      return (
-        <li>
-          {cart.quantityById[val]} {products[val].name}
-        </li>
-      )
-    });
+    const { cart, products } = this.props;
+    const cartList = cart.cartItemIds.map(val => (
+      <li>
+        {cart.quantityById[val]} {products[val].name}
+      </li>
+    ));
     return (
       <div className="sidebarContainer">
         <Row>
@@ -58,12 +53,12 @@ class CheckoutSidebar extends Component {
           </Row>
           <Row>
             <Col xs={4}>
-              <img src="/static/images/placeholderThumbSquare.png" />
+              <img src="/static/images/placeholderThumbSquare.png" alt="placeholder" />
             </Col>
             <Col xs={8}>
               <ul className="cartProductList">
                 <li>
-                  17" Touchscreen Control Panel
+                  17&Prime; Touchscreen Control Panel
                 </li>
                 {cartList}
               </ul>
@@ -83,7 +78,7 @@ class CheckoutSidebar extends Component {
           </Row>
           <Row>
             <Col xs={4}>
-              <img src="/static/images/placeholderThumbSquare.png" />
+              <img src="/static/images/placeholderThumbSquare.png" alt="placeholder" />
             </Col>
           </Row>
         </div>
@@ -97,7 +92,7 @@ class CheckoutSidebar extends Component {
                   </p>
                 </Col>
                 <Col xs={2} onClick={this.toggleCoupon}>
-                  <img src={`/static/images/${toggleImage}`} />
+                  <img src={`/static/images/${toggleImage}`} alt="toggle" />
                 </Col>
               </Row>
               <Collapse isOpen={this.state.collapse}>
@@ -112,22 +107,27 @@ class CheckoutSidebar extends Component {
         </Row>
         <Row>
           <Col xs={12}>
-            <div onClick={() => this.toggleFinance(false)}>
-              <Radio label={[<span className={s.bold}>Pay In Full</span>]} checked={!this.state.finance} />
-            </div>
+            <Radio
+              label={[<span className="bold">Pay In Full</span>]}
+              checked={!this.state.finance}
+              onClick={() => this.toggleFinance(false)}
+              defaultChecked
+            />
           </Col>
         </Row>
         <Row>
           <Col xs={12}>
-            <div onClick={() => this.toggleFinance(true)}>
-              <Radio label={[<span className={s.bold}>Finance 0% APR</span>]} checked={this.state.finance} />
-            </div>
+            <Radio
+              label={[<span className="bold">Finance 0% APR</span>]}
+              checked={this.state.finance}
+              onClick={() => this.toggleFinance(true)}
+            />
           </Col>
         </Row>
         <div className="cartPricing">
           <Row>
             <Col xs={9}>
-              5 year Prime Subscription
+              5 Year Prime Membership
             </Col>
             <Col xs={3}>
               <span className="bold">$99.99</span>
@@ -180,11 +180,19 @@ class CheckoutSidebar extends Component {
   }
 }
 
+CheckoutSidebar.propTypes = {
+  cart: PropTypes.object,
+  products: PropTypes.object,
+};
+
+CheckoutSidebar.defaultProps = {
+  cart: [],
+  products: [],
+};
+
 const mapStateToProps = ({ cart, products, payment }) => ({ cart, products, payment });
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-  };
-};
+const mapDispatchToProps = () => ({
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckoutSidebar);
