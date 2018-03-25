@@ -15,11 +15,9 @@ class ShippingInfo extends Component {
       standardDelivery: true,
       warranty: null,
     };
-    this.toggleShippingAddress = this.toggleShippingAddress.bind(this);
-    this.toggleShippMethod = this.toggleShipMethod.bind(this);
   }
 
-  toggleShippingAddress() {
+  toggleShippingAddress = () => {
     const { onChangeHandler } = this.props;
     this.setState({
       differentAddress: !this.state.differentAddress,
@@ -27,7 +25,7 @@ class ShippingInfo extends Component {
     onChangeHandler('shippingAddress', { shipToMonitorAddress: !this.state.differentAddress });
   }
 
-  toggleShipMethod(val) {
+  toggleShipMethod = (val) => {
     this.setState({
       standardDelivery: val,
     });
@@ -122,7 +120,7 @@ class ShippingInfo extends Component {
                       />
                     </div>
                   </Col>
-                  <Col xs={{ size: 10, offset: 3 }}>
+                  <Col xs={{ size: 10, offset: 1 }}>
                     <h4>$0.00</h4>
                   </Col>
                   <Col xs={{ size: 10, offset: 1 }}>
@@ -146,7 +144,7 @@ class ShippingInfo extends Component {
                       />
                     </div>
                   </Col>
-                  <Col xs={{ size: 10, offset: 3 }}>
+                  <Col xs={{ size: 10, offset: 1 }}>
                     <h4>$20.00</h4>
                   </Col>
                   <Col xs={{ size: 10, offset: 1 }}>

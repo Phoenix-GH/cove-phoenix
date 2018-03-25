@@ -1,7 +1,7 @@
-@import "styles/_variables";
+@import "variables";
 
 .checkoutSidebar {
-  @media (max-width: $width-md) {
+  @media (max-width: $width-lg) {
     display: none;
   }
 }
@@ -16,14 +16,14 @@
   flex: 0 0 33%;
   max-width: 125%;
   .stageLabel {
-    @media (max-width: $width-md) {
+    @media (max-width: $width-lg) {
       display: none;
     }
   }
 }
 
 .flexCol.activeStage {
-  @media (max-width: $width-md) {
+  @media (max-width: $width-lg) {
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     max-width: 50%;
@@ -44,7 +44,7 @@
   -moz-box-shadow:    0px 6px 6px 0px rgba(44,50,57, 0.2);
   box-shadow:         0px 6px 6px 0px rgba(44,50,57, 0.2);
 
-  @media (min-width: $width-md+1) {
+  @media (min-width: $width-lg+1) {
     display: none;
   }
 }
@@ -59,7 +59,7 @@
 }
 
 .checkoutStageRow {
-  font-family: GothamRoundedBold;
+  font-family: $font-gotham-rounded-bold;
   font-size: 14px;
   color: #8A9097;
   margin-bottom: 80px;
@@ -84,7 +84,7 @@
 }
 
 .footerControls {
-  margin-top: 100px;
+  margin-top: 20px;
   .returnColumn {
     flex: 1;
   }
@@ -98,7 +98,7 @@
 }
 
 .returnLink {
-  font-family: GothamRoundedBold;
+  font-family: $font-gotham-rounded-bold;
   font-size: 16px;
   color: #8A9097;
   padding-top: 3px;
@@ -114,7 +114,7 @@
   background: #F17927;
   font-size: 12px;
   text-align: center;
-  font-family: GothamRoundedBook;
+  font-family: $font-gotham-rounded;
   font-weight: bold;
   padding-top: 12px;
   cursor: pointer;
