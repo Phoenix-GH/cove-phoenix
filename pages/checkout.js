@@ -35,10 +35,17 @@ class CheckoutPage extends Component {
 
   render() {
     const activeStage = this.props.stage ? this.props.stage : 'customer';
-    const nextLinkText = activeStage === 'payment' ? 'Complete Purchase' : 'Continue to Shipping Method';
+    let nextLinkText = 'Continue to Shipping Method';
+    let previousLinkText = 'Return to Plan Type';
     let nextLink = '/shipping';
     if (activeStage === 'shipping') {
+      nextLinkText = 'Continue to Payment Info';
       nextLink = '/payment';
+      previousLinkText = 'Return to Customer Info';
+    } else if (activeStage === 'payment') {
+      nextLinkText = 'Complete Purchase';
+      nextLink = '/confirmation';
+      previousLinkText = 'Return to Shipping Info';
     }
     return (
       <Layout>
@@ -46,7 +53,7 @@ class CheckoutPage extends Component {
           <Header color="secondary" />
           <div className="spacer" />
           <Row>
-            <Col xs={12} sm={12} md={8}>
+            <Col xs={12} sm={12} md={12} lg={8}>
               <div className="checkoutStageRow">
                 <Row>
                   <div className={`flexCol ${activeStage === 'customer' ? 'activeStage' : ''}`}>
@@ -111,7 +118,7 @@ class CheckoutPage extends Component {
                             <img src="/static/images/arrowFullLeft.png" alt="arrow left" />
                           </li>
                           <li className="list-inline-item returnLink">
-                            Return to Shop
+                            {previousLinkText}
                           </li>
                         </ul>
                       </Link>
@@ -127,7 +134,7 @@ class CheckoutPage extends Component {
                 </Col>
               </div>
             </Col>
-            <Col className="justify-content-end" md={4}>
+            <Col className="justify-content-end" lg={4}>
               <div className="checkoutSidebar">
                 <CheckoutSidebar />
               </div>

@@ -1,4 +1,5 @@
 import { Row, Col } from 'reactstrap';
+import Link from 'next/link';
 import Input from '../components/input';
 import Checkbox from '../components/checkbox';
 import s from './paymentInfo.scss';
@@ -8,28 +9,32 @@ const PaymentInfo = () => (
     <div className="customerInfo">
       <h3>Payment Selection</h3>
       <Row className="justify-content-between">
-        <Col xs="3">
+        <Col>
           <h4>Credit Card</h4>
         </Col>
-        <Col xs="2">
+      </Row>
+      <Row>
+        <Col xs={8}>
+          <Input label="Name on card" />
+        </Col>
+        <Col xs={4}>
           <img src="/static/images/creditcards.png" alt="credit card icon" />
         </Col>
       </Row>
-
       <Row>
-        <Col xs={12}>
-          <Input label="Credit Card" placeholder="0000 - 0000 - 000 - 0000" />
+        <Col xs={8}>
+          <Input label="Card number" />
+        </Col>
+        <Col xs={2}>
+          <Input label="MM/YY" />
+        </Col>
+        <Col xs={2}>
+          <Input label="CVV" />
         </Col>
       </Row>
       <Row>
-        <Col xs={6}>
-          <Input label="Name on Card" />
-        </Col>
-        <Col xs={3}>
-          <Input label="Expiration Date" />
-        </Col>
-        <Col xs={3}>
-          <Input label="CVV Code" />
+        <Col>
+          <h4>Terms and Conditions</h4>
         </Col>
       </Row>
       <Row>
@@ -43,8 +48,8 @@ const PaymentInfo = () => (
         </Col>
         <Col xs={12}>
           <div className="financeAgreement">
-            To accept terms of
-            <span className="linkTertiary">Financing Agreement </span>
+            To accept terms of&nbsp;
+            <Link href="#link"><span className="linkTertiary">Financing Agreement </span></Link>
             please type full name below and click accept
           </div>
         </Col>
@@ -55,7 +60,7 @@ const PaymentInfo = () => (
         </Col>
         <Col xs={11}>
           <div className="acceptance">
-            I accept the <span className="linkTertiary"> Terms and Conditons</span>
+            I accept the <Link href="#link"><span className="linkTertiary"> Terms and Conditons</span></Link>
           </div>
         </Col>
       </Row>

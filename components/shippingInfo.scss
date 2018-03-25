@@ -1,11 +1,11 @@
-@import "styles/_variables";
+@import "variables";
 
 .customerInfo, .shippingInfo {
   h3 {
     margin-top: 60px;
     margin-bottom: 30px;
     font-size: 24px;
-    font-family: GothamRoundedBold;
+    font-family: $font-gotham-rounded-bold;
     color: #191E2B;
     border-bottom: 1px $grey-350 solid;
     &.extendedTitle{
@@ -42,6 +42,9 @@
   border: 1px solid #DEDFE1;
   border-radius: 16px;
   margin-right:20px;
+  h4 {
+    margin-left: 40px;
+  }
 }
 
 .shipOptionHeader {
@@ -54,7 +57,7 @@
 }
 
 h4 {
-  font-family: GothamRoundedBold;
+  font-family: $font-gotham-rounded-bold;
   font-size: 20px;
   // color: #00B19A;
 }
