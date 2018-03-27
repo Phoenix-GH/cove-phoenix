@@ -1,21 +1,25 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Link from 'next/link';
 import {
-  Container,
   Row,
   Col,
   Modal,
-  ModalHeader,
   ModalBody,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import s from './productModal.scss';
 
 const ProductModal = (props) => {
-  const { product } = props;
-  const quantity = props.quantity || 0;
+  const {
+    product,
+    quantity,
+    isOpen,
+    toggle,
+    className,
+    changeQuantity,
+  } = props;
   return (
-    <Modal isOpen={props.isOpen} toggle={props.toggle} className={props.className} size="lg">
+    <Modal isOpen={isOpen} toggle={toggle} className={className} size="lg">
       <ModalBody>
         <Row>
           <Col xs={11}>
@@ -23,24 +27,24 @@ const ProductModal = (props) => {
           </Col>
           <Col xs={1}>
             <div className={s.closeIcon}>
-              <img onClick={props.toggle} src="/static/images/closeIcon.png" />
+              <button onClick={toggle}><img src="/static/images/closeIcon.png" alt="closeIcon" /></button>
             </div>
           </Col>
         </Row>
         <Row>
           <Col xs={6}>
             <div className={s.productImageMain}>
-              <img src="/static/images/placeholderBig.png" className="img-fluid" />
+              <img src="/static/images/placeholderBig.png" className="img-fluid" alt="placeholderBig" />
             </div>
             <ul className="list-inline productThumbs">
               <li className="list-inline-item">
-                <img src="/static/images/placeholderThumb.png" />
+                <img src="/static/images/placeholderThumb.png" alt="placeholderThumb" />
               </li>
               <li className="list-inline-item">
-                <img src="/static/images/placeholderThumb.png" />
+                <img src="/static/images/placeholderThumb.png" alt="placeholderThumb" />
               </li>
               <li className="list-inline-item">
-                <img src="/static/images/placeholderThumb.png" />
+                <img src="/static/images/placeholderThumb.png" alt="placeholderThumb" />
               </li>
             </ul>
           </Col>
@@ -58,7 +62,7 @@ const ProductModal = (props) => {
                   <ul className="list-inline quantityControls">
                     <li className="list-inline-item">{quantity}</li>
                     <li className="list-inline-item">
-                      <img src="/static/images/plusIcon.png" alt="plus icon" onClick={() => props.changeQuantity(product.id, quantity, quantity + 1)} />
+                      <button onClick={() => changeQuantity(product.id, quantity, quantity + 1)}><img src="/static/images/plusIcon.png" alt="plus icon" /></button>
                     </li>
                     <li className={`list-inline-item ${quantity === 0 ? s.disabled: '' }`}>
                       <img src="/static/images/minusIcon.png" alt="minus icon"  onClick={() => props.changeQuantity(product.id, quantity, quantity - 1)}/>
@@ -83,6 +87,19 @@ const ProductModal = (props) => {
 
 ProductModal.propTypes = {
   product: PropTypes.object.isRequired,
+  quantity: PropTypes.number,
+  isOpen: PropTypes.bool,
+  toggle: PropTypes.func,
+  className: PropTypes.string,
+  changeQuantity: PropTypes.func,
+};
+
+ProductModal.defaultProps = {
+  quantity: 0,
+  isOpen: false,
+  toggle: () => {},
+  className: '',
+  changeQuantity: () => {},
 };
 
 export default ProductModal;

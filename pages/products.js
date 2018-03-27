@@ -6,10 +6,11 @@ import {
   Carousel,
   CarouselItem,
 } from 'reactstrap';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../store';
-import { loadProducts } from '../actions.js';
+import { loadProducts } from '../actions';
 import Layout from '../components/minimalLayout';
 import Header from '../components/header';
 import SidebarCart from '../components/sidebarCart';
@@ -38,10 +39,11 @@ const items = [
 ];
 
 class ProductPage extends Component {
-  static getInitialProps({store, isServer, pathname, query}) {
-      //    store.dispatch({type: 'LOAD_PRODUCTS', payload: [{id:3}]}); // component will be able to read from store's state when rendered
-          return {custom: 'custom'}; // you can pass some custom props to component from here
-      }
+  static getInitialProps() {
+    //  store.dispatch({type: 'LOAD_PRODUCTS', payload: [{id:3}]});
+    // component will be able to read from store's state when rendered
+    return { custom: 'custom' }; // you can pass some custom props to component from here
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -50,43 +52,37 @@ class ProductPage extends Component {
       activeProduct: 2,
     };
     this.load();
-    this.next = this.next.bind(this);
-    this.previous = this.previous.bind(this);
-    this.goToIndex = this.goToIndex.bind(this);
-    this.onExiting = this.onExiting.bind(this);
-    this.onExited = this.onExited.bind(this);
-    this.toggle = this.toggle.bind(this);
   }
 
-  onExiting() {
+  onExiting = () => {
     this.animating = true;
   }
 
-  onExited() {
+  onExited = () => {
     this.animating = false;
   }
 
-  next() {
+  next = () => {
     if (this.animating) return;
     const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
     this.setState({ activeIndex: nextIndex });
   }
 
-  previous() {
+  previous = () => {
     if (this.animating) return;
     const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
     this.setState({ activeIndex: nextIndex });
   }
 
-  goToIndex(newIndex) {
+  goToIndex = (newIndex) => {
     if (this.animating) return;
     this.setState({ activeIndex: newIndex });
   }
 
-  toggle(productId) {
+  toggle = (productId) => {
     this.setState({
       modal: !this.state.modal,
-      activeProduct: productId
+      activeProduct: productId,
     });
   }
 
@@ -131,15 +127,15 @@ class ProductPage extends Component {
                     <Row>
                       <ul className="mx-auto list-inline productSliderThumbs">
                         <li className="list-inline-item link">
-                          <img src="/static/images/arrowLeft.png" />
+                          <img src="/static/images/arrowLeft.png" alt="arrowLeft" />
                         </li>
                         {items.map((item, i) => (
                           <li className="list-inline-item" key={item.thumb + Math.random()}>
-                            <img src={item.thumb} onClick={() => { this.goToIndex(i); }} />
+                            <button onClick={() => { this.goToIndex(i); }}><img src={item.thumb} alt="thumb" /></button>
                           </li>
                           ))}
                         <li className="list-inline-item link">
-                          <img src="/static/images/arrowRight.png" />
+                          <img src="/static/images/arrowRight.png" alt="arrowRight" />
                         </li>
                       </ul>
                     </Row>
@@ -159,7 +155,7 @@ class ProductPage extends Component {
             product={this.props.products[this.state.activeProduct]}
             className="productModal"
           />
-          :''
+          : ''
         }
         <style jsx>{styles}</style>
       </Layout>
@@ -167,12 +163,22 @@ class ProductPage extends Component {
   }
 }
 
-const mapStateToProps = ({ cart, products }) => ({ cart, products })
+ProductPage.propTypes = {
+  products: PropTypes.object,
+  loadProducts: PropTypes.func,
+};
 
-const mapDispatchToProps = dispatch => {
-  return {
-    loadProducts: bindActionCreators(loadProducts, dispatch)
+ProductPage.defaultProps = {
+  products: null,
+  loadProducts: () => {},
+};
+
+const mapStateToProps = ({ cart, products }) => ({ cart, products });
+
+const mapDispatchToProps = dispatch => (
+  {
+    loadProducts: bindActionCreators(loadProducts, dispatch),
   }
-}
+);
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(ProductPage);
