@@ -3,7 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
-import initStorefrom '../store';
+import initStore from '../store';
 import Input from '../components/input';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
