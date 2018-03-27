@@ -35,17 +35,34 @@ jobs:
         
       # build
       - run: yarn build
+  deploy:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:8.9.0
+      
+      # Specify service dependencies here if necessary
+      # CircleCI maintains a library of pre-built images
+      # documented at https://circleci.com/docs/2.0/circleci-images/
+      # - image: circleci/mongo:3.4.4
 
-  deployment:
-    staging:
-      branch: master
-      codedeploy:
-        cove-website:
-          application_root: /
-          region: us-east-1
-          revision_location:
-            revision_type: S3
-            s3_location:
-              bucket: aws-website-cove-stage-tw7sj
-              key_pattern: cove-website-{BRANCH}-{SHORT_COMMIT}
-          deployment_group: circleci-deploy
+    working_directory: ~/repo
+
+    steps:
+      - run:
+          name: Deploy to S3 if tests pass and branch is Master
+          command: aws s3 sync out s3://aws-website-cove-stage-tw7sj/ --delete
+
+workflows:
+  version: 2
+  build-and-test:
+    jobs:
+      - build
+  build-and-deploy:
+    jobs:
+        - build
+        - deploy:
+            requires:
+              - build
+            filters:
+              branches:
+                only: sequential-branch-filter
