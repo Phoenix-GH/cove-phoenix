@@ -3,7 +3,6 @@ import { string, func, node, oneOfType } from 'prop-types';
 import s from './accountDataField.scss';
 
 export default class accountDataField extends Component {
-
   static defaultProps = {
     label: '',
     content: '',

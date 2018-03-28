@@ -1,30 +1,78 @@
+@import 'variables';
+
 .productContent {
-  margin-top:60px;
+  margin-top: 60px;
   width: 100%;
+  color: $grey-600;
   h2 {
-    margin-top: 55px;
     margin-bottom: 35px;
-    font-family: GothamRoundedBold;
+    font-family: $font-gotham-rounded-bold;
     font-size: 40px;
   }
+  h3 {
+    font-size: 35px;
+    font-family: $font-gotham-rounded-bold;
+    color: $grey-600;
+    margin-bottom: 55px;
+  }
+  .grey {
+    color: $grey-1000; 
+  }
+  .green {
+    color: $primary-color;
+  }
   ul {
-    list-style: none;
-    padding-left: 0px;
+    list-style-position: inside;
+    list-style-image: url(static/images/ellipse.png);
+    padding-left: 0;
+    button {
+      border: none;
+      outline: none;
+    }
+    li {
+      font-family: $font-gotham-rounded-medium;
+    }
+  }
+  p {
+    margin: 20px 0 20px 0;
   }
   :global {
     .carousel-item {
       border-radius: 16px;
     }
-
+  }
+  .descriptionRow {
+    margin-top: 160px;
+    &:last-child {
+      margin-bottom: 218px;
+    }
+  }
+  .description {
+    font-size: 16px;
+    font-family: $font-gotham-rounded;
+    margin-bottom: 60px;
+  }
+  .saving {
+    font-size: 24px;
+    font-family: $font-gotham-rounded;
+  }
+  .center {
+    text-align: center;
+  }
+  .titlePadding {
+    margin-top: 50px;
+  }
+  img {
+    max-width: 100%;
   }
 }
 
 :global {
-  @media (min-width: 768px) {
+  @media (min-width: $width-md+1) {
     .modal-dialog .productModal {
       width: 944px;
     }
-    .modal-lg  {
+    .modal-lg {
       width: 944px;
       max-width: 944px;
       height: 536px;
@@ -32,7 +80,7 @@
     .productModal {
       .modal-content {
         border-radius: 16px;
-        border: 1px solid #F0F4F7;
+        border: 1px solid $grey-50;
       }
       .modal-header {
         border: 0px;
@@ -40,16 +88,24 @@
     }
   }
 }
+
 .productSliderThumbs {
   :global {
     margin-top: 15px;
-      .list-inline-item {
-        border-radius: 8px;
-        padding-left: 8px;
-        padding-right: 8px;
+    .list-inline-item {
+      border-radius: 8px;
+      padding-left: 8px;
+      padding-right: 8px;
     }
   }
 }
+
 .link {
   cursor: pointer;
+}
+
+.checkoutSidebar {
+  @media (max-width: $width-lg) {
+    display: none;
+  }
 }

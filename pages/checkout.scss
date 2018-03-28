@@ -1,7 +1,7 @@
 @import "variables";
 
 .checkoutSidebar {
-  @media (max-width: $width-lg) {
+  @media (max-width: $width-md) {
     display: none;
   }
 }

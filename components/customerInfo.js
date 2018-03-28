@@ -141,8 +141,7 @@ CustomerInfo.propTypes = {
 };
 
 CustomerInfo.defaultProps = {
-  onChangeHandler: () => {
-  },
+  onChangeHandler: () => {},
 };
 
 export default CustomerInfo;

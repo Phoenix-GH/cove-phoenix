@@ -6,14 +6,16 @@ import {
   Carousel,
   CarouselItem,
 } from 'reactstrap';
+import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../store';
-import { loadProducts } from '../actions.js';
+import { loadProducts } from '../actions';
 import Layout from '../components/minimalLayout';
 import Header from '../components/header';
 import SidebarCart from '../components/sidebarCart';
 import ProductModal from '../components/productModal';
+import ProductFooter from '../components/productFooter/productFooter';
 import styles from './product.scss';
 
 const items = [
@@ -38,10 +40,11 @@ const items = [
 ];
 
 class ProductPage extends Component {
-  static getInitialProps({store, isServer, pathname, query}) {
-      //    store.dispatch({type: 'LOAD_PRODUCTS', payload: [{id:3}]}); // component will be able to read from store's state when rendered
-          return {custom: 'custom'}; // you can pass some custom props to component from here
-      }
+  static getInitialProps() {
+    //  store.dispatch({type: 'LOAD_PRODUCTS', payload: [{id:3}]});
+    // component will be able to read from store's state when rendered
+    return { custom: 'custom' }; // you can pass some custom props to component from here
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -50,43 +53,37 @@ class ProductPage extends Component {
       activeProduct: 2,
     };
     this.load();
-    this.next = this.next.bind(this);
-    this.previous = this.previous.bind(this);
-    this.goToIndex = this.goToIndex.bind(this);
-    this.onExiting = this.onExiting.bind(this);
-    this.onExited = this.onExited.bind(this);
-    this.toggle = this.toggle.bind(this);
   }
 
-  onExiting() {
+  onExiting = () => {
     this.animating = true;
   }
 
-  onExited() {
+  onExited = () => {
     this.animating = false;
   }
 
-  next() {
+  next = () => {
     if (this.animating) return;
     const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
     this.setState({ activeIndex: nextIndex });
   }
 
-  previous() {
+  previous = () => {
     if (this.animating) return;
     const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
     this.setState({ activeIndex: nextIndex });
   }
 
-  goToIndex(newIndex) {
+  goToIndex = (newIndex) => {
     if (this.animating) return;
     this.setState({ activeIndex: newIndex });
   }
 
-  toggle(productId) {
+  toggle = (productId) => {
     this.setState({
       modal: !this.state.modal,
-      activeProduct: productId
+      activeProduct: productId,
     });
   }
 
@@ -95,8 +92,8 @@ class ProductPage extends Component {
   }
 
   render() {
-    const { activeIndex } = this.state;
-
+    const { activeIndex, activeProduct, modal } = this.state;
+    const { products } = this.props;
     const slides = items.map(item => (
       <CarouselItem
         onExiting={this.onExiting}
@@ -109,57 +106,138 @@ class ProductPage extends Component {
 
     return (
       <Layout>
-        <Container >
-          <Header color="secondary" />
-          <Container>
-            <div className="productContent" >
-              <Row>
-                <Col xl={8} lg={7} md={6}>
-                  <h2>Cove Protect</h2>
-                  <div className="productCarousel">
-                    <Row>
-                      <Carousel
-                        activeIndex={activeIndex}
-                        next={this.next}
-                        previous={this.previous}
-                        interval={false}
-                        className="mx-auto"
-                      >
-                        {slides}
-                      </Carousel>
-                    </Row>
-                    <Row>
-                      <ul className="mx-auto list-inline productSliderThumbs">
-                        <li className="list-inline-item link">
-                          <img src="/static/images/arrowLeft.png" />
+        <Header color="secondary" />
+        <Container>
+          <div className="productContent" >
+            <Row>
+              <Col xl={8} lg={8} md={12} xs={12}>
+                <h2>Cove Protect</h2>
+                <div className="productCarousel">
+                  <Row>
+                    <Carousel
+                      activeIndex={activeIndex}
+                      next={this.next}
+                      previous={this.previous}
+                      interval={false}
+                      className="mx-auto"
+                    >
+                      {slides}
+                    </Carousel>
+                  </Row>
+                  <Row>
+                    <ul className="mx-auto list-inline productSliderThumbs">
+                      <li className="list-inline-item link">
+                        <img src="/static/images/arrowLeft.png" alt="arrowLeft" />
+                      </li>
+                      {items.map((item, i) => (
+                        <li className="list-inline-item" key={item.thumb + Math.random()}>
+                          <button onClick={() => { this.goToIndex(i); }}>
+                            <img src={item.thumb} alt="thumb" />
+                          </button>
                         </li>
-                        {items.map((item, i) => (
-                          <li className="list-inline-item" key={item.thumb + Math.random()}>
-                            <img src={item.thumb} onClick={() => { this.goToIndex(i); }} />
-                          </li>
-                          ))}
-                        <li className="list-inline-item link">
-                          <img src="/static/images/arrowRight.png" />
-                        </li>
-                      </ul>
-                    </Row>
-                  </div>
-                </Col>
-                <Col xl={4} lg={5} md={6} className="no-gutters">
-                  <SidebarCart detailAction={this.toggle} />
-                </Col>
-              </Row>
-            </div>
-          </Container>
+                        ))}
+                      <li className="list-inline-item link">
+                        <img src="/static/images/arrowRight.png" alt="arrowRight" />
+                      </li>
+                    </ul>
+                  </Row>
+                </div>
+                <div className="descriptionRow">
+                  <Row>
+                    <Col xs={6}>
+                      <img src="/static/images/24monitoring.png" alt="24/7 Professional Monitoring" />
+                    </Col>
+                    <Col xs={6}>
+                      <h2 className="titlePadding">24/7 Professional Monitoring</h2>
+                      <div className="description">
+                        With 24/7 Professinoal Monitoring,
+                        you know your home is protected all the time,
+                        not just when you are looking.
+                      </div>
+                      <Row>
+                        <ul>
+                          <li>5 Star Monitoring Station</li>
+                          <li>$19.99/mo</li>
+                          <li>No contracts</li>
+                        </ul>
+                      </Row>
+                    </Col>
+                  </Row>
+                </div>
+                <div className="descriptionRow">
+                  <Col xs={6}>
+                    <h2>Setup is easy.
+                      <br />Protection is tough.
+                    </h2>
+                    <div className="description">
+                      With the most unique and simple setup process in the entire industry,
+                        you are able to protect your home within minutes.
+                    </div>
+                  </Col>
+                </div>
+                <div className="descriptionRow">
+                  <Row>
+                    <Col xs={6}>
+                      <img src="/static/images/securityChart.png" alt="24/7 Professional Monitoring" />
+                    </Col>
+                    <Col xs={6}>
+                      <h2 className="grey">Less Markup.</h2>
+                      <h2 className="green">More Security.</h2>
+                    </Col>
+                  </Row>
+                </div>
+                <Row>
+                  <Col xs={12}>
+                    <Col xs={{ size: 6, offset: 3 }}>
+                      <h2 className="center titlePadding">
+                        Savings so big, you can&#39;t help but love it.
+                      </h2>
+                    </Col>
+                    <div className="saving center">
+                      Every year with Cove is more money in your pocket
+                      from what you would have paid with other security companies.
+                      <p>
+                        We cut out the middlemen markup.
+                      </p>
+                      <img src="/static/images/savingLine.png" alt="Live chart" />
+                    </div>
+                  </Col>
+                </Row>
+                <div className="descriptionRow">
+                  <Row>
+                    <Col xs={7}>
+                      <Row>
+                        <h2 className="grey titlePadding">
+                          100% satisfaction
+                          <br />guaranteed
+                        </h2>
+                        <div className="grey">
+                          Try out Cove for 60 days free, and if you don&#39;t like
+                          it more than your children, send it back for a complete refund.
+                        </div>
+                      </Row>
+                    </Col>
+                    <Col xs={5}>
+                      <img src="/static/images/riskFreeTrial.png" alt="Risk Free 60 Day Trial" />
+                    </Col>
+                  </Row>
+                </div>
+              </Col>
+              <Col xl={4} lg={4} md={0} sm={0} className="no-gutters">
+                <SidebarCart detailAction={this.toggle} />
+              </Col>
+            </Row>
+          </div>
         </Container>
-        {this.props.products[this.state.activeProduct] ?
+        <ProductFooter />
+        {products[activeProduct] ?
           <ProductModal
-            isOpen={this.state.modal}
+            isOpen={modal}
             toggle={this.toggle}
-            product={this.props.products[this.state.activeProduct]}
+            product={products[activeProduct]}
             className="productModal"
           />
-          :''
+          : ''
         }
         <style jsx>{styles}</style>
       </Layout>
@@ -167,12 +245,22 @@ class ProductPage extends Component {
   }
 }
 
-const mapStateToProps = ({ cart, products }) => ({ cart, products })
+ProductPage.propTypes = {
+  products: PropTypes.object,
+  loadProducts: PropTypes.func,
+};
 
-const mapDispatchToProps = dispatch => {
-  return {
-    loadProducts: bindActionCreators(loadProducts, dispatch)
+ProductPage.defaultProps = {
+  products: [],
+  loadProducts: () => {},
+};
+
+const mapStateToProps = ({ cart, products }) => ({ cart, products });
+
+const mapDispatchToProps = dispatch => (
+  {
+    loadProducts: bindActionCreators(loadProducts, dispatch),
   }
-}
+);
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(ProductPage);

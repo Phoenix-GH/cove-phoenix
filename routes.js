@@ -29,7 +29,7 @@ module.exports = () => {
     '/account/info/return-equipment': { page: '/account/info/returnEquipment' },
     '/account/info/alarm-insurance-certificate': { page: '/account/info/alarmInsuranceCertificate' },
     '/account/equipment': { page: '/equipment', query: {} },
-    '/account/addequipment': { page: '/addequipment' },
+    '/account/addequipment': { page: '/addEquipment' },
     '/account/cancel': { page: '/cancelmembership' },
     '/account/refer': { page: '/refer' },
     '/account/password': { page: '/password' },
