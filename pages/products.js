@@ -91,8 +91,8 @@ class ProductPage extends Component {
   }
 
   render() {
-    const { activeIndex } = this.state;
-
+    const { activeIndex, activeProduct, modal } = this.state;
+    const { products } = this.props;
     const slides = items.map(item => (
       <CarouselItem
         onExiting={this.onExiting}
@@ -105,7 +105,7 @@ class ProductPage extends Component {
 
     return (
       <Layout>
-        <Container >
+        <Container>
           <Header color="secondary" />
           <Container>
             <div className="productContent" >
@@ -131,13 +131,95 @@ class ProductPage extends Component {
                         </li>
                         {items.map((item, i) => (
                           <li className="list-inline-item" key={item.thumb + Math.random()}>
-                            <button onClick={() => { this.goToIndex(i); }}><img src={item.thumb} alt="thumb" /></button>
+                            <button onClick={() => { this.goToIndex(i); }}>
+                              <img src={item.thumb} alt="thumb" />
+                            </button>
                           </li>
                           ))}
                         <li className="list-inline-item link">
                           <img src="/static/images/arrowRight.png" alt="arrowRight" />
                         </li>
                       </ul>
+                    </Row>
+                  </div>
+                  <div className="descriptionRow">
+                    <Row>
+                      <Col xs={6}>
+                        <img src="/static/images/24monitoring.png" alt="24/7 Professional Monitoring" />
+                      </Col>
+                      <Col xs={6}>
+                        <h3>24/7 Professional Monitoring</h3>
+                        <div className="description">
+                          With 24/7 Professinoal Monitoring,
+                          you know your home is protected all the time,
+                          not just when you are looking.
+                        </div>
+                        <Row>
+                          <ul>
+                            <li>5 Star Monitoring Station</li>
+                            <li>$19.99/mo</li>
+                            <li>No contracts</li>
+                          </ul>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </div>
+                  <div className="descriptionRow">
+                    <Col xs={6}>
+                      <h3>Setup is easy.
+                        <br />Protection is tough.
+                      </h3>
+                      <div className="description">
+                        With the most unique and simple setup process in the entire industry,
+                         you are able to protect your home within minutes.
+                      </div>
+                    </Col>
+                  </div>
+                  <div className="descriptionRow">
+                    <Row>
+                      <Col xs={6}>
+                        <img src="/static/images/securityChart.png" alt="24/7 Professional Monitoring" />
+                      </Col>
+                      <Col xs={6}>
+                        <h2>Less Markup.</h2>
+                        <h2>More Security.</h2>
+                      </Col>
+                    </Row>
+                  </div>
+                  <div className="descriptionRow">
+                    <Row>
+                      <Col xs={12}>
+                        <Col xs={{ size: 6, offset: 3 }}>
+                          <h3 className="center">
+                            Savings so big, you can&#39;t help but love it.
+                          </h3>
+                        </Col>
+                        <div className="description center">
+                          Every year with Cove is more money in your pocket
+                          from what you would have paid with other security companies.
+                          <p>
+                            We cut out the middlemen markup.
+                          </p>
+                          <img src="/static/images/savingLine.png" alt="Live chart" />
+                        </div>
+                      </Col>
+                    </Row>
+                  </div>
+                  <div className="descriptionRow">
+                    <Row>
+                      <Col xs={7}>
+                        <h2 className="grey">
+                          100% satisfaction
+                          <br />guaranteed
+                        </h2>
+                        <div className="grey">
+                          Try out Cove for 60 days free, and if you don&#39;t like
+                          it more than your children, send it back for a complete refund.
+                        </div>
+                      </Col>
+                      <Col xs={5}>
+                        <img src="/static/images/riskFreeTrial.png" alt="Risk Free 60 Day Trial" />
+                      </Col>
                     </Row>
                   </div>
                 </Col>
@@ -148,11 +230,11 @@ class ProductPage extends Component {
             </div>
           </Container>
         </Container>
-        {this.props.products[this.state.activeProduct] ?
+        {products[activeProduct] ?
           <ProductModal
-            isOpen={this.state.modal}
+            isOpen={modal}
             toggle={this.toggle}
-            product={this.props.products[this.state.activeProduct]}
+            product={products[activeProduct]}
             className="productModal"
           />
           : ''
@@ -169,7 +251,7 @@ ProductPage.propTypes = {
 };
 
 ProductPage.defaultProps = {
-  products: null,
+  products: [],
   loadProducts: () => {},
 };
 

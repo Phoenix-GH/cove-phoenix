@@ -1,26 +1,57 @@
 @import 'variables';
 
 .productContent {
-  margin-top:60px;
+  margin-top: 60px;
   width: 100%;
+  color: $grey-600;
   h2 {
     margin-top: 55px;
     margin-bottom: 35px;
     font-family: $font-gotham-rounded-bold;
     font-size: 40px;
   }
+  h3 {
+    font-size: 35px;
+    font-family: $font-gotham-rounded-bold;
+    color: $grey-600;
+    margin-bottom: 55px;
+  }
+  .grey {
+    color: $grey-1000; 
+  }
   ul {
-    list-style: none;
-    padding-left: 0px;
+    list-style-position: inside;
+    list-style-image: url(static/images/ellipse.png);
+    padding-left: 0;
     button {
       border: none;
       outline: none;
     }
+    li {
+      font-family: $font-gotham-rounded-medium;
+    }
+  }
+  p {
+    margin: 20px 0 20px 0;
   }
   :global {
     .carousel-item {
       border-radius: 16px;
     }
+  }
+  .descriptionRow {
+    margin-top: 55px;
+  }
+  .description {
+    font-size: 16px;
+    font-family: $font-gotham-rounded;
+    margin-bottom: 60px;
+  }
+  .center {
+    text-align: center;
+  }
+  img {
+    max-width: 100%;
   }
 }
 
@@ -29,7 +60,7 @@
     .modal-dialog .productModal {
       width: 944px;
     }
-    .modal-lg  {
+    .modal-lg {
       width: 944px;
       max-width: 944px;
       height: 536px;
@@ -49,10 +80,10 @@
 .productSliderThumbs {
   :global {
     margin-top: 15px;
-      .list-inline-item {
-        border-radius: 8px;
-        padding-left: 8px;
-        padding-right: 8px;
+    .list-inline-item {
+      border-radius: 8px;
+      padding-left: 8px;
+      padding-right: 8px;
     }
   }
 }
