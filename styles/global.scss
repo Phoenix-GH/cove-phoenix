@@ -1,8 +1,11 @@
 @import 'variables';
+@import '../node_modules/bootstrap/scss/bootstrap';
 @import 'utilities';
 @import 'types';
 @import 'buttons';
 @import 'components/list';
+@import 'typography';
+@import 'helpers';
 
 body {
   font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
