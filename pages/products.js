@@ -15,6 +15,7 @@ import Layout from '../components/minimalLayout';
 import Header from '../components/header';
 import SidebarCart from '../components/sidebarCart';
 import ProductModal from '../components/productModal';
+import ProductFooter from '../components/productFooter/productFooter';
 import styles from './product.scss';
 
 const items = [
@@ -105,110 +106,108 @@ class ProductPage extends Component {
 
     return (
       <Layout>
+        <Header color="secondary" />
         <Container>
-          <Header color="secondary" />
-          <Container>
-            <div className="productContent" >
-              <Row>
-                <Col xl={8} lg={7} md={6}>
-                  <h2>Cove Protect</h2>
-                  <div className="productCarousel">
-                    <Row>
-                      <Carousel
-                        activeIndex={activeIndex}
-                        next={this.next}
-                        previous={this.previous}
-                        interval={false}
-                        className="mx-auto"
-                      >
-                        {slides}
-                      </Carousel>
-                    </Row>
-                    <Row>
-                      <ul className="mx-auto list-inline productSliderThumbs">
-                        <li className="list-inline-item link">
-                          <img src="/static/images/arrowLeft.png" alt="arrowLeft" />
+          <div className="productContent" >
+            <Row>
+              <Col xl={8} lg={8} md={12} xs={12}>
+                <h2>Cove Protect</h2>
+                <div className="productCarousel">
+                  <Row>
+                    <Carousel
+                      activeIndex={activeIndex}
+                      next={this.next}
+                      previous={this.previous}
+                      interval={false}
+                      className="mx-auto"
+                    >
+                      {slides}
+                    </Carousel>
+                  </Row>
+                  <Row>
+                    <ul className="mx-auto list-inline productSliderThumbs">
+                      <li className="list-inline-item link">
+                        <img src="/static/images/arrowLeft.png" alt="arrowLeft" />
+                      </li>
+                      {items.map((item, i) => (
+                        <li className="list-inline-item" key={item.thumb + Math.random()}>
+                          <button onClick={() => { this.goToIndex(i); }}>
+                            <img src={item.thumb} alt="thumb" />
+                          </button>
                         </li>
-                        {items.map((item, i) => (
-                          <li className="list-inline-item" key={item.thumb + Math.random()}>
-                            <button onClick={() => { this.goToIndex(i); }}>
-                              <img src={item.thumb} alt="thumb" />
-                            </button>
-                          </li>
-                          ))}
-                        <li className="list-inline-item link">
-                          <img src="/static/images/arrowRight.png" alt="arrowRight" />
-                        </li>
-                      </ul>
-                    </Row>
-                  </div>
-                  <div className="descriptionRow">
-                    <Row>
-                      <Col xs={6}>
-                        <img src="/static/images/24monitoring.png" alt="24/7 Professional Monitoring" />
-                      </Col>
-                      <Col xs={6}>
-                        <h3>24/7 Professional Monitoring</h3>
-                        <div className="description">
-                          With 24/7 Professinoal Monitoring,
-                          you know your home is protected all the time,
-                          not just when you are looking.
-                        </div>
-                        <Row>
-                          <ul>
-                            <li>5 Star Monitoring Station</li>
-                            <li>$19.99/mo</li>
-                            <li>No contracts</li>
-                          </ul>
-                        </Row>
-                      </Col>
-                    </Row>
-                  </div>
-                  <div className="descriptionRow">
+                        ))}
+                      <li className="list-inline-item link">
+                        <img src="/static/images/arrowRight.png" alt="arrowRight" />
+                      </li>
+                    </ul>
+                  </Row>
+                </div>
+                <div className="descriptionRow">
+                  <Row>
                     <Col xs={6}>
-                      <h3>Setup is easy.
-                        <br />Protection is tough.
-                      </h3>
-                      <div className="description">
-                        With the most unique and simple setup process in the entire industry,
-                         you are able to protect your home within minutes.
-                      </div>
+                      <img src="/static/images/24monitoring.png" alt="24/7 Professional Monitoring" />
                     </Col>
-                  </div>
-                  <div className="descriptionRow">
-                    <Row>
-                      <Col xs={6}>
-                        <img src="/static/images/securityChart.png" alt="24/7 Professional Monitoring" />
-                      </Col>
-                      <Col xs={6}>
-                        <h2>Less Markup.</h2>
-                        <h2>More Security.</h2>
-                      </Col>
-                    </Row>
-                  </div>
-                  <div className="descriptionRow">
-                    <Row>
-                      <Col xs={12}>
-                        <Col xs={{ size: 6, offset: 3 }}>
-                          <h3 className="center">
-                            Savings so big, you can&#39;t help but love it.
-                          </h3>
-                        </Col>
-                        <div className="description center">
-                          Every year with Cove is more money in your pocket
-                          from what you would have paid with other security companies.
-                          <p>
-                            We cut out the middlemen markup.
-                          </p>
-                          <img src="/static/images/savingLine.png" alt="Live chart" />
-                        </div>
-                      </Col>
-                    </Row>
-                  </div>
-                  <div className="descriptionRow">
-                    <Row>
-                      <Col xs={7}>
-                        <h2 className="grey">
+                    <Col xs={6}>
+                      <h2 className="titlePadding">24/7 Professional Monitoring</h2>
+                      <div className="description">
+                        With 24/7 Professinoal Monitoring,
+                        you know your home is protected all the time,
+                        not just when you are looking.
+                      </div>
+                      <Row>
+                        <ul>
+                          <li>5 Star Monitoring Station</li>
+                          <li>$19.99/mo</li>
+                          <li>No contracts</li>
+                        </ul>
+                      </Row>
+                    </Col>
+                  </Row>
+                </div>
+                <div className="descriptionRow">
+                  <Col xs={6}>
+                    <h2>Setup is easy.
+                      <br />Protection is tough.
+                    </h2>
+                    <div className="description">
+                      With the most unique and simple setup process in the entire industry,
+                        you are able to protect your home within minutes.
+                    </div>
+                  </Col>
+                </div>
+                <div className="descriptionRow">
+                  <Row>
+                    <Col xs={6}>
+                      <img src="/static/images/securityChart.png" alt="24/7 Professional Monitoring" />
+                    </Col>
+                    <Col xs={6}>
+                      <h2 className="grey">Less Markup.</h2>
+                      <h2 className="green">More Security.</h2>
+                    </Col>
+                  </Row>
+                </div>
+                <Row>
+                  <Col xs={12}>
+                    <Col xs={{ size: 6, offset: 3 }}>
+                      <h2 className="center titlePadding">
+                        Savings so big, you can&#39;t help but love it.
+                      </h2>
+                    </Col>
+                    <div className="saving center">
+                      Every year with Cove is more money in your pocket
+                      from what you would have paid with other security companies.
+                      <p>
+                        We cut out the middlemen markup.
+                      </p>
+                      <img src="/static/images/savingLine.png" alt="Live chart" />
+                    </div>
+                  </Col>
+                </Row>
+                <div className="descriptionRow">
+                  <Row>
+                    <Col xs={7}>
+                      <Row>
+                        <h2 className="grey titlePadding">
                           100% satisfaction
                           <br />guaranteed
                         </h2>
@@ -216,20 +215,21 @@ class ProductPage extends Component {
                           Try out Cove for 60 days free, and if you don&#39;t like
                           it more than your children, send it back for a complete refund.
                         </div>
-                      </Col>
-                      <Col xs={5}>
-                        <img src="/static/images/riskFreeTrial.png" alt="Risk Free 60 Day Trial" />
-                      </Col>
-                    </Row>
-                  </div>
-                </Col>
-                <Col xl={4} lg={5} md={6} className="no-gutters">
-                  <SidebarCart detailAction={this.toggle} />
-                </Col>
-              </Row>
-            </div>
-          </Container>
+                      </Row>
+                    </Col>
+                    <Col xs={5}>
+                      <img src="/static/images/riskFreeTrial.png" alt="Risk Free 60 Day Trial" />
+                    </Col>
+                  </Row>
+                </div>
+              </Col>
+              <Col xl={4} lg={4} md={0} sm={0} className="no-gutters">
+                <SidebarCart detailAction={this.toggle} />
+              </Col>
+            </Row>
+          </div>
         </Container>
+        <ProductFooter />
         {products[activeProduct] ?
           <ProductModal
             isOpen={modal}
