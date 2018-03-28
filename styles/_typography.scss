@@ -1,0 +1,23 @@
+// Font weight helpers
+@for $weight from 1 through 9 {
+
+    .font-weight-#{$weight * 100} {
+        font-weight: #{$weight * 100} !important;
+    }
+}
+
+// Font size helpers
+@for $size from 1 through 60 {
+
+    .font-size-#{$size * 2} {
+        font-size: #{$size * 2}px !important;
+    }
+}
+
+// Line height helpers
+@for $lineHeight from 1 through 60 {
+
+    .line-height-#{$lineHeight * 2} {
+        line-height: #{$lineHeight * 2}px !important;
+    }
+}
