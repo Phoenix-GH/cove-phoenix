@@ -1,0 +1,30 @@
+@import 'variables';
+
+.sharingColumn {
+  padding: 40px 0 100px 0;
+  .leftbar {
+    margin: 10px 17px 0 2px;
+    width: 1px;
+    background-color: $footer-green;
+    height: 268px;
+  }
+  .socialRow
+  {
+    margin-top: 36px;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    li {
+      font-family: $font-gotham-rounded-light;
+      font-size: 18px;
+      line-height: 34px;
+      :global(a) {
+        color: $grey-1000;
+      }
+    }
+  }
+  :global(.inputBlockClass) {
+    width: 100%;
+  }
+}

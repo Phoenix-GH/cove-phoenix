@@ -1,0 +1,35 @@
+@import 'variables';
+
+.footerColumn {
+  padding: 40px 0 100px 0;
+  width: 273px;
+  h4 {
+    font-family: $font-gotham-rounded-bold;
+    font-size: 24px;
+    color: $grey-1000;
+  }
+  img {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 0;
+  }
+  .leftbar {
+    margin: 10px 17px 0 3px;
+    width: 1px;
+    background-color: $footer-green;
+    height: 268px;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    li {
+      font-family: $font-gotham-rounded-light;
+      font-size: 18px;
+      line-height: 34px;
+      :global(a) {
+        color: $grey-1000;
+      }
+    }
+  }
+}
