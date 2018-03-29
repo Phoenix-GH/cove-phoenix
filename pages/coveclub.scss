@@ -1,4 +1,6 @@
-@media (min-width: 767px) {
+@import 'variables';
+
+@media (min-width: $width-lg+1) {
   .mobile {
     display: none;
   }
@@ -7,9 +9,10 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: $width-lg) {
   .mobile {
     display: block;
+    overflow: hidden;
   }
   .full {
     display: none;

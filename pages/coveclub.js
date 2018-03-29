@@ -9,9 +9,6 @@ import CoveClubMobile from '../components/coveClubMobile';
 import s from './coveclub.scss';
 
 class CoveClub extends Component {
-  static getInitialProps({ store }) {
-
-  }
   render() {
     return (
       <Layout>
@@ -24,30 +21,10 @@ class CoveClub extends Component {
         <div className="mobile">
           <CoveClubMobile />
         </div>
-        <style jsx>{`
-          @media (min-width: 767px) {
-            .mobile {
-              display: none;
-            }
-            .full {
-              display: block;
-            }
-          }
-
-          @media (max-width: 768px) {
-            .mobile {
-              display: block;
-            }
-            .full {
-              display: none;
-            }
-          }
-
-        `}</style>
+        <style jsx>{s}</style>
       </Layout>
     );
   }
 }
-
 
 export default withRedux(initStore, null, null)(CoveClub);

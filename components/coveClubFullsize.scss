@@ -1,15 +1,17 @@
+@import 'variables';
+
 .coveClubFull {
   .header {
     margin-top: 80px;
     h2 {
       font-size: 40px;
-      font-family: GothamRoundedBold;
+      font-family: $font-gotham-rounded-bold;
     }
   }
 
   .titleSubText {
     font-size: 20px;
-    font-family: GothamRoundedBook;
+    font-family: $font-gotham-rounded;
     position: relative;
     padding-left: 25px;
     margin-top: 20px;
@@ -25,18 +27,23 @@
       background: #01CDB9;
     }
   }
+
   .coveClubTableHeader {
     height: 120px;
     border-radius: 16px 16px 0px 0px;
-    border-left: 1px solid #F0F4F7;
-    border-top: 1px solid #F0F4F7;
-    border-right: 1px solid #F0F4F7;
-    padding-top: 32px;
+    border-left: 1px solid $grey-50;
+    border-top: 1px solid $grey-50;
+    border-right: 1px solid $grey-50;
+    padding-top: 10px;
     text-align: center;
     position: relative;
+    h3 {
+      font-size: 34px;
+    }
+    
     h4 {
       font-size: 24px;
-      font-family: GothamRoundedBold;
+      font-family: $font-gotham-rounded-bold;
       color: #00CDB9;
     }
 
@@ -52,46 +59,35 @@
 
     &::before {
       content: "";
-      height: 106px;
+      height: 624px;
       width: 2px;
       position: absolute;
       left: -2px;
       top: 0px;
-      background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
       background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
       top: 15px;
       border-radius: 3px 0px 0px 0px;
       filter: blur(1px);
-      -webkit-filter: blur(1px);
-      -moz-filter: blur(1px);
-      -o-filter: blur(1px);
-      -ms-filter: blur(1px);
     }
     &::after {
       content: "";
-      height: 106px;
+      height: 624px;
       width: 2px;
       position: absolute;
       right: -3px;
       top: 0px;
-      background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
       background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
       top: 15px;
       border-radius: 0px 3px 0px 0px;
       filter: blur(1px);
-      -webkit-filter: blur(1px);
-      -moz-filter: blur(1px);
-      -o-filter: blur(1px);
-      -ms-filter: blur(1px);
     }
   }
 
   .coveClubTableFooter {
-    height: 480px;
     border-radius: 0px 0px 16px 16px;
-    border-left: 1px solid #F0F4F7;
-    border-bottom: 1px solid #F0F4F7;
-    border-right: 1px solid #F0F4F7;
+    border-left: 1px solid $grey-50;
+    border-bottom: 1px solid $grey-50;
+    border-right: 1px solid $grey-50;
     padding-top: 32px;
     margin-bottom: 20px;
     text-align: center;
@@ -101,7 +97,7 @@
     box-shadow: 0px 6px 3px 0px rgba(44, 50, 57, .1);
     h4 {
       font-size: 24px;
-      font-family: GothamRoundedBold;
+      font-family: $font-gotham-rounded-bold;
       color: #00CDB9;
     }
 
@@ -117,7 +113,6 @@
 
     &::before {
       content: "";
-      height: 471px;
       width: 2px;
       position: absolute;
       left: -2px;
@@ -133,7 +128,6 @@
     }
     &::after {
       content: "";
-      height: 471px;
       width: 2px;
       position: absolute;
       right: -3px;
@@ -154,37 +148,9 @@
       }
     }
   }
-  .coveNonClubTableHeader {
-    height: 120px;
-    padding-top:32px;
-    text-align: center;
-    background: #F0F4F7;
-    border-radius: 16px 16px 0px 0px;
-    h4 {
-      font-size: 24px;
-      font-family: GothamRoundedBold;
-    }
 
-    h5 {
-      font-size: 16px;
-      font-weight: bold;
-      color: #EA5B5B;
-    }
-    p {
-      font-size: 12px;
-      font-weight: bold;
-    }
-  }
-
-  .nonClubTableFooter {
-    height: 338px;
-    background: #F0F4F7;
-    padding-top: 32px;
-    border-radius: 0px 0px 16px 16px;
-  }
   .coveClubCol {
-    border: 1px solid #F0F4F7;
-
+    border: 1px solid $grey-50;
   }
 
   .colLeftFirst {
@@ -209,18 +175,19 @@
   .colLeftLast {
     border-radius: 0px 0px 0px 16px;
   }
+
   .firstCol {
     border-top: 1px solid  #BEC2C5;
+    border-top-right-radius: 16px;
   }
 
   .colMid {
     min-height: 73px;
     border-bottom: 1px solid  #BEC2C5;
-    border-left: 1px solid #F0F4F7;
-    border-right: 1px solid #F0F4F7;
+    border-right: 1px solid $grey-300;
     position: relative;
     &::before {
-      content: "";
+     
       height: 100%;
       width: 2px;
       position: absolute;
@@ -235,7 +202,6 @@
       -ms-filter: blur(1px);
     }
     &::after {
-      content: "";
       height: 100%;
       width: 2px;
       position: absolute;
@@ -251,12 +217,15 @@
     }
   }
 
+  .colMidLast {
+    border-radius: 0px 0px 16px 0px;
+  }
   .colSpacer {
     border-bottom: 1px solid  #BEC2C5;
   }
   .colRight {
     border-bottom: 1px solid  #BEC2C5;
-    background: #F0F4F7;
+    background: $grey-50;
     position: relative;
   }
 
@@ -293,14 +262,14 @@
       font-weight: bold;
     }
     .highlight {
-      color: #00B19A;
-      font-family: GothamRoundedBold;
+      color: $sidebar-green;
+      font-family: $font-gotham-rounded-bold;
       font-size: 20px;
       margin-top: 10px;
     }
     .alert {
-      color: #EA5B5B;
-      font-family: GothamRoundedBold;
+      color: $alert-color;
+      font-family: $font-gotham-rounded-bold;
       font-size: 20px;
     }
   }
@@ -318,11 +287,11 @@
     height: 40px;
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
-    border-radius: 20px;
-    background: #F17927;
+    border-radius: 5px;
+    background: $secondary-color;
     font-size: 16px;
     text-align: center;
-    font-family: GothamRoundedBold;
+    font-family: $font-gotham-rounded-bold;
     padding-top: 8px;
     margin-bottom: 20px;
     cursor: pointer;
@@ -330,5 +299,18 @@
 
   .disabled {
     opacity: .5;
+  }
+
+  .buttonRow {
+    margin-bottom: 20px;
+  }
+
+  .footerRow {
+    margin-top: 100px;
+  }
+
+  .backButton {
+    position: absolute;
+    bottom: 0;
   }
 }

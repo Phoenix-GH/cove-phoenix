@@ -1,0 +1,14 @@
+@import 'variables';
+
+.selectableButton {
+  color: $button-green;
+  border: 1px solid $button-green;
+  border-radius: 5px;
+  width: 173px;
+  height: 34px;
+  outline: none;
+  &.selected {
+    background-color: $footer-green;
+    color: white;
+  }
+}
