@@ -15,6 +15,7 @@ const coverSection = (props) => {
           dangerouslySetInnerHTML={{__html: text}} />
         <a href="javascript:void(0)"><span className="watch-icon"></span>Watch video</a>
       </div>
+      <a href="#" className="btn--arrowdown"></a>
       <style jsx>{s}</style>
     </div>
   )

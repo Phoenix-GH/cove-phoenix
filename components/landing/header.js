@@ -20,7 +20,7 @@ export default class Header extends React.Component {
     super(props);
 
     this.logoPath = '/static/images/logoTeal.svg';
-    this.stampPath = '/static/images/stamp.png';
+    this.stampPath = '/static/images/riskFreeTrial.png';
     this.state = {
       isOpen: false
     };
@@ -44,16 +44,16 @@ export default class Header extends React.Component {
                 <Collapse isOpen={this.state.isOpen} navbar>
                   <Nav className="mr-auto" navbar>
                     <NavItem>
-                      <Link href="/"><NavLink href="javascript:void(0)" className="ml-4 text-primary font-size-18">Alarm System</NavLink></Link>
+                      <Link href="/"><NavLink href="javascript:void(0)" className="ml-24 text-primary font-size-18">Alarm System</NavLink></Link>
                     </NavItem>
                     <NavItem>
-                      <Link href="/"><NavLink href="javascript:void(0)" className="ml-4 text-primary font-size-18">Smoke + Flood + CO Alarm</NavLink></Link>
+                      <Link href="/"><NavLink href="javascript:void(0)" className="ml-24 text-primary font-size-18">Smoke + Flood + CO Alarm</NavLink></Link>
                     </NavItem>
                     <NavItem>
-                      <Link href="/"><NavLink href="javascript:void(0)" className="ml-4 text-primary font-size-18">Medical</NavLink></Link>
+                      <Link href="/"><NavLink href="javascript:void(0)" className="ml-24 text-primary font-size-18">Medical</NavLink></Link>
                     </NavItem>
                     <NavItem>
-                      <Link href="/"><NavLink href="javascript:void(0)" className="ml-4 text-primary font-size-18">Camera</NavLink></Link>
+                      <Link href="/"><NavLink href="javascript:void(0)" className="ml-24 text-primary font-size-18">Camera</NavLink></Link>
                     </NavItem>
                   </Nav>
                   <Nav navbar>
@@ -61,10 +61,10 @@ export default class Header extends React.Component {
                       <Link href="/login"><NavLink href="javascript:void(0)" className="text-primary font-size-14 mt-3">Sign in</NavLink></Link>
                     </NavItem>
                     <NavItem>
-                      <Link href="/"><Button color="secondary" className="ml-4 text-capitalize font-size-18 mt-3">Shop now</Button></Link>
+                      <Link href="/"><Button color="warning" className="ml-24 text-capitalize font-size-18 mt-3">Shop now</Button></Link>
                     </NavItem>
                     <NavItem>
-                      <img src={this.stampPath} height="70" className="ml-4" />
+                      <img src={this.stampPath} height="70" className="ml-24" />
                     </NavItem>
                   </Nav>
                 </Collapse>
