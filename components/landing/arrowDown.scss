@@ -1,0 +1,29 @@
+@import './variables';
+
+.btn--arrowdown {
+  width: 60px;
+  height: 60px;
+  border: 2px solid $warning;
+  border-radius: 50%;
+  &:after,
+  &:before {
+    content: "";
+    width: 2px;
+    height: 10px;
+    background-color: $warning;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 5px;
+    margin: auto;
+  }
+  &:before {
+    transform: skewX(45deg);
+    left: -9px;
+  }
+  &:after {
+    transform: skewX(-45deg);
+    left: 9px;
+  }
+}

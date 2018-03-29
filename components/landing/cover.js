@@ -1,3 +1,5 @@
+import WatchVideo from './watchVideo';
+import ArrowDown from './arrowDown';
 import s from './cover.scss';
 
 const coverSection = (props) => {
@@ -13,9 +15,9 @@ const coverSection = (props) => {
           className="font-size-72"
           style={{ color: color }}
           dangerouslySetInnerHTML={{__html: text}} />
-        <a href="javascript:void(0)"><span className="watch-icon"></span>Watch video</a>
+        <WatchVideo className="mt-60" />
       </div>
-      <a href="#" className="btn--arrowdown"></a>
+      <ArrowDown />
       <style jsx>{s}</style>
     </div>
   )

@@ -3,6 +3,7 @@ import Layout from '../components/minimalLayout';
 import Header from '../components/landing/header';
 import Cover from '../components/landing/cover';
 import Testimonial from '../components/landing/testimonial';
+import WatchVideo from '../components/landing/watchVideo';
 import s from './landing-one.scss';
 
 const LandingOne = () => (
@@ -54,6 +55,19 @@ const LandingOne = () => (
           </div>
         </Col>
       </Row>
+    </div>
+    <div className="section">
+      <h1 className="font-size-56 text-center mx-100 mt-200 text-secondary line-height-80">We revolutionized the DIY installation process to make it easy on you.</h1>
+      <p className="font-size-24 text-center mx-84 mt-32 text-secondary font-gotham-rounded-light">With the most revolutionary process every created for a self installed security system, we have made it as easy as plugging in and you’re ready to protect your home.</p>
+      <div className="flex-col mt-152 mb-200">
+        <ul className="list-unstyled pl-84">
+          <li className="font-size-32 text-secondary mt-40">Step 1. Plug in</li>
+          <li className="font-size-32 text-secondary mt-40">Step 2. Protect your home</li>
+          <li className="font-size-32 text-secondary mt-40">Step 3. You’re done</li>
+          <li className="mt-60"><WatchVideo /></li>
+        </ul>
+        <img src="/static/images/coveProduct_1.png" />
+      </div>
     </div>
     <style jsx>{s}</style>
   </Layout>
