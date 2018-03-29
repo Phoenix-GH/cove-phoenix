@@ -1,7 +1,16 @@
 $primary: #00B19A;
 $primary--darker: #00CDB9;
-$secondary: #F17927;
-$secondary--darker: #E67C33;
+$primary--lighter: #3EBEB1;
+$secondary: #4E5661;
+$secondary--lighter: #DEE8ED;
+
+$theme-colors: (
+  'primary--lighter': $primary--lighter,
+  'secondary--lighter': $secondary--lighter
+);
+
+$warning: #F17927;
+$warning--darker: #E67C33;
 
 $primary-color: #3EBEB1;
 $secondary-color: #F27927;
