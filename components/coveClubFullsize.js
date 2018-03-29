@@ -5,27 +5,35 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import { toggleFinance, selectSubscriptionType } from '../actions';
-import Radio from '../components/radio';
+import SelectableButton from '../components/selectableButton/selectableButton';
+import YellowBoxesRow from '../components/yellowBoxesRow/yellowBoxesRow';
+import BackButton from '../components/backButton/backButton';
 import styles from './coveClubFullsize.scss';
 
 class CoveClubFullsize extends Component {
   constructor(props) {
     super(props);
-    this.toggleFinance = this.toggleFinance.bind(this);
-    this.selectSubscriptionType = this.selectSubscriptionType.bind(this);
+    this.state = {
+      selectedPlan: '',
+    };
   }
 
-  toggleFinance() {
+  toggleFinance = () => {
     this.props.toggleFinance();
   }
 
-  selectSubscriptionType(subscription) {
+  selectSubscriptionType = (subscription) => {
     this.props.selectSubscriptionType(subscription);
   }
 
+  selectPlan = (plan) => {
+    this.setState({ selectedPlan: plan });
+  }
+
   render() {
-    const { payment } = this.props;
-    const coveClub = payment.subscriptionType === 'clubBasic' || payment.subscriptionType === 'clubPremium';
+    const { selectedPlan } = this.state;
+    const coveBasic = selectedPlan === 'basicMonth' || selectedPlan === 'basicYear';
+    const covePremium = selectedPlan === 'premiumMonth' || selectedPlan === 'premiumYear';
     const activeSelect = (
       <Link href="/checkout">
         <div className="selectBtn mx-auto">
@@ -38,354 +46,212 @@ class CoveClubFullsize extends Component {
         Select
       </div>
     );
-    const clubSelectBtn = coveClub ? activeSelect : disabledSelect;
-    const ncSelectionBtn = (payment.subscriptionType && !coveClub) ? activeSelect : disabledSelect;
+    const basicSelectBtn = coveBasic ? activeSelect : disabledSelect;
+    const premiumSelectBtn = covePremium ? activeSelect : disabledSelect;
     return (
       <Container className="coveClubFull">
         <Row>
           <Col className="header">
             <h2>Cove members to Cove Pay</h2>
             <div className="titleSubText">
-              Save $5/mo on your monitoring and use CoveClub EasyPay to pay your
-              <br />equipment off over time with 0% APR
+              Finacing available at 0% APR for 60 months.
             </div>
           </Col>
         </Row>
-        <Row className="no-gutters">
-          <Col md={3} />
-          <Col md={4}>
-            <div className="coveClubTableHeader row">
-              <Col xs={12}>
-                <h4>Cove Club - $99</h4>
-              </Col>
-              <Col xs={6}>
-                <h5>$19.99</h5>
-                <p>Basic</p>
-              </Col>
-              <Col xs={6}>
-                <h5>$29.99</h5>
-                <p>Premium</p>
-              </Col>
-            </div>
-          </Col>
-          <Col md={{ size: 4, offset: 1 }}>
-            <div className="coveNonClubTableHeader">
-              <Col xs={12}>
-                <h4>Non-Club</h4>
-              </Col>
-              <Col xs={6}>
-                <h5>$24.99</h5>
-                <p>Basic</p>
-              </Col>
-              <Col xs={6}>
-                <h5>$34.99</h5>
-                <p>Premium</p>
-              </Col>
-            </div>
-          </Col>
-        </Row>
-        <Row className="no-gutters">
-          <Col className="colLeftFirst" md={3}>
-            <div className="colLeftContent">
-              24/7 Monitoring
-            </div>
-          </Col>
-          <Col className="colMid firstCol" md={4}>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
-            </Col>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
-            </Col>
-          </Col>
-          <Col className="colSpacer firstCol" md={1} />
-          <Col className="colRight row firstCol" md={4}>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
-            </Col>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
-            </Col>
-          </Col>
-        </Row>
-        <Row className="no-gutters">
-          <Col className="colLeft" md={3}>
-            <div className="colLeftContent">
-              App Support
-            </div>
-          </Col>
-          <Col className="colMid row" md={4}>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
-            </Col>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
-            </Col>
-          </Col>
-          <Col className="colSpacer" md={1} />
-          <Col className="colRight row" md={4}>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
-            </Col>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
-            </Col>
-          </Col>
-        </Row>
-        <Row className="no-gutters">
-          <Col className="colLeft" md={3}>
-            <div className="colLeftContent">
-              Remote Control
-            </div>
-          </Col>
-          <Col className="colMid row" md={4}>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
-            </Col>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
-            </Col>
-          </Col>
-          <Col className="colSpacer" md={1} />
-          <Col className="colRight row" md={4}>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
-            </Col>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
-            </Col>
-          </Col>
-        </Row>
-        <Row className="no-gutters">
-          <Col className="colLeft" md={3}>
-            <div className="colLeftContent">
-              $5/month Loyalty Credit
-            </div>
-          </Col>
-          <Col className="colMid row" md={4}>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
-            </Col>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
-            </Col>
-          </Col>
-          <Col className="colSpacer" md={1} />
-          <Col className="colRight row" md={4}>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="x icon" />
-            </Col>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="check mark icon" />
-            </Col>
-          </Col>
-        </Row>
-        <Row className="no-gutters">
-          <Col className="colLeft" md={3}>
-            <div className="colLeftContent">
-              Warranty
-            </div>
-          </Col>
-          <Col className="colMid row" md={4}>
-            <Col className="compareContent" xs={6}>
-              <div>3 years</div>
-            </Col>
-            <Col className="compareContent" xs={6}>
-              <div className="highlight">Lifetime</div>
-            </Col>
-          </Col>
-          <Col className="colSpacer" md={1} />
-          <Col className="colRight row" md={4}>
-            <Col className="compareContent" xs={6}>
-              <div>3 years</div>
-            </Col>
-            <Col className="compareContent" xs={6}>
-              <div className="highlight">
-                Lifetime
-              </div>
-            </Col>
-          </Col>
-        </Row>
-        <Row className="no-gutters">
-          <Col className="colLeft" md={3}>
-            <div className="colLeftContent">
-              Live Voice Assistance
-            </div>
-          </Col>
-          <Col className="colMid row" md={4}>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
-            </Col>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="check icon" />
-            </Col>
-          </Col>
-          <Col className="colSpacer" md={1} />
-          <Col className="colRight row" md={4}>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
-            </Col>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="check icon" />
-            </Col>
-          </Col>
-        </Row>
-        <Row className="no-gutters">
-          <Col className="colLeft colLeftLast" md={3}>
-            <div className="colLeftContent">
-              Camera
-            </div>
-          </Col>
-          <Col className="colMid row" md={4}>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
-            </Col>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="check icon" />
-            </Col>
-          </Col>
-          <Col className="colSpacer" md={1} />
-          <Col className="colRight row" md={4}>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
-            </Col>
-            <Col className="compareContent" xs={6}>
-              <img className="img-fluid" src="/static/images/check.svg" alt="check icon" />
-            </Col>
-          </Col>
-        </Row>
-        <Row className="no-gutters">
-
-          <Col md={{ size: 4, offset: 3 }}>
-            <div className="coveClubTableFooter">
-              <div className="selectionBox">
-                <Row className="no-gutters">
-                  <Col xs={{ size: 2, offset: 1 }}>
-                    <div>
-                      <Radio
-                        clickHandler={() => this.selectSubscriptionType('clubBasic')}
-                        label={[<span className="bold" />]}
-                        checked={payment.subscriptionType === 'clubBasic'}
-                      />
+        <Row>
+          <Col md={{ size: 10, offset: 1 }}>
+            <Row className="no-gutters">
+              <Col md={4} />
+              <Col md={8}>
+                <Row>
+                  <Col md={5}>
+                    <div className="coveClubTableHeader">
+                      <h3>Basic</h3>
+                      <h4>$19.99</h4>
+                      <h5>or $199 per year</h5>
                     </div>
                   </Col>
-                  <Col className="optionLabel" xs={8}>
-                    Basic
-                  </Col>
-                </Row>
-                <Row className="no-gutters">
-                  <Col xs={{ size: 10, offset: 3 }}>
-                    <div className="highlight">
-                      $19.99/mo
+                  <Col md={{ size: 5, offset: 2 }}>
+                    <div className="coveClubTableHeader">
+                      <h3>Premium</h3>
+                      <h4>$29.99</h4>
+                      <h5>or $199 per year</h5>
                     </div>
                   </Col>
                 </Row>
-              </div>
-              <div className="selectionBox">
-                <Row className="no-gutters">
-                  <Col xs={{ size: 2, offset: 1 }}>
-                    <div>
-                      <Radio
-                        clickHandler={() => this.selectSubscriptionType('clubPremium')}
-                        label={[<span className="bold" />]}
-                        checked={payment.subscriptionType === 'clubPremium'}
-                      />
-                    </div>
-                  </Col>
-                  <Col className="optionLabel" xs={8}>
-                    Premium
-                  </Col>
-                </Row>
-                <Row className="no-gutters">
-                  <Col xs={{ size: 10, offset: 3 }}>
-                    <div className="highlight">
-                      $29.99/mo
-                    </div>
-                  </Col>
-                </Row>
-              </div>
-              <Row>
-                <Col className="financeOption" xs={{ size: 10, offset: 1 }}>
-                  <Radio
-                    clickHandler={() => this.toggleFinance()}
-                    label={[<span className={!coveClub ? 'disabled' : ''}>Pay equipment in full</span>]}
-                    checked={!payment.finance}
-                    disabled={!coveClub}
-                  />
+              </Col>
+            </Row>
+            <Row className="no-gutters">
+              <Col className="colLeftFirst" md={4}>
+                <div className="colLeftContent">
+                  24/7 Monitoring
+                </div>
+              </Col>
+              <Col className="colMid firstCol row" md={8}>
+                <Col className="compareContent" xs={5}>
+                  <img className="img-fluid" src="/static/images/check.png" alt="check mark icon" />
                 </Col>
-                <Col className="financeOption" xs={{ size: 10, offset: 1 }}>
-                  <Radio
-                    clickHandler={() => this.toggleFinance()}
-                    label={[<span className={!coveClub ? 'disabled' : ''}>Finance equipment at<br /> 0% APR for 60 months</span>]}
-                    checked={payment.finance}
-                    disabled={!coveClub}
-                  />
+                <Col className="compareContent" xs={{ size: 5, offset: 2 }}>
+                  <img className="img-fluid" src="/static/images/check.png" alt="check mark icon" />
                 </Col>
-              </Row>
-              <Row>
-                <Col xs={12}>
-                  {clubSelectBtn}
+              </Col>
+            </Row>
+            <Row className="no-gutters">
+              <Col className="colLeft" md={4}>
+                <div className="colLeftContent">
+                  App Support
+                </div>
+              </Col>
+              <Col className="colMid row" md={8}>
+                <Col className="compareContent" xs={5}>
+                  <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
                 </Col>
-              </Row>
-            </div>
-          </Col>
-          <Col md={1} />
-          <Col md={4}>
-            <div className="nonClubTableFooter">
-              <div className="selectionBox">
-                <Row className="no-gutters">
-                  <Col xs={{ size: 2, offset: 1 }}>
-                    <div>
-                      <Radio
-                        clickHandler={() => this.selectSubscriptionType('ncBasic')}
-                        label={[<span className="bold" />]}
-                        checked={payment.subscriptionType === 'ncBasic'}
-                      />
-                    </div>
-                  </Col>
-                  <Col className="optionLabel" xs={8}>
-                    Basic
-                  </Col>
-                </Row>
-                <Row className="no-gutters">
-                  <Col xs={{ size: 10, offset: 3 }}>
-                    <div className="alert">
-                      $19.99/mo
-                    </div>
-                  </Col>
-                </Row>
-              </div>
-              <div className="selectionBox">
-                <Row className="no-gutters">
-                  <Col xs={{ size: 2, offset: 1 }}>
-                    <div>
-                      <Radio
-                        clickHandler={() => this.selectSubscriptionType('ncPremium')}
-                        label={[<span className="bold" />]}
-                        checked={payment.subscriptionType === 'ncPremium'}
-                      />
-                    </div>
-                  </Col>
-                  <Col className="optionLabel" xs={8}>
-                    Premium
-                  </Col>
-                </Row>
-                <Row className="no-gutters">
-                  <Col xs={{ size: 10, offset: 3 }}>
-                    <div className="alert">
-                      $29.99/mo
-                    </div>
-                  </Col>
-                </Row>
-              </div>
-              <Row>
-                <Col xs={12}>
-                  {ncSelectionBtn}
+                <Col className="compareContent" xs={{ size: 5, offset: 2 }}>
+                  <img className="img-fluid" src="/static/images/check.png" alt="check mark icon" />
                 </Col>
-              </Row>
-            </div>
+              </Col>
+            </Row>
+            <Row className="no-gutters">
+              <Col className="colLeft" md={4}>
+                <div className="colLeftContent">
+                  Remote Control
+                </div>
+              </Col>
+              <Col className="colMid row" md={8}>
+                <Col className="compareContent" xs={5}>
+                  <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
+                </Col>
+                <Col className="compareContent" xs={{ size: 5, offset: 2 }}>
+                  <img className="img-fluid" src="/static/images/check.png" alt="check mark icon" />
+                </Col>
+              </Col>
+            </Row>
+            <Row className="no-gutters">
+              <Col className="colLeft" md={4}>
+                <div className="colLeftContent">
+                  $5/month Loyalty Credit
+                </div>
+              </Col>
+              <Col className="colMid row" md={8}>
+                <Col className="compareContent" xs={5}>
+                  <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
+                </Col>
+                <Col className="compareContent" xs={{ size: 5, offset: 2 }}>
+                  <img className="img-fluid" src="/static/images/check.png" alt="check mark icon" />
+                </Col>
+              </Col>
+            </Row>
+            <Row className="no-gutters">
+              <Col className="colLeft" md={4}>
+                <div className="colLeftContent">
+                  Warranty
+                </div>
+              </Col>
+              <Col className="colMid row" md={8}>
+                <Col className="compareContent" xs={5}>
+                  <div>3 years</div>
+                </Col>
+                <Col className="compareContent" xs={{ size: 5, offset: 2 }}>
+                  <div className="highlight">Lifetime</div>
+                </Col>
+              </Col>
+            </Row>
+            <Row className="no-gutters">
+              <Col className="colLeft" md={4}>
+                <div className="colLeftContent">
+                  Live Voice Assistance
+                </div>
+              </Col>
+              <Col className="colMid row" md={8}>
+                <Col className="compareContent" xs={5}>
+                  <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
+                </Col>
+                <Col className="compareContent" xs={{ size: 5, offset: 2 }}>
+                  <img className="img-fluid" src="/static/images/check.png" alt="check icon" />
+                </Col>
+              </Col>
+            </Row>
+            <Row className="no-gutters">
+              <Col className="colLeft colLeftLast" md={4}>
+                <div className="colLeftContent">
+                  Camera (something)
+                </div>
+              </Col>
+              <Col className="colMid row colMidLast" md={8}>
+                <Col className="compareContent" xs={5}>
+                  <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
+                </Col>
+                <Col className="compareContent" xs={{ size: 5, offset: 2 }}>
+                  <img className="img-fluid" src="/static/images/check.png" alt="check icon" />
+                </Col>
+              </Col>
+            </Row>
+            <Row className="no-gutters">
+              <Col md={4}>
+                <div className="backButton">
+                  <BackButton link="/products" />
+                </div>
+              </Col>
+              <Col className="row" md={8}>
+                <Col md={5}>
+                  <div className="coveClubTableFooter">
+                    <Row className="buttonRow">
+                      <Col xs={12}>
+                        <SelectableButton
+                          title="$19.99 per month"
+                          isSelected={selectedPlan === 'basicMonth'}
+                          onClick={() => this.selectPlan('basicMonth')}
+                        />
+                      </Col>
+                    </Row>
+                    <Row className="buttonRow">
+                      <Col xs={12}>
+                        <SelectableButton
+                          title="$199 per year"
+                          isSelected={selectedPlan === 'basicYear'}
+                          onClick={() => this.selectPlan('basicYear')}
+                        />
+                      </Col>
+                    </Row>
+                    <Row className="buttonRow">
+                      <Col xs={12}>
+                        {basicSelectBtn}
+                      </Col>
+                    </Row>
+                  </div>
+                </Col>
+                <Col md={{ size: 5, offset: 2 }}>
+                  <div className="coveClubTableFooter">
+                    <Row className="buttonRow">
+                      <Col xs={12}>
+                        <SelectableButton
+                          title="$29.9 per month"
+                          isSelected={selectedPlan === 'premiumMonth'}
+                          onClick={() => this.selectPlan('premiumMonth')}
+                        />
+                      </Col>
+                    </Row>
+                    <Row className="buttonRow">
+                      <Col xs={12}>
+                        <SelectableButton
+                          title="$299 per year"
+                          isSelected={selectedPlan === 'premiumYear'}
+                          onClick={() => this.selectPlan('premiumYear')}
+                        />
+                      </Col>
+                    </Row>
+                    <Row className="buttonRow">
+                      <Col xs={12}>
+                        {premiumSelectBtn}
+                      </Col>
+                    </Row>
+                  </div>
+                </Col>
+              </Col>
+            </Row>
           </Col>
         </Row>
+        <YellowBoxesRow className="footerRow" />
         <style jsx global>{styles}</style>
       </Container>
     );
@@ -403,13 +269,5 @@ const mapDispatchToProps = dispatch => ({
   toggleFinance: bindActionCreators(toggleFinance, dispatch),
   selectSubscriptionType: bindActionCreators(selectSubscriptionType, dispatch),
 });
-
-CoveClubFullsize.propTypes = {
-  payment: PropTypes.object,
-};
-
-CoveClubFullsize.defaultProps = {
-  payment: null,
-};
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoveClubFullsize);
