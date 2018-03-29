@@ -1,139 +1,199 @@
-.mobileContainer {
-  padding: 20px;
-}
-.header {
-  margin-top: 50px;
-  h2 {
-    font-size: 24px;
-    font-family: GothamRoundedBold;
+@import 'variables';
+
+.coveClubMobile {
+  h3 {
+    font-size: 20px;
+    font-family: $font-gotham-rounded-bold;
+    margin: 68px 0 24px 0;
   }
-}
-
-.headerSubText {
-  font-size: 20px;
-  font-family: GothamRoundedBook;
-  position: relative;
-  padding-left: 25px;
-  margin-top: 25px;
-  &::before {
-    content: "";
-    position: absolute;
-    left: 0px;
-    top: 0px;
-    width: 8px;
-    height: 100%;
-    border-radius: 4px;
-    background: #01CDB9;
-  }
-}
-
-.compareTable {
-  text-align: center;
-}
-
-.colHeader {
-  margin-top: 40px;
-  margin-bottom: 16px;
-  text-align: center;
-  h4 {
-    font-size: 24px;
-    font-family: GothamRoundedBold;
-  }
-}
-
-.highlight {
-  color: #00CDB9;
-}
-
-.alert {
-  color: #EA5B5B;
-}
-
-.colLabel {
-  margin-bottom: 32px;
-  font-weight: bold;
-  font-size: 12px;
-  h5 {
-    font-size: 16px;
-    font-weight: bold;
-  }
-}
-
-.rowLabel {
-  text-align: left;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-.nonClubRow {
-  background: #F0F4F7;
-  height: 40px;
-  border-radius: 16px;
-}
-
-.compareRow {
-  margin-bottom:24px;
-  font-weight: bold;
-  :global {
-    .col-6 {
-      padding-left: 0px;
-      padding-right: 0px;
+  .header {
+    margin-top: 80px;
+    h2 {
+      font-size: 40px;
+      font-family: $font-gotham-rounded-bold;
     }
   }
-}
-
-.cell {
-  padding-top: 4px;
-  img {
-    height: 24px;
+  .titleSubText {
+    font-size: 20px;
+    font-family: $font-gotham-rounded;
+    position: relative;
+    padding-left: 25px;
+    margin-top: 20px;
+    margin-bottom: 35px;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      width: 8px;
+      height: 100%;
+      border-radius: 4px;
+      background: #01CDB9;
+    }
   }
-}
+  .coveClubTableHeader {
+    height: 77px;
+    padding-top: 10px;
+    text-align: center;    
+    h4 {
+      font-size: 24px;
+      font-family: $font-gotham-rounded-bold;
+    }
+    h5 {
+      font-size: 16px;
+      font-weight: bold;
+      color: $button-green;
+    }
+    h6 {
+      font-size: 12px;
+      font-weight: bold;
+    }
+    p {
+      font-size: 12px;
+      font-weight: bold;
+    }
 
-.selectionBox {
-  background: #FFFFFF;
-  border-radius: 16px;
-  border: 1px solid #DEDFE1;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  text-align: left;
-  margin-bottom: 20px;
-  .optionLabel {
+    &.first::after {
+      content: "";
+      height: 650px;
+      width: 2px;
+      position: absolute;
+      right: -3px;
+      top: 0px;
+      background: $button-green;
+    }
+  }
+
+  .coveClubCol {
+    border: 1px solid $grey-50;
+  }
+  .colLeftFirst {
+    border-bottom: 1px solid $button-green;
+    min-height: 45px;
+  }
+  .colLeftContent {
+    font-size: 16px;
     font-weight: bold;
+    position: absolute;
+    bottom: 12px;
   }
-  .highlight {
-    color: #00B19A;
-    font-family: GothamRoundedBold;
-    font-size: 20px;
-    margin-top: 10px;
+  .colLeft {
+    border-bottom: 1px solid $button-green;
+    min-height: 45px;
   }
-  .alert {
-    color: #EA5B5B;
-    font-family: GothamRoundedBold;
-    font-size: 20px;
+  .colMid {
+    min-height: 37px;
+    position: relative;
+    &::before {
+      height: 100%;
+      width: 2px;
+      position: absolute;
+      left: -2px;
+      top: 0px;
+      background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
+      background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
+      filter: blur(1px);
+      -webkit-filter: blur(1px);
+      -moz-filter: blur(1px);
+      -o-filter: blur(1px);
+      -ms-filter: blur(1px);
+    }
+    &::after {
+      height: 100%;
+      width: 2px;
+      position: absolute;
+      right: -3px;
+      top: 0px;
+      background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
+      background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
+      filter: blur(1px);
+      -webkit-filter: blur(1px);
+      -moz-filter: blur(1px);
+      -o-filter: blur(1px);
+      -ms-filter: blur(1px);
+    }
   }
-}
-
-.financeOption {
-  text-align: left;
-  font-weight: bold;
-  font-size: 16px;
-  margin-bottom: 20px;
-}
-.selectBtn {
-  color: #FFFFFF;
-  width: 130px;
-  height: 40px;
-  -webkit-border-radius: 20px;
-  -moz-border-radius: 20px;
-  border-radius: 20px;
-  background: #F17927;
-  font-size: 16px;
-  text-align: center;
-  font-family: GothamRoundedBold;
-  font-weight: bold;
-  padding-top: 8px;
-  margin-bottom: 20px;
-  cursor: pointer;
+  .colSpacer {
+    border-bottom: 1px solid $grey-300;
+  }
+  .colRight {
+    border-bottom: 1px solid $grey-300;
+    background: $grey-50;
+    position: relative;
+  }
+  .compareContent {
+    position: relative;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 12px;
+    img, div {
+      height: 24px;
+    }
+    div {
+      width: 100%;
+    }
+    .highlight {
+      color: $button-green;
+    }
+  }
+  .selectionBox {
+    background: #FFFFFF;
+    border-radius: 16px;
+    border: 1px solid #DEDFE1;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+    .optionLabel {
+      font-weight: bold;
+    }
+    .highlight {
+      color: #00B19A;
+      font-family: $font-gotham-rounded-bold;
+      font-size: 20px;
+      margin-top: 10px;
+    }
+    .alert {
+      color: $alert-color;
+      font-family: $font-gotham-rounded-bold;
+      font-size: 20px;
+    }
+  }
+  .financeOption {
+    text-align: left;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  .selectBtn {
+    color: white;
+    width: 130px;
+    height: 40px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 5px;
+    background: $secondary-color;
+    font-size: 16px;
+    text-align: center;
+    font-family: $font-gotham-rounded-bold;
+    padding-top: 8px;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+  .disabled {
+    opacity: .5;
+  }
+  .buttonRow {
+    margin-bottom: 20px;
+  }
+  .footerRow {
+    margin-top: 100px;
+  }
+  .backButton {
+    position: absolute;
+    bottom: 0;
+  }
 }

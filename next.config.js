@@ -7,22 +7,20 @@ const getRoutes = require('./routes');
 module.exports = {
   exportPathMap: getRoutes,
   webpack: (config) => {
-    config.module.rules.push(
-      {
-        test: /\.scss$/,
-        use: [
-          {
-            loader: 'emit-file-loader',
-            options: {
-              name: 'dist/[path][name].[ext]',
-            },
+    config.module.rules.push({
+      test: /\.scss$/,
+      use: [
+        {
+          loader: 'emit-file-loader',
+          options: {
+            name: 'dist/[path][name].[ext]',
           },
-          'babel-loader',
-          'styled-jsx-css-loader',
-        ],
-      }
-    );
-
+        },
+        'babel-loader',
+        'styled-jsx-css-loader',
+        'postcss-loader',
+      ],
+    });
     return config;
   },
 };
