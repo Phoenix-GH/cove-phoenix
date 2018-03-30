@@ -12,8 +12,7 @@
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
-  -ms-flex: 0 0 33%;
-  flex: 0 0 33%;
+  flex: 0 0 100%;
   max-width: 125%;
   .stageLabel {
     @media (max-width: $width-lg) {
@@ -24,25 +23,23 @@
 
 .flexCol.activeStage {
   @media (max-width: $width-lg) {
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    max-width: 50%;
+    flex: 0 0 100%;
   }
   .stageLabel {
-    display: inline;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
   }
 }
 
 .shoppingCartBtnContainer {
   width: 100%;
   border-radius: 16px;
-  border: 1px solid #F0F4F7;
+  border: 1px solid $grey-50;
   font-size: 20px;
   font-family: $font-gotham-rounded-bold;
   margin-top: 32px;
-  -webkit-box-shadow: 0px 6px 6px 0px rgba(44,50,57, 0.2);
-  -moz-box-shadow:    0px 6px 6px 0px rgba(44,50,57, 0.2);
-  box-shadow:         0px 6px 6px 0px rgba(44,50,57, 0.2);
+  box-shadow: 0px 6px 6px 0px rgba(44,50,57, 0.2);
 
   @media (min-width: $width-lg+1) {
     display: none;
@@ -88,11 +85,13 @@
   .returnColumn {
     flex: 1;
   }
-  
-  @media (max-width: $width-sm) {
-    .continueColumn, .returnColumn {
+  @media (max-width: $width-lg) {
+    .continueColumn {
       flex: none;
       margin: 0 auto 32px;
+    }
+    .returnColumn {
+      display: none;
     }
   }
 }
@@ -111,7 +110,7 @@
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   border-radius: 4px;
-  background: #F17927;
+  background: $secondary-color;
   font-size: 12px;
   text-align: center;
   font-family: $font-gotham-rounded;
@@ -125,7 +124,7 @@
 }
 
 .activePage.tab {
-  display: block
+  display: block;
 }
 
 .returnToShop {
@@ -145,4 +144,31 @@
 
 :global(.coveInput) {
   margin-bottom: 40px;
+}
+
+.orderConfirmation {
+  h3 {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-family: $font-gotham-rounded-bold;
+    color: $grey-1000;
+    border-bottom: 1px $grey-350 solid;
+    &.extendedTitle{
+      border: none;
+    }
+  }
+  h4 {
+    color: $grey-1000;
+    font-family: $font-gotham-rounded-bold;
+    font-size: 20px;
+  }
+  p {
+    font-size: 16px;
+  }
+  :global {
+    .coveInput {
+      margin-top: 40px;
+    }
+  }
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import cx from 'classnames';
 import { Row, Col, Collapse } from 'reactstrap';
 import Input from '../components/input';
 import Radio from '../components/radio';
@@ -25,14 +26,18 @@ class CheckoutSidebar extends Component {
 
   render() {
     const toggleImage = this.state.collapse ? 'arrowUp.png' : 'arrowDown.png';
-    const { cart, products } = this.props;
+    const { cart, products, mobile } = this.props;
     const cartList = cart.cartItemIds.map(val => (
       <li>
         {cart.quantityById[val]} {products[val].name}
       </li>
     ));
+    const containerClass = cx({
+      mobileContainer: mobile,
+      CheckoutSidebar: !mobile,
+    });
     return (
-      <div className="sidebarContainer">
+      <div className={containerClass}>
         <Row>
           <Col xs={12}>
             <h3>Shopping Cart</h3>
@@ -183,11 +188,13 @@ class CheckoutSidebar extends Component {
 CheckoutSidebar.propTypes = {
   cart: PropTypes.object,
   products: PropTypes.object,
+  mobile: PropTypes.bool,
 };
 
 CheckoutSidebar.defaultProps = {
   cart: [],
   products: [],
+  mobile: false,
 };
 
 const mapStateToProps = ({ cart, products, payment }) => ({ cart, products, payment });

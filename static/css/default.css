@@ -16,10 +16,9 @@
 }
 
 html, body, body>div:first-child, #__next, #__next>div:first-child,#__next>div:first-child>div:first-child, .defaultContainer {
-    height: 100%;
-    color: #2C3239;
-    font-family: 'Open Sans', sans-serif;
-  }
+  color: #2C3239;
+  font-family: 'Open Sans', sans-serif;
+}
 
 .row {
   width: 100%;

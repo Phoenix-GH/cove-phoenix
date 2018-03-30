@@ -2,6 +2,7 @@ import { Row, Col } from 'reactstrap';
 import Link from 'next/link';
 import Input from '../components/input';
 import Checkbox from '../components/checkbox';
+import InfoBox from '../components/infoBox/infobox';
 import s from './paymentInfo.scss';
 
 const PaymentInfo = () => (
@@ -29,7 +30,10 @@ const PaymentInfo = () => (
           <Input label="MM/YY" />
         </Col>
         <Col xs={2}>
-          <Input label="CVV" />
+          <Row>
+            <Input label="CVV" />
+            <InfoBox />
+          </Row>
         </Col>
       </Row>
       <Row>

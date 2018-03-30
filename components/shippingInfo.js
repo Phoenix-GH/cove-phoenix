@@ -94,7 +94,7 @@ class ShippingInfo extends Component {
                     </div>
                   </Col>
                   <Col xs={12} sm={12} md={6} style={{ paddingLeft: '0px', paddingRight: '0px' }}>
-                    <img className="img-fluid" src="/static/images/placeholderMap.png" alt="placeholderMap" />
+                    <img src="/static/images/placeholderMap.png" alt="placeholderMap" />
                   </Col>
                 </Row>
               </div>

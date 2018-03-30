@@ -31,6 +31,12 @@
   border-radius: 16px;
   max-width: 656px;
   margin-top: 30px;
+  img {
+    width: 100%;
+    @media screen and (max-width: $width-md) {
+      border-radius: 16px;
+    }
+  }
 }
 
 .mapAddress {
@@ -61,6 +67,7 @@ h4 {
   font-size: 20px;
   // color: #00B19A;
 }
+
 .warrantyControls {
   li {
     margin-right: 50px;

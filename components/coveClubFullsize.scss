@@ -187,19 +187,13 @@
     border-right: 1px solid $grey-300;
     position: relative;
     &::before {
-     
       height: 100%;
       width: 2px;
       position: absolute;
       left: -2px;
       top: 0px;
-      background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
-      background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
       filter: blur(1px);
-      -webkit-filter: blur(1px);
-      -moz-filter: blur(1px);
-      -o-filter: blur(1px);
-      -ms-filter: blur(1px);
+      background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
     }
     &::after {
       height: 100%;
@@ -207,22 +201,19 @@
       position: absolute;
       right: -3px;
       top: 0px;
-      background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
       background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
       filter: blur(1px);
-      -webkit-filter: blur(1px);
-      -moz-filter: blur(1px);
-      -o-filter: blur(1px);
-      -ms-filter: blur(1px);
     }
   }
 
   .colMidLast {
     border-radius: 0px 0px 16px 0px;
   }
+
   .colSpacer {
     border-bottom: 1px solid  #BEC2C5;
   }
+  
   .colRight {
     border-bottom: 1px solid  #BEC2C5;
     background: $grey-50;

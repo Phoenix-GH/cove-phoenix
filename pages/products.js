@@ -5,6 +5,9 @@ import {
   Col,
   Carousel,
   CarouselItem,
+  CarouselIndicators,
+  CarouselControl,
+  CarouselCaption,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
@@ -99,9 +102,10 @@ class ProductPage extends Component {
         onExiting={this.onExiting}
         onExited={this.onExited}
         key={item.src}
-        src={item.src}
-        altText={item.altText}
-      />
+      >
+        <img src={item.src} alt={item.altText} />
+        <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+      </CarouselItem>
     ));
 
     return (
@@ -121,7 +125,14 @@ class ProductPage extends Component {
                       interval={false}
                       className="mx-auto"
                     >
+                      <CarouselIndicators
+                        items={items}
+                        activeIndex={activeIndex}
+                        onClickHandler={this.goToIndex}
+                      />
                       {slides}
+                      <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+                      <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
                     </Carousel>
                   </Row>
                   <Row>
