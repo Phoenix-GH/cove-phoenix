@@ -37,14 +37,14 @@ class CheckoutPage extends Component {
     const activeStage = this.props.stage ? this.props.stage : 'customer';
     let nextLinkText = 'Continue to Shipping Method';
     let previousLinkText = 'Return to Plan Type';
-    let nextLink = '/shipping';
+    let nextLink = '/checkout/shipping';
     if (activeStage === 'shipping') {
       nextLinkText = 'Continue to Payment Info';
-      nextLink = '/payment';
+      nextLink = '/checkout/payment';
       previousLinkText = 'Return to Customer Info';
     } else if (activeStage === 'payment') {
       nextLinkText = 'Complete Purchase';
-      nextLink = '/confirmation';
+      nextLink = '/order';
       previousLinkText = 'Return to Shipping Info';
     }
     return (
@@ -124,7 +124,7 @@ class CheckoutPage extends Component {
                       </Link>
                     </div>
                     <div className="continueColumn">
-                      <Link href={`/checkout${nextLink}`}>
+                      <Link href={nextLink}>
                         <div className="actionBtn">
                           {nextLinkText}
                         </div>
