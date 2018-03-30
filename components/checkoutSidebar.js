@@ -34,7 +34,7 @@ class CheckoutSidebar extends Component {
     ));
     const containerClass = cx({
       mobileContainer: mobile,
-      CheckoutSidebar: !mobile,
+      sidebarContainer: !mobile,
     });
     return (
       <div className={containerClass}>
