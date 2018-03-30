@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import { Container } from 'reactstrap';
 
 export default props => (
   <div>
