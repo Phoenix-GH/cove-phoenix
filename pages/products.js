@@ -125,7 +125,11 @@ class ProductPage extends Component {
                       interval={false}
                       className="mx-auto"
                     >
-                      <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+                      <CarouselIndicators
+                        items={items}
+                        activeIndex={activeIndex}
+                        onClickHandler={this.goToIndex}
+                      />
                       {slides}
                       <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
                       <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
