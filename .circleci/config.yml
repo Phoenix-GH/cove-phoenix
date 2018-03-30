@@ -48,7 +48,7 @@ jobs:
     working_directory: ~/repo
 
     steps:
-      - setup: 
+      - run: 
           name: Install aws cli
           command: sudo pip install awscli
       - run:
