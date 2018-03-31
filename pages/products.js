@@ -103,7 +103,7 @@ class ProductPage extends Component {
         onExited={this.onExited}
         key={item.src}
       >
-        <img src={item.src} alt={item.altText} />
+        <img src={item.src} alt={item.altText} className="carouselImage" width="100%" />
         <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
       </CarouselItem>
     ));
@@ -123,7 +123,7 @@ class ProductPage extends Component {
                       next={this.next}
                       previous={this.previous}
                       interval={false}
-                      className="mx-auto"
+                      className="carouselImage"
                     >
                       <CarouselIndicators
                         items={items}
