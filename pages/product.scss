@@ -39,6 +39,9 @@
   :global {
     .carousel-item {
       border-radius: 16px;
+      img {
+        width: 100%;
+      }
     }
   }
   .descriptionRow {
