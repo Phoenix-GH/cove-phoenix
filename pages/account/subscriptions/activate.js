@@ -7,7 +7,7 @@ import AccountNav from '../../../components/account/accountNav';
 import DashboardHeader from '../../../components/dashboardHeader';
 import AccountGroup from '../../../components/account/accountGroup';
 
-export default class subscriptionProMonitorActivate  extends Component {
+export default class subscriptionActivate  extends Component {
   state = {
     active: true,
   }

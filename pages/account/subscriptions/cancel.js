@@ -16,7 +16,7 @@ const cancelSuccess = 'CANCEL_SUCCESS';
 const discountClaim = 'DISCOUNT_CLAIM';
 const discountSuccess = 'DISCOUNT_SUCCESS';
 
-export default class subscriptionProMonitorActivate extends Component {
+export default class subscriptionCancel extends Component {
   state = {
     type: cancel,
     returnEquipment: true,

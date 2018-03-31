@@ -87,7 +87,7 @@ export default class Info extends Component {
                       <div className="font-gotham-rounded">
                         Status: Active
                       </div>
-                      <a>Pay balance</a>
+                      <a href="/account/subscriptions/pay-balance">Pay balance</a>
                     </div>
                   </AccountGroup>
 

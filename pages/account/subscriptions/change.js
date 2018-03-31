@@ -10,7 +10,7 @@ import AccountGroup from '../../../components/account/accountGroup';
 const change = 'CHANGE';
 const message = 'MESSAGE';
 
-export default class subscriptionProMonitorActivate extends Component {
+export default class subscriptionChange extends Component {
   state = {
     type: change,
   }

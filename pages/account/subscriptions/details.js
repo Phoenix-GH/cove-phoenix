@@ -10,7 +10,7 @@ import AccountGroup from '../../../components/account/accountGroup';
 const details = 'DETAILS';
 const inactive = 'INACTIVE';
 
-export default class subscriptionProMonitorActivate extends Component {
+export default class subscriptionDetails extends Component {
   state = {
     type: details,
   }
