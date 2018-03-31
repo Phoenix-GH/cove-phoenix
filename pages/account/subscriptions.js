@@ -71,7 +71,7 @@ export default class Info extends Component {
                           November 10, 2017
                         </div>
                         <div className="text-right">
-                          <a href="">Finance Details</a>
+                          <a href="/account/subscriptions/finance-details">Finance Details</a>
                         </div>
                       </div>
                       <hr />

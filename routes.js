@@ -34,6 +34,7 @@ module.exports = () => ({
   '/account/subscriptions/change': { page: '/account/subscriptions/change' },
   '/account/subscriptions/cancel': { page: '/account/subscriptions/cancel' },
   '/account/subscriptions/pay-balance': { page: '/account/subscriptions/payBalance' },
+  '/account/subscriptions/finance-details': { page: '/account/subscriptions/financeDetails' },
   '/account/equipment': { page: '/equipment', query: {} },
   '/account/addequipment': { page: '/addEquipment' },
   '/account/cancel': { page: '/cancelmembership' },
