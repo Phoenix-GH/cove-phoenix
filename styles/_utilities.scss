@@ -67,34 +67,19 @@
 
 
 .font-gotham-rounded  { font-family: $font-gotham-rounded !important; }
-.font-gotham-rounded-bold { font-family: $font-gotham-rounded-bold !important; }
-.font-gotham-rounded-light { font-family: $font-gotham-rounded-light !important; }
+.font-gotham-rounded-bold { font-family: $font-gotham-rounded !important; font-weight: 700; }
+.font-gotham-rounded-light { font-family: $font-gotham-rounded !important; font-weight: 300; }
 .font-open-sans       { font-family: $font-open-sans !important; }
 
-.text-right {
-  text-align: right;
-}
+.text-right   { text-align: right; }
+.text-left    { text-align: left; }
+.text-center  { text-align: center; }
+.text-sm      { font-size: .8em; }
 
-.text-left {
-  text-align: left;
-}
+.pull-right { float: right !important; }
+.pull-left  { float: left !important; }
 
-.text-center {
-  text-align: center;
-}
-
-.text-sm {
-  font-size: .8em;
-}
-
-.pull-right {
-  float: right !important;
-}
-
-.pull-left {
-  float: left !important;
-}
-
+.border-left { border-left: solid 1px $grey-300; }
 
 .flex-col {
   display: flex;

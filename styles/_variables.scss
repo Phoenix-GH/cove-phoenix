@@ -47,8 +47,11 @@ $width-lg: 991px;
 
 $col-padding: 8px;
 
-$font-gotham-rounded: 'GothamRoundedBook';
-$font-gotham-rounded-bold: 'GothamRoundedBold';
-$font-gotham-rounded-light: 'GothamRoundedLight';
-$font-gotham-rounded-medium: 'GothamRoundedMedium';
-$font-open-sans: 'Open Sans';
+// please check out the '_types.scss' for how the fonts are setup
+// Eg: to achieve gotham rounded 'bold':
+//
+// font-family: $font-gotham-rounded;
+// font-weight: bold;
+
+$font-gotham-rounded: 'Gotham Rounded', 'Helvetica', 'Arial', sans-serif;
+$font-open-sans: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
