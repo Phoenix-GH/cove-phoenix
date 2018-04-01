@@ -4,7 +4,8 @@
   padding: 40px 0 0 0;
   width: 273px;
   h4 {
-    font-family: $font-gotham-rounded-bold;
+    font-family: $font-gotham-rounded;
+    font-weight: bold;
     font-size: 24px;
     color: $grey-1000;
   }
@@ -24,7 +25,8 @@
     list-style: none;
     padding-left: 0;
     li {
-      font-family: $font-gotham-rounded-light;
+      font-family: $font-gotham-rounded;
+      font-weight: 300;
       font-size: 18px;
       line-height: 34px;
       :global(a) {

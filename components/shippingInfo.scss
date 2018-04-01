@@ -5,7 +5,8 @@
     margin-top: 60px;
     margin-bottom: 30px;
     font-size: 24px;
-    font-family: $font-gotham-rounded-bold;
+    font-family: $font-gotham-rounded;
+    font-weight: bold;
     color: #191E2B;
     border-bottom: 1px $grey-350 solid;
     &.extendedTitle{
@@ -63,7 +64,8 @@
 }
 
 h4 {
-  font-family: $font-gotham-rounded-bold;
+  font-family: $font-gotham-rounded;
+  font-weight: bold;
   font-size: 20px;
   // color: #00B19A;
 }

@@ -3,14 +3,16 @@
 .coveClubMobile {
   h3 {
     font-size: 20px;
-    font-family: $font-gotham-rounded-bold;
+    font-family: $font-gotham-rounded;
+    font-weight: bold;
     margin: 68px 0 24px 0;
   }
   .header {
     margin-top: 80px;
     h2 {
       font-size: 40px;
-      font-family: $font-gotham-rounded-bold;
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
     }
   }
   .titleSubText {
@@ -37,7 +39,8 @@
     text-align: center;    
     h4 {
       font-size: 24px;
-      font-family: $font-gotham-rounded-bold;
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
     }
     h5 {
       font-size: 16px;
@@ -152,13 +155,15 @@
     }
     .highlight {
       color: #00B19A;
-      font-family: $font-gotham-rounded-bold;
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
       font-size: 20px;
       margin-top: 10px;
     }
     .alert {
       color: $alert-color;
-      font-family: $font-gotham-rounded-bold;
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
       font-size: 20px;
     }
   }
@@ -178,7 +183,8 @@
     background: $secondary-color;
     font-size: 16px;
     text-align: center;
-    font-family: $font-gotham-rounded-bold;
+    font-family: $font-gotham-rounded;
+    font-weight: bold;
     padding-top: 8px;
     margin-bottom: 20px;
     cursor: pointer;

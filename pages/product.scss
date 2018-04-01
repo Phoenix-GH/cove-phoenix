@@ -6,12 +6,14 @@
   color: $grey-600;
   h2 {
     margin-bottom: 35px;
-    font-family: $font-gotham-rounded-bold;
+    font-family: $font-gotham-rounded;
+    font-weight: bold;
     font-size: 40px;
   }
   h3 {
     font-size: 35px;
-    font-family: $font-gotham-rounded-bold;
+    font-family: $font-gotham-rounded;
+    font-weight: bold;
     color: $grey-600;
     margin-bottom: 55px;
   }
@@ -30,7 +32,7 @@
       outline: none;
     }
     li {
-      font-family: $font-gotham-rounded-medium;
+      font-family: $font-gotham-rounded;
     }
   }
   p {

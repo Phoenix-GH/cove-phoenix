@@ -31,7 +31,8 @@
       caret-color: #00CDB9;
       font-size: 16px;
       height: 18px;
-      font-family: $font-gotham-rounded-bold;
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
       outline: none;
       &.active {
         margin-top: 0px;
@@ -41,27 +42,32 @@
       }
     }
     input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
-      font-family: $font-gotham-rounded-bold;
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
       font-size: 18px;
       color: $grey-300;
     }
     input::-moz-placeholder { /* Firefox 19+ */
-      font-family: $font-gotham-rounded-bold;
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
       font-size: 18px;
       color: $grey-300;
     }
     input:-ms-input-placeholder { /* IE 10+ */
-      font-family: $font-gotham-rounded-bold;
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
       font-size: 18px;
       color: $grey-300;
     }
     input:-moz-placeholder { /* Firefox 18- */
-      font-family: $font-gotham-rounded-bold;
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
       font-size: 18px;
       color: $grey-300;
     }
     .inputLabel {
-      font-family: $font-gotham-rounded-bold;
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
       font-size: 10px;
       height: 10px;
       color: $grey-300;
