@@ -95,13 +95,11 @@
 }
 
 .productSliderThumbs {
-  :global {
-    margin-top: 15px;
-    .list-inline-item {
-      border-radius: 8px;
-      padding-left: 8px;
-      padding-right: 8px;
-    }
+  margin-top: 58px;
+  .list-inline-item {
+    border-radius: 8px;
+    padding-left: 12px;
+    padding-right: 12px;
   }
 }
 
@@ -113,4 +111,8 @@
   @media (max-width: $width-lg) {
     display: none;
   }
+}
+
+:global(.carouselImage) {
+  width: 100%;
 }
