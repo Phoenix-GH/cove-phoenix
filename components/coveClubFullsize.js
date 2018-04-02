@@ -6,7 +6,6 @@ import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
 import { toggleFinance, selectSubscriptionType } from '../actions';
 import SelectableButton from '../components/selectableButton/selectableButton';
-import YellowBoxesRow from '../components/yellowBoxesRow/yellowBoxesRow';
 import BackButton from '../components/backButton/backButton';
 import styles from './coveClubFullsize.scss';
 
@@ -251,7 +250,6 @@ class CoveClubFullsize extends Component {
             </Row>
           </Col>
         </Row>
-        <YellowBoxesRow className="footerRow" />
         <style jsx global>{styles}</style>
       </Container>
     );
