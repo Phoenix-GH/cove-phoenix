@@ -15,6 +15,9 @@
     "bootstrap": "^4.0.0",
     "classnames": "^2.2.5",
     "css-loader": "^0.28.9",
+    "fbjs": "^0.8.16",
+    "immutable": "^3.8.2",
+    "keymirror": "^0.1.1",
     "localforage": "^1.5.6",
     "lodash": "^4.17.4",
     "next": "^5.1.0",
@@ -28,11 +31,13 @@
     "react-dom": "^16.2.0",
     "react-rangeslider": "^2.2.0",
     "react-redux": "^5.0.6",
+    "react-router-redux": "^4.0.8",
     "react-scroll": "^1.7.6",
     "react-transition-group": "^2.2.1",
     "reactstrap": "^5.0.0-beta.3",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",
+    "redux-logger": "^3.0.6",
     "redux-persist": "^5.5.0",
     "redux-saga": "^0.16.0",
     "redux-thunk": "^2.2.0",
@@ -58,5 +63,10 @@
     "postcss-loader": "^2.0.10",
     "sass-loader": "^6.0.6",
     "styled-jsx-css-loader": "^0.3.0"
+  },
+  "eslintConfig": {
+    "globals": {
+      "window": true
+    }
   }
 }
