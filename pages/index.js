@@ -284,7 +284,7 @@ const Index = () => (
           <h3>$1200</h3>
           <h6>In savings</h6>
         </div>
-        <img src="/static/images/savingsHistory.png" />
+        <img src="/static/images/savingLine.png" />
       </div>
     </Row>
     <Row>
