@@ -6,6 +6,24 @@
 }
 @font-face {
   font-family: 'Gotham Rounded';
+  font-style: italic;
+  font-weight: 700;
+  src: url("/static/fonts/Gotham-Rounded-Bold-Italic.ttf");
+}
+@font-face {
+  font-family: 'Gotham Rounded';
+  font-style: normal;
+  font-weight: 500;
+  src: url("/static/fonts/Gotham-Rounded-Medium.ttf");
+}
+@font-face {
+  font-family: 'Gotham Rounded';
+  font-style: italic;
+  font-weight: 500;
+  src: url("/static/fonts/Gotham-Rounded-Medium-Italic.ttf");
+}
+@font-face {
+  font-family: 'Gotham Rounded';
   font-style: normal;
   font-weight: 300;
   src: url("/static/fonts/Gotham-Rounded-Book.ttf");
@@ -21,4 +39,22 @@
   font-style: normal;
   font-weight: 100;
   src: url("/static/fonts/Gotham-Rounded-Light.ttf");
+}
+@font-face {
+  font-family: 'Gotham Rounded';
+  font-style: italic;
+  font-weight: 100;
+  src: url("/static/fonts/Gotham-Rounded-Light-Italic.ttf");
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 100;
+  src: url("/static/fonts/OpenSans-Light.ttf");
+}
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url("/static/fonts/OpenSans-Regular.ttf");
 }
