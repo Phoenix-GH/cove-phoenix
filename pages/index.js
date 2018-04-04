@@ -315,7 +315,7 @@ const Index = () => (
     </Row>
     <Row>
       <div className="riskFreeSection">
-        <img src="/static/images/60DayStamp.png" />
+        <img src="/static/images/riskFreeTrial.png" />
         <h2>100% satisfaction guaranteed</h2>
         <p>Try out Cove for 60 days free, and if you don't like it more than your children, yo ucan send it back complete free of charge. We are that good.</p>
       </div>
