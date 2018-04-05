@@ -60,7 +60,7 @@ export default class Header extends React.Component {
                     <Col md={2} className="d-flex align-items-center justify-content-start">
                       <Nav navbar>
                         <NavItem>
-                          <Link href="/"><NavLink className="shopNowLink br-5 pl-4 pr-4 pt-1 pb-1">Shop now</NavLink></Link>
+                          <Link href="/"><NavLink className="shopNowLink pl-4 pr-4 pt-1 pb-1">Shop now</NavLink></Link>
                         </NavItem>
                       </Nav>
                     </Col>

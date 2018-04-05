@@ -20,6 +20,7 @@
   :global(.shopNowLink) {
     color: white;
     background-color: $warning;
+    border-radius: 5px;
     font-size: 18px;
     $font-family: $font-gotham-rounded;
     font-weight: 700;
