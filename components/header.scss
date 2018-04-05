@@ -1,3 +1,30 @@
+@import "types";
+@import "variables";
+
+.navbarContainer {
+  border-bottom: 3px solid $primary--darker;
+  position: relative;
+  font-family: $font-gotham-rounded;
+  font-weight: 700;
+
+  :global(.navLink) {
+    color: $primary-color;
+    font-size: 18px;
+  }
+
+  :global(.signinLink) {
+    color: $primary-color;
+    font-size: 14px;
+  }
+
+  :global(.shopNowLink) {
+    color: white;
+    background-color: $warning;
+    font-size: 18px;
+    $font-family: $font-gotham-rounded;
+    font-weight: 700;
+  }
+}
 
 .authLinks {
   padding-top: 8px;

@@ -1,54 +1,77 @@
-import PropTypes from 'prop-types';
-import { Nav, NavItem, Navbar, NavbarBrand, NavbarToggler, NavLink, Collapse, Row, Col } from 'reactstrap';
+import React from 'react';
+import { Container, Row, Col, Nav, NavItem, NavLink, Navbar, NavbarToggler, NavbarBrand, Collapse, Button } from 'reactstrap';
 import Link from 'next/link';
 import s from './header.scss';
 
-const Header = (props) => {
-  let logo = 'logoWhite.svg';
-  let fontColor = '#FFFFFF';
-  if (props.color === 'secondary') {
-    logo = 'logoTeal.svg';
-    fontColor = '#00B19A';
+export default class Header extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.logoPath = '/static/images/logoTeal.svg';
+    this.state = {
+      isOpen: false
+    };
   }
-  const logoPath = `/static/images/${logo}`;
-  return (
-    <div className={s.header} style={{ color: fontColor }}>
-      <Navbar color="faded" light>
-        <Row>
-          <Col md={2}>
-            <NavbarBrand href="/" className="mr-auto">
-              <img src={logoPath} height="32px" alt="Cove Logo" />
-            </NavbarBrand>
-          </Col>
-          <Col md={7}>
-            {props.children}
-          </Col>
-          <Col md={3}>
-            <Nav className={`${s.authLinks} justify-content-end`}>
-              <Link href="/login">
-                <div>
-                  Sign in
-                </div>
-              </Link>
-              <Link href="/signup">
-                <div className={s.signup} style={{ border: `2px solid ${fontColor}` }}>
-                  Sign Up
-                </div>
-              </Link>
-            </Nav>
-          </Col>
-        </Row>
-      </Navbar>
-    </div>
-  );
-};
 
-Header.propTypes = {
-  color: PropTypes.string,
-};
+  toggle = () => {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
 
-Header.defaultProps = {
-  color: 'primary',
+  render() {
+    return (
+      <div className="navbarContainer">
+        <Container fluid>
+          <Navbar color="faded" light expand="md" className="h-80">
+            <Row>
+              <Col md={2} className="d-flex justify-content-end align-items-center">
+                <NavbarBrand href="/">
+                  <img src={this.logoPath} height="32" alt="Cove Logo" />
+                </NavbarBrand>
+              </Col>
+              <Col md={10}>
+                <NavbarToggler onClick={this.toggle} />
+                <Collapse isOpen={this.state.isOpen} navbar>
+                  <Row>
+                    <Col md={8}>
+                      <Nav className="d-flex justify-content-between align-items-center" navbar>
+                        <NavItem>
+                          <Link href="/"><NavLink href="javascript:void(0)" className="navLink">Alarm System</NavLink></Link>
+                        </NavItem>
+                        <NavItem>
+                          <Link href="/"><NavLink href="javascript:void(0)" className="navLink">Smoke + Flood + CO Alarm</NavLink></Link>
+                        </NavItem>
+                        <NavItem>
+                          <Link href="/"><NavLink href="javascript:void(0)" className="navLink">Medical</NavLink></Link>
+                        </NavItem>
+                        <NavItem>
+                          <Link href="/"><NavLink href="javascript:void(0)" className="navLink">Camera</NavLink></Link>
+                        </NavItem>
+                      </Nav>
+                    </Col>
+                    <Col md={2} className="d-flex align-items-center justify-content-end">
+                      <Nav navbar>
+                        <NavItem>
+                          <Link href="/login"><NavLink href="javascript:void(0)" className="signinLink">Sign in</NavLink></Link>
+                        </NavItem>
+                      </Nav>
+                    </Col>
+                    <Col md={2} className="d-flex align-items-center justify-content-start">
+                      <Nav navbar>
+                        <NavItem>
+                          <Link href="/"><NavLink className="shopNowLink br-5 pl-4 pr-4 pt-1 pb-1">Shop now</NavLink></Link>
+                        </NavItem>
+                      </Nav>
+                    </Col>
+                  </Row>
+                </Collapse>
+              </Col>
+            </Row>
+          </Navbar>
+        </Container>
+        <style jsx>{s}</style>
+      </div>
+    );
+  }
 };
-
-export default Header;
