@@ -1,6 +1,4 @@
-import Link from 'next/link';
-import Scroll from 'react-scroll';
-import { Container, Row, Col, Nav, NavItem, Input } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
 import Layout from '../components/minimalLayout';
 import Header from '../components/header';
 import PriceComparisonTable from '../components/priceComparisonTable';
@@ -9,9 +7,6 @@ import Winwin from '../components/winwin';
 import EstimateSlider from '../components/estimateSlider';
 import s from './index.scss';
 import gs from '../components/styles.scss';
-
-const LocalLink = Scroll.Link;
-const ElementLink = Scroll.Element;
 
 const coverSectionTitle = 'If it\'s Cove, it\'s covered.';
 const setupSectionTitle = 'A whole new simple setup process';
@@ -168,103 +163,7 @@ const Index = () => (
       </div>
     </Row>
     <Row>
-      <div className="tableSection">
-        <div className="tableArea">
-          <div>
-            <Row>
-              <Col md={6} />
-              <Col md={3}>
-                <img src="/static/images/logoTeal.svg" />
-              </Col>
-              <Col md={3}>
-                <h2>Them</h2>
-              </Col>
-            </Row>
-          </div>
-          <ul className="list-group">
-            <li className="list-group-item">
-              <Row>
-                <Col md={6}>
-                  <p className="listHeader">Long term contracts</p>
-                </Col>
-                <Col md={3}>
-                  <p className="greenText">Not our style</p>
-                </Col>
-                <Col md={3}>
-                  <p>3-5 years</p>
-                </Col>
-              </Row>
-            </li>
-            <li className="list-group-item">
-              <Row>
-                <Col md={6}>
-                  <p className="listHeader">Monthly monitoring</p>
-                </Col>
-                <Col md={3}>
-                  <p className="greenText">$19.99/mo</p>
-                </Col>
-                <Col md={3}>
-                  <p>$44.99/mo</p>
-                </Col>
-              </Row>
-            </li>
-            <li className="list-group-item">
-              <Row>
-                <Col md={6}>
-                  <p className="listHeader">Cancelation fees</p>
-                </Col>
-                <Col md={3}>
-                  <p className="greenText">None</p>
-                </Col>
-                <Col md={3}>
-                  <p>Up to $2,000</p>
-                  <p>Crazy, we know!</p>
-                </Col>
-              </Row>
-            </li>
-            <li className="list-group-item">
-              <Row>
-                <Col md={6}>
-                  <p className="listHeader">Service windows</p>
-                </Col>
-                <Col md={3}>
-                  <p className="greenText">None</p>
-                </Col>
-                <Col md={3}>
-                  <p>1-3 weeks</p>
-                </Col>
-              </Row>
-            </li>
-            <li className="list-group-item">
-              <Row>
-                <Col md={6}>
-                  <p className="listHeader">Equipment payment options at 0% APR</p>
-                </Col>
-                <Col md={3}>
-                  <p className="greenText">Yes</p>
-                </Col>
-                <Col md={3}>
-                  <p>No</p>
-                </Col>
-              </Row>
-            </li>
-            <li className="list-group-item">
-              <Row>
-                <Col md={6}>
-                  <p className="listHeader">Warranty</p>
-                </Col>
-                <Col md={3}>
-                  <p className="greenText">3 years</p>
-                </Col>
-                <Col md={3}>
-                  <p>3 years</p>
-                  <p>$45 per service</p>
-                </Col>
-              </Row>
-            </li>
-          </ul>
-        </div>
-      </div>
+      <PriceComparisonTable />
     </Row>
     <Row>
       <div className="jordanSayingSection d-flex justify-content-center">
