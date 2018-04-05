@@ -19,4 +19,6 @@ coverage
 test/**/out
 .DS_Store
 .idea
-pages/index.bak.js
+pages/*.bak.js
+
+components/*.bk.js
