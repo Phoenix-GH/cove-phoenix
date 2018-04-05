@@ -1,6 +1,6 @@
 // @flow
 /**
- * @module Reducers/Applications
+ * @module Reducers/Checkout
  * @desc Checkout Reducer
  */
 
@@ -11,7 +11,28 @@ import { requestPending, requestSuccess, requestFail } from '../utils/request';
 const initialState = {
   data: null,
   checkout: null,
-  verifyContactHistory: {
+  verifyContact: {
+    data: null,
+    pagination: null,
+    error: null,
+    isRunning: false,
+    isLoaded: false,
+  },
+  verifyPhone: {
+    data: null,
+    pagination: null,
+    error: null,
+    isRunning: false,
+    isLoaded: false,
+  },
+  createAccount: {
+    data: null,
+    pagination: null,
+    error: null,
+    isRunning: false,
+    isLoaded: false,
+  },
+  createOrder: {
     data: null,
     pagination: null,
     error: null,
@@ -29,7 +50,9 @@ export default handleActions({
   }),
   [requestSuccess(CheckoutConstants.VERIFY_CONTACT)]: (state, action) => ({
     ...state,
-    data: action.payload,
+    verifyContact: {
+      ...action.payload,
+    },
   }),
   [requestFail(CheckoutConstants.VERIFY_CONTACT)]: (state, action) => ({
     ...state,
@@ -40,7 +63,9 @@ export default handleActions({
   }),
   [requestSuccess(CheckoutConstants.VERIFY_PHONE)]: (state, action) => ({
     ...state,
-    data: action.payload,
+    verifyPhone: {
+      ...action.payload,
+    },
   }),
   [requestFail(CheckoutConstants.VERIFY_PHONE)]: (state, action) => ({
     ...state,
@@ -51,7 +76,9 @@ export default handleActions({
   }),
   [requestSuccess(CheckoutConstants.CREATE_ACCOUNT)]: (state, action) => ({
     ...state,
-    data: action.payload,
+    createAccount: {
+      ...action.payload,
+    },
   }),
   [requestFail(CheckoutConstants.CREATE_ACCOUNT)]: (state, action) => ({
     ...state,
@@ -62,7 +89,9 @@ export default handleActions({
   }),
   [requestSuccess(CheckoutConstants.CREATE_ORDER)]: (state, action) => ({
     ...state,
-    data: action.payload,
+    createOrder: {
+      ...action.payload,
+    },
   }),
   [requestFail(CheckoutConstants.CREATE_ORDER)]: (state, action) => ({
     ...state,
