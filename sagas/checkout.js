@@ -6,7 +6,7 @@ function* verifyContact(action) {
   yield call(request({
     type: CheckoutConstants.VERIFY_CONTACT,
     method: 'POST',
-    url: 'url',
+    url: action.payload.url,
   }), action);
 }
 
@@ -14,7 +14,7 @@ function* verifyPhone(action) {
   yield call(request({
     type: CheckoutConstants.VERIFY_PHONE,
     method: 'POST',
-    url: 'url',
+    url: action.payload.url,
   }), action);
 }
 
@@ -22,7 +22,7 @@ function* createAccount(action) {
   yield call(request({
     type: CheckoutConstants.CREATE_ACCOUNT,
     method: 'POST',
-    url: 'url',
+    url: action.payload.url,
   }), action);
 }
 
@@ -30,7 +30,7 @@ function* createOrder(action) {
   yield call(request({
     type: CheckoutConstants.CREATE_ORDER,
     method: 'POST',
-    url: 'url',
+    url: action.payload.url,
   }), action);
 }
 
