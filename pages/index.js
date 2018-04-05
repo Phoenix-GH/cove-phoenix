@@ -2,11 +2,7 @@ import { Row, Col } from 'reactstrap';
 import Layout from '../components/minimalLayout';
 import Header from '../components/header';
 import PriceComparisonTable from '../components/priceComparisonTable';
-import CoveLiveAssist from '../components/coveLiveAssist';
-import Winwin from '../components/winwin';
-import EstimateSlider from '../components/estimateSlider';
 import s from './index.scss';
-import gs from '../components/styles.scss';
 
 const coverSectionTitle = 'If it\'s Cove, it\'s covered.';
 const setupSectionTitle = 'A whole new simple setup process';
@@ -295,7 +291,7 @@ const Index = () => (
             </ul>
           </Col>
           <Col xs={12} sm={12} md={3}>
-            <input type="textarea" name="email" id="emailText" placeholder="Enter Email for Cove news" />
+            <input className="email" type="textarea" name="email" id="emailText" placeholder="Enter Email for Cove news" />
             <div className="socialMedia">
               <img src="/static/images/facebook.png" />
               <img src="/static/images/twitter.png" />
