@@ -3,6 +3,7 @@ import { Container, Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import { bindActionCreators } from 'redux';
+import cx from 'classnames';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../store';
 import { loadProducts } from '../actions';
@@ -47,6 +48,26 @@ class CheckoutPage extends Component {
       nextLink = '/order';
       previousLinkText = 'Return to Shipping Info';
     }
+
+    const customerStageClassName = cx('flexCol', {
+      activeStage: activeStage === 'customer',
+    });
+    const shippingStageClassName = cx('flexCol', {
+      activeStage: activeStage === 'shipping',
+    });
+    const paymentStageClassName = cx('flexCol', {
+      activeStage: activeStage === 'payment',
+    });
+    const customerPageClassName = cx('tab', {
+      activePage: activeStage === 'customer',
+    });
+    const shippingPageClassName = cx('tab', {
+      activePage: activeStage === 'shipping',
+    });
+    const paymentPageClassName = cx('tab', {
+      activePage: activeStage === 'payment',
+    });
+
     return (
       <Layout>
         <Container className="checkoutContainer">
@@ -56,25 +77,29 @@ class CheckoutPage extends Component {
             <Col xs={12} sm={12} md={12} lg={8}>
               <div className="checkoutStageRow">
                 <Row>
-                  <div className={`flexCol ${activeStage === 'customer' ? 'activeStage' : ''}`}>
-                    <Link href={{ pathname: '/checkout', query: { step: 1 } }}>
+                  <div className={customerStageClassName}>
+                    <Link href={{ pathname: '/checkout', query: { stage: 'customer' } }}>
                       <div className="checkoutStageOne link">
                         1 <span className="stageLabel">Customer Info</span>
                         <div className="stageIndicator" />
                       </div>
                     </Link>
                   </div>
-                  <div className={`flexCol ${activeStage === 'shipping' ? 'activeStage' : ''}`}>
-                    <div className={`${s.checkoutStageTwo} ${s.link}`}>
-                      2 <span className="stageLabel">Shipping Info</span>
-                      <div className="stageIndicator" />
-                    </div>
+                  <div className={shippingStageClassName}>
+                    <Link href={{ pathname: '/checkout', query: { stage: 'shipping' } }}>
+                      <div className={`${s.checkoutStageTwo} ${s.link}`}>
+                        2 <span className="stageLabel">Shipping Info</span>
+                        <div className="stageIndicator" />
+                      </div>
+                    </Link>
                   </div>
-                  <div className={`flexCol ${activeStage === 'payment' ? 'activeStage' : ''}`}>
-                    <div className={`${s.checkoutStageThree} ${s.link}`}>
-                      3 <span className="stageLabel">Payment Information</span>
-                      <div className="stageIndicator" />
-                    </div>
+                  <div className={paymentStageClassName}>
+                    <Link href={{ pathname: '/checkout', query: { stage: 'payment' } }}>
+                      <div className={`${s.checkoutStageThree} ${s.link}`}>
+                        3 <span className="stageLabel">Payment Information</span>
+                        <div className="stageIndicator" />
+                      </div>
+                    </Link>
                   </div>
                 </Row>
               </div>
@@ -96,16 +121,16 @@ class CheckoutPage extends Component {
                   </Col>
                 </Row>
               </div>
-              <div className={`tab ${activeStage === 'customer' ? 'activePage' : ''}`}>
+              <div className={customerPageClassName}>
                 <CustomerInfo
                   onChangeHandler={this.onChangeHandler}
                   fields={this.state.customerInfo}
                 />
               </div>
-              <div className={`tab ${activeStage === 'shipping' ? 'activePage' : ''}`}>
+              <div className={shippingPageClassName}>
                 <ShippingInfo />
               </div>
-              <div className={`tab ${activeStage === 'payment' ? 'activePage' : ''}`}>
+              <div className={paymentPageClassName}>
                 <PaymentInfo />
               </div>
               <div className="footerControls">
