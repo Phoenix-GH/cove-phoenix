@@ -90,16 +90,14 @@ class CheckoutSidebar extends Component {
         <Row>
           <Col xs={12}>
             <div className="coupon">
-              <Row>
-                <Col xs={10}>
-                  <p className="bold">
-                    Have a Coupon
-                  </p>
-                </Col>
-                <Col xs={2} onClick={this.toggleCoupon}>
+              <div className="row">
+                <span className="bold flexLeft">
+                  Have a Coupon
+                </span>
+                <button onClick={this.toggleCoupon}>
                   <img src={`/static/images/${toggleImage}`} alt="toggle" />
-                </Col>
-              </Row>
+                </button>
+              </div>
               <Collapse isOpen={this.state.collapse}>
                 <Row>
                   <Col xs={12}>

@@ -59,13 +59,18 @@ h4 {
 .coupon {
   border-top: 1px solid $sidebar-green;
   border-bottom: 1px solid $sidebar-green;
-  padding-top: 10px;
   margin-bottom: 30px;
+  .row {
+    margin: 10px 0 20px 0;
+    .flexLeft {
+      flex: 1;
+    }
+  }
   input {
     margin-bottom: 32px!important;
   }
-  .col-2 {
-    text-align: right;
+  button {
+    padding: 0;
   }
 }
 
@@ -85,3 +90,4 @@ h4 {
 .bold {
   font-weight: bold;
 }
+
