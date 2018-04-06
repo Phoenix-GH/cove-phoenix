@@ -2,4 +2,12 @@
 
 .footer {
   border-top: 3px solid $footer-green;
+  .footerContainer {
+    max-width: 1262px;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }

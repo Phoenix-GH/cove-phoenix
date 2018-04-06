@@ -115,123 +115,125 @@ class ProductPage extends Component {
           <div className="productContent" >
             <Row>
               <Col xl={8} lg={8} md={12} xs={12}>
-                <h2>Cove Protect</h2>
-                <div className="productCarousel">
-                  <Row>
-                    <Carousel
-                      activeIndex={activeIndex}
-                      next={this.next}
-                      previous={this.previous}
-                      interval={false}
-                      className="carouselImage"
-                    >
-                      <CarouselIndicators
-                        items={items}
+                <div className="productLeft">
+                  <h2>Cove Protect</h2>
+                  <div className="productCarousel">
+                    <Row>
+                      <Carousel
                         activeIndex={activeIndex}
-                        onClickHandler={this.goToIndex}
-                      />
-                      {slides}
-                      <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-                      <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
-                    </Carousel>
-                  </Row>
-                  <Row>
-                    <ul className="mx-auto list-inline productSliderThumbs">
-                      <li className="list-inline-item link">
-                        <img src="/static/images/arrowLeft.png" alt="arrowLeft" />
-                      </li>
-                      {items.map((item, i) => (
-                        <li className="list-inline-item" key={item.thumb + Math.random()}>
-                          <button onClick={() => { this.goToIndex(i); }}>
-                            <img src={item.thumb} alt="thumb" />
-                          </button>
+                        next={this.next}
+                        previous={this.previous}
+                        interval={false}
+                        className="carouselImage"
+                      >
+                        <CarouselIndicators
+                          items={items}
+                          activeIndex={activeIndex}
+                          onClickHandler={this.goToIndex}
+                        />
+                        {slides}
+                        <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+                        <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+                      </Carousel>
+                    </Row>
+                    <Row>
+                      <ul className="mx-auto list-inline productSliderThumbs">
+                        <li className="list-inline-item link">
+                          <img src="/static/images/arrowLeft.png" alt="arrowLeft" />
                         </li>
-                        ))}
-                      <li className="list-inline-item link">
-                        <img src="/static/images/arrowRight.png" alt="arrowRight" />
-                      </li>
-                    </ul>
-                  </Row>
-                </div>
-                <div className="descriptionRow">
-                  <Row>
-                    <Col xs={6}>
-                      <img src="/static/images/24monitoring.png" alt="24/7 Professional Monitoring" />
-                    </Col>
-                    <Col xs={6}>
-                      <h2 className="titlePadding">24/7 Professional Monitoring</h2>
-                      <div className="description">
-                        With 24/7 Professinoal Monitoring,
-                        you know your home is protected all the time,
-                        not just when you are looking.
-                      </div>
-                      <Row>
-                        <ul>
-                          <li>5 Star Monitoring Station</li>
-                          <li>$19.99/mo</li>
-                          <li>No contracts</li>
-                        </ul>
-                      </Row>
-                    </Col>
-                  </Row>
-                </div>
-                <div className="descriptionRow">
-                  <Col xs={6}>
-                    <h2>Setup is easy.
-                      <br />Protection is tough.
-                    </h2>
-                    <div className="description">
-                      With the most unique and simple setup process in the entire industry,
-                        you are able to protect your home within minutes.
-                    </div>
-                  </Col>
-                </div>
-                <div className="descriptionRow">
-                  <Row>
-                    <Col xs={6}>
-                      <img src="/static/images/securityChart.png" alt="24/7 Professional Monitoring" />
-                    </Col>
-                    <Col xs={6}>
-                      <h2 className="grey">Less Markup.</h2>
-                      <h2 className="green">More Security.</h2>
-                    </Col>
-                  </Row>
-                </div>
-                <Row>
-                  <Col xs={12}>
-                    <Col xs={{ size: 6, offset: 3 }}>
-                      <h2 className="center titlePadding">
-                        Savings so big, you can&#39;t help but love it.
-                      </h2>
-                    </Col>
-                    <div className="saving center">
-                      Every year with Cove is more money in your pocket
-                      from what you would have paid with other security companies.
-                      <p>
-                        We cut out the middlemen markup.
-                      </p>
-                      <img src="/static/images/savingLine.png" alt="Live chart" />
-                    </div>
-                  </Col>
-                </Row>
-                <div className="descriptionRow">
-                  <Row>
-                    <Col xs={7}>
-                      <Row>
-                        <h2 className="grey titlePadding">
-                          100% satisfaction
-                          <br />guaranteed
-                        </h2>
-                        <div className="grey">
-                          Try out Cove for 60 days free, and if you don&#39;t like
-                          it more than your children, send it back for a complete refund.
+                        {items.map((item, i) => (
+                          <li className="list-inline-item" key={item.thumb + Math.random()}>
+                            <button onClick={() => { this.goToIndex(i); }}>
+                              <img src={item.thumb} alt="thumb" />
+                            </button>
+                          </li>
+                          ))}
+                        <li className="list-inline-item link">
+                          <img src="/static/images/arrowRight.png" alt="arrowRight" />
+                        </li>
+                      </ul>
+                    </Row>
+                  </div>
+                  <div className="descriptionRow">
+                    <Row>
+                      <Col xs={6}>
+                        <img src="/static/images/24monitoring.png" alt="24/7 Professional Monitoring" />
+                      </Col>
+                      <Col xs={6}>
+                        <h2 className="titlePadding">24/7 Professional Monitoring</h2>
+                        <div className="description">
+                          With 24/7 Professinoal Monitoring,
+                          you know your home is protected all the time,
+                          not just when you are looking.
                         </div>
-                      </Row>
+                        <Row>
+                          <ul>
+                            <li>5 Star Monitoring Station</li>
+                            <li>$19.99/mo</li>
+                            <li>No contracts</li>
+                          </ul>
+                        </Row>
+                      </Col>
+                    </Row>
+                  </div>
+                  <div className="descriptionRow">
+                    <Col xs={6}>
+                      <h2>Setup is easy.
+                        <br />Protection is tough.
+                      </h2>
+                      <div className="description">
+                        With the most unique and simple setup process in the entire industry,
+                          you are able to protect your home within minutes.
+                      </div>
                     </Col>
-                    <Col xs={5}>
-                      <img src="/static/images/riskFreeTrial.png" alt="Risk Free 60 Day Trial" />
+                  </div>
+                  <div className="descriptionRow">
+                    <Row>
+                      <Col xs={6}>
+                        <img src="/static/images/securityChart.png" alt="24/7 Professional Monitoring" />
+                      </Col>
+                      <Col xs={6}>
+                        <h2 className="grey">Less Markup.</h2>
+                        <h2 className="green">More Security.</h2>
+                      </Col>
+                    </Row>
+                  </div>
+                  <Row>
+                    <Col xs={12}>
+                      <Col xs={{ size: 6, offset: 3 }}>
+                        <h2 className="center titlePadding">
+                          Savings so big, you can&#39;t help but love it.
+                        </h2>
+                      </Col>
+                      <div className="saving center">
+                        Every year with Cove is more money in your pocket
+                        from what you would have paid with other security companies.
+                        <p>
+                          We cut out the middlemen markup.
+                        </p>
+                        <img src="/static/images/savingLine.png" alt="Live chart" />
+                      </div>
                     </Col>
                   </Row>
+                  <div className="descriptionRow">
+                    <Row>
+                      <Col xs={7}>
+                        <Row>
+                          <h2 className="grey titlePadding">
+                            100% satisfaction
+                            <br />guaranteed
+                          </h2>
+                          <div className="grey">
+                            Try out Cove for 60 days free, and if you don&#39;t like
+                            it more than your children, send it back for a complete refund.
+                          </div>
+                        </Row>
+                      </Col>
+                      <Col xs={5}>
+                        <img src="/static/images/riskFreeTrial.png" alt="Risk Free 60 Day Trial" />
+                      </Col>
+                    </Row>
+                  </div>
                 </div>
               </Col>
               <Col xl={4} lg={4} md={0} sm={0} className="no-gutters">

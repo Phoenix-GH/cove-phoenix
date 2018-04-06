@@ -1,4 +1,4 @@
-import { Container, Row } from 'reactstrap';
+import { Row } from 'reactstrap';
 import FooterColumn from '../footerColumn/footerColumn';
 import SharingColumn from '../sharingColumn/sharingColumn';
 import footerList from './footerList';
@@ -6,7 +6,7 @@ import s from './footer.scss';
 
 const Footer = () => (
   <div className="footer">
-    <Container>
+    <div className="footerContainer">
       <Row>
         {
           footerList.map(item => (
@@ -15,7 +15,7 @@ const Footer = () => (
         }
         <SharingColumn />
       </Row>
-    </Container>
+    </div>
     <style jsx>{s}</style>
   </div>
 );

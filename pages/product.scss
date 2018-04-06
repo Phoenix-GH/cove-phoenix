@@ -4,6 +4,9 @@
   margin-top: 60px;
   width: 100%;
   color: $grey-600;
+  .productLeft {
+    max-width: 656px;
+  }
   h2 {
     margin-bottom: 35px;
     font-family: $font-gotham-rounded;
