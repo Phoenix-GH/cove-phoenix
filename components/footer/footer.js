@@ -2,10 +2,10 @@ import { Container, Row } from 'reactstrap';
 import FooterColumn from '../footerColumn/footerColumn';
 import SharingColumn from '../sharingColumn/sharingColumn';
 import footerList from './footerList';
-import s from './productFooter.scss';
+import s from './footer.scss';
 
-const ProductFooter = () => (
-  <div className="productFooter">
+const Footer = () => (
+  <div className="footer">
     <Container>
       <Row>
         {
@@ -20,4 +20,4 @@ const ProductFooter = () => (
   </div>
 );
 
-export default ProductFooter;
+export default Footer;

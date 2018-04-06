@@ -18,7 +18,7 @@ import Layout from '../components/minimalLayout';
 import Header from '../components/header';
 import SidebarCart from '../components/sidebarCart';
 import ProductModal from '../components/productModal';
-import ProductFooter from '../components/productFooter/productFooter';
+import Footer from '../components/footer/footer';
 import styles from './product.scss';
 
 const items = [
@@ -240,7 +240,7 @@ class ProductPage extends Component {
             </Row>
           </div>
         </Container>
-        <ProductFooter />
+        <Footer />
         {products[activeProduct] ?
           <ProductModal
             isOpen={modal}
