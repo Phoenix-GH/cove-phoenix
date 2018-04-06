@@ -49,7 +49,7 @@ class CheckoutPage extends Component {
     }
     return (
       <Layout>
-        <Container>
+        <Container className="checkoutContainer">
           <Header color="secondary" />
           <div className="spacer" />
           <Row>

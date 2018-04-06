@@ -1,5 +1,9 @@
 @import "variables";
 
+:global(.checkoutContainer) {
+  padding-bottom: 72px;
+}
+
 .checkoutSidebar {
   @media (max-width: $width-lg) {
     display: none;
