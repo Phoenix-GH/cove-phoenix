@@ -62,78 +62,79 @@ class OrderPage extends Component {
           <Header color="secondary" />
           <div className="spacer" />
           <Row>
-            <Col xs={12} sm={12} md={12} lg={8}>
-              <div className="checkoutStageRow">
-                <Row>
-                  <div className="flexCol activeStage">
-                    <Link href={{ pathname: '/checkout', query: { step: 1 } }}>
-                      <div className="checkoutStageOne link">
-                        <span className="stageLabel">Order Confirmation</span>
-                        <div className="stageIndicator" />
-                      </div>
-                    </Link>
-                  </div>
-                </Row>
-              </div>
-              <div className="shoppingCartBtnContainer">
-                <Row>
-                  <Col xs={12}>
-                    <div className="shoppingCartBtn">
-                      <Link href="/cart">
-                        <Row>
-                          <Col xs={10}>
-                            View Order Summary
-                          </Col>
-                          <Col xs={2}>
-                            <img src="/static/images/arrowFullRight.png" alt="arrow" />
-                          </Col>
-                        </Row>
-                      </Link>
-                    </div>
-                  </Col>
-                </Row>
-              </div>
-              <div className="orderConfirmation">
-                <Col xs={12} sm={12} md={12}>
-                  <h3>Order Confirmation</h3>
-                  <h4>You&apos;re almost done, please name your sensors.</h4>
-                  <p>Naming your sensors now makes the set up process much quicker and easier.</p>
-                  <h3 className="extendedTitle">Equipment Type</h3>
+            <Col xs={12} sm={12} md={12} lg={7}>
+              <div className="orderLeft">
+                <div className="checkoutStageRow">
                   <Row>
-                    <Col xs={12} md={8}>
-                      {
-                        equipmentList.map(item => (
-                          <EquipmentType
-                            key={item.id}
-                            title={item.title}
-                            quantity={item.quantity}
-                            list={item.list}
-                          />
-                        ))
-                      }
-                    </Col>
-                  </Row>
-                </Col>
-              </div>
-
-              <div className="footerControls">
-                <Col xs={12}>
-                  <Row>
-                    <div className="returnColumn">
-                      <BackButton title="Continue Shopping" link="/checkout" />
-                    </div>
-                    <div className="continueColumn">
-                      <Link href="#name-sensors">
-                        <div className="actionBtn">
-                          Name Sensors
+                    <div className="flexCol activeStage">
+                      <Link href={{ pathname: '/checkout', query: { step: 1 } }}>
+                        <div className="checkoutStageOne link">
+                          <span className="stageLabel">Order Confirmation</span>
+                          <div className="stageIndicator" />
                         </div>
                       </Link>
                     </div>
                   </Row>
-                </Col>
+                </div>
+                <div className="shoppingCartBtnContainer">
+                  <Row>
+                    <Col xs={12}>
+                      <div className="shoppingCartBtn">
+                        <Link href="/cart">
+                          <Row>
+                            <Col xs={10}>
+                              View Order Summary
+                            </Col>
+                            <Col xs={2}>
+                              <img src="/static/images/arrowFullRight.png" alt="arrow" />
+                            </Col>
+                          </Row>
+                        </Link>
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
+                <div className="orderConfirmation">
+                  <Col xs={12} sm={12} md={12}>
+                    <h3>Order Confirmation</h3>
+                    <h4>You&apos;re almost done, please name your sensors.</h4>
+                    <p>Naming your sensors now makes the set up process much quicker and easier.</p>
+                    <h3 className="extendedTitle">Equipment Type</h3>
+                    <Row>
+                      <Col xs={12} md={8}>
+                        {
+                          equipmentList.map(item => (
+                            <EquipmentType
+                              key={item.id}
+                              title={item.title}
+                              quantity={item.quantity}
+                              list={item.list}
+                            />
+                          ))
+                        }
+                      </Col>
+                    </Row>
+                  </Col>
+                </div>
+                <div className="footerControls">
+                  <Col xs={12}>
+                    <Row>
+                      <div className="returnColumn">
+                        <BackButton title="Continue Shopping" link="/checkout" />
+                      </div>
+                      <div className="continueColumn">
+                        <Link href="#name-sensors">
+                          <div className="actionBtn">
+                            Name Sensors
+                          </div>
+                        </Link>
+                      </div>
+                    </Row>
+                  </Col>
+                </div>
               </div>
             </Col>
-            <Col className="justify-content-end" lg={4}>
+            <Col className="justify-content-end" lg={{ size: 4, offset: 1 }}>
               <div className="checkoutSidebar">
                 <CheckoutSidebar />
               </div>

@@ -1,9 +1,15 @@
 @import "variables";
 
 .checkoutSidebar {
+  max-width: 370px;
+  float: right;
   @media (max-width: $width-lg) {
     display: none;
   }
+}
+
+.orderLeft {
+  max-width: 656px;
 }
 
 .flexCol {
@@ -158,6 +164,7 @@
     font-weight: bold;
     color: $grey-1000;
     border-bottom: 1px $grey-350 solid;
+    padding-bottom: 5px;
     &.extendedTitle{
       border: none;
     }
