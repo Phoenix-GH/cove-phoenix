@@ -42,29 +42,12 @@ const PaymentInfo = () => (
         </Col>
       </Row>
       <Row>
-        <Col xs={1}>
-          <div className="termsCheckbox">
+        <Col>
+          <div className="acceptanceRow">
             <Checkbox />
-          </div>
-        </Col>
-        <Col xs={11}>
-          <Input label="Full Name" />
-        </Col>
-        <Col xs={12}>
-          <div className="financeAgreement">
-            To accept terms of&nbsp;
-            <Link href="#link"><span className="linkTertiary">Financing Agreement </span></Link>
-            please type full name below and click accept
-          </div>
-        </Col>
-        <Col xs={1}>
-          <div className="termsCheckbox">
-            <Checkbox />
-          </div>
-        </Col>
-        <Col xs={11}>
-          <div className="acceptance">
-            I accept the <Link href="#link"><span className="linkTertiary"> Terms and Conditons</span></Link>
+            <div className="acceptance">
+              I accept the <Link href="#link"><span className="linkTertiary"> Terms and Conditons</span></Link>
+            </div>
           </div>
         </Col>
       </Row>

@@ -18,14 +18,12 @@
     font-weight: bold;
     color: #008CFF;
   }
-  .financeAgreement {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 14px;
-  }
-  .acceptance {
-    font-size: 14px;
-    padding-top: 14px;
+  .acceptanceRow {
+    display: flex;
+    .acceptance {
+      font-size: 14px;
+      padding-top: 14px;
+    }
   }
 
   :global {
