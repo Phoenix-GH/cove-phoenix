@@ -74,92 +74,94 @@ class CheckoutPage extends Component {
           <Header color="secondary" />
           <div className="spacer" />
           <Row>
-            <Col xs={12} sm={12} md={12} lg={8}>
-              <div className="checkoutStageRow">
-                <Row>
-                  <div className={customerStageClassName}>
-                    <Link href={{ pathname: '/checkout', query: { stage: 'customer' } }}>
-                      <div className="checkoutStageOne link">
-                        1 <span className="stageLabel">Customer Info</span>
-                        <div className="stageIndicator" />
-                      </div>
-                    </Link>
-                  </div>
-                  <div className={shippingStageClassName}>
-                    <Link href={{ pathname: '/checkout', query: { stage: 'shipping' } }}>
-                      <div className={`${s.checkoutStageTwo} ${s.link}`}>
-                        2 <span className="stageLabel">Shipping Info</span>
-                        <div className="stageIndicator" />
-                      </div>
-                    </Link>
-                  </div>
-                  <div className={paymentStageClassName}>
-                    <Link href={{ pathname: '/checkout', query: { stage: 'payment' } }}>
-                      <div className={`${s.checkoutStageThree} ${s.link}`}>
-                        3 <span className="stageLabel">Payment Information</span>
-                        <div className="stageIndicator" />
-                      </div>
-                    </Link>
-                  </div>
-                </Row>
-              </div>
-              <div className="shoppingCartBtnContainer">
-                <Row>
-                  <Col xs={12}>
-                    <div className="shoppingCartBtn">
-                      <Link href="/cart">
-                        <Row>
-                          <Col xs={10}>
-                            View Shopping Cart
-                          </Col>
-                          <Col xs={2}>
-                            <img src="/static/images/arrowFullRight.png" alt="arrow" />
-                          </Col>
-                        </Row>
-                      </Link>
-                    </div>
-                  </Col>
-                </Row>
-              </div>
-              <div className={customerPageClassName}>
-                <CustomerInfo
-                  onChangeHandler={this.onChangeHandler}
-                  fields={this.state.customerInfo}
-                />
-              </div>
-              <div className={shippingPageClassName}>
-                <ShippingInfo />
-              </div>
-              <div className={paymentPageClassName}>
-                <PaymentInfo />
-              </div>
-              <div className="footerControls">
-                <Col xs={12}>
+            <Col xs={12} sm={12} md={12} lg={7}>
+              <div className="checkoutLeft">
+                <div className="checkoutStageRow">
                   <Row>
-                    <div className="returnColumn">
-                      <Link href="/products">
-                        <ul className="list-inline returnToShop">
-                          <li className="list-inline-item align-top">
-                            <img src="/static/images/arrowFullLeft.png" alt="arrow left" />
-                          </li>
-                          <li className="list-inline-item returnLink">
-                            {previousLinkText}
-                          </li>
-                        </ul>
+                    <div className={customerStageClassName}>
+                      <Link href={{ pathname: '/checkout', query: { stage: 'customer' } }}>
+                        <div className="checkoutStageOne link">
+                          1 <span className="stageLabel">Customer Info</span>
+                          <div className="stageIndicator" />
+                        </div>
                       </Link>
                     </div>
-                    <div className="continueColumn">
-                      <Link href={nextLink}>
-                        <div className="actionBtn">
-                          {nextLinkText}
+                    <div className={shippingStageClassName}>
+                      <Link href={{ pathname: '/checkout', query: { stage: 'shipping' } }}>
+                        <div className={`${s.checkoutStageTwo} ${s.link}`}>
+                          2 <span className="stageLabel">Shipping Info</span>
+                          <div className="stageIndicator" />
+                        </div>
+                      </Link>
+                    </div>
+                    <div className={paymentStageClassName}>
+                      <Link href={{ pathname: '/checkout', query: { stage: 'payment' } }}>
+                        <div className={`${s.checkoutStageThree} ${s.link}`}>
+                          3 <span className="stageLabel">Payment Information</span>
+                          <div className="stageIndicator" />
                         </div>
                       </Link>
                     </div>
                   </Row>
-                </Col>
+                </div>
+                <div className="shoppingCartBtnContainer">
+                  <Row>
+                    <Col xs={12}>
+                      <div className="shoppingCartBtn">
+                        <Link href="/cart">
+                          <Row>
+                            <Col xs={10}>
+                              View Shopping Cart
+                            </Col>
+                            <Col xs={2}>
+                              <img src="/static/images/arrowFullRight.png" alt="arrow" />
+                            </Col>
+                          </Row>
+                        </Link>
+                      </div>
+                    </Col>
+                  </Row>
+                </div>
+                <div className={customerPageClassName}>
+                  <CustomerInfo
+                    onChangeHandler={this.onChangeHandler}
+                    fields={this.state.customerInfo}
+                  />
+                </div>
+                <div className={shippingPageClassName}>
+                  <ShippingInfo />
+                </div>
+                <div className={paymentPageClassName}>
+                  <PaymentInfo />
+                </div>
+                <div className="footerControls">
+                  <Col xs={12}>
+                    <Row>
+                      <div className="returnColumn">
+                        <Link href="/products">
+                          <ul className="list-inline returnToShop">
+                            <li className="list-inline-item align-top">
+                              <img src="/static/images/arrowFullLeft.png" alt="arrow left" />
+                            </li>
+                            <li className="list-inline-item returnLink">
+                              {previousLinkText}
+                            </li>
+                          </ul>
+                        </Link>
+                      </div>
+                      <div className="continueColumn">
+                        <Link href={nextLink}>
+                          <div className="actionBtn">
+                            {nextLinkText}
+                          </div>
+                        </Link>
+                      </div>
+                    </Row>
+                  </Col>
+                </div>
               </div>
             </Col>
-            <Col className="justify-content-end" lg={4}>
+            <Col className="justify-content-end" lg={{ size: 4, offset: 1 }}>
               <div className="checkoutSidebar">
                 <CheckoutSidebar />
               </div>

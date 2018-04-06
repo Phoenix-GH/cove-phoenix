@@ -5,9 +5,15 @@
 }
 
 .checkoutSidebar {
+  max-width: 370px;
+  float: right;
   @media (max-width: $width-lg) {
     display: none;
   }
+}
+
+.checkoutLeft {
+  max-width: 656px;
 }
 
 .flexCol {
