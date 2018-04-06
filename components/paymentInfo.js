@@ -8,10 +8,13 @@ import s from './paymentInfo.scss';
 const PaymentInfo = () => (
   <div>
     <div className="customerInfo">
-      <h3>Payment Selection</h3>
       <Row className="justify-content-between">
         <Col>
+          <h3>Payment Selection</h3>
           <h4>Credit Card</h4>
+          <p>Safe money transfer using your bank account.
+             Visa, Mastercard, Discover, American Express
+          </p>
         </Col>
       </Row>
       <Row>
