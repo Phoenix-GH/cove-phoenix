@@ -66,10 +66,10 @@
 .m-xl           { margin: $space-xl !important; }
 
 
-.font-gotham-rounded  { font-family: $font-gotham-rounded !important; }
-.font-gotham-rounded-bold { font-family: $font-gotham-rounded !important; font-weight: 700; }
-.font-gotham-rounded-light { font-family: $font-gotham-rounded !important; font-weight: 300; }
-.font-open-sans       { font-family: $font-open-sans !important; }
+.font-gotham-rounded  { font-family: $font-gotham-rounded; font-weight: 300; }
+.font-gotham-rounded-bold { font-family: $font-gotham-rounded; font-weight: 700; }
+.font-gotham-rounded-light { font-family: $font-gotham-rounded; font-weight: 300; }
+.font-open-sans       { font-family: $font-open-sans; }
 
 .text-right   { text-align: right; }
 .text-left    { text-align: left; }

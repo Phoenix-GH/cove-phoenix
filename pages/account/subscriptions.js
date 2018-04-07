@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import { object } from 'prop-types';
-import Router from 'next/router';
 import { Container, Row, Col } from 'reactstrap';
 
-import AccountDataField from '../../components/accountDataField';
 import Layout from '../../components/account/accountLayout';
 import AccountCard from '../../components/account/accountCard';
 import AccountNav from '../../components/account/accountNav';
 import AccountGroup from '../../components/account/accountGroup';
 import DashboardHeader from '../../components/dashboardHeader';
 
-export default class Info extends Component {
+export default class Subscriptions extends Component {
   static propTypes = {
     url: object,
   }
@@ -95,7 +93,10 @@ export default class Info extends Component {
                   <AccountGroup>
                     <div>
                       <div className="label">
-                        Finance Agreement: <a>View Documents</a>
+                        Finance Agreement:&nbsp;
+                        <a href="/account/subscriptions/documents-agreements">
+                          View Documents
+                        </a>
                       </div>
                       <div className="font-gotham-rounded">
                         60 month Equipment Finance Agreement

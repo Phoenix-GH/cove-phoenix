@@ -35,6 +35,12 @@ module.exports = () => ({
   '/account/subscriptions/cancel': { page: '/account/subscriptions/cancel' },
   '/account/subscriptions/pay-balance': { page: '/account/subscriptions/payBalance' },
   '/account/subscriptions/finance-details': { page: '/account/subscriptions/financeDetails' },
+  '/account/subscriptions/documents-agreements': { page: '/account/subscriptions/documentsAgreements' },
+  '/account/payment-methods': { page: '/account/paymentMethods' },
+  '/account/addresses': { page: '/account/addresses' },
+  '/account/addresses/change-monitored-address': { page: '/account/addresses/changeMonitoredAddress' },
+  '/account/addresses/add-shipping-address': { page: '/account/addresses/addShippingAddress' },
+
   '/account/equipment': { page: '/equipment', query: {} },
   '/account/addequipment': { page: '/addEquipment' },
   '/account/cancel': { page: '/cancelmembership' },
