@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
+import { object } from 'prop-types';
 import { Container, Row, Col } from 'reactstrap';
-import Link from 'next/link';
 
 import DashboardHeader from '../../components/dashboardHeader';
 import Layout from '../../components/account/accountLayout';
@@ -10,6 +10,13 @@ import AccountNav from '../../components/account/accountNav';
 import AccountGroup from '../../components/account/accountGroup';
 
 export default class AccountPage extends Component {
+  static propTypes = {
+    url: object,
+  }
+
+  static defaultProps = {
+    url: {},
+  }
 
   render() {
     return (
@@ -24,7 +31,7 @@ export default class AccountPage extends Component {
             </Row>
             <Row>
               <Col md={4}>
-                <AccountNav pathname={this.props.url.pathname} />
+                <AccountNav pathname={this.props.url.asPath} />
               </Col>
               <Col>
                 <AccountCard>
@@ -119,7 +126,7 @@ export default class AccountPage extends Component {
                     />
                   </AccountGroup>
                   <AccountGroup
-                    title="Shipping Addresses"                  
+                    title="Shipping Addresses"
                     link="Manage shipping/monitored addresses"
                     route="/account/shipping-addresses"
                   >
@@ -141,7 +148,7 @@ export default class AccountPage extends Component {
                     />
                   </AccountGroup>
                   <AccountGroup
-                    title="Order history"                  
+                    title="Order history"
                     link="See all order history"
                     route="/account/order-history"
                   >
@@ -160,7 +167,7 @@ export default class AccountPage extends Component {
                     />
                   </AccountGroup>
                   <AccountGroup
-                    title="Rewards"                  
+                    title="Rewards"
                     link="Manage rewards"
                     route="/account/rewards"
                   >

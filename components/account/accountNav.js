@@ -19,6 +19,10 @@ export default class AccountNav extends Component {
     pathname: string,
   };
 
+  componentDidMount() {
+    console.log(this.props.pathname);
+  }
+
   render() {
     return (
       <div>

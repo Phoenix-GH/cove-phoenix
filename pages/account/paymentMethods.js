@@ -7,12 +7,21 @@ import AccountNav from '../../components/account/accountNav';
 import DashboardHeader from '../../components/dashboardHeader';
 import AccountGroup from '../../components/account/accountGroup';
 import AccountCardMessage from '../../components/account/accountCardMessage';
+import { object } from 'prop-types';
 
 const paymentMethodList = 'PAYMENT_METHOD_LIST';
 const paymentMethodAdd = 'PAYMENT_METHOD_ADD';
 const paymentMethodAddSuccess = 'PAYMENT_METHOD_ADD _SUCCESS';
 
 export default class subscriptionPaymentMethods extends Component {
+  static propTypes = {
+    url: object,
+  }
+
+  static defaultProps = {
+    url: {},
+  }
+
   state = {
     type: paymentMethodList,
   }
@@ -35,7 +44,7 @@ export default class subscriptionPaymentMethods extends Component {
             </Row>
             <Row>
               <Col md={4}>
-                <AccountNav />
+                <AccountNav pathname={this.props.url.asPath} />
               </Col>
               <Col>
                 <AccountCard>

@@ -8,7 +8,7 @@ import AccountNav from '../../components/account/accountNav';
 import AccountGroup from '../../components/account/accountGroup';
 import DashboardHeader from '../../components/dashboardHeader';
 
-export default class Addresses extends Component {
+export default class OrderHistory extends Component {
   static propTypes = {
     url: object,
   }
@@ -25,7 +25,7 @@ export default class Addresses extends Component {
           <AccountCard className="card">
             <Row>
               <Col>
-                <h2 className="mb-md">Addresses</h2>
+                <h2 className="mb-md">Order History</h2>
               </Col>
             </Row>
             <Row>
@@ -34,50 +34,32 @@ export default class Addresses extends Component {
               </Col>
               <Col>
                 <AccountCard>
-                  <h4 className="text-center mb-md">Shipping Addresses</h4>
+                  <h4 className="text-center mb-md">Order History</h4>
                   <AccountGroup>
                     <div>
-                      <div className="font-gotham-rounded">
-                        Primary shipping address
+                      <div className="flex-col">
+                        <div className="font-gotham-rounded">
+                          December 10, 2017
+                        </div>
+                        <div className="text-right">
+                          <a href="/account/order-history/order-details">
+                            Order Details
+                          </a>
+                        </div>
                       </div>
                       <hr />
                       <div className="label">
-                        Jordan Harmon
+                        Monthly Monitoring and Monthly Equip. Pmt.
                       </div>
-                      <div className="font-gotham-rounded mb-sm">
-                        1154 N 190 E<br />
-                        Lehi, UT 84043
-                      </div>
-                      <a>Delete address</a>
-                    </div>
-                  </AccountGroup>
-                  <div className="mb-lg">
-                    <a
-                      className="btn btn-block btn--primary-inverse"
-                      href="/account/addresses/add-shipping-address"
-                    >
-                      Add shipping address
-                    </a>
-                  </div>
-                  <AccountGroup>
-                    <div>
-                      <div className="font-gotham-rounded">
-                        Monitored address
-                      </div>
-                      <hr />
                       <div className="label">
-                        Jordan Harmon
+                        Completed
                       </div>
                       <div className="font-gotham-rounded mb-sm">
-                        1154 N 190 E<br />
-                        Lehi, UT 84043
+                        Order number: CV3873720494<br />
+                        Status: Completed
                       </div>
-                      <a href="/account/addresses/change-monitored-address">
-                        Change monitored address
-                      </a>
                     </div>
                   </AccountGroup>
-
                 </AccountCard>
               </Col>
             </Row>

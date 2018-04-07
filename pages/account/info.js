@@ -32,7 +32,7 @@ export default class Info extends Component {
             </Row>
             <Row>
               <Col md={4}>
-                <AccountNav pathname={this.props.url.pathname} />
+                <AccountNav pathname={this.props.url.asPath} />
               </Col>
               <Col>
                 <AccountCard>
