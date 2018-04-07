@@ -42,6 +42,7 @@ module.exports = () => ({
   '/account/addresses/add-shipping-address': { page: '/account/addresses/addShippingAddress' },
   '/account/order-history': { page: '/account/orderHistory' },
   '/account/order-history/order-details': { page: '/account/orderHistory/orderDetails' },
+  '/account/rewards': { page: '/account/rewards' },
 
   '/account/equipment': { page: '/equipment', query: {} },
   '/account/addequipment': { page: '/addEquipment' },

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
+import { object } from 'prop-types';
 
 import Layout from '../../components/account/accountLayout';
 import AccountCard from '../../components/account/accountCard';
@@ -7,7 +8,6 @@ import AccountNav from '../../components/account/accountNav';
 import DashboardHeader from '../../components/dashboardHeader';
 import AccountGroup from '../../components/account/accountGroup';
 import AccountCardMessage from '../../components/account/accountCardMessage';
-import { object } from 'prop-types';
 
 const paymentMethodList = 'PAYMENT_METHOD_LIST';
 const paymentMethodAdd = 'PAYMENT_METHOD_ADD';
