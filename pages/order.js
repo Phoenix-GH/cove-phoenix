@@ -67,12 +67,10 @@ class OrderPage extends Component {
                 <div className="checkoutStageRow">
                   <Row>
                     <div className="flexCol activeStage">
-                      <Link href={{ pathname: '/checkout', query: { step: 1 } }}>
-                        <div className="checkoutStageOne link">
-                          <span className="stageLabel">Order Confirmation</span>
-                          <div className="stageIndicator" />
-                        </div>
-                      </Link>
+                      <div className="checkoutStageOne link">
+                        <span className="stageLabel">Order Confirmation</span>
+                        <div className="stageIndicator" />
+                      </div>
                     </div>
                   </Row>
                 </div>
