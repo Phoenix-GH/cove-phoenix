@@ -159,7 +159,7 @@ export default class Info extends Component {
                       </Col>
                       <Col>
                         <div className="text-right">
-                          <a>Exchange Equipment</a>
+                          <a href="#/">Exchange Equipment</a>
                         </div>
                       </Col>
                     </Row>

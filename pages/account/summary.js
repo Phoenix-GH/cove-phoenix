@@ -45,7 +45,7 @@ export default class AccountPage extends Component {
                       <AccountDataField label="Email" content="jordan.h@covesmart.com" />
                       <AccountDataField label="Password" content="**************" />
                       <AccountDataField label="Phone" content="(801) 123-1234" />
-                      <AccountDataField label="Bill Date" content="21st of each month"/>
+                      <AccountDataField label="Bill Date" content="21st of each month" />
                     </div>
                     <div>
                       <h4>Alarm Info</h4>
@@ -134,7 +134,7 @@ export default class AccountPage extends Component {
                       label="Shipping Address"
                       content={
                         <div>
-                          1154 N 190 E<br/>Lehi, UT 84043
+                          1154 N 190 E<br />Lehi, UT 84043
                         </div>
                       }
                     />
@@ -142,7 +142,7 @@ export default class AccountPage extends Component {
                       label="Monitored Address"
                       content={
                         <div>
-                          1154 N 190 E<br/>Lehi, UT 84043
+                          1154 N 190 E<br />Lehi, UT 84043
                         </div>
                       }
                     />
@@ -156,7 +156,7 @@ export default class AccountPage extends Component {
                       label="Latest Order"
                       content={
                         <div>
-                          Order number: CV3873720494<br/>
+                          Order number: CV3873720494<br />
                           Status: Completed
                         </div>
                       }
@@ -175,7 +175,7 @@ export default class AccountPage extends Component {
                       label="Friends Referred"
                       content={
                         <div>
-                          Dave Nilson<br/>
+                          Dave Nilson<br />
                           Steven Gibson
                         </div>
                       }

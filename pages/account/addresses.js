@@ -48,7 +48,7 @@ export default class Addresses extends Component {
                         1154 N 190 E<br />
                         Lehi, UT 84043
                       </div>
-                      <a>Delete address</a>
+                      <a href="#/">Delete address</a>
                     </div>
                   </AccountGroup>
                   <div className="mb-lg">

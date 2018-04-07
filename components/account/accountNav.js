@@ -19,17 +19,22 @@ export default class AccountNav extends Component {
     pathname: string,
   };
 
-  componentDidMount() {
-    console.log(this.props.pathname);
+  static defaultProps = {
+    pathname: '',
   }
 
   render() {
     return (
       <div>
         <div className="accountNav">
-          { navigation.map((item, i) => (
-            <a href={item.route} className={`navBtn ${this.props.pathname === item.route ? 'active' : ''}`} key={i}>
-              <AccountCard style={{padding: '10px', overflow: 'hidden' }}>
+          { navigation.map(item => (
+            <a
+              href={item.route}
+              className={`navBtn
+              ${this.props.pathname === item.route ? 'active' : ''}`}
+              key={item.name}
+            >
+              <AccountCard style={{ padding: '10px', overflow: 'hidden' }}>
                 <div className="navBtn__inner">
                   {item.name}
                 </div>

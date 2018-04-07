@@ -87,7 +87,7 @@ export default class ChangeMonitoredAddress extends Component {
                         <input type="text" className="form-control" placeholder="Password" />
                       </div>
                       <div className="mb-sm">
-                        <a href="">Forgot Password</a>
+                        <a href="#/">Forgot Password</a>
                       </div>
                       <div className="text-right">
                         <a href="/account/addresses" className="btn btn--white">
