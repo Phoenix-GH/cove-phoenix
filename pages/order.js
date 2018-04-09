@@ -7,7 +7,7 @@ import initStore from '../store';
 import { loadProducts } from '../actions';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
-import CheckoutSidebar from '../components/checkoutSidebar';
+import CheckoutSidebar from '../components/checkoutSidebar/checkoutSidebar';
 import EquipmentType from '../components/equipmentType/equipmentType';
 import BackButton from '../components/backButton/backButton';
 import s from './order.scss';

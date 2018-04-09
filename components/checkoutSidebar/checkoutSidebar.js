@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import cx from 'classnames';
 import { Row, Col, Collapse } from 'reactstrap';
-import Input from '../components/input';
-import Radio from '../components/radio';
+import Input from '../../components/input';
+import Radio from '../../components/radio';
 import s from './checkoutSidebar.scss';
 
 class CheckoutSidebar extends Component {

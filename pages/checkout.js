@@ -9,7 +9,7 @@ import initStore from '../store';
 import { loadProducts } from '../actions';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
-import CheckoutSidebar from '../components/checkoutSidebar';
+import CheckoutSidebar from '../components/checkoutSidebar/checkoutSidebar';
 import CustomerInfo from '../components/customerInfo';
 import ShippingInfo from '../components/shippingInfo';
 import PaymentInfo from '../components/paymentInfo';
