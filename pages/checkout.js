@@ -24,8 +24,9 @@ class CheckoutPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      customerInfo: {},
-      shippingInfo: {},
+      customer1: {},
+      monitorAddress: {},
+      ec1: {},
       paymentInfo: {},
       account: {},
     };
@@ -33,6 +34,13 @@ class CheckoutPage extends Component {
 
   onChangeHandler = (section, changeValue) => {
     this.setState({ [section]: { ...this.state[section], ...changeValue } });
+  }
+
+  handleNextClick = () => {
+    const activeStage = this.props.stage ? this.props.stage : 'customer';
+    if (activeStage === 'payment') {
+      this.props.createAccount(this.state);
+    }
   }
 
   render() {
@@ -46,7 +54,6 @@ class CheckoutPage extends Component {
       previousLinkText = 'Return to Customer Info';
     } else if (activeStage === 'payment') {
       nextLinkText = 'Complete Purchase';
-      nextLink = '/order';
       previousLinkText = 'Return to Shipping Info';
     }
 
@@ -151,11 +158,24 @@ class CheckoutPage extends Component {
                         </Link>
                       </div>
                       <div className="continueColumn">
-                        <Link href={nextLink}>
-                          <div className="actionBtn">
-                            {nextLinkText}
-                          </div>
-                        </Link>
+                        {
+                          activeStage === 'payment' && (
+                            <button onClick={() => this.handleNextClick()}>
+                              <div className="actionBtn">
+                                {nextLinkText}
+                              </div>
+                            </button>
+                          )
+                        }
+                        {
+                          activeStage !== 'payment' && (
+                            <Link href={nextLink}>
+                              <div className="actionBtn">
+                                {nextLinkText}
+                              </div>
+                            </Link>
+                          )
+                        }
                       </div>
                     </Row>
                   </Col>

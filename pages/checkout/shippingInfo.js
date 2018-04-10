@@ -22,7 +22,7 @@ class ShippingInfo extends Component {
     this.setState({
       differentAddress: !this.state.differentAddress,
     });
-    onChangeHandler('shippingAddress', { shipToMonitorAddress: !this.state.differentAddress });
+    onChangeHandler('shipAddress', { use: !this.state.differentAddress ? 'monitorAddress' : 'shipAddress' });
   }
 
   toggleShipMethod = (val) => {
@@ -54,31 +54,66 @@ class ShippingInfo extends Component {
             <Collapse isOpen={this.state.differentAddress}>
               <Row>
                 <Col xs={12} sm={12} md={6}>
-                  <Input label="First Name" onChangeHandler={(changeValue) => { onChangeHandler('shippingAddress', { firstName: changeValue }); }} />
+                  <Input
+                    label="First Name"
+                    onChangeHandler={
+                      (changeValue) => { onChangeHandler('shipAddress', { firstName: changeValue }); }
+                    }
+                  />
                 </Col>
                 <Col xs={12} sm={12} md={6}>
-                  <Input label="Last Name" onChangeHandler={(changeValue) => { onChangeHandler('shippingAddress', { lastName: changeValue }); }} />
+                  <Input
+                    label="Last Name"
+                    onChangeHandler={
+                      (changeValue) => { onChangeHandler('shipAddress', { lastName: changeValue }); }
+                    }
+                  />
                 </Col>
               </Row>
               <Row>
                 <Col xs={12} sm={12} md={6}>
-                  <Input label="Email Address" onChangeHandler={(changeValue) => { onChangeHandler('shippingAddress', { email: changeValue }); }} />
+                  <Input
+                    label="Email Address"
+                    onChangeHandler={
+                      (changeValue) => { onChangeHandler('shipAddress', { email: changeValue }); }
+                    }
+                  />
                 </Col>
                 <Col xs={12} sm={12} md={6}>
-                  <Input label="Phone" onChangeHandler={(changeValue) => { onChangeHandler('shippingAddress', { phone: changeValue }); }} />
+                  <Input
+                    label="Phone"
+                    onChangeHandler={
+                      (changeValue) => { onChangeHandler('shipAddress', { phone: changeValue }); }
+                    }
+                  />
                 </Col>
               </Row>
               <Row>
                 <Col xs={12} sm={12} md={8}>
-                  <Input label="Ship To Address" onChangeHandler={(changeValue) => { onChangeHandler('shippingAddress', { line2: changeValue }); }} />
+                  <Input
+                    label="Ship To Address"
+                    onChangeHandler={
+                      (changeValue) => { onChangeHandler('shipAddress', { address1: changeValue }); }
+                    }
+                  />
                 </Col>
                 <Col xs={6} sm={6} md={4}>
-                  <Input label="Apt # or Unit #" onChangeHandler={(changeValue) => { onChangeHandler('shippingAddress', { line3: changeValue }); }} />
+                  <Input
+                    label="Apt # or Unit #"
+                    onChangeHandler={
+                      (changeValue) => { onChangeHandler('shipAddress', { address2: changeValue }); }
+                    }
+                  />
                 </Col>
               </Row>
               <Row>
                 <Col xs={6} sm={6} md={4}>
-                  <Input label="Postal Code" onChangeHandler={(changeValue) => { onChangeHandler('shippingAddress', { postal: changeValue }); }} />
+                  <Input
+                    label="Postal Code"
+                    onChangeHandler={
+                      (changeValue) => { onChangeHandler('shipAddress', { postalCode: changeValue }); }
+                    }
+                  />
                 </Col>
               </Row>
             </Collapse>
@@ -112,7 +147,7 @@ class ShippingInfo extends Component {
                   <Col xs={{ size: 11, offset: 1 }}>
                     <div className="shipOptionHeader">
                       <Radio
-                        name="shipping-method"
+                        key="standard-delivery"
                         clickHandler={() => this.toggleShipMethod(true)}
                         label={[<span className="bold">Standard Delivery</span>]}
                         checked={this.state.standardDelivery}
@@ -137,7 +172,7 @@ class ShippingInfo extends Component {
                   <Col xs={{ size: 11, offset: 1 }}>
                     <div className="shipOptionHeader">
                       <Radio
-                        name="shipping method"
+                        key="fast-delivery"
                         clickHandler={() => this.toggleShipMethod(false)}
                         label={[<span className="bold">Fast Delivery</span>]}
                         checked={!this.state.standardDelivery}
@@ -166,6 +201,7 @@ class ShippingInfo extends Component {
             <ul className="list-inline warrantyControls">
               <li className="list-inline-item">
                 <Radio
+                  key="warranty-accept"
                   clickHandler={() => this.toggleWarranty('accept')}
                   label={[<span className="bold">Accept</span>]}
                   checked={this.state.warranty === 'accept'}
@@ -174,6 +210,7 @@ class ShippingInfo extends Component {
               </li>
               <li className="list-inline-item">
                 <Radio
+                  key="warranty-decline"
                   clickHandler={() => this.toggleWarranty('decline')}
                   label={[<span className="bold">Decline</span>]}
                   checked={this.state.warranty === 'decline'}
