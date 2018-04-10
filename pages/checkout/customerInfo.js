@@ -17,7 +17,7 @@ const CustomerInfo = ({ onChangeHandler }) => (
           <Input
             label="First name"
             onChangeHandler={(changeValue) => {
-              onChangeHandler('customer', { firstName: changeValue });
+              onChangeHandler('customer1', { firstName: changeValue });
             }}
           />
         </Col>
@@ -25,7 +25,7 @@ const CustomerInfo = ({ onChangeHandler }) => (
           <Input
             label="Last name"
             onChangeHandler={(changeValue) => {
-              onChangeHandler('customer', { lastName: changeValue });
+              onChangeHandler('customer1', { lastName: changeValue });
             }}
           />
         </Col>
@@ -35,7 +35,7 @@ const CustomerInfo = ({ onChangeHandler }) => (
           <Input
             label="Email address"
             onChangeHandler={(changeValue) => {
-              onChangeHandler('customer', { email: changeValue });
+              onChangeHandler('customer1', { email: changeValue });
             }}
           />
         </Col>
@@ -43,7 +43,7 @@ const CustomerInfo = ({ onChangeHandler }) => (
           <Input
             label="Phone"
             onChangeHandler={(changeValue) => {
-              onChangeHandler('customer', { phone: changeValue });
+              onChangeHandler('customer1', { phone: changeValue });
             }}
           />
         </Col>
@@ -60,25 +60,25 @@ const CustomerInfo = ({ onChangeHandler }) => (
           <Input
             label="Monitored address"
             onChangeHandler={(changeValue) => {
-              onChangeHandler('monitorAddress', { line2: changeValue });
+              onChangeHandler('monitorAddress', { address1: changeValue });
             }}
           />
         </Col>
         <Col md={4}>
-          <Input label="Apt/Suite #" onChangeHandler={(changeValue) => { onChangeHandler('monitorAddress', { line3: changeValue }); }} />
+          <Input label="Apt/Suite #" onChangeHandler={(changeValue) => { onChangeHandler('monitorAddress', { address2: changeValue }); }} />
         </Col>
       </Row>
       <Row>
         <Col xs={12} sm={12} md={4}>
           <Input
             label="City"
-            onChangeHandler={(changeValue) => { onChangeHandler('monitorAddress', { line2: changeValue }); }}
+            onChangeHandler={(changeValue) => { onChangeHandler('monitorAddress', { city: changeValue }); }}
           />
         </Col>
         <Col xs={12} sm={12} md={4}>
           <Input
             label="State"
-            onChangeHandler={(changeValue) => { onChangeHandler('monitorAddress', { line3: changeValue }); }}
+            onChangeHandler={(changeValue) => { onChangeHandler('monitorAddress', { stateCode: changeValue }); }}
           />
         </Col>
         <Col xs={12} sm={12} md={4}>
@@ -97,7 +97,7 @@ const CustomerInfo = ({ onChangeHandler }) => (
             hasInfo
             onChangeHandler={(changeValue) => {
               const nameArr = changeValue.split(' ');
-              onChangeHandler('account', { ecFirstName: nameArr[0], ecLastName: nameArr[nameArr.length - 1] });
+              onChangeHandler('ec1', { firstName: nameArr[0], lastName: nameArr[nameArr.length - 1] });
             }}
           />
         </Col>
@@ -105,7 +105,7 @@ const CustomerInfo = ({ onChangeHandler }) => (
           <Input
             label="Phone"
             onChangeHandler={(changeValue) => {
-              onChangeHandler('account', { ecPhone: changeValue });
+              onChangeHandler('ec1', { phone: changeValue });
             }}
           />
         </Col>
@@ -115,7 +115,7 @@ const CustomerInfo = ({ onChangeHandler }) => (
           <Checkbox
             label="Add Addtional Contact"
             clickHandler={(changeValue) => {
-              onChangeHandler('account', { additionalContact: changeValue });
+              onChangeHandler('ec1', { additionalContact: changeValue });
             }}
           />
         </Col>
@@ -126,7 +126,7 @@ const CustomerInfo = ({ onChangeHandler }) => (
             label="Verbal password"
             hasInfo
             onChangeHandler={(changeValue) => {
-              onChangeHandler('account', { verbalPassword: changeValue });
+              onChangeHandler('ec1', { verbalPassword: changeValue });
             }}
           />
         </Col>
