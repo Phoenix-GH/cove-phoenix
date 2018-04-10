@@ -231,8 +231,7 @@ ShippingInfo.propTypes = {
 };
 
 ShippingInfo.defaultProps = {
-  onChangeHandler: () => {
-  },
+  onChangeHandler: () => {},
 };
 
 export default ShippingInfo;

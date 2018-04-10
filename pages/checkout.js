@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import cx from 'classnames';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../store';
-import { loadProducts, createAccount } from '../actions';
+import { loadProducts, createAccount, createOrder, completeOrder } from '../actions';
 
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
@@ -27,8 +27,7 @@ class CheckoutPage extends Component {
       customer1: {},
       monitorAddress: {},
       ec1: {},
-      paymentInfo: {},
-      account: {},
+      shipAddress: {},
     };
   }
 
@@ -38,6 +37,9 @@ class CheckoutPage extends Component {
 
   handleNextClick = () => {
     const activeStage = this.props.stage ? this.props.stage : 'customer';
+    if (activeStage === 'shipping') {
+      this.props.createAccount(this.state);
+    }
     if (activeStage === 'payment') {
       this.props.createAccount(this.state);
     }
@@ -209,6 +211,8 @@ const mapStateToProps = ({ cart, products }) => ({ cart, products });
 const mapDispatchToProps = dispatch => ({
   loadProducts: bindActionCreators(loadProducts, dispatch),
   createAccount: data => dispatch(createAccount(data)),
+  createOrder: data => dispatch(createOrder(data)),
+  completeOrder: data => dispatch(completeOrder(data)),
 });
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(CheckoutPage);
