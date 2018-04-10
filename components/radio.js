@@ -22,7 +22,7 @@ const Radio = (props) => {
           name={name}
           id={id}
           checked={checked}
-          onClick={clickHandler}
+          onChange={clickHandler}
           defaultChecked={defaultChecked}
           disabled={disabled || false}
         />
