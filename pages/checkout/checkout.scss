@@ -100,7 +100,13 @@
   .returnColumn {
     flex: 1;
   }
-  
+  .continueColumn {
+    button {
+      outline: none;
+      border: none;
+      padding: 0;
+    }
+  }
   @media (max-width: $width-sm) {
     .continueColumn, .returnColumn {
       flex: none;

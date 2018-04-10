@@ -12,8 +12,8 @@ class ShippingInfo extends Component {
 
     this.state = {
       differentAddress: false,
-      standardDelivery: true,
-      warranty: null,
+      shipMethod: 0,
+      warranty: 0,
     };
   }
 
@@ -26,15 +26,19 @@ class ShippingInfo extends Component {
   }
 
   toggleShipMethod = (val) => {
+    const { onChangeHandler } = this.props;
     this.setState({
-      standardDelivery: val,
+      shipMethod: val,
     });
+    onChangeHandler('createOrder', { shippingMethodId: this.state.warranty });
   }
 
   toggleWarranty(val) {
+    const { onChangeHandler } = this.props;
     this.setState({
       warranty: val,
     });
+    onChangeHandler('createOrder', { warrantyId: this.state.warranty });
   }
 
   render() {
@@ -150,8 +154,7 @@ class ShippingInfo extends Component {
                         key="standard-delivery"
                         clickHandler={() => this.toggleShipMethod(true)}
                         label={[<span className="bold">Standard Delivery</span>]}
-                        checked={this.state.standardDelivery}
-                        defaultChecked
+                        checked={this.state.shipMethod === 0}
                       />
                     </div>
                   </Col>
@@ -173,9 +176,9 @@ class ShippingInfo extends Component {
                     <div className="shipOptionHeader">
                       <Radio
                         key="fast-delivery"
-                        clickHandler={() => this.toggleShipMethod(false)}
+                        clickHandler={() => this.toggleShipMethod(1)}
                         label={[<span className="bold">Fast Delivery</span>]}
-                        checked={!this.state.standardDelivery}
+                        checked={this.state.shipMethod === 1}
                       />
                     </div>
                   </Col>
@@ -202,19 +205,17 @@ class ShippingInfo extends Component {
               <li className="list-inline-item">
                 <Radio
                   key="warranty-accept"
-                  clickHandler={() => this.toggleWarranty('accept')}
+                  clickHandler={() => this.toggleWarranty(1)}
                   label={[<span className="bold">Accept</span>]}
-                  checked={this.state.warranty === 'accept'}
-                  defaultChecked
+                  checked={this.state.warranty === 1}
                 />
               </li>
               <li className="list-inline-item">
                 <Radio
                   key="warranty-decline"
-                  clickHandler={() => this.toggleWarranty('decline')}
+                  clickHandler={() => this.toggleWarranty(0)}
                   label={[<span className="bold">Decline</span>]}
-                  checked={this.state.warranty === 'decline'}
-                  defaultChecked={false}
+                  checked={this.state.warranty === 0}
                 />
               </li>
             </ul>

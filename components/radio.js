@@ -10,6 +10,7 @@ const Radio = (props) => {
     clickHandler,
     defaultChecked,
     disabled,
+    checked,
   } = props;
   return (
     <div className="control-group">
@@ -20,6 +21,7 @@ const Radio = (props) => {
           type="radio"
           name={name}
           id={id}
+          checked={checked}
           onClick={clickHandler}
           defaultChecked={defaultChecked}
           disabled={disabled || false}
@@ -37,6 +39,7 @@ Radio.propTypes = {
   clickHandler: PropTypes.func,
   defaultChecked: PropTypes.bool,
   disabled: PropTypes.bool,
+  checked: PropTypes.bool,
 };
 
 Radio.defaultProps = {
@@ -44,8 +47,8 @@ Radio.defaultProps = {
   label: [],
   defaultChecked: false,
   disabled: false,
-  clickHandler: () => {
-  },
+  checked: false,
+  clickHandler: () => {},
 };
 
 export default Radio;
