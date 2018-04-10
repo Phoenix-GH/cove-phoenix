@@ -32,9 +32,8 @@ export const request = ({
           type: requestPending(type),
         });
       }
-
       axios.defaults.baseURL = config.apiUrl;
-
+      axios.defaults.headers.common.Authorization = config.token || '';
       const res = yield call(axios.request, {
         url,
         method: method.toLowerCase(),
