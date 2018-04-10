@@ -64,10 +64,5 @@
     "postcss-loader": "^2.0.10",
     "sass-loader": "^6.0.6",
     "styled-jsx-css-loader": "^0.3.0"
-  },
-  "eslintConfig": {
-    "globals": {
-      "browser": true
-    }
   }
 }
