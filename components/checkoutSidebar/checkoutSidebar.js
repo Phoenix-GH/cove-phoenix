@@ -28,7 +28,7 @@ class CheckoutSidebar extends Component {
     const toggleImage = this.state.collapse ? 'arrowUp.png' : 'arrowDown.png';
     const { cart, products, mobile } = this.props;
     const cartList = cart.cartItemIds.map(val => (
-      <li>
+      <li key={products[val].id}>
         {cart.quantityById[val]} {products[val].name}
       </li>
     ));

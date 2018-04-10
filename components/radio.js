@@ -13,9 +13,10 @@ const Radio = (props) => {
   } = props;
   return (
     <div className="control-group">
-      <label className="control control-radio" htmlFor="some-id">
+      <label className="control control-radio" htmlFor={id}>
         {props.label}
         <input
+          key={id}
           type="radio"
           name={name}
           id={id}
