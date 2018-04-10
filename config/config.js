@@ -1,4 +1,3 @@
 export default {
   apiUrl: 'https://lvtciolvh0.execute-api.us-east-1.amazonaws.com/staging',
-  token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uS2V5IjoiNWNhNWIwNzItNWQwZC00NDhkLWFjNDItN2EyYTA0NzYyYzQ3Iiwic2Vzc2lvbiI6IjU5OTgwYWJkLWUzZDMtNGIwOC1hZjAxLWM1ODgyNTU1YzY2MyIsImlhdCI6MTUyMzA1ODUyNSwiZXhwIjoxNTIzMDYyMTI1fQ.uLWPmo0pZ5TgJFIc0nhiVQyeL6IAt7Ank4vKbAkO9vY',
 };

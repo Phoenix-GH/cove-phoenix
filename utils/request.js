@@ -32,6 +32,7 @@ export const request = ({
           type: requestPending(type),
         });
       }
+      const token = localStorage.getItem('token');
       axios.defaults.baseURL = config.apiUrl;
       axios.defaults.headers.common.Authorization = config.token || '';
       const res = yield call(axios.request, {

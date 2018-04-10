@@ -67,7 +67,7 @@
   },
   "eslintConfig": {
     "globals": {
-      "window": true
+      "browser": true
     }
   }
 }

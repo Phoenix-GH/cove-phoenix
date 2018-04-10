@@ -6,8 +6,8 @@ import { bindActionCreators } from 'redux';
 import cx from 'classnames';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../store';
-import { loadProducts, createAccount, createOrder, completeOrder } from '../actions';
-
+import { loadProducts } from '../actions';
+import { createAccount, createOrder, completeOrder } from '../action';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
 import CheckoutSidebar from '../components/checkoutSidebar/checkoutSidebar';
@@ -28,7 +28,12 @@ class CheckoutPage extends Component {
       monitorAddress: {},
       ec1: {},
       shipAddress: {},
+      createOrder: {},
+      message: 'wef',
     };
+  }
+  componentWillReceiveProps(nextProps) {
+    console.log(nextProps);
   }
 
   onChangeHandler = (section, changeValue) => {
@@ -37,8 +42,20 @@ class CheckoutPage extends Component {
 
   handleNextClick = () => {
     const activeStage = this.props.stage ? this.props.stage : 'customer';
+    const {
+      customer1,
+      monitorAddress,
+      shipAddress,
+      ec1,
+    } = this.state;
     if (activeStage === 'shipping') {
-      this.props.createAccount(this.state);
+      const request = {
+        customer1,
+        monitorAddress,
+        shipAddress,
+        ec1,
+      };
+      this.props.createAccount(request);
     }
     if (activeStage === 'payment') {
       this.props.createAccount(this.state);
@@ -49,10 +66,10 @@ class CheckoutPage extends Component {
     const activeStage = this.props.stage ? this.props.stage : 'customer';
     let nextLinkText = 'Continue to Shipping Method';
     let previousLinkText = 'Return to Plan Type';
-    let nextLink = '/checkout/shipping';
+    let nextLink = 'shipping';
     if (activeStage === 'shipping') {
       nextLinkText = 'Continue to Payment Info';
-      nextLink = '/checkout/payment';
+      nextLink = 'payment';
       previousLinkText = 'Return to Customer Info';
     } else if (activeStage === 'payment') {
       nextLinkText = 'Complete Purchase';
@@ -161,7 +178,7 @@ class CheckoutPage extends Component {
                       </div>
                       <div className="continueColumn">
                         {
-                          activeStage === 'payment' && (
+                          (activeStage === 'payment' || activeStage === 'shipping') && (
                             <button onClick={() => this.handleNextClick()}>
                               <div className="actionBtn">
                                 {nextLinkText}
@@ -170,8 +187,8 @@ class CheckoutPage extends Component {
                           )
                         }
                         {
-                          activeStage !== 'payment' && (
-                            <Link href={nextLink}>
+                          !(activeStage === 'payment' || activeStage === 'shipping') && (
+                            <Link href={{ pathname: '/checkout', query: { stage: nextLink } }}>
                               <div className="actionBtn">
                                 {nextLinkText}
                               </div>
@@ -206,7 +223,7 @@ CheckoutPage.defaultProps = {
   stage: 'customer',
 };
 
-const mapStateToProps = ({ cart, products }) => ({ cart, products });
+const mapStateToProps = ({ cart, products, message }) => ({ cart, products, message });
 
 const mapDispatchToProps = dispatch => ({
   loadProducts: bindActionCreators(loadProducts, dispatch),
