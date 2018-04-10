@@ -6,14 +6,15 @@ import { bindActionCreators } from 'redux';
 import cx from 'classnames';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../store';
-import { loadProducts } from '../actions';
+import { loadProducts, createAccount } from '../actions';
+
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
 import CheckoutSidebar from '../components/checkoutSidebar/checkoutSidebar';
-import CustomerInfo from '../components/customerInfo';
-import ShippingInfo from '../components/shippingInfo';
-import PaymentInfo from '../components/paymentInfo';
-import s from './checkout.scss';
+import CustomerInfo from './checkout/customerInfo';
+import ShippingInfo from './checkout/shippingInfo';
+import PaymentInfo from './checkout/paymentInfo';
+import s from './checkout/checkout.scss';
 
 class CheckoutPage extends Component {
   static async getInitialProps({ query }) {
@@ -176,6 +177,7 @@ class CheckoutPage extends Component {
 
 CheckoutPage.propTypes = {
   stage: PropTypes.string,
+  createAccount: PropTypes.func.isRequired,
 };
 
 CheckoutPage.defaultProps = {
@@ -186,6 +188,7 @@ const mapStateToProps = ({ cart, products }) => ({ cart, products });
 
 const mapDispatchToProps = dispatch => ({
   loadProducts: bindActionCreators(loadProducts, dispatch),
+  createAccount: data => dispatch(createAccount(data)),
 });
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(CheckoutPage);

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Row, Col, Collapse } from 'reactstrap';
 import PropTypes from 'prop-types';
-import Input from '../components/input';
-import Checkbox from '../components/checkbox';
-import Radio from '../components/radio';
+import Input from '../../components/input';
+import Checkbox from '../../components/checkbox';
+import Radio from '../../components/radio';
 import s from './shippingInfo.scss';
 
 class ShippingInfo extends Component {

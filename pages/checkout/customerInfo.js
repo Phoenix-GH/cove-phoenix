@@ -1,7 +1,7 @@
 import { Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
-import Input from '../components/input';
-import Checkbox from '../components/checkbox';
+import Input from '../../components/input';
+import Checkbox from '../../components/checkbox';
 import s from './customerInfo.scss';
 
 const CustomerInfo = ({ onChangeHandler }) => (
