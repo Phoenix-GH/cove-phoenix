@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import cx from 'classnames';
 import withRedux from 'next-redux-wrapper';
+import createHistory from 'history/createBrowserHistory';
 
 import initStore from '../store';
 import { loadProducts } from '../actions';
@@ -31,11 +32,24 @@ class CheckoutPage extends Component {
       ec1: {},
       shipAddress: {},
       createOrder: {},
-      message: 'wef',
+      session: '',
     };
   }
   componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
+    const history = createHistory();
+    const { checkout } = this.props;
+    const activeStage = this.props.stage ? this.props.stage : 'customer';
+    if (activeStage === 'shipping') {
+      if (nextProps.session.data !== this.props.session.data) {
+        this.setState({ session: this.props.session.data });
+        this.createAccount();
+      }
+      if (nextProps.checkout.createAccount.data !== checkout.createAccount.data) {
+        history.push('/checkout', { stage: 'payment' });
+      }
+    } else if (activeStage === 'payment') {
+      history.push('/order');
+    }
   }
 
   onChangeHandler = (section, changeValue) => {
@@ -44,26 +58,28 @@ class CheckoutPage extends Component {
 
   handleNextClick = () => {
     const activeStage = this.props.stage ? this.props.stage : 'customer';
+    if (activeStage === 'shipping') {
+      this.props.session();
+    }
+    if (activeStage === 'payment') {
+      this.props.createAccount(this.state);
+    }
+  }
+
+  createAccount = () => {
     const {
       customer1,
       monitorAddress,
       shipAddress,
       ec1,
     } = this.state;
-    if (activeStage === 'shipping') {
-      this.props.session();
-
-      const request = {
-        customer1,
-        monitorAddress,
-        shipAddress,
-        ec1,
-      };
-      this.props.createAccount(request);
-    }
-    if (activeStage === 'payment') {
-      this.props.createAccount(this.state);
-    }
+    const request = {
+      customer1,
+      monitorAddress,
+      shipAddress,
+      ec1,
+    };
+    this.props.createAccount(request);
   }
 
   render() {
@@ -222,6 +238,7 @@ CheckoutPage.propTypes = {
   stage: PropTypes.string,
   createAccount: PropTypes.func.isRequired,
   session: PropTypes.func.isRequired,
+  checkout: PropTypes.object.isRequired,
 };
 
 CheckoutPage.defaultProps = {
