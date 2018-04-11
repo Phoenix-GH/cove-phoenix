@@ -25,7 +25,7 @@ const PaymentInfo = (props) => {
             <Input
               label="Name on card"
               onChangeHandler={
-                (changeValue) => { onChangeHandler('shipAddress', { address2: changeValue }); }
+                (changeValue) => { onChangeHandler('completeOrder', { name: changeValue }); }
               }
             />
           </Col>
@@ -35,14 +35,29 @@ const PaymentInfo = (props) => {
         </Row>
         <Row>
           <Col xs={8}>
-            <Input label="Card number" />
+            <Input
+              label="Card number"
+              onChangeHandler={
+                (changeValue) => { onChangeHandler('completeOrder', { number: changeValue }); }
+              }
+            />
           </Col>
           <Col xs={2}>
-            <Input label="MM/YY" />
+            <Input
+              label="MM/YY"
+              onChangeHandler={
+                (changeValue) => { onChangeHandler('completeOrder', { expiry: changeValue }); }
+              }
+            />
           </Col>
           <Col xs={2}>
             <Row>
-              <Input label="CVV" />
+              <Input
+                label="CVV"
+                onChangeHandler={
+                  (changeValue) => { onChangeHandler('completeOrder', { cvv: changeValue }); }
+                }
+              />
               <InfoBox />
             </Row>
           </Col>
