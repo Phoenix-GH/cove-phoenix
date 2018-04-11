@@ -31,7 +31,8 @@ class CheckoutPage extends Component {
       ec1: {},
       shipAddress: {},
       createOrder: {},
-      session: '',
+      orderValue: {},
+      session: {},
     };
   }
   componentWillReceiveProps(nextProps) {
@@ -92,7 +93,7 @@ class CheckoutPage extends Component {
 
   completeOrder = () => {
     const { orderValue } = this.state;
-    const { ...expiry } = orderValue.expiry.split(',')[0];
+    const { ...expiry } = orderValue.expiry.split('/')[0];
     const order = {
       creditCard: {
         number: orderValue.number,
@@ -262,8 +263,8 @@ CheckoutPage.propTypes = {
   createAccount: PropTypes.func.isRequired,
   session: PropTypes.func.isRequired,
   checkout: PropTypes.object.isRequired,
-  createOrder: PropTypes.object.isRequired,
-  completeOrder: PropTypes.object.isRequired,
+  createOrder: PropTypes.func.isRequired,
+  completeOrder: PropTypes.func.isRequired,
   url: PropTypes.string.isRequired,
 };
 
