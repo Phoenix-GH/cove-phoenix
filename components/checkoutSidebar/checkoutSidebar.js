@@ -114,7 +114,6 @@ class CheckoutSidebar extends Component {
               label={[<span className="bold">Pay In Full</span>]}
               checked={!this.state.finance}
               onClick={() => this.toggleFinance(false)}
-              defaultChecked
             />
           </Col>
         </Row>

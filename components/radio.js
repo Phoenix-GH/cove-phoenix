@@ -8,7 +8,6 @@ const Radio = (props) => {
     name,
     label,
     clickHandler,
-    defaultChecked,
     disabled,
     checked,
   } = props;
@@ -23,7 +22,6 @@ const Radio = (props) => {
           id={id}
           checked={checked}
           onChange={clickHandler}
-          defaultChecked={defaultChecked}
           disabled={disabled || false}
         />
         <div className="control_indicator" />
@@ -37,7 +35,6 @@ Radio.propTypes = {
   name: PropTypes.string,
   label: PropTypes.array,
   clickHandler: PropTypes.func,
-  defaultChecked: PropTypes.bool,
   disabled: PropTypes.bool,
   checked: PropTypes.bool,
 };
@@ -45,7 +42,6 @@ Radio.propTypes = {
 Radio.defaultProps = {
   name: '',
   label: [],
-  defaultChecked: false,
   disabled: false,
   checked: false,
   clickHandler: () => {},

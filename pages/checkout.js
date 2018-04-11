@@ -265,7 +265,7 @@ CheckoutPage.propTypes = {
   checkout: PropTypes.object.isRequired,
   createOrder: PropTypes.func.isRequired,
   completeOrder: PropTypes.func.isRequired,
-  url: PropTypes.string.isRequired,
+  url: PropTypes.object.isRequired,
 };
 
 CheckoutPage.defaultProps = {
