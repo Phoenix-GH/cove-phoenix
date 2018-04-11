@@ -5,6 +5,7 @@ export const CheckoutConstants = keyMirror({
   VERIFY_PHONE: undefined,
   CREATE_ACCOUNT: undefined,
   CREATE_ORDER: undefined,
+  COMPLETE_ORDER: undefined,
 });
 
 export default CheckoutConstants;

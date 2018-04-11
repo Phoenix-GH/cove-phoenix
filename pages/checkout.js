@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import cx from 'classnames';
 import withRedux from 'next-redux-wrapper';
-import createHistory from 'history/createBrowserHistory';
 
 import initStore from '../store';
 import { loadProducts } from '../actions';
@@ -36,7 +35,6 @@ class CheckoutPage extends Component {
     };
   }
   componentWillReceiveProps(nextProps) {
-    const history = createHistory();
     const { checkout } = this.props;
     const activeStage = this.props.stage ? this.props.stage : 'customer';
     if (activeStage === 'shipping') {
@@ -45,10 +43,15 @@ class CheckoutPage extends Component {
         this.createAccount();
       }
       if (nextProps.checkout.createAccount.data !== checkout.createAccount.data) {
-        history.push('/checkout', { stage: 'payment' });
+        this.createOrder();
+      }
+      if (nextProps.checkout.createOrder.data !== checkout.createOrder.data) {
+        this.props.url.push('/checkout?stage=payment');
       }
     } else if (activeStage === 'payment') {
-      history.push('/order');
+      if (nextProps.checkout.completeOrder.data !== checkout.completeOrder.data) {
+        this.props.url.push('/order');
+      }
     }
   }
 
@@ -62,7 +65,7 @@ class CheckoutPage extends Component {
       this.props.session();
     }
     if (activeStage === 'payment') {
-      this.props.createAccount(this.state);
+      this.props.completeOrder(this.state);
     }
   }
 
@@ -80,6 +83,25 @@ class CheckoutPage extends Component {
       ec1,
     };
     this.props.createAccount(request);
+  }
+
+  createOrder = () => {
+    this.props.createOrder(this.state.createOrder);
+  }
+
+  completeOrder = () => {
+    const { orderValue } = this.state;
+    const { ...expiry } = orderValue.expiry.split(',')[0];
+    const order = {
+      creditCard: {
+        number: orderValue.number,
+        expMonth: expiry[0],
+        expYear: expiry[1],
+      },
+      total: '355.00',
+      accountGuid: 'd4d8df04-746e-498e-bbf3-1e45f83f4d6a',
+    };
+    this.props.completeOrder(order);
   }
 
   render() {
@@ -239,6 +261,9 @@ CheckoutPage.propTypes = {
   createAccount: PropTypes.func.isRequired,
   session: PropTypes.func.isRequired,
   checkout: PropTypes.object.isRequired,
+  createOrder: PropTypes.object.isRequired,
+  completeOrder: PropTypes.object.isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 CheckoutPage.defaultProps = {

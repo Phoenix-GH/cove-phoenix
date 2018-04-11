@@ -11,4 +11,5 @@ export const verifyContact = createAction(CheckoutConstants.VERIFY_CONTACT);
 export const verifyPhone = createAction(CheckoutConstants.VERIFY_PHONE);
 export const createAccount = createAction(CheckoutConstants.CREATE_ACCOUNT);
 export const createOrder = createAction(CheckoutConstants.CREATE_ORDER);
+export const completeOrder = createAction(CheckoutConstants.COMPLETE_ORDER);
 

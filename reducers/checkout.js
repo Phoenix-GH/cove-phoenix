@@ -39,6 +39,13 @@ const initialState = {
     isRunning: false,
     isLoaded: false,
   },
+  completeOrder: {
+    data: null,
+    pagination: null,
+    error: null,
+    isRunning: false,
+    isLoaded: false,
+  },
   error: null,
   isRunning: false,
   isLoaded: false,
@@ -94,6 +101,19 @@ export default handleActions({
     },
   }),
   [requestFail(CheckoutConstants.CREATE_ORDER)]: (state, action) => ({
+    ...state,
+    data: action.payload,
+  }),
+  [requestPending(CheckoutConstants.COMPLETE_ORDER)]: state => ({
+    ...state,
+  }),
+  [requestSuccess(CheckoutConstants.COMPLETE_ORDER)]: (state, action) => ({
+    ...state,
+    completeOrder: {
+      ...action.payload,
+    },
+  }),
+  [requestFail(CheckoutConstants.COMPLETE_ORDER)]: (state, action) => ({
     ...state,
     data: action.payload,
   }),

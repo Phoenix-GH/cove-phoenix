@@ -25,7 +25,7 @@ const PaymentInfo = (props) => {
             <Input
               label="Name on card"
               onChangeHandler={
-                (changeValue) => { onChangeHandler('completeOrder', { name: changeValue }); }
+                (changeValue) => { onChangeHandler('orderValue', { name: changeValue }); }
               }
             />
           </Col>
@@ -38,7 +38,7 @@ const PaymentInfo = (props) => {
             <Input
               label="Card number"
               onChangeHandler={
-                (changeValue) => { onChangeHandler('completeOrder', { number: changeValue }); }
+                (changeValue) => { onChangeHandler('orderValue', { number: changeValue }); }
               }
             />
           </Col>
@@ -46,7 +46,7 @@ const PaymentInfo = (props) => {
             <Input
               label="MM/YY"
               onChangeHandler={
-                (changeValue) => { onChangeHandler('completeOrder', { expiry: changeValue }); }
+                (changeValue) => { onChangeHandler('orderValue', { expiry: changeValue }); }
               }
             />
           </Col>
@@ -55,7 +55,7 @@ const PaymentInfo = (props) => {
               <Input
                 label="CVV"
                 onChangeHandler={
-                  (changeValue) => { onChangeHandler('completeOrder', { cvv: changeValue }); }
+                  (changeValue) => { onChangeHandler('orderValue', { cvv: changeValue }); }
                 }
               />
               <InfoBox />

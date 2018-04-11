@@ -34,9 +34,18 @@ function* createOrder(action) {
   }), action);
 }
 
+function* completeOrder(action) {
+  yield call(request({
+    type: CheckoutConstants.COMPLETE_ORDER,
+    method: 'POST',
+    url: '/completeOrder',
+  }), action);
+}
+
 export default function* () {
   yield takeEvery('VERIFY_CONTACT', verifyContact);
   yield takeEvery('VERIFY_PHONE', verifyPhone);
   yield takeEvery('CREATE_ACCOUNT', createAccount);
   yield takeEvery('CREATE_ORDER', createOrder);
+  yield takeEvery('COMPLETE_ORDER', completeOrder);
 }
