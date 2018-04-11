@@ -5,4 +5,5 @@
  * @desc Actions Root
  */
 
+export * from './auth';
 export * from './checkout';
