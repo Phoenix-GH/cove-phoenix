@@ -270,10 +270,8 @@ ProductPage.defaultProps = {
 
 const mapStateToProps = ({ cart, products }) => ({ cart, products });
 
-const mapDispatchToProps = dispatch => (
-  {
-    loadProducts: bindActionCreators(loadProducts, dispatch),
-  }
-);
+const mapDispatchToProps = dispatch => ({
+  loadProducts: bindActionCreators(loadProducts, dispatch),
+});
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(ProductPage);

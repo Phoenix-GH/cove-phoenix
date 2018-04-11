@@ -5,9 +5,10 @@ import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import cx from 'classnames';
 import withRedux from 'next-redux-wrapper';
+
 import initStore from '../store';
 import { loadProducts } from '../actions';
-import { createAccount, createOrder, completeOrder } from '../action';
+import { createAccount, createOrder, completeOrder, session } from '../action';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
 import CheckoutSidebar from '../components/checkoutSidebar/checkoutSidebar';
@@ -17,7 +18,8 @@ import PaymentInfo from './checkout/paymentInfo';
 import s from './checkout/checkout.scss';
 
 class CheckoutPage extends Component {
-  static async getInitialProps({ query }) {
+  static async getInitialProps({ store, query }) {
+    store.dispatch({ type: 'SESSION' });
     return { stage: query.stage };
   }
 
@@ -49,6 +51,8 @@ class CheckoutPage extends Component {
       ec1,
     } = this.state;
     if (activeStage === 'shipping') {
+      this.props.session();
+
       const request = {
         customer1,
         monitorAddress,
@@ -217,16 +221,30 @@ class CheckoutPage extends Component {
 CheckoutPage.propTypes = {
   stage: PropTypes.string,
   createAccount: PropTypes.func.isRequired,
+  session: PropTypes.func.isRequired,
 };
 
 CheckoutPage.defaultProps = {
   stage: 'customer',
 };
 
-const mapStateToProps = ({ cart, products, message }) => ({ cart, products, message });
+const mapStateToProps = ({
+  cart,
+  products,
+  payment,
+  customer,
+  checkout,
+}) => ({
+  cart,
+  products,
+  payment,
+  customer,
+  checkout,
+});
 
 const mapDispatchToProps = dispatch => ({
   loadProducts: bindActionCreators(loadProducts, dispatch),
+  session: () => dispatch(session()),
   createAccount: data => dispatch(createAccount(data)),
   createOrder: data => dispatch(createOrder(data)),
   completeOrder: data => dispatch(completeOrder(data)),
