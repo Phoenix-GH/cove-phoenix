@@ -2,9 +2,7 @@ import { takeEvery, call } from 'redux-saga/effects';
 import { request } from '../utils/request';
 import { AuthConstants } from '../constants';
 
-function* auth(action) {
-  alert('dddd');
-  console.log('authSaga', action);
+function* session(action) {
   yield call(request({
     type: AuthConstants.SESSION,
     method: 'GET',
@@ -12,6 +10,7 @@ function* auth(action) {
   }), action);
 }
 
-export default function* () {
-  yield takeEvery(AuthConstants.SESSION, auth);
+export default function* authSaga() {
+  yield takeEvery(AuthConstants.SESSION, session);
 }
+

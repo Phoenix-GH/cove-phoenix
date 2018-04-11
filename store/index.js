@@ -1,13 +1,12 @@
-import createStoreFromServer from "./serverStore";
-import createStoreFromClient from "./clientStore";
+import createStoreFromServer from './serverStore';
+import configureStore from './configureStore';
 
-const _initialState = {
+const state = {
 };
 
-export default (initialState = _initialState, props) => {
-  if(props.isServer) {
-    return createStoreFromServer(initialState, props)
-  } else {
-    return createStoreFromClient(initialState, props);
+export default (initialState = state, props) => {
+  if (props.isServer) {
+    return createStoreFromServer(initialState, props);
   }
-}
+  return configureStore(initialState, props);
+};
