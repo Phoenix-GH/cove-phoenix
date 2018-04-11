@@ -40,6 +40,7 @@ class CheckoutPage extends Component {
     if (activeStage === 'shipping') {
       if (nextProps.session.data !== this.props.session.data) {
         this.setState({ session: this.props.session.data });
+        localStorage.setItem('token', this.props.session.data.message);
         this.createAccount();
       }
       if (nextProps.checkout.createAccount.data !== checkout.createAccount.data) {
