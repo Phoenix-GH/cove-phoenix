@@ -9,14 +9,7 @@ import { AuthConstants } from '../constants';
 import { requestPending, requestSuccess, requestFail } from '../utils/request';
 
 const initialState = {
-  data: null,
-  checkout: null,
-  session: {
-    data: null,
-    error: null,
-    isRunning: false,
-    isLoaded: false,
-  },
+  token: null,
   error: null,
   isRunning: false,
   isLoaded: false,
@@ -28,9 +21,7 @@ export default handleActions({
   }),
   [requestSuccess(AuthConstants.SESSION)]: (state, action) => ({
     ...state,
-    verifyContact: {
-      ...action.payload,
-    },
+    ...action.payload,
   }),
   [requestFail(AuthConstants.SESSION)]: (state, action) => ({
     ...state,

@@ -9,8 +9,6 @@ import { CheckoutConstants } from '../constants';
 import { requestPending, requestSuccess, requestFail } from '../utils/request';
 
 const initialState = {
-  data: null,
-  checkout: null,
   verifyContact: {
     data: null,
     pagination: null,
@@ -83,9 +81,7 @@ export default handleActions({
   }),
   [requestSuccess(CheckoutConstants.CREATE_ACCOUNT)]: (state, action) => ({
     ...state,
-    createAccount: {
-      ...action.payload,
-    },
+    accountGuid: action.payload,
   }),
   [requestFail(CheckoutConstants.CREATE_ACCOUNT)]: (state, action) => ({
     ...state,

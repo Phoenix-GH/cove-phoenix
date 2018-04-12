@@ -32,19 +32,20 @@ class CheckoutPage extends Component {
       shipAddress: {},
       createOrder: {},
       orderValue: {},
-      session: {},
+      token: '',
     };
   }
   componentWillReceiveProps(nextProps) {
     const { checkout } = this.props;
+    const { token } = this.state;
     const activeStage = this.props.stage ? this.props.stage : 'customer';
     if (activeStage === 'shipping') {
-      if (nextProps.session.data !== this.props.session.data) {
-        this.setState({ session: this.props.session.data });
-        localStorage.setItem('token', this.props.session.data.message);
+      if (nextProps.session.token !== token) {
+        this.setState({ token: nextProps.session.token });
+        localStorage.setItem('token', token);
         this.createAccount();
       }
-      if (nextProps.checkout.createAccount.data !== checkout.createAccount.data) {
+      if (nextProps.checkout.createAccount.accountGuid !== checkout.createAccount.accountGuid) {
         this.createOrder();
       }
       if (nextProps.checkout.createOrder.data !== checkout.createOrder.data) {
