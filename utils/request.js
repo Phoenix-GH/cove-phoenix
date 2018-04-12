@@ -25,7 +25,6 @@ export const request = ({
       success: successCallback,
       fail: failCallback,
     } = action.payload || {};
-    console.log('data------------', data);
     try {
       if (type) {
         yield put({

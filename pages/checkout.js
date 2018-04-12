@@ -37,7 +37,6 @@ class CheckoutPage extends Component {
     };
   }
   componentWillReceiveProps(nextProps) {
-    const { checkout } = this.props;
     const { token } = this.state;
     const activeStage = this.props.stage ? this.props.stage : 'customer';
     if (activeStage === 'customer') {
@@ -77,7 +76,14 @@ class CheckoutPage extends Component {
   }
 
   verifyContact = () => {
-
+    const { monitorAddress, ec1 } = this.state;
+    const request = {
+      address: monitorAddress,
+      phone: {
+        number: ec1.phone,
+      },
+    };
+    this.props.verifyContact({ data: request });
   }
 
   authSession = () => {
@@ -265,6 +271,7 @@ CheckoutPage.propTypes = {
   stage: PropTypes.string,
   createAccount: PropTypes.func.isRequired,
   authSession: PropTypes.func.isRequired,
+  verifyContact: PropTypes.func.isRequired,
   checkout: PropTypes.object.isRequired,
   createOrder: PropTypes.func.isRequired,
   completeOrder: PropTypes.func.isRequired,
