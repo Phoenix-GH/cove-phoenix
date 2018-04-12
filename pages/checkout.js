@@ -37,16 +37,16 @@ class CheckoutPage extends Component {
     };
   }
   componentWillReceiveProps(nextProps) {
-    const { token } = this.state;
     const activeStage = this.props.stage ? this.props.stage : 'customer';
     if (activeStage === 'customer') {
       if (nextProps.auth.token !== this.props.auth.token) {
         this.setState({ token: nextProps.auth.token });
-        localStorage.setItem('token', token);
+        localStorage.setItem('token', nextProps.auth.token);
+        this.createAccount();
       }
 
       this.setState({ contactVerified: nextProps.checkout.verifyContact.successful });
-      if (nextProps.checkout.createAccount.accountGuid && this.state.contactVerified) {
+      if (nextProps.checkout.accountGuid !== this.props.checkout.accountGuid) {
         this.props.url.push('/checkout?stage=shipping');
       }
     } else if (activeStage === 'shipping') {
@@ -67,7 +67,7 @@ class CheckoutPage extends Component {
   handleNextClick = () => {
     const activeStage = this.props.stage ? this.props.stage : 'customer';
     if (activeStage === 'customer') {
-      this.createAccount();
+      this.authSession();
     } else if (activeStage === 'shipping') {
       this.createOrder();
     } else if (activeStage === 'payment') {
@@ -108,6 +108,9 @@ class CheckoutPage extends Component {
   }
 
   createOrder = () => {
+    const request = {
+      accountGuid: this.staet
+    }
     this.props.createOrder({ data: this.state.createOrder });
   }
 
@@ -218,10 +221,14 @@ class CheckoutPage extends Component {
                   />
                 </div>
                 <div className={shippingPageClassName}>
-                  <ShippingInfo />
+                  <ShippingInfo
+                    onChangeHandler={this.onChangeHandler}
+                  />
                 </div>
                 <div className={paymentPageClassName}>
-                  <PaymentInfo />
+                  <PaymentInfo
+                    onChangeHandler={this.onChangeHandler}
+                  />
                 </div>
                 <div className="footerControls">
                   <Col xs={12}>
