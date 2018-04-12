@@ -8,7 +8,7 @@ import withRedux from 'next-redux-wrapper';
 
 import initStore from '../store';
 import { loadProducts } from '../actions';
-import { createAccount, createOrder, completeOrder, session } from '../action';
+import { createAccount, createOrder, completeOrder, authSession } from '../action';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
 import CheckoutSidebar from '../components/checkoutSidebar/checkoutSidebar';
@@ -40,9 +40,10 @@ class CheckoutPage extends Component {
     const { token } = this.state;
     const activeStage = this.props.stage ? this.props.stage : 'customer';
     if (activeStage === 'shipping') {
-      if (nextProps.session.token !== token) {
-        this.setState({ token: nextProps.session.token });
+      if (nextProps.auth.token !== this.props.auth.token) {
+        this.setState({ token: nextProps.auth.token });
         localStorage.setItem('token', token);
+        console.log('token----------', token);
         this.createAccount();
       }
       if (nextProps.checkout.createAccount.accountGuid !== checkout.createAccount.accountGuid) {
@@ -65,7 +66,7 @@ class CheckoutPage extends Component {
   handleNextClick = () => {
     const activeStage = this.props.stage ? this.props.stage : 'customer';
     if (activeStage === 'shipping') {
-      this.props.session();
+      this.props.authSession();
     }
     if (activeStage === 'payment') {
       this.props.completeOrder(this.state);
@@ -86,6 +87,7 @@ class CheckoutPage extends Component {
       ec1,
     };
     this.props.createAccount(request);
+    console.log('createaccount', request);
   }
 
   createOrder = () => {
@@ -262,11 +264,12 @@ class CheckoutPage extends Component {
 CheckoutPage.propTypes = {
   stage: PropTypes.string,
   createAccount: PropTypes.func.isRequired,
-  session: PropTypes.func.isRequired,
+  authSession: PropTypes.func.isRequired,
   checkout: PropTypes.object.isRequired,
   createOrder: PropTypes.func.isRequired,
   completeOrder: PropTypes.func.isRequired,
   url: PropTypes.object.isRequired,
+  auth: PropTypes.string.isRequired,
 };
 
 CheckoutPage.defaultProps = {
@@ -279,17 +282,21 @@ const mapStateToProps = ({
   payment,
   customer,
   checkout,
+  session,
+  auth,
 }) => ({
   cart,
   products,
   payment,
   customer,
   checkout,
+  session,
+  auth,
 });
 
 const mapDispatchToProps = dispatch => ({
   loadProducts: bindActionCreators(loadProducts, dispatch),
-  session: () => dispatch(session()),
+  authSession: () => dispatch(authSession()),
   createAccount: data => dispatch(createAccount(data)),
   createOrder: data => dispatch(createOrder(data)),
   completeOrder: data => dispatch(completeOrder(data)),

@@ -7,5 +7,5 @@ import { createAction } from 'redux-actions';
 import { AuthConstants } from '../constants';
 
 // New action implementation
-export const session = createAction(AuthConstants.SESSION);
+export const authSession = createAction(AuthConstants.SESSION);
 
