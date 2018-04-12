@@ -33,27 +33,29 @@ class CheckoutPage extends Component {
       createOrder: {},
       orderValue: {},
       token: '',
+      contactVerified: false,
     };
   }
   componentWillReceiveProps(nextProps) {
     const { checkout } = this.props;
     const { token } = this.state;
     const activeStage = this.props.stage ? this.props.stage : 'customer';
-    if (activeStage === 'shipping') {
+    if (activeStage === 'customer') {
       if (nextProps.auth.token !== this.props.auth.token) {
         this.setState({ token: nextProps.auth.token });
         localStorage.setItem('token', token);
-        console.log('token----------', token);
-        this.createAccount();
       }
-      if (nextProps.checkout.createAccount.accountGuid !== checkout.createAccount.accountGuid) {
-        this.createOrder();
+
+      this.setState({ contactVerified: nextProps.checkout.verifyContact.successful });
+      if (nextProps.checkout.createAccount.accountGuid && this.state.contactVerified) {
+        this.props.url.push('/checkout?stage=shipping');
       }
-      if (nextProps.checkout.createOrder.data !== checkout.createOrder.data) {
+    } else if (activeStage === 'shipping') {
+      if (nextProps.checkout.createOrder.successful) {
         this.props.url.push('/checkout?stage=payment');
       }
     } else if (activeStage === 'payment') {
-      if (nextProps.checkout.completeOrder.data !== checkout.completeOrder.data) {
+      if (nextProps.checkout.completeOrder.successful) {
         this.props.url.push('/order');
       }
     }
@@ -65,12 +67,21 @@ class CheckoutPage extends Component {
 
   handleNextClick = () => {
     const activeStage = this.props.stage ? this.props.stage : 'customer';
-    if (activeStage === 'shipping') {
-      this.props.authSession();
+    if (activeStage === 'customer') {
+      this.createAccount();
+    } else if (activeStage === 'shipping') {
+      this.createOrder();
+    } else if (activeStage === 'payment') {
+      this.props.completeOrder({ data: this.state });
     }
-    if (activeStage === 'payment') {
-      this.props.completeOrder(this.state);
-    }
+  }
+
+  verifyContact = () => {
+
+  }
+
+  authSession = () => {
+    this.props.authSession();
   }
 
   createAccount = () => {
@@ -85,13 +96,13 @@ class CheckoutPage extends Component {
       monitorAddress,
       shipAddress,
       ec1,
+      billAddress: {},
     };
-    this.props.createAccount(request);
-    console.log('createaccount', request);
+    this.props.createAccount({ data: request });
   }
 
   createOrder = () => {
-    this.props.createOrder(this.state.createOrder);
+    this.props.createOrder({ data: this.state.createOrder });
   }
 
   completeOrder = () => {
@@ -113,10 +124,8 @@ class CheckoutPage extends Component {
     const activeStage = this.props.stage ? this.props.stage : 'customer';
     let nextLinkText = 'Continue to Shipping Method';
     let previousLinkText = 'Return to Plan Type';
-    let nextLink = 'shipping';
     if (activeStage === 'shipping') {
       nextLinkText = 'Continue to Payment Info';
-      nextLink = 'payment';
       previousLinkText = 'Return to Customer Info';
     } else if (activeStage === 'payment') {
       nextLinkText = 'Complete Purchase';
@@ -225,21 +234,12 @@ class CheckoutPage extends Component {
                       </div>
                       <div className="continueColumn">
                         {
-                          (activeStage === 'payment' || activeStage === 'shipping') && (
+                          (
                             <button onClick={() => this.handleNextClick()}>
                               <div className="actionBtn">
                                 {nextLinkText}
                               </div>
                             </button>
-                          )
-                        }
-                        {
-                          !(activeStage === 'payment' || activeStage === 'shipping') && (
-                            <Link href={{ pathname: '/checkout', query: { stage: nextLink } }}>
-                              <div className="actionBtn">
-                                {nextLinkText}
-                              </div>
-                            </Link>
                           )
                         }
                       </div>
@@ -269,7 +269,7 @@ CheckoutPage.propTypes = {
   createOrder: PropTypes.func.isRequired,
   completeOrder: PropTypes.func.isRequired,
   url: PropTypes.object.isRequired,
-  auth: PropTypes.string.isRequired,
+  auth: PropTypes.object.isRequired,
 };
 
 CheckoutPage.defaultProps = {

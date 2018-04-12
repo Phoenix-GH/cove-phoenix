@@ -9,7 +9,6 @@ import { AuthConstants } from '../constants';
 import { requestPending, requestSuccess, requestFail } from '../utils/request';
 
 const initialState = {
-  token: null,
   error: null,
   isRunning: false,
   isLoaded: false,

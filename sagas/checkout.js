@@ -6,7 +6,7 @@ function* verifyContact(action) {
   yield call(request({
     type: CheckoutConstants.VERIFY_CONTACT,
     method: 'POST',
-    url: '/verifyContact',
+    url: '/meliae/verifyContact',
   }), action);
 }
 
@@ -14,7 +14,7 @@ function* verifyPhone(action) {
   yield call(request({
     type: CheckoutConstants.VERIFY_PHONE,
     method: 'POST',
-    url: '/verifyPhone',
+    url: '/meliae/verifyPhone',
   }), action);
 }
 
@@ -22,7 +22,7 @@ function* createAccount(action) {
   yield call(request({
     type: CheckoutConstants.CREATE_ACCOUNT,
     method: 'POST',
-    url: '/createAccount',
+    url: '/meliae/createAccount',
   }), action);
 }
 
@@ -30,7 +30,7 @@ function* createOrder(action) {
   yield call(request({
     type: CheckoutConstants.CREATE_ORDER,
     method: 'POST',
-    url: '/createOrder',
+    url: '/meliae/createOrder',
   }), action);
 }
 
@@ -38,7 +38,7 @@ function* completeOrder(action) {
   yield call(request({
     type: CheckoutConstants.COMPLETE_ORDER,
     method: 'POST',
-    url: '/completeOrder',
+    url: '/meliae/completeOrder',
   }), action);
 }
 
