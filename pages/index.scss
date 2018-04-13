@@ -198,39 +198,30 @@
 }
 
 .liveAssistSection {
-  background-image: url("/static/images/liveAssistSectionBackground.png");
   width: 100%;
-  height: 40vw;
-  max-height: 640px;
+  margin: 0 135px 0 135px;
+  border-radius: 32px;
   background-repeat: no-repeat;
-  background-size: 81%;
-  background-position: center;
+  background-color: #F0F5F7;
   position: relative;
   color: $grey-700;
 
   div {
-    height: 40vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     &.leftArea {
-      max-height: 640px;
       display: flex;
       justify-content: center;
       padding-bottom: 2vw;
-
-      img {
-        width: 25vw;
-        height: 20vw;
-      }
+      width: (516% / 1440 * 100);
+      margin-top: 72px;
+      margin-left: -135px;
     }
 
     &.rightArea {
-      width: 40vw;
-      max-height: 640px;
-      padding-left: 10%;
-      padding-right: 10%;
+      padding: 50px 115px 40px 115px;
 
       h2 {
         font-size: 60px;
@@ -284,10 +275,6 @@
         width: 80%;
       }
     }
-  }
-
-  img {
-    height: 30vw;
   }
 }
 
@@ -458,7 +445,6 @@
 .processSection {
   background-image: url("/static/images/processSectionBackground.png");
   width: 100%;
-  height: 40vw;
   background-repeat: no-repeat;
   background-size: 81%;
   background-position: center;
@@ -466,7 +452,6 @@
   color: $grey-1000;
 
   .leftArea {
-    height: 40vw;
     padding-left: 20%;
     display: flex;
     flex-direction: column;
@@ -507,14 +492,12 @@
   }
 
   .rightArea {
-    height: 40vw;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 
     img {
       width: 20vw;
-      height: 20vw;
     }
   }
 }

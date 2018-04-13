@@ -114,9 +114,7 @@ const Index = () => (
       <div className="liveAssistSection">
         <Row>
           <Col xs={0} sm={0} md={4} className="p-0">
-            <div className="leftArea">
-              <img src="/static/images/assistOperator.png" alt="" />
-            </div>
+            <img src="/static/images/assistOperator.png" alt="" className="leftArea" />
           </Col>
           <Col xs={12} sm={12} md={8}>
             <div className="rightArea">
