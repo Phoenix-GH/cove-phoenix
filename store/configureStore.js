@@ -19,12 +19,12 @@ export default function configureStore(initialState, history) {
   const sagaMiddleware = createSagaMiddleware();
   const loggerMiddleware = createLogger();
 
-  const middleware = compose(applyMiddleware(
+  const middleware = compose(composeWithDevTools(applyMiddleware(
     sagaMiddleware,
     loggerMiddleware,
     routerMiddleware(history),
-    composeWithDevTools(thunkMiddleware),
-  ));
+    thunkMiddleware,
+  )));
 
   const persistConfig = {
     key: 'root',
