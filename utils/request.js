@@ -25,7 +25,6 @@ export const request = ({
       success: successCallback,
       fail: failCallback,
     } = action.payload || {};
-    console.log('data', data);
     try {
       if (type) {
         yield put({
@@ -34,7 +33,7 @@ export const request = ({
       }
       const token = localStorage.getItem('token');
       axios.defaults.baseURL = config.apiUrl;
-      axios.defaults.headers.common['Authorization'] = token || '';
+      axios.defaults.headers.common.Authorization = token || '';
       const res = yield call(axios.request, {
         url,
         method: method.toLowerCase(),
