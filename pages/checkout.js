@@ -8,7 +8,7 @@ import withRedux from 'next-redux-wrapper';
 
 import initStore from '../store';
 import { loadProducts } from '../actions';
-import { createAccount, createOrder, completeOrder, authSession } from '../action';
+import { createAccount, createOrder, completeOrder, verifyContact, authSession } from '../action';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
 import CheckoutSidebar from '../components/checkoutSidebar/checkoutSidebar';
@@ -30,9 +30,13 @@ class CheckoutPage extends Component {
       monitorAddress: {},
       ec1: {},
       shipAddress: {},
-      createOrder: {},
+      createOrderInfo: {
+        warrantyId: 0,
+        shippingMethodId: 0,
+      },
       orderValue: {},
       token: '',
+      guid: '',
       contactVerified: false,
     };
   }
@@ -47,6 +51,7 @@ class CheckoutPage extends Component {
 
       this.setState({ contactVerified: nextProps.checkout.verifyContact.successful });
       if (nextProps.checkout.accountGuid !== this.props.checkout.accountGuid) {
+        this.setState({ guid: nextProps.checkout.accountGuid });
         this.props.url.push('/checkout?stage=shipping');
       }
     } else if (activeStage === 'shipping') {
@@ -62,6 +67,9 @@ class CheckoutPage extends Component {
 
   onChangeHandler = (section, changeValue) => {
     this.setState({ [section]: { ...this.state[section], ...changeValue } });
+    if (section === 'ec1') {
+      this.verifyContact();
+    }
   }
 
   handleNextClick = () => {
@@ -71,7 +79,7 @@ class CheckoutPage extends Component {
     } else if (activeStage === 'shipping') {
       this.createOrder();
     } else if (activeStage === 'payment') {
-      this.props.completeOrder({ data: this.state });
+      this.completeOrder();
     }
   }
 
@@ -108,14 +116,27 @@ class CheckoutPage extends Component {
   }
 
   createOrder = () => {
-    const request = {
-      accountGuid: this.staet
-    }
-    this.props.createOrder({ data: this.state.createOrder });
+    const { guid, createOrderInfo, shippingAddress } = this.state;
+    const orderRequest = {
+      accountGuid: guid,
+      shippingMethodId: createOrderInfo.shippingMethodId,
+      subscriptionId: createOrderInfo.subscriptionId,
+      warrantyId: createOrderInfo.warrantyId,
+      shippingAddress,
+      items: [
+        {
+          itemId: 'string',
+          qty: 1,
+          name: 'Motion Sensor',
+          typeId: 2,
+        },
+      ],
+    };
+    this.props.createOrder({ data: orderRequest });
   }
 
   completeOrder = () => {
-    const { orderValue } = this.state;
+    const { orderValue, guid } = this.state;
     const { ...expiry } = orderValue.expiry.split('/')[0];
     const order = {
       creditCard: {
@@ -124,7 +145,7 @@ class CheckoutPage extends Component {
         expYear: expiry[1],
       },
       total: '355.00',
-      accountGuid: 'd4d8df04-746e-498e-bbf3-1e45f83f4d6a',
+      accountGuid: guid,
     };
     this.props.completeOrder(order);
   }
@@ -282,6 +303,7 @@ CheckoutPage.propTypes = {
   checkout: PropTypes.object.isRequired,
   createOrder: PropTypes.func.isRequired,
   completeOrder: PropTypes.func.isRequired,
+  verifyContact: PropTypes.func.isRequired,
   url: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
 };
@@ -314,6 +336,7 @@ const mapDispatchToProps = dispatch => ({
   createAccount: data => dispatch(createAccount(data)),
   createOrder: data => dispatch(createOrder(data)),
   completeOrder: data => dispatch(completeOrder(data)),
+  verifyContact: data => dispatch(verifyContact(data)),
 });
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(CheckoutPage);

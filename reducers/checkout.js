@@ -55,9 +55,7 @@ export default handleActions({
   }),
   [requestSuccess(CheckoutConstants.VERIFY_CONTACT)]: (state, action) => ({
     ...state,
-    verifyContact: {
-      ...action.payload,
-    },
+    ...action.payload,
   }),
   [requestFail(CheckoutConstants.VERIFY_CONTACT)]: (state, action) => ({
     ...state,
@@ -68,9 +66,7 @@ export default handleActions({
   }),
   [requestSuccess(CheckoutConstants.VERIFY_PHONE)]: (state, action) => ({
     ...state,
-    verifyPhone: {
-      ...action.payload,
-    },
+    ...action.payload,
   }),
   [requestFail(CheckoutConstants.VERIFY_PHONE)]: (state, action) => ({
     ...state,
@@ -81,7 +77,7 @@ export default handleActions({
   }),
   [requestSuccess(CheckoutConstants.CREATE_ACCOUNT)]: (state, action) => ({
     ...state,
-    accountGuid: action.payload,
+    ...action.payload,
   }),
   [requestFail(CheckoutConstants.CREATE_ACCOUNT)]: (state, action) => ({
     ...state,
