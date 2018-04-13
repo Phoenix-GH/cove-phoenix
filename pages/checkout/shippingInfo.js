@@ -30,7 +30,7 @@ class ShippingInfo extends Component {
     this.setState({
       shipMethod: val,
     });
-    onChangeHandler('createOrder', { shippingMethodId: this.state.warranty });
+    onChangeHandler('createOrderInfo', { shippingMethodId: this.state.warranty });
   }
 
   toggleWarranty(val) {
@@ -38,7 +38,7 @@ class ShippingInfo extends Component {
     this.setState({
       warranty: val,
     });
-    onChangeHandler('createOrder', { warrantyId: this.state.warranty });
+    onChangeHandler('createOrderInfo', { warrantyId: this.state.warranty });
   }
 
   render() {
@@ -152,7 +152,7 @@ class ShippingInfo extends Component {
                     <div className="shipOptionHeader">
                       <Radio
                         key="standard-delivery"
-                        clickHandler={() => this.toggleShipMethod(true)}
+                        clickHandler={() => this.toggleShipMethod(0)}
                         label={[<span className="bold">Standard Delivery</span>]}
                         checked={this.state.shipMethod === 0}
                       />
