@@ -97,7 +97,7 @@ const CustomerInfo = ({ onChangeHandler }) => (
             hasInfo
             onChangeHandler={(changeValue) => {
               const nameArr = changeValue.split(' ');
-              onChangeHandler('ec1', { firstName: nameArr[0], lastName: nameArr[nameArr.length - 1] });
+              onChangeHandler('monitorAddress', { firstName: nameArr[0], lastName: nameArr[nameArr.length - 1] });
             }}
           />
         </Col>

@@ -11,6 +11,6 @@ function* session(action) {
 }
 
 export default function* authSaga() {
-  yield takeEvery(AuthConstants.SESSION, session);
+  yield takeEvery('SESSION', session);
 }
 

@@ -37,9 +37,10 @@ class CheckoutPage extends Component {
       orderValue: {},
       token: '',
       guid: '',
-      contactVerified: false,
+      verifyContact: {},
     };
   }
+
   componentWillReceiveProps(nextProps) {
     const activeStage = this.props.stage ? this.props.stage : 'customer';
     if (activeStage === 'customer') {
@@ -48,27 +49,13 @@ class CheckoutPage extends Component {
         localStorage.setItem('token', nextProps.auth.token);
         this.createAccount();
       }
-
-      this.setState({ contactVerified: nextProps.checkout.verifyContact.successful });
-      if (nextProps.checkout.accountGuid !== this.props.checkout.accountGuid) {
-        this.setState({ guid: nextProps.checkout.accountGuid });
-        this.props.url.push('/checkout?stage=shipping');
-      }
-    } else if (activeStage === 'shipping') {
-      if (nextProps.checkout.createOrder.successful) {
-        this.props.url.push('/checkout?stage=payment');
-      }
-    } else if (activeStage === 'payment') {
-      if (nextProps.checkout.completeOrder.successful) {
-        this.props.url.push('/order');
-      }
     }
   }
 
   onChangeHandler = (section, changeValue) => {
     this.setState({ [section]: { ...this.state[section], ...changeValue } });
-    if (section === 'ec1') {
-      this.verifyContact();
+    if (section === 'ec1' || section === 'monitorAddress') {
+      //this.verifyContact();
     }
   }
 
@@ -84,35 +71,66 @@ class CheckoutPage extends Component {
   }
 
   verifyContact = () => {
-    const { monitorAddress, ec1 } = this.state;
-    const request = {
-      address: monitorAddress,
-      phone: {
-        number: ec1.phone,
-      },
-    };
-    this.props.verifyContact({ data: request });
+    if (localStorage.getItem('token')) {
+      const { monitorAddress, ec1 } = this.state;
+      const request = {
+        address: monitorAddress,
+        phone: {
+          number: ec1.phone,
+        },
+      };
+      this.props.verifyContact({
+        data: request,
+        success: (res) => {
+          this.setState({ verifyContact: res });
+        },
+        fail: (err) => {
+          this.setState({ verifyContact: err });
+        },
+      });
+    } else {
+      this.authSession();
+    }
   }
 
   authSession = () => {
-    this.props.authSession();
+    this.props.authSession({
+      data: 'data',
+      success: (res) => {
+        this.setState({ token: res.auth.token });
+        localStorage.setItem('token', res.auth.token);
+      },
+      fail: () => {},
+    });
   }
 
   createAccount = () => {
-    const {
-      customer1,
-      monitorAddress,
-      shipAddress,
-      ec1,
-    } = this.state;
-    const request = {
-      customer1,
-      monitorAddress,
-      shipAddress,
-      ec1,
-      billAddress: {},
-    };
-    this.props.createAccount({ data: request });
+    if (localStorage.getItem('token')) {
+      const {
+        customer1,
+        monitorAddress,
+        shipAddress,
+        ec1,
+      } = this.state;
+      const request = {
+        customer1,
+        monitorAddress,
+        shipAddress,
+        ec1,
+        billAddress: {},
+      };
+      this.props.createAccount({
+        data: request,
+        success: (res) => {
+          this.setState({ guid: res.checkout.accountGuid });
+          this.props.url.push('/checkout?stage=shipping');
+        },
+        fail: () => {
+        },
+      });
+    } else {
+      this.authSession();
+    }
   }
 
   createOrder = () => {
@@ -132,7 +150,16 @@ class CheckoutPage extends Component {
         },
       ],
     };
-    this.props.createOrder({ data: orderRequest });
+    this.props.createOrder({
+      data: orderRequest,
+      success: (res) => {
+        if (res.successful) {
+          this.props.url.push('/checkout?stage=payment');
+        }
+      },
+      fail: () => {
+      },
+    });
   }
 
   completeOrder = () => {
@@ -147,7 +174,16 @@ class CheckoutPage extends Component {
       total: '355.00',
       accountGuid: guid,
     };
-    this.props.completeOrder(order);
+    this.props.completeOrder({
+      data: order,
+      success: (res) => {
+        if (res.successful) {
+          this.props.url.push('/order');
+        }
+      },
+      fail: () => {
+      },
+    });
   }
 
   render() {
@@ -300,10 +336,8 @@ CheckoutPage.propTypes = {
   createAccount: PropTypes.func.isRequired,
   authSession: PropTypes.func.isRequired,
   verifyContact: PropTypes.func.isRequired,
-  checkout: PropTypes.object.isRequired,
   createOrder: PropTypes.func.isRequired,
   completeOrder: PropTypes.func.isRequired,
-  verifyContact: PropTypes.func.isRequired,
   url: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
 };
