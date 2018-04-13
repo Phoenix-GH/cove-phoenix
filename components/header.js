@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Nav, NavItem, NavLink, Navbar, NavbarToggler, NavbarBrand, Collapse, Button } from 'reactstrap';
+import { Container, Row, Col, Nav, NavItem, NavLink, Navbar, NavbarToggler, NavbarBrand, Collapse } from 'reactstrap';
 import Link from 'next/link';
 import s from './header.scss';
 
@@ -9,13 +9,13 @@ export default class Header extends React.Component {
 
     this.logoPath = '/static/images/logoTeal.svg';
     this.state = {
-      isOpen: false
+      isOpen: false,
     };
   }
 
   toggle = () => {
     this.setState({
-      isOpen: !this.state.isOpen
+      isOpen: !this.state.isOpen,
     });
   }
 
@@ -37,23 +37,23 @@ export default class Header extends React.Component {
                     <Col md={8}>
                       <Nav className="d-flex justify-content-between align-items-center" navbar>
                         <NavItem>
-                          <Link href="/"><NavLink href="javascript:void(0)" className="navLink">Alarm System</NavLink></Link>
+                          <Link href="/"><NavLink href="" className="navLink">Alarm System</NavLink></Link>
                         </NavItem>
                         <NavItem>
-                          <Link href="/"><NavLink href="javascript:void(0)" className="navLink">Smoke + Flood + CO Alarm</NavLink></Link>
+                          <Link href="/"><NavLink href="" className="navLink">Smoke + Flood + CO Alarm</NavLink></Link>
                         </NavItem>
                         <NavItem>
-                          <Link href="/"><NavLink href="javascript:void(0)" className="navLink">Medical</NavLink></Link>
+                          <Link href="/"><NavLink href="" className="navLink">Medical</NavLink></Link>
                         </NavItem>
                         <NavItem>
-                          <Link href="/"><NavLink href="javascript:void(0)" className="navLink">Camera</NavLink></Link>
+                          <Link href="/"><NavLink href="" className="navLink">Camera</NavLink></Link>
                         </NavItem>
                       </Nav>
                     </Col>
                     <Col md={2} className="d-flex align-items-center justify-content-end">
                       <Nav navbar>
                         <NavItem>
-                          <Link href="/login"><NavLink href="javascript:void(0)" className="signinLink">Sign in</NavLink></Link>
+                          <Link href="/login"><NavLink href="" className="signinLink">Sign in</NavLink></Link>
                         </NavItem>
                       </Nav>
                     </Col>
@@ -74,4 +74,4 @@ export default class Header extends React.Component {
       </div>
     );
   }
-};
+}

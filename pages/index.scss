@@ -2,50 +2,92 @@
 @import "variables";
 
 .coverSection {
-  background-image: url("/static/images/coverBackground.png");
   width: 100%;
-  height: 50vw;
-  max-height: 640px;
-  background-repeat: no-repeat;
-  background-size: cover;
   position: relative;
-
-  .coverLeftArea {
-    height: 50vw;
-    display: flex;
-    align-items: flex-end;
-    justify-content: flex-end;
-    padding-bottom: 10vw;
-
-    img {
-      width: 60px;
-      height: 60px;
-    }
+  .backImg {
+    width: 100%;
   }
-
-  .coverRightArea {
-    height: 50vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-family: $font-gotham-rounded;
-    font-weight: 700;
-
-    h1 {
-      font-size: 72px;
-      width: 100%;
-      padding-right: 100px;
-    }
-
-    a {
+  .titleRow {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    .coverLeftArea {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      margin-top: calc(520% / 640 * 100); 
       img {
-        width: 90px;
-        height: 90px;
+        width: 60px;
+        height: 60px;
       }
-
-      span {
-        font-size: 40px;
-        color: $warning--darker;
+    }
+    .coverRightArea {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      font-family: $font-gotham-rounded;
+      font-weight: 700;
+      margin-top: calc(145% / 640 * 100); 
+      h1 {
+        font-size: 72px;
+        width: 100%;
+        max-width: 408px;
+      }
+      a {
+        img {
+          width: 90px;
+          height: 90px;
+        }
+  
+        span {
+          font-size: 40px;
+          color: $warning--darker;
+        }
+      }
+    }
+    @media screen and (max-width: $width-lg) {
+      .coverRightArea {
+        h1 {
+          font-size: 60px;
+        }
+        a {
+          span {
+            font-size: 40px;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: $width-md) {
+      .coverLeftArea {
+        margin-top: 10px;
+        text-align: center;
+      }
+      .coverRightArea {
+        text-align: center;
+        margin-top: 10px;
+        h1 {
+          font-size: 40px;
+          max-width: 100%;
+        }
+        a {
+          span {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: $width-sm) {
+      .coverLeftArea {
+        display: none;
+      }
+      .coverRightArea {
+        margin-top: 20px;
+        h1 {
+          font-size: 30px;
+        }
+        span {
+          font-size: 20px;
+        }
       }
     }
   }
@@ -62,7 +104,7 @@
   font-family: $font-gotham-rounded;
 
   h2, p {
-    width: 80%;
+    width: 84%;
   }
 
   h2 {
@@ -158,7 +200,7 @@
 .liveAssistSection {
   background-image: url("/static/images/liveAssistSectionBackground.png");
   width: 100%;
-  height: 50vw;
+  height: 40vw;
   max-height: 640px;
   background-repeat: no-repeat;
   background-size: 81%;
@@ -167,20 +209,28 @@
   color: $grey-700;
 
   div {
-    height: 50vw;
+    height: 40vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
     &.leftArea {
+      max-height: 640px;
+      display: flex;
+      justify-content: center;
+      padding-bottom: 2vw;
+
       img {
-        height: 25vw;
+        width: 25vw;
+        height: 20vw;
       }
     }
 
     &.rightArea {
-      width: 50vw;
+      width: 40vw;
+      max-height: 640px;
       padding-left: 10%;
+      padding-right: 10%;
 
       h2 {
         font-size: 60px;
@@ -408,8 +458,7 @@
 .processSection {
   background-image: url("/static/images/processSectionBackground.png");
   width: 100%;
-  height: 50vw;
-  max-height: 640px;
+  height: 40vw;
   background-repeat: no-repeat;
   background-size: 81%;
   background-position: center;
@@ -417,9 +466,8 @@
   color: $grey-1000;
 
   .leftArea {
-    height: 50vw;
-    width: 60vw;
-    padding-left: 30%;
+    height: 40vw;
+    padding-left: 20%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -459,14 +507,14 @@
   }
 
   .rightArea {
-    height: 50vw;
+    height: 40vw;
     display: flex;
     align-items: center;
     justify-content: flex-end;
 
     img {
-      width: 30vw;
-      height: 30vw;
+      width: 20vw;
+      height: 20vw;
     }
   }
 }
