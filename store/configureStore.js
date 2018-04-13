@@ -30,12 +30,11 @@ export default function configureStore(initialState, history) {
     key: 'root',
     storage,
   };
-  const persistedReducer = persistReducer(persistConfig);
+  const persistedReducer = persistReducer(persistConfig, rootReducer);
   const store = createStore(
-    rootReducer,
+    persistedReducer,
     fromJS(initialState),
     middleware,
-    persistedReducer,
   );
 
   sagaMiddleware.run(rootSaga);
