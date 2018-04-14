@@ -112,32 +112,28 @@ const Index = () => (
     </Row>
     <Row>
       <div className="liveAssistSection">
-        <Row>
-          <Col xs={0} sm={0} md={4} className="p-0">
-            <img src="/static/images/assistOperator.png" alt="" className="leftArea" />
-          </Col>
-          <Col xs={12} sm={12} md={8}>
-            <div className="rightArea">
-              <h2>Cove LiveAssist</h2>
-              <h3>24/7 professional monitoring with Cove LiveAssist gives you real protection
-                all the time, not when you&apos;re just looking.
-              </h3>
-              <ol>
-                <li>Never worry again with Cove LiveAssist coming through the two-way
-                  intercom built right into the 7th touchscreen. (no landline necessary)
-                </li>
-                <li>Cove LiveAssist is smart, and if we can&apos;t communicate with you
-                  directly through your two-way intercom on your panel, we will get a hold
-                  of you on your cellphone, text message, mobile app, and more.
-                </li>
-                <li>In a real emergency, we will contact your local authorities.
-                  You can customize notifications you receive so that you aren&apos;t
-                  bothered with unnecessary alerts.
-                </li>
-              </ol>
-            </div>
-          </Col>
-        </Row>
+        <img src="/static/images/assistOperator.png" alt="" className="leftArea" />
+        <div className="liveAssistRow">
+          <div className="rightArea">
+            <h2>Cove LiveAssist</h2>
+            <h3>24/7 professional monitoring with Cove LiveAssist gives you real protection
+              all the time, not when you&apos;re just looking.
+            </h3>
+            <ol>
+              <li>Never worry again with Cove LiveAssist coming through the two-way
+                intercom built right into the 7th touchscreen. (no landline necessary)
+              </li>
+              <li>Cove LiveAssist is smart, and if we can&apos;t communicate with you
+                directly through your two-way intercom on your panel, we will get a hold
+                of you on your cellphone, text message, mobile app, and more.
+              </li>
+              <li>In a real emergency, we will contact your local authorities.
+                You can customize notifications you receive so that you aren&apos;t
+                bothered with unnecessary alerts.
+              </li>
+            </ol>
+          </div>
+        </div>
       </div>
     </Row>
     <Row>

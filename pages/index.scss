@@ -199,47 +199,65 @@
 
 .liveAssistSection {
   width: 100%;
-  margin: 0 135px 0 135px;
-  border-radius: 32px;
-  background-repeat: no-repeat;
-  background-color: #F0F5F7;
   position: relative;
   color: $grey-700;
-
-  div {
+  .leftArea {
+    width: (516vw / 1440 * 100);
+    top: calc(72% / 630 * 100);
+    position: absolute;
+    max-width: 521px;
+  }
+  .liveAssistRow {
+    border-top-left-radius: 32px;
+    border-bottom-right-radius: 32px;
+    background-color: #F0F5F7;
+    padding: 50px 115px 40px 40vw;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    &.leftArea {
-      display: flex;
-      justify-content: center;
-      padding-bottom: 2vw;
-      width: (516% / 1440 * 100);
-      margin-top: 72px;
-      margin-left: -135px;
-    }
-
-    &.rightArea {
-      padding: 50px 115px 40px 115px;
-
+    justify-content: flex-end;
+    margin: 0 135px 0 135px;
+    .rightArea {
+      max-width: 560px;
       h2 {
         font-size: 60px;
         font-family: $font-gotham-rounded;
         font-weight: 700;
       }
-
       h3 {
         font-size: 24px;
         font-family: $font-gotham-rounded;
         font-weight: 300;
       }
-
-      li {
-        font-size: 16px;
-        font-family: $font-open-sans;
-        font-weight: 100;
+      ol {
+        padding-left: 1.5em;
+        li {
+          margin-bottom: 50px;
+          font-size: 16px;
+          font-family: $font-open-sans;
+          font-weight: 100;
+        }
       }
+    }
+  }
+  @media screen and (max-width: $width-lg) {
+    .liveAssistRow {
+      margin: 0 70px 0 70px;
+      padding: 50px 60px 40px 40vw;
+    }
+  }
+  @media screen and (max-width: $width-md) {
+    .liveAssistRow {
+      border-radius: 0;
+      margin: 0;
+      padding: 20px 10px 20px 10px;
+      .rightArea {
+        max-width: 90%;
+        margin: 0 auto;
+      }
+    }
+    .leftArea {
+      position: static;
+      max-width: 100%;
+      width: 100%;
     }
   }
 }
