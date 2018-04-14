@@ -97,17 +97,13 @@ const Index = () => (
     </Row>
     <Row>
       <div className="builtProductsSection">
-        <Row>
-          <Col xs={12} sm={12} md={6}>
-            <div className="descriptionArea">
-              <h2>Arming and disarming built around you.</h2>
-              <p>Arm and disarm your system in a way that makes sense.
-                We feel that security should be easy and effortless to use.
-              </p>
-            </div>
-          </Col>
-          <Col xs={0} sm={0} md={6} />
-        </Row>
+        <img src="/static/images/builtProductsSectionBackground.png" alt="builtProductsSectionBackground" />
+        <div className="descriptionArea">
+          <h2>Arming and disarming built around you.</h2>
+          <p>Arm and disarm your system in a way that makes sense.
+            We feel that security should be easy and effortless to use.
+          </p>
+        </div>
       </div>
     </Row>
     <Row>
