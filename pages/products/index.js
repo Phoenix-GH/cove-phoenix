@@ -16,7 +16,7 @@ import initStore from '../../store';
 import { loadProducts } from '../../actions';
 import Layout from '../../components/minimalLayout';
 import Header from '../../components/header';
-import SidebarCart from '../../components/sidebarCart';
+import SidebarCart from './sidebarCart';
 import ProductModal from '../../components/productModal';
 import Footer from '../../components/footer/footer';
 import styles from './product.scss';
