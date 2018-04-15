@@ -163,7 +163,7 @@ const Index = () => (
     <Row>
       <div className="eleganceSection">
         <Row>
-          <Col xs={12} sm={12} md={6}>
+          <Col xs={12} sm={12} md={8} lg={6}>
             <div className="descriptionArea">
               <div className="contentTextArea">
                 <h2>New elegance and beauty. Same incredible protection.</h2>
@@ -174,7 +174,6 @@ const Index = () => (
               </div>
             </div>
           </Col>
-          <Col xs={0} sm={0} md={6} />
         </Row>
       </div>
     </Row>
