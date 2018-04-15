@@ -1,48 +1,62 @@
+@import "variables";
 .priceComparisonTable :global(.row) {
-  font-family: GothamRoundedBold;
+  font-family: $font-gotham-rounded;
+  font-weight: 900;
   font-size: 20px;
-  padding-top: 20px;
+  padding: 20px;
 }
-
 
 .priceComparisonTable :global(.col) {
   padding-left: 20px;
 }
-.priceComparisonTable {
-  width: 100%;
 
+.priceComparisonTable {
+  width: 100%;  
   .tableRows {
-      .row {
-        border-bottom: 1px solid #BEC2C5;
-        border-left: 1px solid #BEC2C5;
-        border-right: 1px solid #BEC2C5;
+    .row {
+      border-bottom: 1px solid $grey-300;
+      border-left: 1px solid $grey-300;
+      border-right: 1px solid $grey-300;
+      padding: 25px 40px 25px 40px;
+      font-family: $font-gotham-rounded;
+      font-weight: 900;
+    }
+    .pcTableColLeft {
+      font-family: $font-open-sans;
+      font-size: 16px;
+      font-weight: bold;
+      @media (max-width: $width-lg) {
+        padding-left: 0px;
       }
-  }
-  .pcTableColLeft {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    font-weight: bold;
-    @media (max-width: 767px) {
-      padding-left: 0px;
+    }
+    .pcTableColMid {
+      color: $sidebar-green;
+    }
+    .pcTableColRight {
+      color: $grey-1000;
+      p {
+        font-size: 14px;
+        font-family: $font-open-sans;
+        color: $grey-500;
+      }
+    }
+    .titlePadding {
+      padding-top: 10px;
     }
   }
-  .pcTableColMid {
-    height: 56px;
-    color: #00B19B;
-  }
-
   .pctHeader {
-      padding-bottom: 20px;
-      margin-top: 66px;
+    padding-bottom: 20px;
+    margin-top: 66px;
+    h2 {
+      font-size: 32px;
+    }
   }
-
   .lastRow {
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
   }
-
   .firstRow {
-    border-top: 1px solid #BEC2C5;
+    border-top: 1px solid $grey-300;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
   }

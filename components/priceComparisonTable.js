@@ -9,7 +9,7 @@ export default () => (
           <img src="/static/images/coveTeal.png" className="pcTableLogoStyle" alt="cove logo" />
         </Col>
         <Col md={3} xs={6} sm={6} >
-          <h1>Them</h1>
+          <h2>Them</h2>
         </Col>
       </Row>
       <div className="tableRows">
@@ -26,7 +26,7 @@ export default () => (
         </Row>
         <Row>
           <Col xs={12} md={6} className="pcTableColLeft">
-            Monthly Monitoring
+            Monthly monitoring
           </Col>
           <Col xs={6} md={3} className="pcTableColMid">
             $19.99
@@ -36,10 +36,10 @@ export default () => (
           </Col>
         </Row>
         <Row>
-          <Col xs={12} md={6} className="pcTableColLeft">
-            Cancellation Fees
+          <Col xs={12} md={6} className="pcTableColLeft titlePadding">
+            Cancellation fees
           </Col>
-          <Col xs={6} md={3} className="pcTableColMid">
+          <Col xs={6} md={3} className="pcTableColMid titlePadding">
             None
           </Col>
           <Col xs={6} md={3} className="pcTableColRight">
@@ -51,18 +51,18 @@ export default () => (
         </Row>
         <Row>
           <Col xs={12} md={6} className="pcTableColLeft">
-            Service Windows
+            Service windows
           </Col>
           <Col xs={6} md={3} className="pcTableColMid">
             None
           </Col>
           <Col xs={6} md={3} className="pcTableColRight">
-            1 - 3 weekss
+            1 - 3 weeks
           </Col>
         </Row>
         <Row>
           <Col xs={12} md={6} className="pcTableColLeft" >
-            Finance Equipment at 0% APR
+            Equipment payment at 0% APR
           </Col>
           <Col xs={6} md={3} className="pcTableColMid">
             Yes
@@ -72,16 +72,16 @@ export default () => (
           </Col>
         </Row>
         <Row className="lastRow">
-            <Col xs={12} md={6} className="pcTableColLeft" style={{ paddingTop: '20px' }}>
-              Warranty
-            </Col>
-            <Col xs={6} md={3} className="pcTableColMid" style={{ paddingTop: '20px' }}>
-              3 years
-            </Col>
-            <Col xs={6} md={3} className="pcTableColRight">
-              <p>3 years</p>
-              <p>$45 service calls</p>
-            </Col>
+          <Col xs={12} md={6} className="pcTableColLeft titlePadding">
+            Warranty
+          </Col>
+          <Col xs={6} md={3} className="pcTableColMid titlePadding">
+            3 years
+          </Col>
+          <Col xs={6} md={3} className="pcTableColRight">
+            3 years<br />
+            $45 service calls
+          </Col>
         </Row>
       </div>
     </Container>
