@@ -1,0 +1,31 @@
+@import 'variables';
+
+.cartColumn {
+  max-width: 368px;
+  margin-bottom: 15px;
+  h4 {
+    font-family: $font-gotham-rounded;
+    font-weight: bold;
+    font-size: 24px;
+  }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.addToCartBtn {
+  color: white;
+  height: 40px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 5px;
+  background: $secondary-color;
+  font-size: 14px;
+  text-align: center;
+  font-family: $font-gotham-rounded;
+  font-weight: bold;
+  padding: 8px 8px 10px 10px;
+  margin: 8px 20px 28px 20px;
+  cursor: pointer;
+}
