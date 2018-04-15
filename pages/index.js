@@ -148,12 +148,12 @@ const Index = () => (
             </div>
           </Col>
           <Col xs={6} sm={6} md={3}>
-            <div>
+            <div className="center">
               <img src="/static/images/cutOutMiddleMan.png" alt="" />
             </div>
           </Col>
           <Col xs={6} sm={6} md={3}>
-            <div>
+            <div className="center">
               <img src="/static/images/cashFlow.png" alt="" />
             </div>
           </Col>

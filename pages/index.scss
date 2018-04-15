@@ -272,12 +272,16 @@
   }
 }
 
+.center {
+  text-align: center;
+}
+
 .paySecuritySection {
   color: $grey-1000;
   padding-top: 5vw;
 
   .descriptionArea {
-    height: 30vw;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -286,7 +290,6 @@
 
     .contentTextArea {
       width: 80%;
-
       h2 {
         font-size: 60px;
         font-weight: 700;
@@ -301,6 +304,15 @@
         font-weight: 300;
         margin-top: 3vw;
         width: 80%;
+      }
+    }
+    @media screen and (max-width: $width-md) {
+      .contentTextArea {
+        width: 100%;
+        text-align: center;
+        p {
+          width: 100%;
+        }
       }
     }
   }
