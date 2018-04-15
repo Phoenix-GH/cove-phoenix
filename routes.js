@@ -1,12 +1,12 @@
 module.exports = () => ({
   '/': { page: '/' },
   '/login': { page: '/login' },
-  '/products': { page: '/products' },
   '/checkout': { page: '/checkout', query: { stage: 'customer' } },
   '/checkout/customer': { page: '/checkout', query: { stage: 'customer' } },
   '/checkout/shipping': { page: '/checkout', query: { stage: 'shipping' } },
   '/checkout/payment': { page: '/checkout', query: { stage: 'payment' } },
   '/checkout/order': { page: '/order' },
+  '/checkout/products': { page: '/checkout/products' },
   '/cart': { page: '/cart' },
   '/order': { page: '/order' },
   '/coveclub': { page: '/coveclub' },
