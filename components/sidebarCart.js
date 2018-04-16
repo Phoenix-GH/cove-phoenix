@@ -37,6 +37,7 @@ class SidebarCart extends Component {
         {
           Object.keys(products).map(key =>
             (<CartAddon
+              key={key}
               product={products[key]}
               quantity={cart.quantityById[key]}
               detailAction={detailAction}
