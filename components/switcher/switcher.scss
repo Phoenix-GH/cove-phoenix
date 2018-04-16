@@ -1,0 +1,22 @@
+@import 'variables';
+
+.switcher {
+  font-family: $font-gotham-rounded;
+  font-size: 15px;
+  ul {
+    list-style: none;
+    li {
+      display: inline-block;
+      margin-left: 46px;
+      button {
+        color: $grey-700;
+        font-weight: lighter;
+        border: none;
+        outline: none;
+      }
+      .selected {
+        font-weight: bold;
+      }
+    }
+  } 
+}

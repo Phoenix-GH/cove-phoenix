@@ -19,6 +19,7 @@ import Header from '../../components/header';
 import SidebarCart from './sidebarCart';
 import ProductModal from '../../components/productModal';
 import Footer from '../../components/footer/footer';
+import Switcher from '../../components/switcher/switcher';
 import styles from './product.scss';
 
 const items = [
@@ -53,6 +54,7 @@ class ProductPage extends Component {
       activeIndex: 0,
       modal: false,
       activeProduct: 2,
+      selectedView: 0,
     };
     this.load();
   }
@@ -93,8 +95,17 @@ class ProductPage extends Component {
     this.props.loadProducts();
   }
 
+  changeView = (index) => {
+    this.setState({ selectedView: index });
+  }
+
   render() {
-    const { activeIndex, activeProduct, modal } = this.state;
+    const {
+      activeIndex,
+      activeProduct,
+      modal,
+      selectedView,
+    } = this.state;
     const { products } = this.props;
     const slides = items.map(item => (
       <CarouselItem
@@ -116,6 +127,7 @@ class ProductPage extends Component {
               <Col xl={8} lg={8} md={12} xs={12}>
                 <div className="productLeft">
                   <h3>Cove Door Sensor</h3>
+                  <Switcher list={['Overview', 'Details']} selected={selectedView} onSelect={index => this.changeView(index)} />
                   <div className="productCarousel">
                     <Row>
                       <Carousel
