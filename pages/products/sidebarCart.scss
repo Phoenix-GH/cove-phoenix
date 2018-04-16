@@ -2,11 +2,25 @@
 
 .cartColumn {
   max-width: 368px;
-  margin-bottom: 15px;
+  margin: 120px 0 15px 0;
+  font-family: $font-gotham-rounded;
   h4 {
-    font-family: $font-gotham-rounded;
     font-weight: bold;
     font-size: 24px;
+  }
+  .headerText {
+    font-size: 16px;
+    color: $button-green;
+  }
+  .buttonRow {
+    width: 100%;
+    .detailsCol {
+      color: #008CFF;
+      font-weight: bold;
+      font-size: 16px;
+      margin: 51px 0 141px 0;
+      float: right;
+    }  
   }
 }
 
@@ -16,6 +30,7 @@
 
 .addToCartBtn {
   color: white;
+  width: 100%;
   height: 40px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
@@ -26,6 +41,6 @@
   font-family: $font-gotham-rounded;
   font-weight: bold;
   padding: 8px 8px 10px 10px;
-  margin: 8px 20px 28px 20px;
+  margin: 51px 0 28px 0;
   cursor: pointer;
 }
