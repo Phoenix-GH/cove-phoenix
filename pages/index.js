@@ -4,6 +4,7 @@ import Header from '../components/header';
 import PriceComparisonTable from '../components/priceComparisonTable';
 import Footer from '../components/footer/footer';
 import WatchVideoLink from '../components/watchVideoLink/watchVideoLink';
+import CustomizedRange from '../components/estimateSlider';
 import s from './index.scss';
 
 const coverSectionTitle = 'If it\'s Cove, it\'s covered.';
@@ -194,11 +195,7 @@ const Index = () => (
       <div className="savingsSection d-flex align-items-center">
         <h2>Savings so big, you can&apos;t help but love it!</h2>
         <p>The average consumer saves every year by choosing Cove over other alarm companies.</p>
-        <div className="savingsLabel">
-          <h3>$1200</h3>
-          <h6>In savings</h6>
-        </div>
-        <img src="/static/images/savingLine.png" alt="" />
+        <CustomizedRange />
       </div>
     </Row>
     <Row>
