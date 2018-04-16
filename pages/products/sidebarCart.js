@@ -17,9 +17,24 @@ class SidebarCart extends Component {
   }
 
   render() {
-    const { products, cart, detailAction } = this.props;
+    const {
+      products,
+      cart,
+      detailAction,
+      headerText,
+    } = this.props;
     return (
       <div className="cartColumn">
+        <Row>
+          <div className="headerText">
+            {headerText}
+          </div>
+          <div className="buttonRow">
+            <a href="#details" className="detailsCol" onClick={() => detailAction(0)}>
+              Details
+            </a>
+          </div>
+        </Row>
         {
           Object.keys(products).map(key =>
             (<CartAddon
@@ -31,13 +46,11 @@ class SidebarCart extends Component {
             />))
         }
         <Row>
-          <Col xs={12}>
-            <Link href="/coveclub">
-              <div className="addToCartBtn">
-                Add to cart
-              </div>
-            </Link>
-          </Col>
+          <Link href="/coveclub">
+            <div className="addToCartBtn">
+              Add to cart
+            </div>
+          </Link>
         </Row>
         <style jsx>{styles}</style>
       </div>
@@ -46,6 +59,7 @@ class SidebarCart extends Component {
 }
 
 SidebarCart.propTypes = {
+  headerText: PropTypes.string,
   products: PropTypes.object,
   cart: PropTypes.object,
   detailAction: PropTypes.func,
@@ -53,6 +67,7 @@ SidebarCart.propTypes = {
 };
 
 SidebarCart.defaultProps = {
+  headerText: '',
   products: null,
   cart: null,
   detailAction: () => {},

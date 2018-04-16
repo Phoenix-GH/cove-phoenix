@@ -41,6 +41,7 @@ const items = [
     caption: 'Slide 1',
   },
 ];
+const headerText = 'Cove Door sensors alow you to protect every entry point with ease. With Instant notifications and customizable sound alerts, you can know when poeple come into your home, and who checked in.';
 
 class ProductPage extends Component {
   static getInitialProps() {
@@ -155,7 +156,7 @@ class ProductPage extends Component {
                 </div>
               </Col>
               <Col xl={4} lg={4} md={0} sm={0} className="no-gutters">
-                <SidebarCart detailAction={this.toggle} />
+                <SidebarCart detailAction={this.toggle} headerText={headerText} />
               </Col>
             </Row>
           </div>
