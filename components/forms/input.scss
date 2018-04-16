@@ -1,0 +1,137 @@
+@import "variables";
+
+.inputBlockClass {
+  display: flex;
+  .coveInput {
+    position: relative;
+    border: 1px solid $grey-400;
+    border-radius: 4px;
+    padding: 2px 10px 2px 10px;
+    height: 40px;
+    flex: 1;
+    &::before {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      content: "";
+      height: 8px;
+      width: 1px;
+    }
+    &::after {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      content: "";
+      height: 8px;
+      width: 1px;
+    }
+    input {
+      border: 0px;
+      width: 100%;
+      caret-color: #00CDB9;
+      font-size: 16px;
+      height: 18px;
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
+      outline: none;
+      &.active {
+        margin-top: 0px;
+      }
+      &.inactive {
+        margin-top: 10px;
+      }
+    }
+    input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
+      font-size: 18px;
+      color: $grey-300;
+    }
+    input::-moz-placeholder { /* Firefox 19+ */
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
+      font-size: 18px;
+      color: $grey-300;
+    }
+    input:-ms-input-placeholder { /* IE 10+ */
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
+      font-size: 18px;
+      color: $grey-300;
+    }
+    input:-moz-placeholder { /* Firefox 18- */
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
+      font-size: 18px;
+      color: $grey-300;
+    }
+    .inputLabel {
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
+      font-size: 10px;
+      height: 10px;
+      color: $grey-300;
+      animation-name: bounceInUp;
+      animation-duration: 0.4s;
+      &.active {
+        display: block;
+      }
+      &.inactive {
+        display: none;
+      }
+    }
+  }
+  
+  .activeInput, .activeInput::before, .activeInput::after {
+    border-color: #00CDB9;
+  }
+  
+  @keyframes bounceInUp {
+    from,
+    60%,
+    75%,
+    90%,
+    to {
+      -webkit-animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+    }
+  
+    from {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 20px, 0);
+      transform: translate3d(0, 20px, 0);
+    }
+  
+    60% {
+      opacity: 0.2;
+      -webkit-transform: translate3d(0, 12px, 0);
+      transform: translate3d(0, 12px, 0);
+    }
+  
+    75% {
+      opacity: 0.4;
+      -webkit-transform: translate3d(0, 8px, 0);
+      transform: translate3d(0, 8px, 0);
+    }
+  
+    90% {
+      opacity: 0.7;
+      -webkit-transform: translate3d(0, 4px, 0);
+      transform: translate3d(0, 4px, 0);
+    }
+  
+    to {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+.errorMsg {
+  position: absolute;
+  top: 40px;
+  left: 20px;
+  font-size: 14px;
+  color: $alert-color;
+}

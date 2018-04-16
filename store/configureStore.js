@@ -12,6 +12,7 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import { persistStore, persistReducer } from 'redux-persist';
 import thunkMiddleware from 'redux-thunk';
 
+import { authMiddleware } from '../utils/api';
 import rootReducer from '../reducers';
 import rootSaga from '../sagas';
 
@@ -22,6 +23,7 @@ export default function configureStore(initialState, history) {
   const middleware = compose(composeWithDevTools(applyMiddleware(
     sagaMiddleware,
     loggerMiddleware,
+    authMiddleware,
     routerMiddleware(history),
     thunkMiddleware,
   )));

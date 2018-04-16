@@ -5,14 +5,14 @@ import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import cx from 'classnames';
 import withRedux from 'next-redux-wrapper';
-
 import initStore from '../store';
 import { loadProducts } from '../actions';
 import { createAccount, createOrder, completeOrder, verifyContact, authSession } from '../action';
+import { validatePhone } from '../redux/checkout/routine';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
 import CheckoutSidebar from '../components/checkoutSidebar/checkoutSidebar';
-import CustomerInfo from './checkout/customerInfo';
+import CustomerInfo from '../components/forms/customerInfo';
 import ShippingInfo from './checkout/shippingInfo';
 import PaymentInfo from './checkout/paymentInfo';
 import s from './checkout/checkout.scss';
@@ -43,13 +43,6 @@ class CheckoutPage extends Component {
 
   componentWillReceiveProps(nextProps) {
     const activeStage = this.props.stage ? this.props.stage : 'customer';
-    if (activeStage === 'customer') {
-      if (nextProps.auth.token !== this.props.auth.token) {
-        this.setState({ token: nextProps.auth.token });
-        localStorage.setItem('token', nextProps.auth.token);
-        this.createAccount();
-      }
-    }
   }
 
   onChangeHandler = (section, changeValue) => {
@@ -275,6 +268,7 @@ class CheckoutPage extends Component {
                   <CustomerInfo
                     onChangeHandler={this.onChangeHandler}
                     fields={this.state.customerInfo}
+                    validatePhone={this.props.validatePhone}
                   />
                 </div>
                 <div className={shippingPageClassName}>
@@ -371,6 +365,7 @@ const mapDispatchToProps = dispatch => ({
   createOrder: data => dispatch(createOrder(data)),
   completeOrder: data => dispatch(completeOrder(data)),
   verifyContact: data => dispatch(verifyContact(data)),
+  validatePhone: data => dispatch(validatePhone(data)),
 });
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(CheckoutPage);

@@ -1,16 +1,18 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import cart, * as fromCart from './cart';
 import products, * as fromProducts from './products';
 import payment, * as fromPayment from './payment';
 import customer, * as fromCustomer from './customer';
-import checkout, * as fromCheckout from './checkout';
-import auth, * as fromAuth from './auth';
+import checkoutRoutine from '../redux/checkout/reducer';
+import user from '../redux/user/reducer';
 
 export default combineReducers({
-  auth,
   cart,
   products,
   payment,
   customer,
-  checkout,
+  user,
+  checkoutRoutine,
+  form: formReducer,
 });
