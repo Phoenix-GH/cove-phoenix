@@ -10,7 +10,7 @@ const Footer = () => (
       <Row>
         {
           footerList.map(item => (
-            <FooterColumn title={item.title} list={item.list} width={item.width} />
+            <FooterColumn key={item.title} title={item.title} list={item.list} width={item.width} />
           ))
         }
         <SharingColumn />

@@ -15,7 +15,7 @@ const FooterColumn = (props) => {
             {list.map(item => (
               <li key={item.name}>
                 <Link href={item.link}>
-                  {item.name}
+                  <a href={item.link}>{item.name}</a>
                 </Link>
               </li>
             ))}

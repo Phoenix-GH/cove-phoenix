@@ -12,14 +12,16 @@ import {
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
-import initStore from '../store';
-import { loadProducts } from '../actions';
-import Layout from '../components/minimalLayout';
-import Header from '../components/header';
-import SidebarCart from '../components/sidebarCart';
-import ProductModal from '../components/productModal';
-import Footer from '../components/footer/footer';
+import initStore from '../../store';
+import { loadProducts } from '../../actions';
+import Layout from '../../components/minimalLayout';
+import Header from '../../components/header';
+import SidebarCart from './sidebarCart';
+import ProductModal from '../../components/productModal';
+import Footer from '../../components/footer/footer';
+import Switcher from '../../components/switcher/switcher';
 import styles from './product.scss';
+import WatchVideoLink from '../../components/watchVideoLink/watchVideoLink';
 
 const items = [
   {
@@ -41,11 +43,10 @@ const items = [
     caption: 'Slide 1',
   },
 ];
+const headerText = 'Cove Door sensors alow you to protect every entry point with ease. With Instant notifications and customizable sound alerts, you can know when poeple come into your home, and who checked in.';
 
 class ProductPage extends Component {
   static getInitialProps() {
-    //  store.dispatch({type: 'LOAD_PRODUCTS', payload: [{id:3}]});
-    // component will be able to read from store's state when rendered
     return { custom: 'custom' }; // you can pass some custom props to component from here
   }
   constructor(props) {
@@ -54,6 +55,7 @@ class ProductPage extends Component {
       activeIndex: 0,
       modal: false,
       activeProduct: 2,
+      selectedView: 0,
     };
     this.load();
   }
@@ -94,8 +96,17 @@ class ProductPage extends Component {
     this.props.loadProducts();
   }
 
+  changeView = (index) => {
+    this.setState({ selectedView: index });
+  }
+
   render() {
-    const { activeIndex, activeProduct, modal } = this.state;
+    const {
+      activeIndex,
+      activeProduct,
+      modal,
+      selectedView,
+    } = this.state;
     const { products } = this.props;
     const slides = items.map(item => (
       <CarouselItem
@@ -116,7 +127,8 @@ class ProductPage extends Component {
             <Row>
               <Col xl={8} lg={8} md={12} xs={12}>
                 <div className="productLeft">
-                  <h2>Cove Protect</h2>
+                  <h3>Cove Door Sensor</h3>
+                  <Switcher list={['Overview', 'Details']} selected={selectedView} onSelect={index => this.changeView(index)} />
                   <div className="productCarousel">
                     <Row>
                       <Carousel
@@ -154,90 +166,13 @@ class ProductPage extends Component {
                       </ul>
                     </Row>
                   </div>
-                  <div className="descriptionRow">
-                    <Row>
-                      <Col xs={6}>
-                        <img src="/static/images/24monitoring.png" alt="24/7 Professional Monitoring" />
-                      </Col>
-                      <Col xs={6}>
-                        <h2 className="titlePadding">24/7 Professional Monitoring</h2>
-                        <div className="description">
-                          With 24/7 Professinoal Monitoring,
-                          you know your home is protected all the time,
-                          not just when you are looking.
-                        </div>
-                        <Row>
-                          <ul>
-                            <li>5 Star Monitoring Station</li>
-                            <li>$19.99/mo</li>
-                            <li>No contracts</li>
-                          </ul>
-                        </Row>
-                      </Col>
-                    </Row>
-                  </div>
-                  <div className="descriptionRow">
-                    <Col xs={6}>
-                      <h2>Setup is easy.
-                        <br />Protection is tough.
-                      </h2>
-                      <div className="description">
-                        With the most unique and simple setup process in the entire industry,
-                          you are able to protect your home within minutes.
-                      </div>
-                    </Col>
-                  </div>
-                  <div className="descriptionRow">
-                    <Row>
-                      <Col xs={6}>
-                        <img src="/static/images/securityChart.png" alt="24/7 Professional Monitoring" />
-                      </Col>
-                      <Col xs={6}>
-                        <h2 className="grey">Less Markup.</h2>
-                        <h2 className="green">More Security.</h2>
-                      </Col>
-                    </Row>
-                  </div>
-                  <Row>
-                    <Col xs={12}>
-                      <Col xs={{ size: 6, offset: 3 }}>
-                        <h2 className="center titlePadding">
-                          Savings so big, you can&#39;t help but love it.
-                        </h2>
-                      </Col>
-                      <div className="saving center">
-                        Every year with Cove is more money in your pocket
-                        from what you would have paid with other security companies.
-                        <p>
-                          We cut out the middlemen markup.
-                        </p>
-                        <img src="/static/images/savingLine.png" alt="Live chart" />
-                      </div>
-                    </Col>
-                  </Row>
-                  <div className="descriptionRow">
-                    <Row>
-                      <Col xs={7}>
-                        <Row>
-                          <h2 className="grey titlePadding">
-                            100% satisfaction
-                            <br />guaranteed
-                          </h2>
-                          <div className="grey">
-                            Try out Cove for 60 days free, and if you don&#39;t like
-                            it more than your children, send it back for a complete refund.
-                          </div>
-                        </Row>
-                      </Col>
-                      <Col xs={5}>
-                        <img src="/static/images/riskFreeTrial.png" alt="Risk Free 60 Day Trial" />
-                      </Col>
-                    </Row>
+                  <div className="center">
+                    <WatchVideoLink title="Watch Install Video" size="medium" />
                   </div>
                 </div>
               </Col>
               <Col xl={4} lg={4} md={0} sm={0} className="no-gutters">
-                <SidebarCart detailAction={this.toggle} />
+                <SidebarCart detailAction={this.toggle} headerText={headerText} />
               </Col>
             </Row>
           </div>

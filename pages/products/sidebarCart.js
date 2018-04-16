@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Row, Col } from 'reactstrap';
+import { Row } from 'reactstrap';
 import PropTypes from 'prop-types';
-import CartAddon from '../components/cartAddon';
-import { changeQuantity } from '../actions';
+import CartAddon from '../../components/cartAddon';
+import { changeQuantity } from '../../actions';
 import styles from './sidebarCart.scss';
 
 class SidebarCart extends Component {
@@ -17,23 +17,24 @@ class SidebarCart extends Component {
   }
 
   render() {
-    const { products, cart, detailAction } = this.props;
+    const {
+      products,
+      cart,
+      detailAction,
+      headerText,
+    } = this.props;
     return (
       <div className="cartColumn">
-        <div className="cartHeader">
-          <h4>Cove Protect alarm system started pack</h4>
-          <ul>
-            <li>1 Cove Protect panel</li>
-            <li>2 Cove doors</li>
-            <li>1 Cove remote</li>
-          </ul>
-        </div>
-        <div className="cartSubHeader">
-          <h4>How many sensors should I add?</h4>
-          <p>Don’t worry too much, you can add more sensors later,
-            or send the ones you don’t need free of charge.
-          </p>
-        </div>
+        <Row>
+          <div className="headerText">
+            {headerText}
+          </div>
+          <div className="buttonRow">
+            <a href="#details" className="detailsCol" onClick={() => detailAction(0)}>
+              Details
+            </a>
+          </div>
+        </Row>
         {
           Object.keys(products).map(key =>
             (<CartAddon
@@ -44,33 +45,12 @@ class SidebarCart extends Component {
               changeQuantity={this.changeQuantity}
             />))
         }
-        <div className="packRow">
-          <Row>
-            <Col xs={{ size: 5, offset: 1 }}>
-              <div className="packName">
-                1 Cove Protect alarm system started pack
-              </div>
-            </Col>
-            <Col xs={6}>
-              <span className="bold">$249 or $4.15/mo</span>
-            </Col>
-          </Row>
-        </div>
         <Row>
-          <Col xs={12}>
-            <div className="footerLink">
-              Select Payment Plans in next section
+          <Link href="/coveclub">
+            <div className="addToCartBtn">
+              Add to cart
             </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12}>
-            <Link href="/coveclub">
-              <div className="addToCartBtn">
-                Add to cart
-              </div>
-            </Link>
-          </Col>
+          </Link>
         </Row>
         <style jsx>{styles}</style>
       </div>
@@ -79,6 +59,7 @@ class SidebarCart extends Component {
 }
 
 SidebarCart.propTypes = {
+  headerText: PropTypes.string,
   products: PropTypes.object,
   cart: PropTypes.object,
   detailAction: PropTypes.func,
@@ -86,6 +67,7 @@ SidebarCart.propTypes = {
 };
 
 SidebarCart.defaultProps = {
+  headerText: '',
   products: null,
   cart: null,
   detailAction: () => {},
