@@ -33,17 +33,6 @@
         width: 100%;
         max-width: 408px;
       }
-      a {
-        img {
-          width: 90px;
-          height: 90px;
-        }
-  
-        span {
-          font-size: 40px;
-          color: $warning--darker;
-        }
-      }
     }
     @media screen and (max-width: $width-lg) {
       .coverRightArea {

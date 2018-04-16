@@ -3,6 +3,7 @@ import Layout from '../components/minimalLayout';
 import Header from '../components/header';
 import PriceComparisonTable from '../components/priceComparisonTable';
 import Footer from '../components/footer/footer';
+import WatchVideoLink from '../components/watchVideoLink/watchVideoLink';
 import s from './index.scss';
 
 const coverSectionTitle = 'If it\'s Cove, it\'s covered.';
@@ -28,10 +29,7 @@ const Index = () => (
               <h1>
                 {coverSectionTitle}
               </h1>
-              <a href="/">
-                <img src="/static/images/watchVideo.png" alt="" />
-                <span>Watch video</span>
-              </a>
+              <WatchVideoLink link="/" />
             </div>
           </Col>
         </Row>
