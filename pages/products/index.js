@@ -21,6 +21,7 @@ import ProductModal from '../../components/productModal';
 import Footer from '../../components/footer/footer';
 import Switcher from '../../components/switcher/switcher';
 import styles from './product.scss';
+import WatchVideoLink from '../../components/watchVideoLink/watchVideoLink';
 
 const items = [
   {
@@ -164,6 +165,9 @@ class ProductPage extends Component {
                         </li>
                       </ul>
                     </Row>
+                  </div>
+                  <div className="center">
+                    <WatchVideoLink title="Watch Install Video" size="medium" />
                   </div>
                 </div>
               </Col>

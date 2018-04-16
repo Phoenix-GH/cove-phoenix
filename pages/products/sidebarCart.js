@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { Row, Col } from 'reactstrap';
+import { Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import CartAddon from '../../components/cartAddon';
 import { changeQuantity } from '../../actions';

@@ -1,0 +1,36 @@
+@import 'variables';
+
+a {
+  img {
+    width: 90px;
+    height: 90px;
+  }
+  span {
+    font-size: 40px;
+    color: $warning--darker;
+    vertical-align: middle;
+  }
+  &.medium {
+    img {
+      width: 42px;
+      height: 42px;
+    }
+    span {
+      font-size: 26px;
+    }
+  }
+}
+@media screen and (max-width: $width-lg) {
+  a {
+    span {
+      font-size: 40px;
+    }
+  }
+}
+@media screen and (max-width: $width-md) {
+  a {
+    span {
+      font-size: 20px;
+    }
+  }
+}
