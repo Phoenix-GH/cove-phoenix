@@ -61,3 +61,14 @@
     }
   }
 }
+
+.popover-header {
+  background: transparent;
+  $font-family: $font-gotham-rounded;
+  font-weight: bold;
+  font-size: 20px;
+  border: none;
+  div {
+    border-bottom: 1px solid $sidebar-green;
+  }
+}

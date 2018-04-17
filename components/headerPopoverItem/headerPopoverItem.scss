@@ -1,0 +1,17 @@
+@import 'variables';
+
+.headerPopoverItem {
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  border: 1px solid $grey-50;
+  padding: 13px 16px 13px 16px;
+  box-shadow: 0 3px 3px $grey-50;
+  margin-bottom: 10px;
+  .text {
+    font-size: 20px;
+    font-family: $font-gotham-rounded;
+    font-weight: medium;
+  }
+}
+

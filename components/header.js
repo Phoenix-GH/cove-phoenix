@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Nav, NavItem, NavLink, Navbar, NavbarToggler, NavbarBrand, Collapse, Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 import Link from 'next/link';
+import HeaderPopoverItem from './headerPopoverItem';
 import s from './header.scss';
 
 export default class Header extends React.Component {
@@ -62,9 +63,14 @@ export default class Header extends React.Component {
                         <NavItem>
                           <NavLink className="signinLink" id="Popover1" onClick={this.toggleSignupMenu}>Sign in</NavLink>
                           <Popover placement="bottom" isOpen={this.state.isSignupOpen} target="Popover1" toggle={this.toggleSignupMenu}>
-                            <PopoverHeader>Manage Accounts</PopoverHeader>
+                            <div className="popover-header">
+                              <div>
+                                Manage Accounts
+                              </div>
+                            </div>
                             <PopoverBody>
-                              
+                              <HeaderPopoverItem text="1154 N 190 E Lehi, UT 84048" />
+                              <HeaderPopoverItem text="678 W 1280 S Lehi, UT 84043" />
                             </PopoverBody>
                           </Popover>
                         </NavItem>
