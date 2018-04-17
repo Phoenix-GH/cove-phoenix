@@ -18,6 +18,7 @@ import Layout from '../../components/minimalLayout';
 import Header from '../../components/header';
 import SidebarCart from '../../components/sidebarCart';
 import ProductModal from '../../components/productModal';
+import CustomizedRange from '../../components/estimateSlider';
 import Footer from '../../components/footer/footer';
 import styles from './product.scss';
 
@@ -211,7 +212,7 @@ class ProductPage extends Component {
                         <p>
                           We cut out the middlemen markup.
                         </p>
-                        <img src="/static/images/savingLine.png" alt="Live chart" />
+                        <CustomizedRange />
                       </div>
                     </Col>
                   </Row>

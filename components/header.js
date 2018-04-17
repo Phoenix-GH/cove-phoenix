@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Nav, NavItem, NavLink, Navbar, NavbarToggler, NavbarBrand, Collapse } from 'reactstrap';
+import { Container, Row, Col, Nav, NavItem, NavLink, Navbar, NavbarToggler, NavbarBrand, Collapse, Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 import Link from 'next/link';
 import s from './header.scss';
 
@@ -10,12 +10,19 @@ export default class Header extends React.Component {
     this.logoPath = '/static/images/logoTeal.svg';
     this.state = {
       isOpen: false,
+      isSignupOpen: false,
     };
   }
 
   toggle = () => {
     this.setState({
       isOpen: !this.state.isOpen,
+    });
+  }
+
+  toggleSignupMenu = () => {
+    this.setState({
+      isSignupOpen: !this.state.isSignupOpen,
     });
   }
 
@@ -53,7 +60,13 @@ export default class Header extends React.Component {
                     <Col md={2} className="d-flex align-items-center justify-content-end">
                       <Nav navbar>
                         <NavItem>
-                          <Link href="/login"><NavLink href="" className="signinLink">Sign in</NavLink></Link>
+                          <NavLink className="signinLink" id="Popover1" onClick={this.toggleSignupMenu}>Sign in</NavLink>
+                          <Popover placement="bottom" isOpen={this.state.isSignupOpen} target="Popover1" toggle={this.toggleSignupMenu}>
+                            <PopoverHeader>Manage Accounts</PopoverHeader>
+                            <PopoverBody>
+                              
+                            </PopoverBody>
+                          </Popover>
                         </NavItem>
                       </Nav>
                     </Col>
