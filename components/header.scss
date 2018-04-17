@@ -8,12 +8,12 @@
   font-weight: 700;
 
   :global(.navLink) {
-    color: $primary-color;
+    color: $primary--darker;
     font-size: 18px;
   }
 
   :global(.signinLink) {
-    color: $primary-color;
+    color: $primary--darker;
     font-size: 14px;
   }
 
@@ -24,6 +24,7 @@
     font-size: 18px;
     $font-family: $font-gotham-rounded;
     font-weight: 700;
+    white-space: nowrap;
   }
 }
 
@@ -33,6 +34,7 @@
     display: none;
   }
 }
+
 .signup {
   -webkit-border-radius: 16px;
   -moz-border-radius: 16px;
