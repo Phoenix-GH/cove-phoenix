@@ -1,6 +1,7 @@
 import React from 'react';
 import { Container, Row, Col, Nav, NavItem, NavLink, Navbar, NavbarToggler, NavbarBrand, Collapse, Popover, PopoverHeader, PopoverBody } from 'reactstrap';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 import HeaderPopoverItem from './headerPopoverItem';
 import s from './header.scss';
 
@@ -27,6 +28,14 @@ export default class Header extends React.Component {
     });
   }
 
+  safetyText = calledBy => (
+    calledBy === 'products' ? 'Life Safety' : 'Smoke + Flood + CO Alarm'
+  );
+
+  medicalText = calledBy => (
+    calledBy === 'products' ? 'Medical Button' : 'Medical'
+  )
+
   render() {
     return (
       <div className="navbarContainer">
@@ -48,10 +57,10 @@ export default class Header extends React.Component {
                           <Link href="/"><NavLink href="" className="navLink">Alarm System</NavLink></Link>
                         </NavItem>
                         <NavItem>
-                          <Link href="/"><NavLink href="" className="navLink">Smoke + Flood + CO Alarm</NavLink></Link>
+                          <Link href="/"><NavLink href="" className="navLink">{this.safetyText(this.props.callingPage)}</NavLink></Link>
                         </NavItem>
                         <NavItem>
-                          <Link href="/"><NavLink href="" className="navLink">Medical</NavLink></Link>
+                          <Link href="/"><NavLink href="" className="navLink">{this.medicalText(this.props.callingPage)}</NavLink></Link>
                         </NavItem>
                         <NavItem>
                           <Link href="/"><NavLink href="" className="navLink">Camera</NavLink></Link>
@@ -94,3 +103,11 @@ export default class Header extends React.Component {
     );
   }
 }
+
+Header.propTypes = {
+  callingPage: PropTypes.string,
+};
+
+Header.defaultProps = {
+  callingPage: '',
+};

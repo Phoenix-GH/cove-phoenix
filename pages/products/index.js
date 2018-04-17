@@ -121,7 +121,7 @@ class ProductPage extends Component {
 
     return (
       <Layout>
-        <Header color="secondary" />
+        <Header color="secondary" callingPage="products" />
         <Container>
           <div className="productContent" >
             <Row>
