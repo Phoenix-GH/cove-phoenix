@@ -1,6 +1,9 @@
+@import 'variables';
+
 .sliderContainer {
   position: relative;
   margin-top: 140px;
+  width: 100%;
 }
 .savingsContainer {
   position: absolute;
@@ -13,8 +16,8 @@
   text-align: center;
   font-family: GothamRoundedBookItalic;
   display: none;
+  color: $accent-dark-color;
   h1 {
-    font-family: GothamRoundedBookItalic;
     font-size: 60px;
     margin-bottom: 0px;
   }
@@ -34,15 +37,19 @@
 .detailLabelTwo {
   left: 35%;
 }
+
 .detailLabelThree {
   left: 55%;
 }
+
 .detailLabelFour {
-  left: 75%;
+  left: calc(100% - 180px);
 }
+
 .detailLabelFive {
-  left: 95%;
+  left: calc(100% - 180px);
 }
+
 .stepContainer {
   position: absolute;
   width: 99%;
@@ -55,7 +62,7 @@
   width: 19.5%;
   height: 8px;
   border-radius: 4px;
-  background: #BEC2C5;
+  background: $grey-300;
   z-index: 2;
 }
 
@@ -70,24 +77,31 @@
 .stepIndicatorOne.stepIndicatorActive {
   opacity: .2;
 }
+
 .stepIndicatorTwo {
   left: 20%;
 }
+
 .stepIndicatorTwo.stepIndicatorActive {
   opacity: .4;
 }
+
 .stepIndicatorThree {
   left: 40%;
 }
+
 .stepIndicatorThree.stepIndicatorActive {
   opacity: .6;
 }
+
 .stepIndicatorFour {
   left: 60%;
 }
+
 .stepIndicatorFour.stepIndicatorActive {
   opacity: .8;
 }
+
 .stepIndicatorFive {
   left: 80%;
 }
