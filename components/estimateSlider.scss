@@ -1,3 +1,5 @@
+@import 'variables';
+
 .sliderContainer {
   position: relative;
   margin-top: 140px;
@@ -14,8 +16,8 @@
   text-align: center;
   font-family: GothamRoundedBookItalic;
   display: none;
+  color: $accent-dark-color;
   h1 {
-    font-family: GothamRoundedBookItalic;
     font-size: 60px;
     margin-bottom: 0px;
   }
@@ -39,10 +41,10 @@
   left: 55%;
 }
 .detailLabelFour {
-  left: 75%;
+  left: calc(100% - 180px);
 }
 .detailLabelFive {
-  left: 95%;
+  left: calc(100% - 180px);
 }
 .stepContainer {
   position: absolute;
@@ -56,7 +58,7 @@
   width: 19.5%;
   height: 8px;
   border-radius: 4px;
-  background: #BEC2C5;
+  background: $grey-300;
   z-index: 2;
 }
 
