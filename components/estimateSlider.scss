@@ -4,11 +4,17 @@
   position: relative;
   margin-top: 140px;
   width: 100%;
+  @media screen and (max-width: $width-md) {
+    margin-top: 60px;
+  }
 }
 .savingsContainer {
   position: absolute;
   width: 100%;
   top: -120px;
+  @media screen and (max-width: $width-md) {
+    top: -40px;
+  }
 }
 
 .detailLabel {
@@ -23,6 +29,14 @@
   }
   p {
     font-size: 20px;
+  }
+  @media screen and (max-width: $width-md) {
+    h1 {
+      font-size: 30px;
+    }
+    p {
+      display: none;
+    }
   }
 }
 
@@ -43,11 +57,11 @@
 }
 
 .detailLabelFour {
-  left: calc(100% - 180px);
+  left: 75%;
 }
 
 .detailLabelFive {
-  left: calc(100% - 180px);
+  left: 95%;
 }
 
 .stepContainer {
