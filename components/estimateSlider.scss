@@ -37,15 +37,19 @@
 .detailLabelTwo {
   left: 35%;
 }
+
 .detailLabelThree {
   left: 55%;
 }
+
 .detailLabelFour {
   left: calc(100% - 180px);
 }
+
 .detailLabelFive {
   left: calc(100% - 180px);
 }
+
 .stepContainer {
   position: absolute;
   width: 99%;
@@ -73,24 +77,31 @@
 .stepIndicatorOne.stepIndicatorActive {
   opacity: .2;
 }
+
 .stepIndicatorTwo {
   left: 20%;
 }
+
 .stepIndicatorTwo.stepIndicatorActive {
   opacity: .4;
 }
+
 .stepIndicatorThree {
   left: 40%;
 }
+
 .stepIndicatorThree.stepIndicatorActive {
   opacity: .6;
 }
+
 .stepIndicatorFour {
   left: 60%;
 }
+
 .stepIndicatorFour.stepIndicatorActive {
   opacity: .8;
 }
+
 .stepIndicatorFive {
   left: 80%;
 }

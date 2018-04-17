@@ -206,14 +206,11 @@ const Index = () => (
               <h2>The most simple setup process ever.</h2>
               <p>Our unprecedented setup process makes it easy for everyone.</p>
               <ol>
-                <li>Plug in your panel</li>
+                <li>Plug in your panel.</li>
                 <li>Follow on screen instructions.</li>
                 <li>There is not step 3.</li>
               </ol>
-              <a className="watchVideoLink" href="/">
-                <img src="/static/images/watchVideo.png" alt="" />
-                <span>Watch install video</span>
-              </a>
+              <WatchVideoLink link="/" size="small" title="Watch install video" />
             </div>
           </Col>
           <Col xs={0} sm={0} md={4}>

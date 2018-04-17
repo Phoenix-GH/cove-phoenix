@@ -19,6 +19,15 @@ a {
       font-size: 26px;
     }
   }
+  &.small {
+    img {
+      width: 32px;
+      height: 32px;
+    }
+    span {
+      font-size: 19px;
+    }
+  }
 }
 @media screen and (max-width: $width-lg) {
   a {
