@@ -1,0 +1,84 @@
+@import 'variables';
+
+.productContent {
+  padding: 119px 0 186px 0;
+  width: 100%;
+  color: $grey-600;
+  font-family: $font-gotham-rounded;
+  .productRow {
+    margin: 0 40px 80px 40px;
+    background-color: $secondary--lighter;
+    border-radius: 5px;
+    display: flex;
+    .productLeft {
+      padding: 47px 38px 42px 71px;
+      max-width: 50%;
+      h1 {
+        margin-bottom: 35px;
+        font-weight: bold;
+        font-size: 55px;
+      }
+      .productDescription {
+        margin-top: 43px;
+        font-size: 25px;
+      }
+      ul {
+        list-style: none;
+        padding-left: 0;
+        margin-top: 85px;
+        display: flex;
+        li {
+          font-size: 20px;
+        }
+      }
+      .buttonRow {
+        margin-top: 45px;
+        .extraButton {
+          font-size: 20px;
+          font-weight: bold;
+          border: none;
+          background: none;
+          margin-left: 41px;
+          color: $grey-600;
+        }
+      }
+    }
+    .carouselRight {
+      width: 100%;
+      position: relative;
+      .carouselLogo {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 7.5vw;
+        max-width: 108px;
+      }
+    }
+    h3 {
+      font-size: 35px;
+      font-family: $font-gotham-rounded;
+      font-weight: bold;
+      color: $button-green;
+      margin-bottom: 55px;
+    }
+    .grey {
+      color: $grey-1000; 
+    }
+    .green {
+      color: $primary-color;
+    }
+    
+    .buttonRow {
+      display: flex;
+    }
+    :global {
+      .carousel-item {
+        border-radius: 16px;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
