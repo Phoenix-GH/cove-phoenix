@@ -5,6 +5,7 @@
   width: 100%;
   color: $grey-600;
   font-family: $font-gotham-rounded;
+  flex-flow: wrap;
   .productRow {
     margin: 0 40px 80px 40px;
     background-color: $secondary--lighter;
@@ -31,9 +32,22 @@
         li {
           font-size: 20px;
         }
+        &.greenList {
+          li {
+            color: #01A891;
+            font-size: 25px;
+            margin-bottom: 25px;
+          }
+        }
       }
       .buttonRow {
         margin-top: 45px;
+        display: flex;
+        align-items: center;
+        .price {
+          font-size: 25px;
+          margin-right: 203px;
+        }
         .extraButton {
           font-size: 20px;
           font-weight: bold;
@@ -53,6 +67,10 @@
         right: 0;
         width: 7.5vw;
         max-width: 108px;
+      }
+      .categoryPhoto {
+        width: 100%;
+        max-width: 731px;
       }
     }
     .productLeft {
@@ -77,6 +95,7 @@
         .productPhoto {
           margin-top: 25px;
         }
+        
         .navigations {
           position: absolute;
           bottom: 150px;
