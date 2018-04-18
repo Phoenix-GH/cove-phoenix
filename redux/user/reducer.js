@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { tokenRoutine } from './routine';
+import { tokenR } from './routine';
 
 const initialState = {
   auth: {
@@ -9,10 +9,10 @@ const initialState = {
 };
 
 const handlers = {
-  [tokenRoutine.TRIGGER]: state => ({ ...state, loading: true }),
-  [tokenRoutine.SUCCESS]: (state, payload) => ({ ...state, token: payload }),
-  [tokenRoutine.FAILURE]: (state, payload) => ({ ...state, error: payload }),
-  [tokenRoutine.FULFILL]: state => ({ ...state, loading: false }),
+  [tokenR.TRIGGER]: state => ({ ...state, loading: true }),
+  [tokenR.SUCCESS]: (state, payload) => ({ ...state, token: payload }),
+  [tokenR.FAILURE]: (state, payload) => ({ ...state, error: payload }),
+  [tokenR.FULFILL]: state => ({ ...state, loading: false }),
 };
 
 const auth = (state = initialState.auth, { type, payload }) => {

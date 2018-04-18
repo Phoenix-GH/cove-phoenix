@@ -3,7 +3,6 @@ import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
 import Input from './input';
-import { validatePhoneHandler } from '../../redux/checkout/routine';
 import {
   required,
   email,
@@ -23,9 +22,9 @@ const normalizeStateInput = (value) => {
   return (value && normalizeState(value)) ? normalizeState(value) : value;
 };
 
-const CustomerInfo = ({ onChangeHandler, additionalEC, validatePhone }) => {
+const CustomerInfo = ({ onChangeHandler, additionalEC, createAccountR }) => {
   const ec2RowClassName = cx({ 'd-none': additionalEC });
-  console.log('qqq', validatePhoneHandler, validatePhone, validatePhoneHandler.TRIGGER, validatePhone.TRIGGER);
+  console.log('qqq');
   // validatePhoneHandler.trigger();
   return (
     <div>
@@ -188,10 +187,11 @@ const CustomerInfo = ({ onChangeHandler, additionalEC, validatePhone }) => {
               />
             </Col>
           </Row>
-          <button onClick={() => { validatePhone.trigger(); }}>Click</button>
+          
         </div>
         <style jsx>{style}</style>
       </form>
+      <button onClick={() => { createAccountR(); }}>Click</button>
     </div>
   );
 };
@@ -204,7 +204,5 @@ CustomerInfo.defaultProps = {
 };
 
 export default reduxForm({
-  form: 'checkout',  //Form name is same
-  destroyOnUnmount: false,
-  forceUnregisterOnUnmount: true,  // <------ unregister fields on unmount
+  form: 'checkout_customer',
 })(CustomerInfo);

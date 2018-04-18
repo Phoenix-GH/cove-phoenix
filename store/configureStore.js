@@ -12,6 +12,7 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import { persistStore, persistReducer } from 'redux-persist';
 import thunkMiddleware from 'redux-thunk';
 
+import { tokenR } from '../redux/user/routine';
 import { authMiddleware } from '../utils/api';
 import rootReducer from '../reducers';
 import rootSaga from '../sagas';
@@ -41,5 +42,6 @@ export default function configureStore(initialState, history) {
 
   sagaMiddleware.run(rootSaga);
   persistStore(store);
+  store.dispatch(tokenR.trigger());
   return store;
 }

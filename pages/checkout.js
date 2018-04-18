@@ -8,7 +8,7 @@ import withRedux from 'next-redux-wrapper';
 import initStore from '../store';
 import { loadProducts } from '../actions';
 import { createAccount, createOrder, completeOrder, verifyContact, authSession } from '../action';
-import { validatePhone } from '../redux/checkout/routine';
+import { validateContactR, createAccountR } from '../redux/checkout/routine';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
 import CheckoutSidebar from '../components/checkoutSidebar/checkoutSidebar';
@@ -268,7 +268,7 @@ class CheckoutPage extends Component {
                   <CustomerInfo
                     onChangeHandler={this.onChangeHandler}
                     fields={this.state.customerInfo}
-                    validatePhone={this.props.validatePhone}
+                    createAccountR={this.props.createAccountR}
                   />
                 </div>
                 <div className={shippingPageClassName}>
@@ -358,14 +358,8 @@ const mapStateToProps = ({
   auth,
 });
 
-const mapDispatchToProps = dispatch => ({
-  loadProducts: bindActionCreators(loadProducts, dispatch),
-  authSession: () => dispatch(authSession()),
-  createAccount: data => dispatch(createAccount(data)),
-  createOrder: data => dispatch(createOrder(data)),
-  completeOrder: data => dispatch(completeOrder(data)),
-  verifyContact: data => dispatch(verifyContact(data)),
-  validatePhone: data => dispatch(validatePhone(data)),
-});
+const mapDispatchToProps = {
+  createAccountR,
+};
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(CheckoutPage);

@@ -1,57 +1,72 @@
-import { SubmissionError } from 'redux-form';
-import { put, call, takeLatest , takeEvery} from 'redux-saga/effects';
-import { validatePhone } from './routine';
+import _ from 'lodash';
+import normalizeState from 'us-states-normalize';
+import { getFormValues, touch, getFormMeta, getFormSyncErrors, isValid, getFormInitialValues } from 'redux-form';
+import { put, call, takeLatest, takeEvery, select } from 'redux-saga/effects';
+import { validateContactR, createAccountR } from './routine';
 import coveAPI from '../../utils/api';
 
-// function* validateFormWatcherSaga() {
-//   // run validation on every trigger action
-//   yield takeEvery(validatePhone.TRIGGER, validate)
-// }
- 
-// function* validate(action) {
-//   // redux-form pass form values and component props to submit handler
-//   // so they passed to trigger action as an action payload
-//   const { values, props } = action.payload;
+const objectKeyToStr = (obj, resultArr, currentVal = '') => {
+  _.each(obj, (val, key) => {
+    const keyStr = currentVal ? `${currentVal}.${key}` : key;
+    if (_.isObject(val)) {
+      objectKeyToStr(val, resultArr, keyStr);
+    } else {
+      resultArr.push(keyStr);
+    }
+  });
+};
 
-//   if (!isValid(values, props)) {
-//     // client-side validation failed
-//     const errors = getFormErrors(values, props);
-//     // reject promise given to redux-form, pass errors as SubmissionError object according to redux-form docs
-//     yield put(validatePhone.failure(new SubmissionError(errors)));
-//   } else {
-//     // send form data to server
-//     yield call(sendFormDataToServer, values);
-//   }
+const fieldsToFieldNameArray = (fields) => {
+  const fieldNames = [];
+  objectKeyToStr(fields, fieldNames);
+  return fieldNames;
+};
 
-//   // trigger fulfill action to end routine lifecycle
-//   yield put(validatePhone.fulfill());
-// }
+function getCreateAccountRequest(formData) {
+  const accountRequest = _.cloneDeep(formData);
+  accountRequest.customer1.phone = accountRequest.customer1.phone.split('-').join('');
+  accountRequest.monitorAddress.state = normalizeState(accountRequest.monitorAddress.state);
+  accountRequest.ec1.phone = accountRequest.ec1.phone.split('-').join('');
+  accountRequest.ec2.phone = accountRequest.ec2.phone.split('-').join('');
+  accountRequest.shipAddress = { use: 'monitorAddress' };
+  accountRequest.billAddress = { use: 'monitorAddress' };
+  
+  console.log('select ',accountRequest)
+  return accountRequest;
+};
 
-// function* sendFormDataToServer(formData) {
-//   console.log('trigger')
-//   try {
-//     console.log('trigger')
-//     // trigger request action
-//     yield put(validatePhone.request());
-//     // perform request to '/submit' to send form data
-//     const response = yield call(apiClient.request, '/submit', formData);
-//     // if request successfully finished
-//     yield put(validatePhone.success(response.data));
-//   } catch (error) {
-//     // if request failed
-//     yield put(validatePhone.failure(new SubmissionError({ _error: error.message })));
-//   }
-// }
-
-function* validatePhoneCall() {
+function* validateContact() {
   try {
-    yield put(validatePhone.request());
-    const response = call(coveAPI, { url: '/meliae/verifyContact', data: { phone: 8652071753 }});
+    yield put(validateContactR.request());
+    const response = call(coveAPI, { url: '/meliae/verifyContact', data: { phone: 8652071753 } });
   } catch (err) {
-    
+    yield put(validateContactR.failure());
+  }
+}
+
+function* createAccount() {
+  try {
+   
+    const fields =  yield select(getFormSyncErrors('checkout_customer'));
+    const fieldNames = fieldsToFieldNameArray(fields);
+    console.log('ccc',fields,fieldNames, yield select(isValid('checkout_customer')))
+    yield put(createAccountR.request());
+    if (yield select(isValid('checkout_customer'))) {
+      const formData = yield select(getFormValues('checkout_customer'));
+      const account = yield getCreateAccountRequest(formData);
+      console.log('formdata', formData, account)
+      const response = yield call(coveAPI, { url: '/meliae/createAccount', method: 'POST', data: account });
+    } else {
+      yield put(touch('checkout_customer', ...fieldNames));
+    } 
+  } catch (err) {
+    yield put(createAccountR.failure(err));
+  } finally {
+    yield put(createAccountR.fulfill());
   }
 }
 
 export default function* () {
-  yield takeEvery(validatePhone.TRIGGER, (data) => { console.log('aaaaa', data ); });
+  yield takeEvery(validateContactR.TRIGGER, (data) => { console.log('aaaaa', data); });
+  yield takeLatest(createAccountR.TRIGGER, createAccount);
 }

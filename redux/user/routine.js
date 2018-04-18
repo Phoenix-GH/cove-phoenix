@@ -1,4 +1,4 @@
 import { createRoutine } from 'redux-saga-routines';
 
-export const tokenRoutine = createRoutine('USER_TOKEN');
-export const authRoutine = createRoutine('USER_AUTH');
+export const tokenR = createRoutine('USER_TOKEN');
+export const authR = createRoutine('USER_AUTH');

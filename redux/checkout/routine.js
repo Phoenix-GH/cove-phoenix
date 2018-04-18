@@ -1,7 +1,5 @@
-import { createRoutine, bindRoutineToReduxForm } from 'redux-saga-routines';
+import { createRoutine } from 'redux-saga-routines';
 
-export const createAccount = createRoutine('CREATE_ACCOUNT');
-export const validateAddress = createRoutine('VALIDATE_ADDRESS');
-export const validatePhone = createRoutine('VALIDATE_PHONE');
-export const submitFormHandler = bindRoutineToReduxForm(createAccount);
-export const validatePhoneHandler = bindRoutineToReduxForm(validatePhone);
+export const createAccountR = createRoutine('CHECKOUT_CREATE_ACCOUNT');
+export const validateContactR = createRoutine('CHECKOUT_VALIDATE_CONTACT');
+

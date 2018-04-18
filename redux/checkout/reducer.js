@@ -1,4 +1,4 @@
-import { validatePhone } from './routine';
+import { validateContactR } from './routine';
 
 const initialState = {
   data: null,
@@ -8,22 +8,22 @@ const initialState = {
 
 export default function checkoutReducer(state = initialState, action) {
   switch (action.type) {
-    case validatePhone.TRIGGER:
+    case validateContactR.TRIGGER:
       return {
         ...state,
         loading: true,
       };
-    case validatePhone.SUCCESS:
+    case validateContactR.SUCCESS:
       return {
         ...state,
         data: action.payload,
       };
-    case validatePhone.FAILURE:
+    case validateContactR.FAILURE:
       return {
         ...state,
         error: action.payload,
       };
-    case validatePhone.FULFILL:
+    case validateContactR.FULFILL:
       return {
         ...state,
         loading: false,

@@ -1,25 +1,24 @@
 import { put, call, takeLatest , takeEvery} from 'redux-saga/effects';
-import { tokenRoutine } from './routine';
+import { tokenR } from './routine';
 import coveAPI from '../../utils/api';
-
 
 function* getToken(formData) {
   console.log('trigger')
   try {
     console.log('trigger')
     // trigger request action
-    yield put(tokenRoutine.request());
+    yield put(tokenR.request());
     // perform request to '/submit' to send form data
     const response = yield call(coveAPI, { url: '/session' });
     // if request successfully finished
     console.log('resposne', response);
-    yield put(tokenRoutine.success(response.data.token));
+    yield put(tokenR.success(response.data.token));
   } catch (error) {
     // if request failed
-    yield put(tokenRoutine.failure(new SubmissionError({ _error: error.message })));
+    yield put(tokenR.failure(new SubmissionError({ _error: error.message })));
   }
 }
 
 export default function* () {
-  yield takeLatest(tokenRoutine.TRIGGER, getToken);
+  yield takeLatest(tokenR.TRIGGER, getToken);
 }
