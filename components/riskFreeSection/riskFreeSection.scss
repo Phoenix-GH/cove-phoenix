@@ -1,0 +1,39 @@
+@import 'variables';
+
+.riskFreeSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: $grey-1000;
+  padding-bottom: 5vw;
+  padding-top: 5vw;
+  text-align: center;
+  img {
+    width: 25vw;
+  }
+  h2 {
+    font-size: 60px;
+    font-family: $font-gotham-rounded;
+    font-weight: 700;
+    margin-top: 2vw;
+    width: 90%;
+  }
+  p {
+    width: 60%;
+    font-size: 16px;
+    font-family: $font-open-sans;
+    font-weight: 300;
+    max-width: 742px;
+  }
+  @media screen and (max-width: $width-md) {
+    img {
+      width: 100%;
+      max-width: 334px;
+    }
+    h2, p {
+     display: none;
+    }
+  }
+}
