@@ -16,8 +16,8 @@ const Input = ({
   },
 }) => {
   const toggleClass = cx({
-    active,
-    inactive: !active,
+    active:  input.value.length > 0,
+    inactive: input.value.length === 0,
   });
   const inputLabelClass = cx('inputLabel', toggleClass);
   const coveInputClass = cx('coveInput', {
