@@ -11,6 +11,9 @@
     background-color: $secondary--lighter;
     border-radius: 5px;
     display: flex;
+    &.bordered {
+      border: 1px solid #22405c;
+    }
     h1 {
       margin-bottom: 35px;
       font-weight: bold;
@@ -132,6 +135,26 @@
         img {
           width: 100%;
         }
+      }
+    }
+  }
+  .tabBars {
+    display: flex;
+    flex-flow: row;
+    .tabBarItem {
+      outline: none;
+      background-color: $secondary--lighter;
+      margin-left: 72px;
+      padding: 16px 32px 16px 32px;
+      font-size: 45px;
+      font-weight: bold;
+      border: 1px solid #22405c;
+      border-top-left-radius: 5px;
+      border-top-right-radius: 5px;
+      margin-bottom: -1px;
+      color: $grey-600;
+      &.selected {
+        border-bottom: none;
       }
     }
   }

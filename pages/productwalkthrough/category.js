@@ -11,19 +11,32 @@ class Category extends Component {
       activeIndex: 0,
     };
   }
+
+  selectTab = (index) => {
+    this.setState({ activeIndex: index });
+  }
+
   render() {
     const {
       activeIndex,
     } = this.state;
+
     const { categories } = this.props;
     return (
-      <div className="productContent" >
-        <div className="productRow">
+      <div>
+        <div className="tabBars">
+          {
+            categories.map((item, index) => (
+              <button className={`tabBarItem ${activeIndex === index ? ' selected' : ''} `} onClick={() => this.selectTab(index)}>{item.name}</button>
+            ))
+          }
+        </div>
+        <div className="productRow bordered">
           <div className="carouselLeft">
-            <h1>Guard</h1>
+            <h1>{categories[activeIndex].name}</h1>
             <div className="descriptionRow">
               <div className="productDescription">
-                {categories[0].description}
+                {categories[activeIndex].description}
               </div>
             </div>
             <ul className="greenList">
@@ -34,12 +47,12 @@ class Category extends Component {
               </Col>
             </ul>
             <div className="buttonRow">
-              <div className="price">${categories[0].price}</div>
+              <div className="price">${categories[activeIndex].price}</div>
               <GreenButton title="See details" />
             </div>
           </div>
           <div className="carouselRight">
-            <img src={categories[0].src} alt="categoryPhoto" className="categoryPhoto" />
+            <img src={categories[activeIndex].src} alt="categoryPhoto" className="categoryPhoto" />
           </div>
         </div>
         <style jsx>{styles}</style>

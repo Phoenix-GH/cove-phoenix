@@ -85,6 +85,30 @@ const categories = [
     price: 499,
     src: '/static/images/categoryArmor.png',
   },
+  {
+    name: 'Armor',
+    description: 'With Guard, you will have the most comprehensive security with not only protection from burglars but also fires, floods, and CO.',
+    price: 499,
+    src: '/static/images/categoryArmor.png',
+  },
+  {
+    name: 'Cover',
+    description: 'With Guard, you will have the most comprehensive security with not only protection from burglars but also fires, floods, and CO.',
+    price: 499,
+    src: '/static/images/categoryArmor.png',
+  },
+  {
+    name: 'Defense',
+    description: 'With Guard, you will have the most comprehensive security with not only protection from burglars but also fires, floods, and CO.',
+    price: 499,
+    src: '/static/images/categoryArmor.png',
+  },
+  {
+    name: 'Shield',
+    description: 'With Guard, you will have the most comprehensive security with not only protection from burglars but also fires, floods, and CO.',
+    price: 499,
+    src: '/static/images/categoryArmor.png',
+  },
 ];
 
 const guardDescription = 'With Guard, you will have the most comprehensive security with not only protection from burlars but also fires, floods, and CO.';
