@@ -94,8 +94,6 @@
     margin-bottom: 20px;
     text-align: center;
     position: relative;
-    -webkit-box-shadow: 0px 6px 3px 0px rgba(44, 50, 57, .1);
-    -moz-box-shadow: 0px 6px 3px 0px rgba(44, 50, 57, .1);
     box-shadow: 0px 6px 3px 0px rgba(44, 50, 57, .1);
     h4 {
       font-size: 24px;
@@ -120,14 +118,9 @@
       position: absolute;
       left: -2px;
       bottom: 10px;
-      background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
       background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
       border-radius: 3px 0px 0px 0px;
       filter: blur(1px);
-      -webkit-filter: blur(1px);
-      -moz-filter: blur(1px);
-      -o-filter: blur(1px);
-      -ms-filter: blur(1px);
     }
     &::after {
       content: "";
@@ -135,14 +128,9 @@
       position: absolute;
       right: -3px;
       bottom: 10px;
-      background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
       background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
       border-radius: 0px 3px 0px 0px;
       filter: blur(1px);
-      -webkit-filter: blur(1px);
-      -moz-filter: blur(1px);
-      -o-filter: blur(1px);
-      -ms-filter: blur(1px);
     }
     @media (max-width: 991px) {
       height: 560px;
@@ -281,8 +269,6 @@
     color: #FFFFFF;
     width: 130px;
     height: 40px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
     border-radius: 5px;
     background: $secondary-color;
     font-size: 16px;
