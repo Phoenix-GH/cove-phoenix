@@ -22,20 +22,58 @@ import styles from './productWalkthrough.scss';
 
 const items = [
   {
-    src: '/static/images/workthrough/product1.png',
+    src: '/static/images/workthrough/product-1.png',
     name: 'Cove Protect Panel',
     description: 'The Cove Protect security panel has a 7” touchscreen, Cove LiveAssist to communicate with the 24/7 professional monitoring station, an 85 decibel siren, and much more. It can either be mounted on the wall or placed on a table with the included stand.',
+    placement: '/static/images/workthrough/placement-1.png',
   },
   {
-    src: '/static/images/workthrough/product2.png',
-    title: 'Cove Motion Sensor',
-    descriptio: 'The Cove Protect security panel has a 7” touchscreen, Cove LiveAssist to communicate with the 24/7 professional monitoring station, an 85 decibel siren, and much more. It can either be mounted on the wall or placed on a table with the included stand.',
+    src: '/static/images/workthrough/product-2.png',
+    name: 'Cove Motion Sensor',
+    description: 'The Cove Protect security panel has a 7” touchscreen, Cove LiveAssist to communicate with the 24/7 professional monitoring station, an 85 decibel siren, and much more. It can either be mounted on the wall or placed on a table with the included stand.',
+    placement: '/static/images/workthrough/placement-2.png',
   },
   {
-    src: 'http://127.0.0.1:3000/static/images/placeholderBig.png',
-    thumb: '/static/images/placeholderThumb.png',
-    altText: 'Slide 1',
-    caption: 'Slide 1',
+    src: '/static/images/workthrough/product-3.png',
+    name: 'Cove Siren',
+    description: 'The Cove siren is built right into the 7” touch screen so you don’t need to worry about buying it extra. It is loud enough to make sure whoever came into your home is leaving quickly.',
+    placement: '/static/images/workthrough/placement-3.png',
+  },
+  {
+    src: '/static/images/workthrough/product-4.png',
+    name: 'Cove Panic Button',
+    description: 'The panic button is designed for not only burlgar emergencies but also medical and fire emergencies. If you ever need help, just place the panic button in an accessible place so that you can quickly get to it.',
+    placement: '/static/images/workthrough/placement-4.png',
+  },
+  {
+    src: '/static/images/workthrough/product-5.png',
+    name: 'Cove Freeze Sensor',
+    description: 'The Cove flood/freeze sensor is designed to make sure your home is always safe from the elements and the accidents.',
+    placement: '/static/images/workthrough/placement-5.png',
+  },
+  {
+    src: '/static/images/workthrough/product-6.png',
+    name: 'Cove Freeze Sensor',
+    description: 'Never let a fire ruin your life and destroy those priceless memories that are within the walls of your home.',
+    placement: '/static/images/workthrough/placement-6.png',
+  },
+  {
+    src: '/static/images/workthrough/product-7.png',
+    name: 'Cove Flood Sensor',
+    description: 'The Cove flood/freeze sensor is designed to make sure your home is always safe from the elements and the accidents.',
+    placement: '/static/images/workthrough/placement-7.png',
+  },
+  {
+    src: '/static/images/workthrough/product-8.png',
+    name: 'Cove CO Detector',
+    description: 'Cove doesn’t want anything to happen to any Americans, and our mission to provide CO Detectors in every home is as real as can be. Avoid the silent killer today.',
+    placement: '/static/images/workthrough/placement-8.png',
+  },
+  {
+    src: '/static/images/workthrough/product-9.png',
+    name: 'Cove Entry Sensors',
+    description: 'With our entry sensor, you are able to protect every part of the home without ever having to worry about intruders entering while you are sleeping or away.',
+    placement: '/static/images/workthrough/placement-9.png',
   },
 ];
 
@@ -79,7 +117,6 @@ class ProductWalkthrough extends Component {
   toggle = (productId) => {
     this.setState({
       modal: !this.state.modal,
-      activeProduct: productId,
     });
   }
 
@@ -87,8 +124,7 @@ class ProductWalkthrough extends Component {
     this.props.loadProducts();
   }
 
-  changeView = (index) => {
-    this.setState({ selectedView: index });
+  changeView = () => {
   }
 
   render() {
@@ -113,7 +149,7 @@ class ProductWalkthrough extends Component {
         <Header color="secondary" />
         <div className="productContent" >
           <div className="productRow">
-            <div className="productLeft">
+            <div className="carouselLeft">
               <h1>Guard</h1>
               <div className="productDescription">
                 With Guard, you will have the most comprehensive security with not only protection from burlars but also fires, floods, and CO.
@@ -156,7 +192,7 @@ class ProductWalkthrough extends Component {
               <img src="/static/images/riskFreeTrial.png" alt="" className="carouselLogo" />
             </div>
           </div>
-          <ProductCarousel products={[]} />
+          <ProductCarousel products={items} />
         </div>
         <Footer />
         <style jsx>{styles}</style>

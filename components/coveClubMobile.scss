@@ -93,13 +93,8 @@
       position: absolute;
       left: -2px;
       top: 0px;
-      background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
       background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
       filter: blur(1px);
-      -webkit-filter: blur(1px);
-      -moz-filter: blur(1px);
-      -o-filter: blur(1px);
-      -ms-filter: blur(1px);
     }
     &::after {
       height: 100%;
@@ -107,13 +102,8 @@
       position: absolute;
       right: -3px;
       top: 0px;
-      background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0)), to(rgba(44, 50, 57, .2)));
       background: linear-gradient(-90deg, rgba(255, 255, 255, 0), rgba(44, 50, 57, .2));
       filter: blur(1px);
-      -webkit-filter: blur(1px);
-      -moz-filter: blur(1px);
-      -o-filter: blur(1px);
-      -ms-filter: blur(1px);
     }
   }
   .colSpacer {
@@ -177,8 +167,6 @@
     color: white;
     width: 130px;
     height: 40px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
     border-radius: 5px;
     background: $secondary-color;
     font-size: 16px;
