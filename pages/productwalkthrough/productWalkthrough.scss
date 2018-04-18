@@ -10,18 +10,19 @@
     background-color: $secondary--lighter;
     border-radius: 5px;
     display: flex;
-    .productLeft {
+    h1 {
+      margin-bottom: 35px;
+      font-weight: bold;
+      font-size: 55px;
+    }
+    .productDescription {
+      margin-top: 43px;
+      font-size: 25px;
+    } 
+    .carouselLeft {
       padding: 47px 38px 42px 71px;
       max-width: 50%;
-      h1 {
-        margin-bottom: 35px;
-        font-weight: bold;
-        font-size: 55px;
-      }
-      .productDescription {
-        margin-top: 43px;
-        font-size: 25px;
-      }
+     
       ul {
         list-style: none;
         padding-left: 0;
@@ -54,12 +55,50 @@
         max-width: 108px;
       }
     }
-    h3 {
-      font-size: 35px;
-      font-family: $font-gotham-rounded;
-      font-weight: bold;
-      color: $button-green;
-      margin-bottom: 55px;
+    .productLeft {
+      padding: 47px 38px 42px 71px;
+      .titleRow {
+        display: flex;
+        align-items: center;
+        h3 {
+          font-size: 35px;
+          font-weight: bold;
+          color: $button-green;
+          color: $grey-600;
+          margin-right: 64px;
+        }
+      }
+      .descriptionRow {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        height: 100%;
+        position: relative;
+        .productPhoto {
+          margin-top: 25px;
+        }
+        .navigations {
+          position: absolute;
+          bottom: 150px;
+          display: flex;
+          align-items: center;
+          button {
+            border: none;
+            background: transparent;
+            outline: none;
+          }
+          h3 {
+            margin: 0 25px 0 25px;
+          }
+        }
+      }
+    }
+    .productRight {
+      padding: 20px 70px 20px 0;
+      img {
+        width: 425px;
+        height: 775px;
+      }
     }
     .grey {
       color: $grey-1000; 
@@ -68,9 +107,6 @@
       color: $primary-color;
     }
     
-    .buttonRow {
-      display: flex;
-    }
     :global {
       .carousel-item {
         border-radius: 16px;
