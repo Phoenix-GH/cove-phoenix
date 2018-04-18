@@ -47,7 +47,7 @@ const items = [
   },
   {
     src: '/static/images/workthrough/product-5.png',
-    title: 'Cove Freeze Sensor',
+    name: 'Cove Freeze Sensor',
     description: 'The Cove flood/freeze sensor is designed to make sure your home is always safe from the elements and the accidents.',
     placement: '/static/images/workthrough/placement-5.png',
   },
