@@ -5,6 +5,7 @@ import PriceComparisonTable from '../components/priceComparisonTable';
 import Footer from '../components/footer/footer';
 import WatchVideoLink from '../components/watchVideoLink/watchVideoLink';
 import CustomizedRange from '../components/estimateSlider';
+import RiskFreeSection from '../components/riskFreeSection/riskFreeSection';
 import s from './index.scss';
 
 const coverSectionTitle = 'If it\'s Cove, it\'s covered.';
@@ -227,15 +228,7 @@ const Index = () => (
           </Row>
         </div>
       </Row>
-      <Row>
-        <div className="riskFreeSection">
-          <img src="/static/images/riskFreeTrial.png" alt="" />
-          <h2>100% satisfaction guaranteed</h2>
-          <p>Try out Cove for 60 days free, and if you don&apos;t like it more than your children,
-            you can send it back complete free of charge. We are that good.
-          </p>
-        </div>
-      </Row>
+      <RiskFreeSection />
     </div>
     <Footer />
     <style jsx>{s}</style>
