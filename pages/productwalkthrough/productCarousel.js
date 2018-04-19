@@ -48,7 +48,7 @@ class ProductCarousel extends Component {
           </div>
         </div>
         <div className="productRight">
-          <img src={products[activeIndex].placement} alt="placementPhoto" />
+          <img src={products[activeIndex].placement} alt="placementPhoto" className="placementPhoto" />
         </div>
         <style jsx>{styles}</style>
       </div>

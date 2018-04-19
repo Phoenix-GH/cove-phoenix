@@ -23,11 +23,11 @@ class Category extends Component {
 
     const { categories } = this.props;
     return (
-      <div>
+      <div className="tabSection">
         <div className="tabBars">
           {
             categories.map((item, index) => (
-              <button className={`tabBarItem ${activeIndex === index ? ' selected' : ''} `} onClick={() => this.selectTab(index)}>{item.name}</button>
+              <button className={`tabBarItem${activeIndex === index ? ' selected' : ''}`} onClick={() => this.selectTab(index)}>{item.name}</button>
             ))
           }
         </div>
