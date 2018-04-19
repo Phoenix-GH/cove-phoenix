@@ -5,12 +5,13 @@
   width: 100%;
   color: $grey-600;
   font-family: $font-gotham-rounded;
-  flex-flow: wrap;
+  
   .productRow {
     margin: 0 40px 80px 40px;
     background-color: $secondary--lighter;
     border-radius: 5px;
     display: flex;
+    flex-wrap: wrap;
     &.bordered {
       border: 1px solid #22405c;
     }
@@ -25,8 +26,8 @@
     } 
     .carouselLeft {
       padding: 47px 38px 42px 71px;
-      max-width: 50%;
-     
+      width: 55%;
+      
       ul {
         list-style: none;
         padding-left: 0;
@@ -62,8 +63,17 @@
       }
     }
     .carouselRight {
-      width: 100%;
+      width: 45%;
       position: relative;
+      :global(.carouselImage) {
+        height: 80vh;
+        .carousel-item {
+          border-radius: 16px;
+          img {
+            width: 100%;
+          }
+        }
+      }
       .carouselLogo {
         position: absolute;
         bottom: 0;
@@ -78,6 +88,7 @@
     }
     .productLeft {
       padding: 47px 38px 42px 71px;
+      width: 60%;
       .titleRow {
         display: flex;
         align-items: center;
@@ -117,6 +128,7 @@
     }
     .productRight {
       padding: 20px 70px 20px 0;
+      width: 40%;
       img {
         width: 425px;
         height: 775px;
@@ -129,32 +141,34 @@
       color: $primary-color;
     }
     
-    :global {
-      .carousel-item {
-        border-radius: 16px;
-        img {
-          width: 100%;
+  }
+  .tabSection {
+    margin-top: 195px;
+    .tabBars {
+      display: flex;
+      flex-flow: wrap;
+      .tabBarItem {
+        outline: none;
+        background-color: $secondary--lighter;
+        margin-left: 72px;
+        padding: 16px 32px 16px 32px;
+        font-size: 45px;
+        font-weight: bold;
+        border: 1px solid #22405c;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        margin-bottom: -2px;
+        color: $grey-600;
+        &.selected {
+          border-bottom: none;
         }
       }
     }
   }
-  .tabBars {
-    display: flex;
-    flex-flow: row;
-    .tabBarItem {
-      outline: none;
-      background-color: $secondary--lighter;
-      margin-left: 72px;
-      padding: 16px 32px 16px 32px;
-      font-size: 45px;
-      font-weight: bold;
-      border: 1px solid #22405c;
-      border-top-left-radius: 5px;
-      border-top-right-radius: 5px;
-      margin-bottom: -1px;
-      color: $grey-600;
-      &.selected {
-        border-bottom: none;
+  @media screen and (max-width: $width-md) {
+    .productRow {
+      .carouselLeft, .carouselRight, .productLeft, .productRight {
+        width: 100%;
       }
     }
   }

@@ -23,7 +23,7 @@ class Category extends Component {
 
     const { categories } = this.props;
     return (
-      <div>
+      <div className="tabSection">
         <div className="tabBars">
           {
             categories.map((item, index) => (

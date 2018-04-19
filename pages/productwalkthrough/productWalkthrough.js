@@ -117,7 +117,6 @@ class ProductWalkthrough extends Component {
     super(props);
     this.state = {
       activeIndex: 0,
-      modal: false,
     };
     this.load();
   }
@@ -147,10 +146,7 @@ class ProductWalkthrough extends Component {
     this.setState({ activeIndex: newIndex });
   }
 
-  toggle = (productId) => {
-    this.setState({
-      modal: !this.state.modal,
-    });
+  toggle = () => {
   }
 
   load = () => {
@@ -165,12 +161,12 @@ class ProductWalkthrough extends Component {
       activeIndex,
 
     } = this.state;
-    const { products } = this.props;
     const slides = items.map(item => (
       <CarouselItem
         onExiting={this.onExiting}
         onExited={this.onExited}
         key={item.src}
+        className="carouselImage"
       >
         <img src={item.src} alt={item.altText} width="100%" />
         <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
@@ -237,12 +233,10 @@ class ProductWalkthrough extends Component {
 }
 
 ProductWalkthrough.propTypes = {
-  products: PropTypes.object,
   loadProducts: PropTypes.func,
 };
 
 ProductWalkthrough.defaultProps = {
-  products: [],
   loadProducts: () => {},
 };
 
