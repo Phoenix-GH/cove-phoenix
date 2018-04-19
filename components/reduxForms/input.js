@@ -16,14 +16,13 @@ const Input = ({
   },
 }) => {
   const toggleClass = cx({
-    active:  input.value.length > 0,
-    inactive: input.value.length === 0,
+    active: input.value && input.value.length > 0,
+    inactive: !input.value || input.value.length === 0,
   });
   const inputLabelClass = cx('inputLabel', toggleClass);
   const coveInputClass = cx('coveInput', {
     activeInput: active,
   });
-  console.log('xxxx', error, warning, label, input)
   return (
     <div>
       <div className="inputBlockClass">

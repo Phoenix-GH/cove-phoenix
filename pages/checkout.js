@@ -12,8 +12,8 @@ import { validateContactR, createAccountR } from '../redux/checkout/routine';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
 import CheckoutSidebar from '../components/checkoutSidebar/checkoutSidebar';
-import CustomerInfo from '../components/forms/customerInfo';
-import ShippingInfo from './checkout/shippingInfo';
+import CustomerInfo from '../components/reduxForms/customerInfo';
+import ShippingInfo from '../components/reduxForms/shippingInfo';
 import PaymentInfo from './checkout/paymentInfo';
 import s from './checkout/checkout.scss';
 
@@ -55,74 +55,11 @@ class CheckoutPage extends Component {
   handleNextClick = () => {
     const activeStage = this.props.stage ? this.props.stage : 'customer';
     if (activeStage === 'customer') {
-      this.authSession();
+      this.props.createAccountR();
     } else if (activeStage === 'shipping') {
       this.createOrder();
     } else if (activeStage === 'payment') {
       this.completeOrder();
-    }
-  }
-
-  verifyContact = () => {
-    if (localStorage.getItem('token')) {
-      const { monitorAddress, ec1 } = this.state;
-      const request = {
-        address: monitorAddress,
-        phone: {
-          number: ec1.phone,
-        },
-      };
-      this.props.verifyContact({
-        data: request,
-        success: (res) => {
-          this.setState({ verifyContact: res });
-        },
-        fail: (err) => {
-          this.setState({ verifyContact: err });
-        },
-      });
-    } else {
-      this.authSession();
-    }
-  }
-
-  authSession = () => {
-    this.props.authSession({
-      data: 'data',
-      success: (res) => {
-        this.setState({ token: res.auth.token });
-        localStorage.setItem('token', res.auth.token);
-      },
-      fail: () => {},
-    });
-  }
-
-  createAccount = () => {
-    if (localStorage.getItem('token')) {
-      const {
-        customer1,
-        monitorAddress,
-        shipAddress,
-        ec1,
-      } = this.state;
-      const request = {
-        customer1,
-        monitorAddress,
-        shipAddress,
-        ec1,
-        billAddress: {},
-      };
-      this.props.createAccount({
-        data: request,
-        success: (res) => {
-          this.setState({ guid: res.checkout.accountGuid });
-          this.props.url.push('/checkout?stage=shipping');
-        },
-        fail: () => {
-        },
-      });
-    } else {
-      this.authSession();
     }
   }
 
@@ -274,6 +211,7 @@ class CheckoutPage extends Component {
                 <div className={shippingPageClassName}>
                   <ShippingInfo
                     onChangeHandler={this.onChangeHandler}
+                    formData={this.props.form}
                   />
                 </div>
                 <div className={paymentPageClassName}>
@@ -348,6 +286,7 @@ const mapStateToProps = ({
   checkout,
   session,
   auth,
+  form,
 }) => ({
   cart,
   products,
@@ -356,6 +295,7 @@ const mapStateToProps = ({
   checkout,
   session,
   auth,
+  form,
 });
 
 const mapDispatchToProps = {

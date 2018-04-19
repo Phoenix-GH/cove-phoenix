@@ -41,7 +41,7 @@ export default function configureStore(initialState, history) {
   );
 
   sagaMiddleware.run(rootSaga);
-  persistStore(store);
+  window.persistor = persistStore(store);
   store.dispatch(tokenR.trigger());
   return store;
 }

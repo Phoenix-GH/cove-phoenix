@@ -4,7 +4,7 @@ import cart, * as fromCart from './cart';
 import products, * as fromProducts from './products';
 import payment, * as fromPayment from './payment';
 import customer, * as fromCustomer from './customer';
-import checkoutRoutine from '../redux/checkout/reducer';
+import checkout from '../redux/checkout/reducer';
 import user from '../redux/user/reducer';
 
 export default combineReducers({
@@ -13,6 +13,6 @@ export default combineReducers({
   payment,
   customer,
   user,
-  checkoutRoutine,
+  checkout,
   form: formReducer,
 });

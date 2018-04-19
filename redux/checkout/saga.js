@@ -1,3 +1,4 @@
+import Router from 'next/router';
 import _ from 'lodash';
 import normalizeState from 'us-states-normalize';
 import { getFormValues, touch, getFormMeta, getFormSyncErrors, isValid, getFormInitialValues } from 'redux-form';
@@ -30,7 +31,7 @@ function getCreateAccountRequest(formData) {
   accountRequest.ec2.phone = accountRequest.ec2.phone.split('-').join('');
   accountRequest.shipAddress = { use: 'monitorAddress' };
   accountRequest.billAddress = { use: 'monitorAddress' };
-  
+
   console.log('select ',accountRequest)
   return accountRequest;
 };
@@ -46,7 +47,6 @@ function* validateContact() {
 
 function* createAccount() {
   try {
-   
     const fields =  yield select(getFormSyncErrors('checkout_customer'));
     const fieldNames = fieldsToFieldNameArray(fields);
     console.log('ccc',fields,fieldNames, yield select(isValid('checkout_customer')))
@@ -54,11 +54,12 @@ function* createAccount() {
     if (yield select(isValid('checkout_customer'))) {
       const formData = yield select(getFormValues('checkout_customer'));
       const account = yield getCreateAccountRequest(formData);
-      console.log('formdata', formData, account)
       const response = yield call(coveAPI, { url: '/meliae/createAccount', method: 'POST', data: account });
+      yield put(createAccountR.success(response.data));
+      yield Router.push({ pathname: '/checkout', query: { stage: 'shipping' } });
     } else {
       yield put(touch('checkout_customer', ...fieldNames));
-    } 
+    }
   } catch (err) {
     yield put(createAccountR.failure(err));
   } finally {
