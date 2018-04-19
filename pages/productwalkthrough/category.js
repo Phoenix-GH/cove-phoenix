@@ -27,7 +27,7 @@ class Category extends Component {
         <div className="tabBars">
           {
             categories.map((item, index) => (
-              <button className={`tabBarItem ${activeIndex === index ? ' selected' : ''} `} onClick={() => this.selectTab(index)}>{item.name}</button>
+              <button className={`tabBarItem${activeIndex === index ? ' selected' : ''}`} onClick={() => this.selectTab(index)}>{item.name}</button>
             ))
           }
         </div>

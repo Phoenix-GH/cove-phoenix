@@ -50,7 +50,8 @@
         align-items: center;
         .price {
           font-size: 25px;
-          width: calc(100% + 203px);
+          max-width: calc(100% + 203px);
+          min-width: 203px;
         }
         .extraButton {
           font-size: 20px;
@@ -170,8 +171,27 @@
       .carouselLeft, .carouselRight, .productLeft, .productRight {
         padding: 10px;
         width: 100%;
+        align-items: center;
+        text-align: center;
         .placementPhoto {
           max-width: 100%;
+          margin-top: 100px;
+        }
+        .carouselImage {
+          height: 100vw;
+        }
+      }
+    }
+    .tabSection {
+      .tabBars {
+        .tabBarItem {
+          width: 100%;
+          margin-left: 0;
+          padding: 10px 0 10px 0;
+          font-size: 20px;
+          &.selected {
+            display: block;
+          }
         }
       }
     }
