@@ -2,15 +2,11 @@ import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
-import { bindActionCreators } from 'redux';
 import cx from 'classnames';
 import withRedux from 'next-redux-wrapper';
 import { change } from 'redux-form';
-import _ from 'lodash';
 import initStore from '../store';
-import { loadProducts } from '../actions';
-import { createAccount, createOrder, completeOrder, verifyContact, authSession } from '../action';
-import { validateContactR, createAccountR } from '../redux/checkout/routine';
+import { validateContactR, createAccountR, createOrderR } from '../redux/checkout/routine';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
 import CheckoutSidebar from '../components/checkoutSidebar/checkoutSidebar';
@@ -59,7 +55,7 @@ class CheckoutPage extends Component {
     if (activeStage === 'customer') {
       this.props.createAccountR();
     } else if (activeStage === 'shipping') {
-      this.createOrder();
+      this.props.createOrderR();
     } else if (activeStage === 'payment') {
       this.completeOrder();
     }
@@ -303,6 +299,7 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = {
   createAccountR,
+  createOrderR,
   change,
 };
 

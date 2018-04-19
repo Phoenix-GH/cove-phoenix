@@ -76,7 +76,30 @@ function* createAccount() {
   }
 }
 
+function* createOrder() {
+  try {
+    const fields =  yield select(getFormSyncErrors('checkout_shipping'));
+    const fieldNames = fieldsToFieldNameArray(fields);
+    console.log('ccc',fields,fieldNames, yield select(isValid('checkout_customer')))
+    yield put(createAccountR.request());
+    if (yield select(isValid('checkout_customer'))) {
+      const formData = yield select(getFormValues('checkout_customer'));
+      const account = yield getCreateAccountRequest(formData);
+      const response = yield call(coveAPI, { url: '/meliae/createAccount', method: 'POST', data: account });
+      yield put(createAccountR.success(response.data));
+      yield Router.push({ pathname: '/checkout', query: { stage: 'shipping' } });
+    } else {
+      yield put(touch('checkout_customer', ...fieldNames));
+    }
+  } catch (err) {
+    yield put(createAccountR.failure(err));
+  } finally {
+    yield put(createAccountR.fulfill());
+  }
+}
+
 export default function* () {
   yield takeEvery(validateContactR.TRIGGER, (data) => { console.log('aaaaa', data); });
   yield takeLatest(createAccountR.TRIGGER, createAccount);
+  yield takeLatest(createOrderR.TRIGGER, createAccount);
 }
