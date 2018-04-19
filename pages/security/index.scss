@@ -1,6 +1,7 @@
 @import "types";
 @import "variables";
 .homeContainer {
+  font-family: $font-gotham-rounded;
   @media screen and (max-width: $width-md) {
     margin-left: 27px;
     margin-right: 27px;
@@ -87,9 +88,15 @@
   }
   .coveProtect {
     background-image: url('/static/images/security/security-coveprotect.png');
+    .wrapper {
+      background-color: rgba(255, 255, 255, 0.55);
+    }
   }
   .motionSensor {
     background-image: url('/static/images/security/security-motionsensor.png');
+    .wrapper {
+      background-color: rgba(1, 168, 145, 0.56);
+    }
   }
   .totalControl {
     background-image: url('/static/images/security/security-motionsensor.png');
@@ -118,5 +125,26 @@
   }
   .coveGuarantee {
     
+  }
+  .wrapper {
+    margin-top: 38px;
+    margin-left: 54px;
+    margin-right: 54px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5px;
+    padding: 25px 111px 25px 111px;
+    h3 {
+      font-size: 35px;
+      color: #272A31;
+      font-weight: bold;
+    }
+    p {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 500;
+    }
   }
 }
