@@ -11,79 +11,77 @@
     background-image: url('/static/images/security/security-back-1.png');
     background-size: cover;
     height: 80vh;
-    .titleRow {
-      position: absolute;
-      width: 100%;
-      top: 0;
-      .coverLeftArea {
-        display: flex;
-        align-items: flex-end;
-        justify-content: flex-end;
+    padding: 260px 75px 265px 75px;
+    .coverLeftArea {
+      h1 {
+        font-size: 60px;
+        width: 100%;
+        max-width: 400px;
+        font-weight: bold;
+      }
+      button {
+        background-color: $secondary-color;
+        border-radius: 5px;
+        font-size: 42px;
+        font-weight: bold;
+        color: white;
+        padding: 29px 74px 29px 43px;
+        margin-top: 55px;
+      }
+    }
+    .coverRightArea {
+      margin-top: 38px; 
+    }
+    @media screen and (max-width: $width-lg) {
+      .coverRightArea {
         h1 {
-          font-size: 72px;
-          width: 100%;
-          max-width: 408px;
+          font-size: 60px;
         }
+        a {
+          span {
+            font-size: 40px;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: $width-md) {
+      .coverLeftArea {
+        margin-top: 10px;
+        text-align: center;
       }
       .coverRightArea {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        font-family: $font-gotham-rounded;
-        font-weight: 700;
-        margin-top: calc(145% / 640 * 100); 
-        
-      }
-      @media screen and (max-width: $width-lg) {
-        .coverRightArea {
-          h1 {
-            font-size: 60px;
-          }
-          a {
-            span {
-              font-size: 40px;
-            }
-          }
+        text-align: center;
+        margin-top: 10px;
+        h1 {
+          font-size: 40px;
+          max-width: 100%;
         }
-      }
-      @media screen and (max-width: $width-md) {
-        .coverLeftArea {
-          margin-top: 10px;
-          text-align: center;
-        }
-        .coverRightArea {
-          text-align: center;
-          margin-top: 10px;
-          h1 {
-            font-size: 40px;
-            max-width: 100%;
-          }
-          a {
-            span {
-              font-size: 20px;
-            }
-          }
-        }
-      }
-      @media screen and (max-width: $width-sm) {
-        .coverLeftArea {
-          display: none;
-        }
-        .coverRightArea {
-          margin-top: 20px;
-          h1 {
-            font-size: 30px;
-          }
+        a {
           span {
             font-size: 20px;
           }
         }
       }
     }
-    @media screen and (max-width: $width-md) {
-      display: none;
+    @media screen and (max-width: $width-sm) {
+      .coverLeftArea {
+        display: none;
+      }
+      .coverRightArea {
+        margin-top: 20px;
+        h1 {
+          font-size: 30px;
+        }
+        span {
+          font-size: 20px;
+        }
+      }
     }
   }
+  @media screen and (max-width: $width-md) {
+    display: none;
+  }
+  
 
   .setupProcessSection {
     width: 100%;

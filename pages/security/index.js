@@ -19,23 +19,21 @@ const Index = () => (
     </Container>
     <div className="homeContainer">
       <div className="coverSection">
-        <div className="titleRow">
-          <Row>
-            <Col xs={0} sm={0} md={6} lg={6}>
-              <div className="coverLeftArea">
-                <h1>
-                  {coverSectionTitle}
-                </h1>
-                <button>JOIN FREE FOR A MONTH</button>
-              </div>
-            </Col>
-            <Col xs={12} sm={12} md={6} lg={6}>
-              <div className="coverRightArea">
-                <WatchVideoLink link="/" />
-              </div>
-            </Col>
-          </Row>
-        </div>
+        <Row>
+          <Col xs={0} sm={0} md={8} lg={6}>
+            <div className="coverLeftArea">
+              <h1>
+                {coverSectionTitle}
+              </h1>
+              <button>JOIN FREE FOR A MONTH</button>
+            </div>
+          </Col>
+          <Col xs={12} sm={12} md={4} lg={6}>
+            <div className="coverRightArea">
+              <WatchVideoLink link="/" />
+            </div>
+          </Col>
+        </Row>
       </div>
       <Row>
         <div className="setupProcessSection">
