@@ -1,16 +1,16 @@
 import { Container, Row, Col } from 'reactstrap';
-import Layout from '../components/minimalLayout';
-import Header from '../components/header';
-import PriceComparisonTable from '../components/priceComparisonTable';
-import Footer from '../components/footer/footer';
-import WatchVideoLink from '../components/watchVideoLink/watchVideoLink';
-import CustomizedRange from '../components/estimateSlider';
-import RiskFreeSection from '../components/riskFreeSection/riskFreeSection';
+import Link from 'next/link';
+import Layout from '../../components/minimalLayout';
+import Header from '../../components/header';
+import PriceComparisonTable from '../../components/priceComparisonTable';
+import Footer from '../../components/footer/footer';
+import WatchVideoLink from '../../components/watchVideoLink/watchVideoLink';
+import CustomizedRange from '../../components/estimateSlider';
+import RiskFreeSection from '../../components/riskFreeSection/riskFreeSection';
 import s from './index.scss';
 
-const coverSectionTitle = 'If it\'s Cove, it\'s covered.';
-const setupSectionTitle = 'A whole new simple setup process';
-const setupDescriptionText = 'Most security systems are designed for technicians to install, but you\'re not a technician. Cove Protect was design3ed for you. It\'s easy on you while still being tough on the bad guys.';
+const coverSectionTitle = 'Home security\njust found easy.';
+const setupSectionTitle = '1 2 3. simple. Installed. it works.';
 
 const Index = () => (
   <Layout>
@@ -19,114 +19,78 @@ const Index = () => (
     </Container>
     <div className="homeContainer">
       <div className="coverSection">
-        <img src="/static/images/coverBackground.png" alt="background" className="backImg" />
         <div className="titleRow">
           <Row>
-            <Col xs={0} sm={0} md={6} lg={6}>
+            <Col xs={12} sm={12} md={8} lg={8}>
               <div className="coverLeftArea">
-                <img src="/static/images/downArrow.png" alt="" />
-              </div>
-            </Col>
-            <Col xs={12} sm={12} md={6} lg={6}>
-              <div className="coverRightArea">
                 <h1>
                   {coverSectionTitle}
                 </h1>
-                <WatchVideoLink link="/" />
+                <p>And you just found Cove! Make your space safe.</p>
               </div>
             </Col>
           </Row>
         </div>
       </div>
       <Row>
-        <div className="setupProcessSection">
-          <h2>{setupSectionTitle}</h2>
-          <p>{setupDescriptionText}</p>
+        <div className="testimonialSection">
+          <h2>&ldquo;{setupSectionTitle}&rdquo;</h2>
+          <p>- Dahlia Johnson</p>
           <div className="products">
             <Row>
-              <Col xs={12} sm={12} md={3}>
+              <Col xs={12} sm={12} md={4}>
                 <div>
-                  <div className="imageArea">
-                    <img src="/static/images/coverTouch.png" alt="" />
-                  </div>
-                  <h3>Cove Touch</h3>
-                  <p>With the guided installation process on the touchscreen,
-                    Cove has an install process that even grandma can handle.
-                  </p>
-                  <WatchVideoLink link="/" title="Watch install video" size="small" />
-                </div>
-              </Col>
-              <Col xs={12} sm={12} md={3}>
-                <div>
-                  <div className="imageArea">
-                    <img src="/static/images/motionSensor.png" alt="" />
-                  </div>
-                  <h3>Sensors For Everything</h3>
-                  <p>Entry point sensors, motion sensors, and much more.
-                    Cove Covers all areas of the home.
+                  <h3>&ldquo;I wish Cove could travel with us.&rdquo;</h3>
+                  <p>- Jules Endicott
                   </p>
                 </div>
               </Col>
-              <Col xs={12} sm={12} md={3}>
+              <Col xs={12} sm={12} md={4}>
                 <div>
-                  <div className="imageArea">
-                    <img src="/static/images/smokeAlarm.png" alt="" />
-                  </div>
-                  <h3>Protect People</h3>
-                  <p>Don&apos;t just protect your things, protect those you love.
-                    Smoke, carbon monoxide, flood/freeze sensors cover it.
+                  <h3>&ldquo;Finally, an alarm company watching out for us.&rdquo;</h3>
+                  <p>- Nick Ferse
                   </p>
                 </div>
               </Col>
-              <Col xs={12} sm={12} md={3}>
+              <Col xs={12} sm={12} md={4}>
                 <div>
-                  <div className="imageArea">
-                    <img src="/static/images/coveApp.png" className="coveAppImg" alt="" />
-                  </div>
-                  <h3>Cove app</h3>
-                  <p>Know what&apos;s happening anywhere you go.
-                    You deserve to be the first to know.
+                  <h3>&ldquo;The way customer service used to be!&rdquo;</h3>
+                  <p>- Becker Family
                   </p>
                 </div>
               </Col>
             </Row>
           </div>
+          <Link href="#tell" class="link">Tell your friends about us &raquo;</Link>
         </div>
       </Row>
       <Row>
         <div className="builtProductsSection">
-          <img src="/static/images/builtProductsSectionBackground.png" alt="builtProductsSectionBackground" />
-          <div className="descriptionArea">
-            <h2>Arming and disarming built around you.</h2>
-            <p>Arm and disarm your system in a way that makes sense.
-              We feel that security should be easy and effortless to use.
-            </p>
-          </div>
+          <h2>You need not worry</h2>
+          <ul>
+            <Col md={6}>
+              <li>Fire</li>
+              <li>Flood</li>
+              <li>Harmful fumes</li>
+              <li>Medical mergency</li>
+            </Col>
+            <Col md={6}>
+              <li>Unwanted Intrusion</li>
+              <li>Broken window</li>
+              <li>Infrared movement</li>
+            </Col>
+          </ul>
         </div>
       </Row>
       <Row>
-        <div className="liveAssistSection">
-          <img src="/static/images/assistOperator.png" alt="" className="leftArea" />
-          <div className="liveAssistRow">
-            <div className="rightArea">
-              <h2>Cove LiveAssist</h2>
-              <h3>24/7 professional monitoring with Cove LiveAssist gives you real protection
-                all the time, not when you&apos;re just looking.
-              </h3>
-              <ol>
-                <li>Never worry again with Cove LiveAssist coming through the two-way
-                  intercom built right into the 7th touchscreen. (no landline necessary)
-                </li>
-                <li>Cove LiveAssist is smart, and if we can&apos;t communicate with you
-                  directly through your two-way intercom on your panel, we will get a hold
-                  of you on your cellphone, text message, mobile app, and more.
-                </li>
-                <li>In a real emergency, we will contact your local authorities.
-                  You can customize notifications you receive so that you aren&apos;t
-                  bothered with unnecessary alerts.
-                </li>
-              </ol>
-            </div>
+        <div className="checkSection">
+          <div className="checkRow">
+            <Col sm={12} md={6}>
+              We trust Cove in our own homes.
+            </Col>
+            <Col sm={12} md={6}>
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nomummy nibh euismod tincidunt ut
+            </Col>
           </div>
         </div>
       </Row>
