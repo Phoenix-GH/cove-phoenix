@@ -156,92 +156,52 @@
     height: 80vh;
     background-image: url('/static/images/homepage2/homeback2-3.png');
     position: relative;
-    margin: 152px 0 69px 0;
     color: $grey-700;
     font-family: $font-gotham-rounded;
+    padding: 153px;
     h2 {
       font-size: 40px;
     }
     ul {
       display: flex;
       flex-direction: row;
+      list-style: none;
+      font-size: 24px;
+      padding-left: 0;
+    }
+    p {
+      font-size: 14px;
+      font-family: $font-open-sans;
+      margin-top: 106px;
+      max-width: 305px;
     }
   }
 
   .checkSection {
     width: 100%;
     position: relative;
-    color: $grey-700;
-    .leftArea {
-      width: (516vw / 1440 * 100);
-      top: calc(72% / 630 * 100);
-      position: absolute;
-      max-width: 521px;
-    }
-    .liveAssistRow {
-      border-radius: 4px 32px 4px 32px;
-      background-color: #F0F5F7;
-      padding: 50px 115px 40px 40vw;
+    background-image: url('/static/images/homepage2/homeback2-4.png');
+    background-size: cover;
+    padding: 125px 155px 3px 155px;
+    .checkRow {
       display: flex;
-      justify-content: flex-end;
-      margin: 0 135px 0 135px;
-      .rightArea {
-        max-width: 560px;
+      flex-direction: row;
+      margin-bottom: 122px;
+      .leftSide {
+        display: flex;
+        flex-direction: row;
+        align-items: start;
+        max-width: 400px;
         h2 {
-          font-size: 60px;
-          font-family: $font-gotham-rounded;
-          font-weight: 700;
-        }
-        h3 {
-          font-size: 24px;
-          font-family: $font-gotham-rounded;
-          font-weight: 300;
-        }
-        ol {
-          padding-left: 1.5em;
-          li {
-            margin-bottom: 50px;
-            font-size: 16px;
-            font-family: $font-open-sans;
-            font-weight: 100;
-          }
+          font-size: 40px;
+          font-weight: 500;
+          color: $grey-900;
+          margin-left: 40px;
         }
       }
-    }
-    @media screen and (max-width: $width-lg) {
-      .liveAssistRow {
-        margin: 0 70px 0 70px;
-        padding: 50px 60px 40px 40vw;
-      }
-    }
-    @media screen and (max-width: $width-md) {
-      .liveAssistRow {
-        border-radius: 0;
-        margin: 0;
-        padding: 20px 10px 20px 10px;
-        .rightArea {
-          max-width: 90%;
-          margin: 0 auto;
-          h2 {
-            font-size: 40px;
-            text-align: center;
-          }
-          h3 {
-            margin-top: 56px;
-            font-size: 15px;
-            margin-bottom: 79px;
-          }
-          ol {
-            li {
-              margin-bottom: 50px;
-              font-size: 10px;
-              font-weight: 100;
-            }
-          }
-        }
-      }
-      .leftArea {
-        display: none;
+      p {
+        font-size: 20px;
+        font-family: $font-open-sans;
       }
     }
   }
@@ -253,45 +213,32 @@
   .paySecuritySection {
     color: $grey-1000;
     margin-top: 107px;
-    .descriptionArea {
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      justify-content: center;
-      font-family: $font-gotham-rounded;
-      .contentTextArea {
-        width: 80%;
-        h2 {
-          font-size: 60px;
-          font-weight: 700;
-          &.greenTitle {
-            color: $primary-color;
-          }
-        }
-        p {
-          font-size: 16px;
-          font-weight: 300;
-          margin-top: 3vw;
-          width: 80%;
-        }
-      }
+    width: 100%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 118px 185px 145px 185px;
+    h2 {
+      font-size: 40px;
+      font-weight: bold;
+      max-width: 380px;
+      margin-bottom: 79px;
+      text-align: center;
     }
-    @media screen and (max-width: $width-md) {
-      margin-top: 87px;
-      .descriptionArea {
-        .contentTextArea {
-          width: 100%;
-          text-align: center;
-          h2 {
-            font-size: 40px;
-          }
-          p {
-            margin: 68px 0 115px 0;
-            width: 100%;
-          }
-        }
-      }
+    ul {
+      margin-top: 41px;
+      padding-left: 0;
+    }
+    h3 {
+      font-size: 40px;
+      font-weight: 500;
+      margin-top: 48px;
+    }
+    p {
+      font-size: 18;
+      font-weight: 500;
+      padding-left: 40px;
     }
   }
 

@@ -7,6 +7,7 @@ import Footer from '../../components/footer/footer';
 import WatchVideoLink from '../../components/watchVideoLink/watchVideoLink';
 import CustomizedRange from '../../components/estimateSlider';
 import RiskFreeSection from '../../components/riskFreeSection/riskFreeSection';
+import GreenButton from '../../components/greenButton/greenButton';
 import s from './index.scss';
 
 const coverSectionTitle = 'Home security\njust found easy.';
@@ -80,44 +81,93 @@ const Index = () => (
               <li>Infrared movement</li>
             </Col>
           </ul>
+          <p><sup>*</sup> Custom configured for your fury secondary alarm systems, A.K.A. pet-friendly!</p>
         </div>
       </Row>
       <Row>
         <div className="checkSection">
           <div className="checkRow">
             <Col sm={12} md={6}>
-              We trust Cove in our own homes.
+              <div className="leftSide">
+                <img src="/static/images/homepage2/checkmark.png" alt="checkmark" />
+                <h2>
+                  We trust Cove in our own homes.
+                </h2>
+              </div>
             </Col>
             <Col sm={12} md={6}>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nomummy nibh euismod tincidunt ut
+              <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nomummy nibh euismod tincidunt ut
+              </p>
+            </Col>
+          </div>
+          <div className="checkRow">
+            <Col sm={12} md={6}>
+              <div className="leftSide">
+                <img src="/static/images/homepage2/checkmark.png" alt="checkmark" />
+                <h2>
+                  We trust Cove in our own homes.
+                </h2>
+              </div>
+            </Col>
+            <Col sm={12} md={6}>
+              <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nomummy nibh euismod tincidunt ut
+              </p>
+            </Col>
+          </div>
+          <div className="checkRow">
+            <Col sm={12} md={6}>
+              <div className="leftSide">
+                <img src="/static/images/homepage2/checkmark.png" alt="checkmark" />
+                <h2>
+                  We trust Cove in our own homes.
+                </h2>
+              </div>
+            </Col>
+            <Col sm={12} md={6}>
+              <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nomummy nibh euismod tincidunt ut
+              </p>
             </Col>
           </div>
         </div>
       </Row>
       <Row>
         <div className="paySecuritySection">
+          <h2>Security that works. Set it. Leave it.</h2>
           <Row>
             <Col xs={12} sm={12} md={6}>
-              <div className="descriptionArea">
-                <div className="contentTextArea">
-                  <h2>Less Markup.</h2>
-                  <h2 className="greenTitle">More Security.</h2>
-                  <p>When you pay more for home security, you&apos;re paying for more middlemen
-                    and more mark-up. We cut out the middlemen and sell direct to you. You get
-                    exceptional security at a fraction of the price.
-                  </p>
-                </div>
-              </div>
+              <GreenButton title="Cove Basic" />
+              <ul>
+                <li>
+                  No credit check required
+                </li>
+                <li>
+                  Brand new equipment
+                </li>
+                <li>
+                  Equipment is yours forever
+                </li>
+              </ul>
+              <h3>$22 per month</h3>
+              <p>($19/mo with membership)</p>
             </Col>
-            <Col xs={6} sm={6} md={3}>
-              <div className="center">
-                <img src="/static/images/cutOutMiddleMan.png" alt="" />
-              </div>
-            </Col>
-            <Col xs={6} sm={6} md={3}>
-              <div className="center">
-                <img src="/static/images/cashFlow.png" alt="" />
-              </div>
+            <Col xs={12} sm={12} md={6}>
+              <GreenButton title="Cove Premium" />
+              <ul>
+                <li>
+                  No credit check required
+                </li>
+                <li>
+                  Brand new equipment
+                </li>
+                <li>
+                  Equipment is yours forever
+                </li>
+              </ul>
+              <h3>$22 per month</h3>
+              <p>($27/mo with membership)</p>
             </Col>
           </Row>
         </div>
