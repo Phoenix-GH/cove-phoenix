@@ -4,7 +4,6 @@ import styles from './radio.scss';
 
 const Radio = (props) => {
   const { input, label, checked, onClick, value, onChange, formValue } = props;
-  console.log('radioprops',  input, label, checked, onClick, value)
   const id = uuidv4();
   return (
     <div className="control-group" onClick={() => {onClick(); input.onChange(formValue);}}>

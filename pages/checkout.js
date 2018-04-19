@@ -5,6 +5,8 @@ import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import cx from 'classnames';
 import withRedux from 'next-redux-wrapper';
+import { change } from 'redux-form';
+import _ from 'lodash';
 import initStore from '../store';
 import { loadProducts } from '../actions';
 import { createAccount, createOrder, completeOrder, verifyContact, authSession } from '../action';
@@ -206,6 +208,7 @@ class CheckoutPage extends Component {
                     onChangeHandler={this.onChangeHandler}
                     fields={this.state.customerInfo}
                     createAccountR={this.props.createAccountR}
+                    formData={this.props.form.checkout_customer}
                   />
                 </div>
                 <div className={shippingPageClassName}>
@@ -300,6 +303,7 @@ const mapStateToProps = ({
 
 const mapDispatchToProps = {
   createAccountR,
+  change,
 };
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(CheckoutPage);

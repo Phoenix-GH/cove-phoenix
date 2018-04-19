@@ -1,4 +1,4 @@
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Collapse } from 'reactstrap';
 import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
@@ -12,20 +12,10 @@ import {
   minLength6,
   zip,
 } from './validate';
-import Checkbox from '../../components/checkbox';
+import Checkbox from './checkbox';
 import style from './customerInfo.scss';
 
-console.log('required', required)
-
-const normalizeStateInput = (value) => {
-  console.log('current value', value, normalizeState(value))
-  return (value && normalizeState(value)) ? normalizeState(value) : value;
-};
-
-const CustomerInfo = ({ onChangeHandler, additionalEC, createAccountR }) => {
-  const ec2RowClassName = cx({ 'd-none': additionalEC });
-  console.log('qqq');
-  // validatePhoneHandler.trigger();
+const CustomerInfo = ({ formData }) => {
   return (
     <div>
       <form>
@@ -98,7 +88,6 @@ const CustomerInfo = ({ onChangeHandler, additionalEC, createAccountR }) => {
                 name="monitorAddress.address2"
                 label="Apt/Suite #"
                 type="text"
-                validate={required}
                 component={Input}
               />
             </Col>
@@ -135,22 +124,9 @@ const CustomerInfo = ({ onChangeHandler, additionalEC, createAccountR }) => {
           <Row>
             <Col xs={12} sm={12} md={6}>
               <Field
-                name="ec1.name"
-                label="Emergency Contact"
-                type="text"
-                validate={[required, fullName]}
-                component={Input}
-                hasInfo
-              />
-            </Col>
-            <Col xs={12} sm={12} md={6}>
-              <Field
-                name="ec1.phone"
-                label="phone"
-                type="text"
-                validate={[required, phoneNumber]}
-                normalize={normalizePhone}
-                component={Input}
+                label="Add Addtional Contact"
+                name="includeEc3"
+                component={Checkbox}
               />
             </Col>
           </Row>
@@ -176,6 +152,30 @@ const CustomerInfo = ({ onChangeHandler, additionalEC, createAccountR }) => {
               />
             </Col>
           </Row>
+          <Collapse isOpen={formData.values.includeEc3}>
+            <Row>
+              <Col xs={12} sm={12} md={6}>
+                <Field
+                  name="ec3.name"
+                  label="Emergency Contact"
+                  type="text"
+                  validate={fullName}
+                  component={Input}
+                  hasInfo
+                />
+              </Col>
+              <Col xs={12} sm={12} md={6}>
+                <Field
+                  name="ec3.phone"
+                  label="phone"
+                  type="text"
+                  validate={phoneNumber}
+                  normalize={normalizePhone}
+                  component={Input}
+                />
+              </Col>
+            </Row>
+          </Collapse>
           <Row>
             <Col xs={12} sm={12} md={6}>
               <Field
@@ -191,18 +191,23 @@ const CustomerInfo = ({ onChangeHandler, additionalEC, createAccountR }) => {
         </div>
         <style jsx>{style}</style>
       </form>
-      <button onClick={() => { createAccountR(); }}>Click</button>
     </div>
   );
 };
 CustomerInfo.propTypes = {
-  onChangeHandler: PropTypes.func,
+  formData: PropTypes.object,
 };
 
 CustomerInfo.defaultProps = {
-  onChangeHandler: () => {},
+  formData: {
+    values: {},
+  },
 };
 
 export default reduxForm({
   form: 'checkout_customer',
+  initialValues: {
+    ec1: {},
+    includeEc3: false,
+  },
 })(CustomerInfo);

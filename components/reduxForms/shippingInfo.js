@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import { Row, Col, Collapse } from 'reactstrap';
-import { Field, reduxForm, isValid } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
 import {
   required,
-  email,
   phoneNumber,
   normalizePhone,
-  fullName,
-  minLength6,
   zip,
 } from './validate';
 import Input from './input';
@@ -28,6 +25,22 @@ class ShippingInfo extends Component {
     };
   }
 
+  getMapURl(formData) {
+    const monitorAddress = {
+      ...formData.checkout_customer.values.monitorAddress,
+      ...formData.checkout_customer.values.customer1,
+    };
+    const { shipAddress } = formData.checkout_shipping.values;
+    const mapAddress = (_.has(formData.checkout_shipping, 'values.shipAddress.postal') && !formData.checkout_shipping.syncErrors && this.state.differentAddress) ? shipAddress : monitorAddress;
+    const mapAddressQueryStr = `${mapAddress.address1.replace(/\s+/g, '+')},${mapAddress.city.replace(/\s+/g, '+')},${mapAddress.state},${mapAddress.postal}`;
+    const mapUrl = `
+      https://maps.googleapis.com/maps/api/staticmap?center=${mapAddressQueryStr}&markers=color:0x00CDB9|label:C|${mapAddressQueryStr}
+      &zoom=16&size=400x350
+      &format=png&maptype=roadmap&style=element:geometry%7Ccolor:0xf5f5f5&style=element:labels.icon%7Cvisibility:off&style=element:labels.text.fill%7Ccolor:0x616161&style=element:labels.text.stroke%7Ccolor:0xf5f5f5&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0xbdbdbd&style=feature:poi%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:poi.park%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:road%7Celement:geometry%7Ccolor:0xffffff&style=feature:road.arterial%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:road.highway%7Celement:geometry%7Ccolor:0xdadada&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:transit.line%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:transit.station%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:water%7Celement:geometry%7Ccolor:0xc9c9c9&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x9e9e9e
+      &key=AIzaSyCx07Q0WXn6gYW6gMPuBKF9LWbRwBNOpY4`;
+    return { mapUrl, mapAddress };
+  }
+
   toggleShippingAddress = () => {
     this.setState({
       differentAddress: !this.state.differentAddress,
@@ -41,39 +54,19 @@ class ShippingInfo extends Component {
   }
 
   toggleWarranty= (val) => {
-    console.log('togglewarranty', val)
     this.setState({
       warranty: val,
     });
-  }
-
-  getMapURl(formData) {
-    const monitorAddress = { 
-      ...formData.checkout_customer.values.monitorAddress,
-      ...formData.checkout_customer.values.customer1,
-    };
-    const { shipAddress } = formData.checkout_shipping.values || {};
-    const mapAddress = (formData.checkout_shipping.values && _.isEmpty(formData.checkout_shipping.syncErrors.shipAddress) && this.state.differentAddress) ? shipAddress : monitorAddress;
-    const mapAddressQueryStr = `${mapAddress.address1.replace(/\s+/g, '+')},${mapAddress.city.replace(/\s+/g, '+')},${mapAddress.state},${mapAddress.postal}`
-    const mapUrl = `
-      https://maps.googleapis.com/maps/api/staticmap?center=${mapAddressQueryStr}&markers=color:0x00CDB9|label:C|${mapAddressQueryStr}
-      &zoom=16&size=500x350
-      &format=png&maptype=roadmap&style=element:geometry%7Ccolor:0xf5f5f5&style=element:labels.icon%7Cvisibility:off&style=element:labels.text.fill%7Ccolor:0x616161&style=element:labels.text.stroke%7Ccolor:0xf5f5f5&style=feature:administrative.land_parcel%7Celement:labels.text.fill%7Ccolor:0xbdbdbd&style=feature:poi%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:poi%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:poi.park%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:poi.park%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:road%7Celement:geometry%7Ccolor:0xffffff&style=feature:road.arterial%7Celement:labels.text.fill%7Ccolor:0x757575&style=feature:road.highway%7Celement:geometry%7Ccolor:0xdadada&style=feature:road.highway%7Celement:labels.text.fill%7Ccolor:0x616161&style=feature:road.local%7Celement:labels.text.fill%7Ccolor:0x9e9e9e&style=feature:transit.line%7Celement:geometry%7Ccolor:0xe5e5e5&style=feature:transit.station%7Celement:geometry%7Ccolor:0xeeeeee&style=feature:water%7Celement:geometry%7Ccolor:0xc9c9c9&style=feature:water%7Celement:labels.text.fill%7Ccolor:0x9e9e9e
-      &key=AIzaSyCx07Q0WXn6gYW6gMPuBKF9LWbRwBNOpY4`;
-    
-    return { mapUrl, mapAddress };
   }
 
   render() {
     const { formData } = this.props;
     let mapUrl = '';
     let mapAddress = {};
-    if (formData.checkout_customer && formData.checkout_customer.values) {
+    if (_.has(formData, 'checkout_customer.values.monitorAddress.postal')) {
       ({ mapUrl, mapAddress } = this.getMapURl(formData));
-      console.log('bbb',mapUrl, mapAddress)
     }
 
-    const { onChangeHandler } = this.props;
     return (
       <div>
         <div className="customerInfo">
@@ -109,21 +102,21 @@ class ShippingInfo extends Component {
                 </Col>
               </Row>
               <Row>
-                <Col xs={12} sm={12} md={6}>
+                <Col xs={12} sm={12} md={8}>
                   <Field
-                    name="shipAddress.email"
-                    label="Email"
+                    name="shipAddress.address1"
+                    label="Shipping street address"
                     type="text"
+                    validate={required}
                     component={Input}
                   />
                 </Col>
-                <Col xs={12} sm={12} md={6}>
+                <Col md={4}>
                   <Field
-                    name="shipAddress.phone"
-                    label="Phone"
+                    name="shipAddress.address2"
+                    label="Apt/Suite #"
                     type="text"
-                    validate={[required, phoneNumber]}
-                    normalize={normalizePhone}
+                    validate={required}
                     component={Input}
                   />
                 </Col>
@@ -157,8 +150,20 @@ class ShippingInfo extends Component {
                   />
                 </Col>
               </Row>
+              <Row>
+                <Col xs={12} sm={12} md={6}>
+                  <Field
+                    name="shipAddress.phone"
+                    label="Phone"
+                    type="text"
+                    validate={[required, phoneNumber]}
+                    normalize={normalizePhone}
+                    component={Input}
+                  />
+                </Col>
+              </Row>
             </Collapse>
-            <Collapse isOpen={!this.state.differentAddress}>
+            <Collapse isOpen>
               <div className="shippingMap">
                 <Row>
                   <Col xs={12} sm={12} md={6}>
@@ -285,11 +290,11 @@ class ShippingInfo extends Component {
 }
 
 ShippingInfo.propTypes = {
-  onChangeHandler: PropTypes.func,
+  formData: PropTypes.object,
 };
 
 ShippingInfo.defaultProps = {
-  onChangeHandler: () => {},
+  formData: {},
 };
 
 export default reduxForm({
@@ -297,5 +302,6 @@ export default reduxForm({
   initialValues: {
     warranty: false,
     shippingMethod: 1,
-},
+    shipAddress: {},
+  },
 })(ShippingInfo);

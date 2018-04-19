@@ -23,12 +23,21 @@ const fieldsToFieldNameArray = (fields) => {
   return fieldNames;
 };
 
-function getCreateAccountRequest(formData) {
+const getCreateAccountRequest = (formData) => {
+  console.log('formdata', formData);
   const accountRequest = _.cloneDeep(formData);
   accountRequest.customer1.phone = accountRequest.customer1.phone.split('-').join('');
   accountRequest.monitorAddress.state = normalizeState(accountRequest.monitorAddress.state);
-  accountRequest.ec1.phone = accountRequest.ec1.phone.split('-').join('');
+  accountRequest.ec1 = {};
+  accountRequest.ec1.firstName = accountRequest.customer1.firstName;
+  accountRequest.ec1.lastName = accountRequest.customer1.lastName;
+  [accountRequest.ec2.firstName, accountRequest.ec2.lastName] = accountRequest.ec2.name.split(' ');
   accountRequest.ec2.phone = accountRequest.ec2.phone.split('-').join('');
+  if (formData.includeEc3) {
+    [accountRequest.ec3.firstName, accountRequest.ec3.lastName] = accountRequest.ec3.name.split(' ');
+    accountRequest.ec3.phone = accountRequest.ec3.phone.split('-').join('');
+  }
+  delete accountRequest.includeEc3;
   accountRequest.shipAddress = { use: 'monitorAddress' };
   accountRequest.billAddress = { use: 'monitorAddress' };
 

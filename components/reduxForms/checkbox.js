@@ -2,13 +2,13 @@ import uuidv4 from 'uuid/v4';
 import PropTypes from 'prop-types';
 import s from './checkbox.scss';
 
-const Checkbox = (input) => {
+const Checkbox = ({ input, label, checked, onClick = () => {}, value, onChange, formValue }) => {
   const id = uuidv4();
   console.log('asdf', input)
   return (
-    <div className="checkBox">
+    <div className="checkBox" >
       <input id={id} type="checkbox" {...input} />
-      <label htmlFor={id}>{input.label}</label>
+      <label htmlFor={id}>{label}</label>
       <style jsx>{s}</style>
     </div>
   );
