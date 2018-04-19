@@ -58,7 +58,7 @@ const Index = () => (
             <div className="wrapper">
               <h3>Total Control</h3>
               <p>
-                It's your system, control it in your way.
+                It&apos;s your system, control it in your way.
               </p>
             </div>
           </div>
@@ -146,14 +146,13 @@ const Index = () => (
             <div className="wrapper">
               <h3>No Contracts</h3>
               <p>
-                We believe in consumer freedom to choose. That's why we don't do long term monitoring contracts.
+                We believe in consumer freedom to choose. That&apos;s why we don&apos;t do long term monitoring contracts.
               </p>
             </div>
           </div>
         </Col>
         <Col xs={12} sm={12} md={6} lg={6}>
           <div className="gridItem guarantee">
-
           </div>
         </Col>
       </Row>
@@ -161,7 +160,6 @@ const Index = () => (
         <Col xs={12} sm={12} md={6} lg={6} />
         <Col xs={12} sm={12} md={6} lg={6}>
           <div className="gridItem neverWorry">
-            
           </div>
         </Col>
       </Row>
