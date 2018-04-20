@@ -1,0 +1,84 @@
+@import "variables";
+
+.customerInfo, .shippingInfo {
+  h3 {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-family: $font-gotham-rounded;
+    font-weight: bold;
+    color: #191E2B;
+    border-bottom: 1px $grey-350 solid;
+    &.extendedTitle{
+      border: none;
+    }
+  }
+  p {
+    font-size: 14px;
+  }
+  :global {
+    .coveInput {
+      margin-top: 40px;
+    }
+  }
+}
+
+.customerInfo .shippingInfo .col-sm-12 {
+  margin-top: 0px;
+}
+
+.shippingMap {
+  border: 1px solid #DEDFE1;
+  border-radius: 16px;
+  max-width: 656px;
+  margin-top: 30px;
+  img {
+    width: 100%;
+    border-radius: 0px 16px 16px 0px;
+  }
+}
+
+.mapAddress {
+  padding: 30px;
+}
+
+.shipOptionBox {
+  min-height: 184px;
+  border: 1px solid #DEDFE1;
+  border-radius: 16px;
+  margin-right:20px;
+  h4 {
+    margin-left: 40px;
+  }
+}
+
+.shipOptionHeader {
+  margin-top: 20px;
+}
+
+.shipMethodDetails {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+h4 {
+  font-family: $font-gotham-rounded;
+  font-weight: bold;
+  font-size: 20px;
+  // color: #00B19A;
+}
+
+.warrantyControls {
+  li {
+    margin-right: 50px;
+  }
+}
+
+:global {
+  .customerInfo .shippingMap .row {
+    margin-top: 0px;
+  }
+  .bold {
+    font-weight: bold;
+  }
+}

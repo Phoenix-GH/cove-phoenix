@@ -12,6 +12,8 @@ import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
 import { persistStore, persistReducer } from 'redux-persist';
 import thunkMiddleware from 'redux-thunk';
 
+import { tokenR } from '../redux/user/routine';
+import { authMiddleware } from '../utils/api';
 import rootReducer from '../reducers';
 import rootSaga from '../sagas';
 
@@ -19,26 +21,27 @@ export default function configureStore(initialState, history) {
   const sagaMiddleware = createSagaMiddleware();
   const loggerMiddleware = createLogger();
 
-  const middleware = compose(applyMiddleware(
+  const middleware = compose(composeWithDevTools(applyMiddleware(
     sagaMiddleware,
     loggerMiddleware,
+    authMiddleware,
     routerMiddleware(history),
-    composeWithDevTools(thunkMiddleware),
-  ));
+    thunkMiddleware,
+  )));
 
   const persistConfig = {
     key: 'root',
     storage,
   };
-  const persistedReducer = persistReducer(persistConfig);
+  const persistedReducer = persistReducer(persistConfig, rootReducer);
   const store = createStore(
-    rootReducer,
+    persistedReducer,
     fromJS(initialState),
     middleware,
-    persistedReducer,
   );
 
   sagaMiddleware.run(rootSaga);
-  persistStore(store);
+  window.persistor = persistStore(store);
+  store.dispatch(tokenR.trigger());
   return store;
 }
