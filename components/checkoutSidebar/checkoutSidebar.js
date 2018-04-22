@@ -38,6 +38,7 @@ class CheckoutSidebar extends Component {
       );
     });
     const planPrice = monitoringPlans[planDetails.monitoringPlan].price;
+    const tax = planDetails.tax ? parseFloat(planDetails.tax) : 0.00;
     const containerClass = cx({
       mobileContainer: mobile,
       sidebarContainer: !mobile,
@@ -140,7 +141,7 @@ class CheckoutSidebar extends Component {
             <span className="totalLabel">Total</span>
           </Col>
           <Col xs={4}>
-            <span className="totalPrice">${equipmentTotal + planPrice + (parseFloat(planDetails.tax) || 0.00) }</span>
+            <span className="totalPrice">${equipmentTotal + planPrice + tax}</span>
           </Col>
         </Row>
         <style jsx>{s}</style>
