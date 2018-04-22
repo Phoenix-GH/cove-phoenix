@@ -140,7 +140,7 @@ class CheckoutSidebar extends Component {
             <span className="totalLabel">Total</span>
           </Col>
           <Col xs={4}>
-            <span className="totalPrice">${equipmentTotal + planPrice + parseFloat(planDetails.tax) }</span>
+            <span className="totalPrice">${equipmentTotal + planPrice + (parseFloat(planDetails.tax) || 0.00) }</span>
           </Col>
         </Row>
         <style jsx>{s}</style>
