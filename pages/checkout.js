@@ -6,8 +6,7 @@ import cx from 'classnames';
 import withRedux from 'next-redux-wrapper';
 import { change } from 'redux-form';
 import initStore from '../store';
-import { createAccountR, createOrderR, completeOrderR } from '../redux/checkout/routine';
-import { tokenR } from '../redux/user/routine';
+import { validateContactR, createAccountR, createOrderR, completeOrderR } from '../redux/checkout/routine';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
 import Loader from '../components/elements/loader';
@@ -19,7 +18,7 @@ import s from './checkout/checkout.scss';
 
 class CheckoutPage extends Component {
   static async getInitialProps({ store, query }) {
-    store.dispatch(tokenR.trigger());
+    store.dispatch({ type: 'SESSION' });
     return { stage: query.stage };
   }
 
