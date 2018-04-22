@@ -19,24 +19,6 @@ import gs from '../components/styles.scss';
 import s from './addEquipment.scss';
 
 const items = [
-  {
-    src: '/static/images/placeholderBig.png',
-    thumb: '/static/images/placeholderThumb.png',
-    altText: 'Slide 1',
-    caption: 'Slide 1',
-  },
-  {
-    src: 'http://localhost:3000/static/images/placeholderBig.png',
-    thumb: '/static/images/placeholderThumb.png',
-    altText: 'Slide 1',
-    caption: 'Slide 1',
-  },
-  {
-    src: 'http://127.0.0.1:3000/static/images/placeholderBig.png',
-    thumb: '/static/images/placeholderThumb.png',
-    altText: 'Slide 1',
-    caption: 'Slide 1',
-  },
 ];
 
 class AddEquipmentPage extends Component {

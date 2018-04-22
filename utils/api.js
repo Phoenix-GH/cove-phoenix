@@ -11,7 +11,10 @@ export const authMiddleware = ({ dispatch, getState }) => next => (action) => {
 
 axios.defaults.baseURL = config.apiUrl;
 const api = axios.create({
+  withCredentials: true,
   headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
     'Content-Type': 'application/json',
   },
 });
