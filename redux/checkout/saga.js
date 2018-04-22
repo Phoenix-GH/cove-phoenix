@@ -154,8 +154,10 @@ function* createAccount() {
 function* createOrder() {
   try {
     yield put(createOrderR.request());
-    if (yield select(isValid('checkout_shipping'))) {
-      const formData = yield select(getFormValues('checkout_shipping'));
+    const formData = yield select(getFormValues('checkout_shipping'));
+    const formValid =  yield select(isValid('checkout_shipping'));
+    const { differentShipAddress } = formData.shipAddress;
+    if (!differentShipAddress || (differentShipAddress && formValid)) {
       const cart = yield select(state => state.checkout);
       const account = yield getCreateOrderRequest(formData, cart);
       const response = yield call(coveAPI, { url: '/meliae/createOrder', method: 'POST', data: account });
