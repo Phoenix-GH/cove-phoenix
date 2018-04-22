@@ -17,3 +17,7 @@ export const changeQuantity = (productId, previousQuantity, newQuantity) => (dis
 export const selectMonitoringPlan = monitoringPlan => dispatch => (
   dispatch({ type: types.SELECT_SUBSCRIPTION_TYPE, payload: { monitoringPlan } })
 );
+
+export const moveCartToOrdered = () => dispatch => (
+  dispatch({ type: types.MOVE_CART_TO_ORDERED })
+);

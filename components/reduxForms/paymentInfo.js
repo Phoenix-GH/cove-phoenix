@@ -1,10 +1,18 @@
 import { Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
+import { Field, reduxForm } from 'redux-form';
 import Link from 'next/link';
-import Input from '../../components/input';
-import Checkbox from '../../components/checkbox';
+import Input from './input';
+import Checkbox from './checkbox';
 import InfoBox from '../../components/infoBox/infobox';
-import s from './paymentInfo.scss';
+import {
+  required,
+  creditCard,
+  ccExp,
+  normalizeExp,
+  cvv
+} from './validate';
+import styles from './paymentInfo.scss';
 
 const PaymentInfo = (props) => {
   const { onChangeHandler } = props;
@@ -22,11 +30,12 @@ const PaymentInfo = (props) => {
         </Row>
         <Row>
           <Col xs={8}>
-            <Input
+            <Field
+              name="cc.name"
               label="Name on card"
-              onChangeHandler={
-                (changeValue) => { onChangeHandler('orderValue', { name: changeValue }); }
-              }
+              type="text"
+              validate={required}
+              component={Input}
             />
           </Col>
           <Col xs={4}>
@@ -35,28 +44,32 @@ const PaymentInfo = (props) => {
         </Row>
         <Row>
           <Col xs={8}>
-            <Input
+            <Field
+              name="cc.number"
               label="Card number"
-              onChangeHandler={
-                (changeValue) => { onChangeHandler('orderValue', { number: changeValue }); }
-              }
+              type="text"
+              validate={required}
+              component={Input}
             />
           </Col>
           <Col xs={2}>
-            <Input
+            <Field
+              name="cc.exp"
               label="MM/YY"
-              onChangeHandler={
-                (changeValue) => { onChangeHandler('orderValue', { expiry: changeValue }); }
-              }
+              type="text"
+              validate={[required, ccExp]}
+              component={Input}
+              normalize={normalizeExp}
             />
           </Col>
           <Col xs={2}>
             <Row>
-              <Input
+              <Field
+                name="cc.cvv"
                 label="CVV"
-                onChangeHandler={
-                  (changeValue) => { onChangeHandler('orderValue', { cvv: changeValue }); }
-                }
+                type="text"
+                validate={[required, cvv]}
+                component={Input}
               />
               <InfoBox />
             </Row>
@@ -70,7 +83,10 @@ const PaymentInfo = (props) => {
         <Row>
           <Col>
             <div className="acceptanceRow">
-              <Checkbox />
+              <Field
+                name="acceptedTerms"
+                component={Checkbox}
+              />
               <div className="acceptance">
                 I accept the <Link href="#link"><span className="linkTertiary"> Terms and Conditons</span></Link>
               </div>
@@ -78,7 +94,7 @@ const PaymentInfo = (props) => {
           </Col>
         </Row>
       </div>
-      <style jsx>{s}</style>
+      <style jsx>{styles}</style>
     </div>
   );
 };
@@ -91,4 +107,8 @@ PaymentInfo.defaultProps = {
   onChangeHandler: () => {},
 };
 
-export default PaymentInfo;
+export default reduxForm({
+  form: 'checkout_payment',
+  destroyOnUnmount: false,
+})(PaymentInfo);
+

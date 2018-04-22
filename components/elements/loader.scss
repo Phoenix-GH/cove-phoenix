@@ -1,3 +1,13 @@
+.loaderContainer {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  opacity: .6;
+}
+
 .loader,
 .loader:before,
 .loader:after {
@@ -10,8 +20,11 @@
 .loader {
   color: #00cdb9;
   text-indent: -9999em;
-  margin: 88px auto;
-  position: relative;
+  margin-left: -.5em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
   font-size: 11px;
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);

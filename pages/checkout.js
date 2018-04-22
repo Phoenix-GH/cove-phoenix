@@ -6,13 +6,14 @@ import cx from 'classnames';
 import withRedux from 'next-redux-wrapper';
 import { change } from 'redux-form';
 import initStore from '../store';
-import { validateContactR, createAccountR, createOrderR } from '../redux/checkout/routine';
+import { validateContactR, createAccountR, createOrderR, completeOrderR } from '../redux/checkout/routine';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
+import Loader from '../components/elements/loader';
 import CheckoutSidebar from '../components/checkoutSidebar/checkoutSidebar';
 import CustomerInfo from '../components/reduxForms/customerInfo';
 import ShippingInfo from '../components/reduxForms/shippingInfo';
-import PaymentInfo from './checkout/paymentInfo';
+import PaymentInfo from '../components/reduxForms/paymentInfo';
 import s from './checkout/checkout.scss';
 
 class CheckoutPage extends Component {
@@ -58,7 +59,7 @@ class CheckoutPage extends Component {
     } else if (activeStage === 'shipping') {
       this.props.createOrderR();
     } else if (activeStage === 'payment') {
-      this.completeOrder();
+      this.props.completeOrderR();
     }
   }
 
@@ -145,7 +146,8 @@ class CheckoutPage extends Component {
     const paymentPageClassName = cx('tab', {
       activePage: activeStage === 'payment',
     });
-
+    console.log('loading', this.props.checkout.checkout.loading)
+    const loaderClass = cx({'d-none': !this.props.checkout.checkout.loading })
     return (
       <Layout>
         <Container className="checkoutContainer">
@@ -257,6 +259,7 @@ class CheckoutPage extends Component {
             </Col>
           </Row>
         </Container>
+        <Loader className={loaderClass} />
         <style jsx>{s}</style>
       </Layout>
     );
@@ -307,6 +310,7 @@ const mapStateToProps = ({
 const mapDispatchToProps = {
   createAccountR,
   createOrderR,
+  completeOrderR,
   change,
 };
 
