@@ -134,35 +134,142 @@
   }
 
   .starterKitTabsSection {
-    display: flex;
     width: 100%;
-    padding: 0 60px;
+    .tabHeader {
+      display: flex;
+      width: 100%;
+      padding: 0 60px;
+      border: 1px solid $grey-600;
+      .tabBarItem {
+        flex: 1;
+        border-bottom: 2px solid white;
+        padding: 59px 50px 69px 50px;
+        text-align: center;
+        p {
+          font-size: 24px;
+          line-height: 30px;
+          margin: 0;
+        }
 
-  }
-  .flexCol {
-    position: relative;
-    width: 33%;
-    min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
-    .stageLabel {
-      @media (max-width: $width-lg) {
+        img {
+          margin: 0 auto 30px auto;
+        }
+        &.selected {
+          border-color: $warning;
+        }
+      }
+    }
+
+    .tabBody {
+      width: 100%;
+      padding: 0 60px;
+      .tabBar {
         display: none;
+        text-align: center;
+        .content {
+          display: flex;
+        }
+
+        .commitment {
+          font-size: 45px;
+          line-height: 50px;
+          font-weight: bold;
+          width: 65%;
+          margin-top: 116px;
+        }
+        .commitmentImg {
+          margin-top: 130px;
+        }
+        .joinBtn {
+          background-color: $warning;
+          color: white;
+          font-size: 42px;
+          font-weight: bold;
+          border-radius: 5px;
+          padding: 10px 20px;
+          margin-top: 45px;
+          &--second {
+            margin: 50px auto;
+          }
+        }
+
+        .controlSystemTitle {
+          font-weight: bold;
+          font-size: 55px;
+          margin-top: 120px;
+          line-height: 55px;
+          text-align: center;
+        }
+        .controlContent {
+          display: flex;
+          margin: 50px 0;
+          align-items: center;
+          .imageArea {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            img {
+              object-fit: cover;
+            }
+          }
+          p {
+            font-size: 40px;
+            margin: 0 0 0 15px;
+          }
+        }
+        &.selected {          
+          display: block;
+        }
+      }
+    }
+
+    @media screen and (max-width: $width-md) {
+      .tabHeader {
+        .tabBarItem {
+          padding: 25px;
+          p {
+            font-size: 18px;
+            line-height: 22px;
+            margin: 0;
+          }
+  
+          img {
+            margin: 0 auto 22px auto;
+          }
+        }
+        .tabBody {
+          .tabBar {    
+            .commitment {
+              font-size: 30px;
+              line-height: 35px;
+              margin-top: 70px;
+            }
+            .commitmentImg {
+              margin-top: 90px;
+            }
+    
+            .controlSystemTitle {
+              font-weight: bold;
+              font-size: 36px;
+              margin-top: 80px;
+              line-height: 36px;
+              text-align: center;
+            }
+            .controlContent {
+              margin: 30px 0;
+              p {
+                font-size: 28px;
+                margin: 0 0 0 15px;
+              }
+            }
+          }
+
+        }
+
       }
     }
   }
-
-  .flexCol.activeStage {
-    @media (max-width: $width-lg) {
-      -ms-flex: 0 0 50%;
-      flex: 0 0 50%;
-      max-width: 50%;
-    }
-    .stageLabel {
-      display: inline;
-    }
-  }
-
+  
   @media (max-width: $width-md) {
     
   }

@@ -17,23 +17,19 @@ const descriptionSectionTitle = 'What\'s in the starter kit';
 class Index extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      activeIndex: 0,
+    };
   }
 
-  componentWillReceiveProps(nextProps) {
-    const activeStage = this.props.stage ? this.props.stage : 0;
+  selectTab = (index) => {
+    this.setState({ activeIndex: index });
   }
 
   render() {
-    const activeStage = this.props.stage ? this.props.stage : 0;
-    const tab0ClassName = cx('flexCol', {
-      activeStage: activeStage === '0',
-    });
-    const tab1ClassName = cx('flexCol', {
-      activeStage: activeStage === '1',
-    });
-    const tab2ClassName = cx('flexCol', {
-      activeStage: activeStage === '2',
-    });
+    const {
+      activeIndex,
+    } = this.state;
 
     return (
       <Layout>
@@ -114,29 +110,77 @@ class Index extends Component {
 
           <Row>
             <div className="starterKitTabsSection">
-              <div className={tab0ClassName}>
-                <Link href={{ pathname: '/starterkit', query: { stage: 0 } }}>
-                  <div className="checkoutStageOne link">
-                    <span className="stageLabel">Tab1</span>
-                    <div className="stageIndicator" />
-                  </div>
-                </Link>
+              <div className="tabHeader">
+                <div className={`tabBarItem${activeIndex === 0 ? ' selected' : ''}`} onClick={() => this.selectTab(0)}>
+                  <img src="/static/images/starterKitTab0.png" alt="" />
+                  <p>No commitments.</p>
+                  <p>Cancel online at anytime.</p>
+                </div>
+                <div className={`tabBarItem${activeIndex === 1 ? ' selected' : ''}`} onClick={() => this.selectTab(1)}>
+                  <img src="/static/images/starterKitTab1.png" alt="" />
+                  <p>Control your alarm</p>
+                  <p>from anywhere.</p>
+                </div>
+                <div className={`tabBarItem${activeIndex === 2 ? ' selected' : ''}`} onClick={() => this.selectTab(2)}>
+                  <img src="/static/images/starterKitTab2.png" alt="" />
+                  <p>Pick your price.</p>
+                </div>
               </div>
-              <div className={tab1ClassName}>
-                <Link href={{ pathname: '/starterkit', query: { stage: 1 } }}>
-                  <div className={`${s.checkoutStageTwo} ${s.link}`}>
-                    <span className="stageLabel">Tab2</span>
-                    <div className="stageIndicator" />
-                  </div>
-                </Link>
-              </div>
-              <div className={tab2ClassName}>
-                <Link href={{ pathname: '/starterkit', query: { stage: 2 } }}>
-                  <div className={`${s.checkoutStageThree} ${s.link}`}>
-                    <span className="stageLabel">Tab3</span>
-                    <div className="stageIndicator" />
-                  </div>
-                </Link>
+
+              <div className="tabBody">
+                <div className={`tabBar${activeIndex === 0 ? ' selected' : ''}`}>
+                  <div className="content">
+                    <p className="commitment">
+                      If you decide that Cove isn’t for you, that’s no problem. No commitment. Cancel online anytime.                  
+                    </p>
+                    <img className="commitmentImg" src="/static/images/commitment.png" alt="" />
+                  </div>                  
+                  <button className="joinBtn">JOIN FREE FOR A MONTH</button>
+                </div>
+                <div className={`tabBar${activeIndex === 1 ? ' selected' : ''}`}>
+                  <p className="controlSystemTitle">
+                    Control your system your way.                  
+                  </p>
+                  <Row>
+                    <Col xs={6} sm={6} md={6} lg={6}>
+                      <div className="controlContent">
+                        <div className="imageArea">
+                          <img src="/static/images/landscape.png" />
+                        </div>
+                        <p>Panel</p>
+                      </div>
+                    </Col>
+                    <Col xs={6} sm={6} md={6} lg={6}>
+                      <div className="controlContent">
+                        <div className="imageArea">
+                          <img src="/static/images/device.png" />
+                        </div>
+                        <p>Android/iOS App</p>
+                      </div>
+                    </Col>
+                    <Col xs={6} sm={6} md={6} lg={6}>
+                      <div className="controlContent">
+                        <div className="imageArea">
+                          <img src="/static/images/keyRemote1.png" />
+                        </div>
+                        <p>Key Remote</p>
+                      </div>
+                    </Col>
+                    <Col xs={6} sm={6} md={6} lg={6}>
+                      <div className="controlContent">
+                        <div className="imageArea">
+                          <img src="/static/images/voice.png" />
+                        </div>
+                        <p>voice</p>
+                      </div>
+                    </Col>                    
+                  </Row>
+                  <button className="joinBtn joinBtn--second">JOIN FREE FOR A MONTH</button>
+                </div>
+                <div className={`tabBar${activeIndex === 2 ? ' selected' : ''}`}>
+                  
+                </div>
+
               </div>
             </div>
           </Row>
@@ -147,13 +191,5 @@ class Index extends Component {
     );
   }
 }
-
-Index.propTypes = {
-  stage: PropTypes.number
-};
-
-Index.defaultProps = {
-  stage: 0
-};
 
 export default Index;

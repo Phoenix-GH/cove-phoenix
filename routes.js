@@ -55,5 +55,5 @@ module.exports = () => ({
   '/account/loyalty': { page: '/loyaltycredits' },
   '/account/email': { page: '/email' },
   '/security': { page: '/security' },
-  '/starterkit': { page: '/starterkit', query: { stage: 0 } },
+  '/starterkit': { page: '/starterkit' },
 });
