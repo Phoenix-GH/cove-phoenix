@@ -13,6 +13,7 @@ import { persistStore, persistReducer } from 'redux-persist';
 import thunkMiddleware from 'redux-thunk';
 
 import { tokenR } from '../redux/user/routine';
+import { getProductsR } from '../redux/general/routine';
 import { authMiddleware } from '../utils/api';
 import rootReducer from '../reducers';
 import rootSaga from '../sagas';
@@ -43,5 +44,6 @@ export default function configureStore(initialState, history) {
   sagaMiddleware.run(rootSaga);
   window.persistor = persistStore(store);
   store.dispatch(tokenR.trigger());
+
   return store;
 }

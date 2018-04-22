@@ -1,5 +1,5 @@
 // ACTIONS
-import uuid from "uuid/v1";
+import uuid from "uuid/v4";
 import _ from 'lodash';
 import types from './actionTypes';
 
@@ -21,8 +21,11 @@ export const loadProducts = () => (dispatch, getState) => {
   if(_.isEmpty(getState().products)) {
     dispatch({ type: types.LOAD_PRODUCTS, products: coveProducts });
   }
-}
-export const addProductToCart = product => dispatch => dispatch({ type: types.ADD_PRODUCT_TO_CART, product: productId });
+};
+
+export const addProductToCart = product => dispatch => (
+  dispatch({ type: types.ADD_PRODUCT_TO_CART, product: productId })
+);
 
 export const changeQuantity = (productId, previousQuantity, newQuantity) => (dispatch) => {
   if (newQuantity === 0) {
@@ -36,7 +39,9 @@ export const changeQuantity = (productId, previousQuantity, newQuantity) => (dis
 };
 
 export const toggleFinance = () => dispatch => dispatch({ type: types.TOGGLE_FINANCE });
-export const selectSubscriptionType = subscription => dispatch => dispatch({ type: types.SELECT_SUBSCRIPTION_TYPE, subscription });
+export const selectSubscriptionType = subscription => dispatch => (
+  dispatch({ type: types.SELECT_SUBSCRIPTION_TYPE, subscription })
+);
 
 
 /* temp test data */

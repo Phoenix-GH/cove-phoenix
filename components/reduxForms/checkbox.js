@@ -4,10 +4,9 @@ import s from './checkbox.scss';
 
 const Checkbox = ({ input, label, checked, onClick = () => {}, value, onChange, formValue }) => {
   const id = uuidv4();
-  console.log('asdf', input)
   return (
-    <div className="checkBox" >
-      <input id={id} type="checkbox" {...input} />
+    <div className="checkBox">
+      <input id={id} type="checkbox" {...input} onClick={onClick} />
       <label htmlFor={id}>{label}</label>
       <style jsx>{s}</style>
     </div>

@@ -30,8 +30,12 @@ class ShippingInfo extends Component {
       ...formData.checkout_customer.values.monitorAddress,
       ...formData.checkout_customer.values.customer1,
     };
-    const { shipAddress } = formData.checkout_shipping.values;
-    const mapAddress = (_.has(formData.checkout_shipping, 'values.shipAddress.postal') && !formData.checkout_shipping.syncErrors && this.state.differentAddress) ? shipAddress : monitorAddress;
+    const shipAddress = _.has(formData, 'checkout_shipping.values') ? formData.checkout_shipping.values.shipAddress : {};
+    const mapAddress = (
+      _.has(formData.checkout_shipping, 'values.shipAddress.postal')
+      && !formData.checkout_shipping.syncErrors
+      && this.state.differentAddress
+    ) ? shipAddress : monitorAddress;
     const mapAddressQueryStr = `${mapAddress.address1.replace(/\s+/g, '+')},${mapAddress.city.replace(/\s+/g, '+')},${mapAddress.state},${mapAddress.postal}`;
     const mapUrl = `
       https://maps.googleapis.com/maps/api/staticmap?center=${mapAddressQueryStr}&markers=color:0x00CDB9|label:C|${mapAddressQueryStr}
@@ -65,6 +69,7 @@ class ShippingInfo extends Component {
     let mapAddress = {};
     if (_.has(formData, 'checkout_customer.values.monitorAddress.postal')) {
       ({ mapUrl, mapAddress } = this.getMapURl(formData));
+      console.log('maps',  mapUrl, mapAddress)
     }
 
     return (
@@ -74,7 +79,7 @@ class ShippingInfo extends Component {
             <h3>Shipping Information</h3>
             <div >
               <Field
-                name="shippAddress.differentShipAddress"
+                name="shipAddress.differentShipAddress"
                 label="Shipping info is different than Monitored Address."
                 component={Checkbox}
                 onClick={this.toggleShippingAddress}
@@ -116,7 +121,6 @@ class ShippingInfo extends Component {
                     name="shipAddress.address2"
                     label="Apt/Suite #"
                     type="text"
-                    validate={required}
                     component={Input}
                   />
                 </Col>
@@ -304,4 +308,5 @@ export default reduxForm({
     shippingMethod: 1,
     shipAddress: {},
   },
+  destroyOnUnmount: false,
 })(ShippingInfo);

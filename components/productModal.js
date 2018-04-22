@@ -23,7 +23,7 @@ const ProductModal = (props) => {
       <ModalBody>
         <Row>
           <Col xs={11}>
-            <h2 className={s.modalHeader}>{product.name}</h2>
+            <h2 className={s.modalHeader}>{product.display_name}</h2>
           </Col>
           <Col xs={1}>
             <div className={s.closeIcon}>

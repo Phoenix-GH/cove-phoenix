@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Link from 'next/link';
+import Router from 'next/router';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
-import { toggleFinance, selectSubscriptionType } from '../actions';
+import { selectMonitoringPlan } from '../redux/checkout/actions';
 import SelectableButton from '../components/selectableButton/selectableButton';
 import BackButton from '../components/backButton/backButton';
 import styles from './coveClubFullsize.scss';
@@ -15,10 +15,6 @@ class CoveClubFullsize extends Component {
     this.state = {
       selectedPlan: '',
     };
-  }
-
-  toggleFinance = () => {
-    this.props.toggleFinance();
   }
 
   selectSubscriptionType = (subscription) => {
@@ -33,12 +29,17 @@ class CoveClubFullsize extends Component {
     const { selectedPlan } = this.state;
     const coveBasic = selectedPlan === 'basicMonth' || selectedPlan === 'basicYear';
     const covePremium = selectedPlan === 'premiumMonth' || selectedPlan === 'premiumYear';
-    const activeSelect = (
-      <Link href="/checkout">
-        <div className="selectBtn mx-auto">
-          Select
-        </div>
-      </Link>
+    const Select = monitoringPlan => (
+      <button
+        className="selectBtn mx-auto"
+        onClick={() => {
+          this.props.selectMonitoringPlan(monitoringPlan);
+          Router.push({ pathname: '/checkout' });
+          }
+        }
+      >
+        Select
+      </button>
     );
     const disabledSelect = (
       <div className="selectBtn disabled mx-auto">
@@ -52,7 +53,7 @@ class CoveClubFullsize extends Component {
         <Row>
           <Col className="header">
             <h2>Cove members to Cove Pay</h2>
-            <div className="titleSubText">
+            <div className="titleSubText d-none">
               Finacing available at 0% APR for 60 months.
             </div>
           </Col>
@@ -67,14 +68,12 @@ class CoveClubFullsize extends Component {
                     <div className="coveClubTableHeader">
                       <h3>Basic</h3>
                       <h4>$19.99</h4>
-                      <h5>or $199 per year</h5>
                     </div>
                   </Col>
                   <Col md={{ size: 5, offset: 2 }}>
                     <div className="coveClubTableHeader">
                       <h3>Premium</h3>
                       <h4>$29.99</h4>
-                      <h5>or $199 per year</h5>
                     </div>
                   </Col>
                 </Row>
@@ -199,22 +198,13 @@ class CoveClubFullsize extends Component {
                         <SelectableButton
                           title="$19.99 per month"
                           isSelected={selectedPlan === 'basicMonth'}
-                          onClick={() => this.selectPlan('basicMonth')}
                         />
                       </Col>
                     </Row>
+
                     <Row className="buttonRow">
                       <Col xs={12}>
-                        <SelectableButton
-                          title="$199 per year"
-                          isSelected={selectedPlan === 'basicYear'}
-                          onClick={() => this.selectPlan('basicYear')}
-                        />
-                      </Col>
-                    </Row>
-                    <Row className="buttonRow">
-                      <Col xs={12}>
-                        {basicSelectBtn}
+                        {Select(1)}
                       </Col>
                     </Row>
                   </div>
@@ -226,22 +216,12 @@ class CoveClubFullsize extends Component {
                         <SelectableButton
                           title="$29.9 per month"
                           isSelected={selectedPlan === 'premiumMonth'}
-                          onClick={() => this.selectPlan('premiumMonth')}
                         />
                       </Col>
                     </Row>
                     <Row className="buttonRow">
                       <Col xs={12}>
-                        <SelectableButton
-                          title="$299 per year"
-                          isSelected={selectedPlan === 'premiumYear'}
-                          onClick={() => this.selectPlan('premiumYear')}
-                        />
-                      </Col>
-                    </Row>
-                    <Row className="buttonRow">
-                      <Col xs={12}>
-                        {premiumSelectBtn}
+                        {Select(2)}
                       </Col>
                     </Row>
                   </div>
@@ -257,15 +237,13 @@ class CoveClubFullsize extends Component {
 }
 
 CoveClubFullsize.propTypes = {
-  selectSubscriptionType: PropTypes.func.isRequired,
-  toggleFinance: PropTypes.func.isRequired,
+  selectMonitoringPlan: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = ({ payment }) => ({ payment });
+const mapStateToProps = ({ checkout }) => ({ checkout });
 
 const mapDispatchToProps = dispatch => ({
-  toggleFinance: bindActionCreators(toggleFinance, dispatch),
-  selectSubscriptionType: bindActionCreators(selectSubscriptionType, dispatch),
+  selectMonitoringPlan: bindActionCreators(selectMonitoringPlan, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoveClubFullsize);

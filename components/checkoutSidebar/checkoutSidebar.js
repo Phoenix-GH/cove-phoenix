@@ -12,7 +12,6 @@ class CheckoutSidebar extends Component {
     super(props);
     this.state = {
       collapse: false,
-      finance: false,
     };
   }
 
@@ -20,18 +19,25 @@ class CheckoutSidebar extends Component {
     this.setState({ collapse: !this.state.collapse });
   }
 
-  toggleFinance = (val) => {
-    this.setState({ finance: val });
-  }
-
   render() {
-    const toggleImage = this.state.collapse ? 'arrowUp.png' : 'arrowDown.png';
-    const { cart, products, mobile } = this.props;
-    const cartList = cart.cartItemIds.map(val => (
-      <li key={products[val].id}>
-        {cart.quantityById[val]} {products[val].name}
-      </li>
-    ));
+    const { mobile } = this.props;
+    const {
+      productById,
+      cartItemIds,
+      planDetails,
+      monitoringPlans,
+    } = this.props.checkout;
+    console.log('zz', monitoringPlans, planDetails, monitoringPlans[planDetails.monitoringPlan]);
+    let equipmentTotal = 249.00;
+    const cartList = cartItemIds.map((val) => {
+      equipmentTotal += parseFloat(productById[val].price);
+      return (
+        <li key={productById[val].id}>
+          {productById[val].quantity} {productById[val].display_name}
+        </li>
+      );
+    });
+    const planPrice = monitoringPlans[planDetails.monitoringPlan].price;
     const containerClass = cx({
       mobileContainer: mobile,
       sidebarContainer: !mobile,
@@ -63,7 +69,7 @@ class CheckoutSidebar extends Component {
             <Col xs={8}>
               <ul className="cartProductList">
                 <li>
-                  17&Prime; Touchscreen Control Panel
+                  7&Prime; Touchscreen Control Panel
                 </li>
                 {cartList}
               </ul>
@@ -87,68 +93,21 @@ class CheckoutSidebar extends Component {
             </Col>
           </Row>
         </div>
-        <Row>
-          <Col xs={12}>
-            <div className="coupon">
-              <div className="row">
-                <span className="bold flexLeft">
-                  Have a Coupon
-                </span>
-                <button onClick={this.toggleCoupon}>
-                  <img src={`/static/images/${toggleImage}`} alt="toggle" />
-                </button>
-              </div>
-              <Collapse isOpen={this.state.collapse}>
-                <Row>
-                  <Col xs={12}>
-                    <Input label="Coupon Code" />
-                  </Col>
-                </Row>
-              </Collapse>
-            </div>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12}>
-            <Radio
-              label={[<span className="bold">Pay In Full</span>]}
-              checked={!this.state.finance}
-              onClick={() => this.toggleFinance(false)}
-            />
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12}>
-            <Radio
-              label={[<span className="bold">Finance 0% APR</span>]}
-              checked={this.state.finance}
-              onClick={() => this.toggleFinance(true)}
-            />
-          </Col>
-        </Row>
         <div className="cartPricing">
-          <Row>
-            <Col xs={9}>
-              5 Year Prime Membership
-            </Col>
-            <Col xs={3}>
-              <span className="bold">$99.99</span>
-            </Col>
-          </Row>
           <Row>
             <Col xs={9}>
               Monthly Monitoring
             </Col>
             <Col xs={3}>
-              <span className="bold">$19.99</span>
+              <span className="bold">${planPrice}</span>
             </Col>
           </Row>
           <Row>
             <Col xs={9}>
-              Equipment Payment
+              Equipment
             </Col>
             <Col xs={3}>
-              <span className="bold">$8.33</span>
+              <span className="bold">${equipmentTotal}</span>
             </Col>
           </Row>
           <Row>
@@ -156,7 +115,7 @@ class CheckoutSidebar extends Component {
               Subtotal
             </Col>
             <Col xs={3}>
-              <span className="bold">$128.31</span>
+              <span className="bold">${equipmentTotal + planPrice}</span>
             </Col>
           </Row>
           <Row>
@@ -167,13 +126,21 @@ class CheckoutSidebar extends Component {
               <span className="bold">Free</span>
             </Col>
           </Row>
+          <Row>
+            <Col xs={9}>
+              Tax
+            </Col>
+            <Col xs={3}>
+              <span className="bold">{planDetails.tax || '-'}</span>
+            </Col>
+          </Row>
         </div>
         <Row>
           <Col xs={{ size: 3, offset: 5 }}>
             <span className="totalLabel">Total</span>
           </Col>
           <Col xs={4}>
-            <span className="totalPrice">$128.31</span>
+            <span className="totalPrice">${equipmentTotal + planPrice + parseFloat(planDetails.tax) }</span>
           </Col>
         </Row>
         <style jsx>{s}</style>
@@ -186,15 +153,22 @@ CheckoutSidebar.propTypes = {
   cart: PropTypes.object,
   products: PropTypes.object,
   mobile: PropTypes.bool,
+  checkout: PropTypes.object,
 };
 
 CheckoutSidebar.defaultProps = {
   cart: [],
   products: [],
   mobile: false,
+  checkout: {
+    cartItemIds: [],
+    productsById: {},
+    monitoringPlans: {},
+    planDetails: { monitoringPlan: 1 },
+  },
 };
 
-const mapStateToProps = ({ cart, products, payment }) => ({ cart, products, payment });
+const mapStateToProps = ({ checkout }) => ({ checkout });
 
 const mapDispatchToProps = () => ({
 });

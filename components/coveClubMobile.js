@@ -4,21 +4,17 @@ import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Container, Row, Col } from 'reactstrap';
-import { toggleFinance, selectSubscriptionType } from '../actions';
+import { selectMonitoringPlan } from '../redux/checkout/actions';
 import Radio from '../components/radio';
 import s from './coveClubMobile.scss';
 
 class CoveClubMobile extends Component {
-  toggleFinance = () => {
-    this.props.toggleFinance();
-  }
-
   selectSubscriptionType = (subscription) => {
     this.props.selectSubscriptionType(subscription);
   }
 
   render() {
-    const { payment } = this.props;
+    const { monitoringPlan } = this.props.checkout.planDetails;
     return (
       <Container className="coveClubMobile">
         <Row>
@@ -187,7 +183,7 @@ class CoveClubMobile extends Component {
                 <Radio
                   clickHandler={() => this.selectSubscriptionType('clubBasic')}
                   label={[<span className="bold" />]}
-                  checked={payment.subscriptionType === 'clubBasic'}
+                  checked={monitoringPlan === 'clubBasic'}
                 />
               </div>
             </Col>
@@ -210,7 +206,7 @@ class CoveClubMobile extends Component {
                 <Radio
                   clickHandler={() => this.selectSubscriptionType('clubPremium')}
                   label={[<span className="bold" />]}
-                  checked={payment.subscriptionType === 'clubPremium'}
+                  checked={monitoringPlan === 'clubPremium'}
                 />
               </div>
             </Col>
@@ -244,18 +240,20 @@ class CoveClubMobile extends Component {
 CoveClubMobile.propTypes = {
   payment: PropTypes.object,
   selectSubscriptionType: PropTypes.func.isRequired,
-  toggleFinance: PropTypes.func.isRequired,
+  checkout: {
+    planDetails: {},
+  },
 };
 
 CoveClubMobile.defaultProps = {
   payment: null,
+  checkout: PropTypes.object,
 };
 
-const mapStateToProps = ({ payment }) => ({ payment });
+const mapStateToProps = ({ checkout }) => ({ checkout });
 
 const mapDispatchToProps = dispatch => ({
-  toggleFinance: bindActionCreators(toggleFinance, dispatch),
-  selectSubscriptionType: bindActionCreators(selectSubscriptionType, dispatch),
+  selectMonitoringPlan : bindActionCreators(selectMonitoringPlan, dispatch),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoveClubMobile);

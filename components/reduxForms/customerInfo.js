@@ -124,15 +124,6 @@ const CustomerInfo = ({ formData }) => {
           <Row>
             <Col xs={12} sm={12} md={6}>
               <Field
-                label="Add Addtional Contact"
-                name="includeEc3"
-                component={Checkbox}
-              />
-            </Col>
-          </Row>
-          <Row>
-            <Col xs={12} sm={12} md={6}>
-              <Field
                 name="ec2.name"
                 label="Emergency Contact"
                 type="text"
@@ -152,7 +143,16 @@ const CustomerInfo = ({ formData }) => {
               />
             </Col>
           </Row>
-          <Collapse isOpen={formData.values.includeEc3}>
+          <Row>
+            <Col xs={12} sm={12} md={6}>
+              <Field
+                label="Add Addtional Contact"
+                name="includeEc3"
+                component={Checkbox}
+              />
+            </Col>
+          </Row>
+          <Collapse isOpen={formData.values && formData.values.includeEc3}>
             <Row>
               <Col xs={12} sm={12} md={6}>
                 <Field
@@ -210,4 +210,5 @@ export default reduxForm({
     ec1: {},
     includeEc3: false,
   },
+  destroyOnUnmount: false,
 })(CustomerInfo);

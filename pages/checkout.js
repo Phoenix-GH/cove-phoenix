@@ -52,6 +52,7 @@ class CheckoutPage extends Component {
 
   handleNextClick = () => {
     const activeStage = this.props.stage ? this.props.stage : 'customer';
+    console.log('activestage', activeStage)
     if (activeStage === 'customer') {
       this.props.createAccountR();
     } else if (activeStage === 'shipping') {
@@ -271,10 +272,16 @@ CheckoutPage.propTypes = {
   completeOrder: PropTypes.func.isRequired,
   url: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
+  form: PropTypes.object,
 };
 
 CheckoutPage.defaultProps = {
   stage: 'customer',
+  form: {
+    customer_checkout: {
+      values: {},
+    },
+  },
 };
 
 const mapStateToProps = ({

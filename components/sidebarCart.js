@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Row, Col } from 'reactstrap';
 import PropTypes from 'prop-types';
 import CartAddon from '../components/cartAddon';
-import { changeQuantity } from '../actions';
+import { changeQuantity } from '../redux/checkout/actions';
 import styles from './sidebarCart.scss';
 
 class SidebarCart extends Component {
@@ -17,7 +17,10 @@ class SidebarCart extends Component {
   }
 
   render() {
-    const { products, cart, detailAction } = this.props;
+    console.log('checkout ,', this.props.checkout)
+    const { detailAction, products } = this.props;
+    const { productById } = this.props.checkout;
+
     return (
       <div className="cartColumn">
         <div className="cartHeader">
@@ -38,8 +41,8 @@ class SidebarCart extends Component {
           Object.keys(products).map(key =>
             (<CartAddon
               key={key}
-              product={products[key]}
-              quantity={cart.quantityById[key]}
+              index={key}
+              product={productById[products[key].id]}
               detailAction={detailAction}
               changeQuantity={this.changeQuantity}
             />))
@@ -79,20 +82,22 @@ class SidebarCart extends Component {
 }
 
 SidebarCart.propTypes = {
-  products: PropTypes.object,
+  products: PropTypes.array,
   cart: PropTypes.object,
   detailAction: PropTypes.func,
   changeQuantity: PropTypes.func,
+  checkout: PropTypes.object,
 };
 
 SidebarCart.defaultProps = {
-  products: null,
-  cart: null,
+  checkout: { productById: {} },
+  products: [],
+  cart: {},
   detailAction: () => {},
   changeQuantity: () => {},
 };
 
-const mapStateToProps = ({ cart, products }) => ({ cart, products });
+const mapStateToProps = ({ checkout }) => ({ checkout });
 
 const mapDispatchToProps = dispatch => ({
   changeQuantity: bindActionCreators(changeQuantity, dispatch),

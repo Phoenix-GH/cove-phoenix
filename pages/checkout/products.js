@@ -14,6 +14,7 @@ import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../../store';
 import { loadProducts } from '../../actions';
+import { getProductsR } from '../../redux/general/routine';
 import Layout from '../../components/minimalLayout';
 import Header from '../../components/header';
 import SidebarCart from '../../components/sidebarCart';
@@ -56,7 +57,7 @@ class ProductPage extends Component {
       modal: false,
       activeProduct: 2,
     };
-    this.load();
+    this.props.getProductsR();
   }
 
   onExiting = () => {
@@ -85,19 +86,16 @@ class ProductPage extends Component {
   }
 
   toggle = (productId) => {
+    console.log('toggle', productId)
     this.setState({
       modal: !this.state.modal,
       activeProduct: productId,
     });
   }
 
-  load = () => {
-    this.props.loadProducts();
-  }
-
   render() {
     const { activeIndex, activeProduct, modal } = this.state;
-    const { products } = this.props;
+    const products = this.props.general.products.data.sensor || [];
     const slides = items.map(item => (
       <CarouselItem
         onExiting={this.onExiting}
@@ -238,7 +236,7 @@ class ProductPage extends Component {
                 </div>
               </Col>
               <Col xl={4} lg={4} md={0} sm={0} className="no-gutters">
-                <SidebarCart detailAction={this.toggle} />
+                <SidebarCart detailAction={this.toggle} products={products} />
               </Col>
             </Row>
           </div>
@@ -265,14 +263,14 @@ ProductPage.propTypes = {
 };
 
 ProductPage.defaultProps = {
-  products: [],
-  loadProducts: () => {},
+  products: {},
+  getProductsR: () => {},
 };
 
-const mapStateToProps = ({ cart, products }) => ({ cart, products });
+const mapStateToProps = ({ cart, products, general }) => ({ cart, products, general });
 
-const mapDispatchToProps = dispatch => ({
-  loadProducts: bindActionCreators(loadProducts, dispatch),
-});
+const mapDispatchToProps = {
+  getProductsR,
+};
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(ProductPage);

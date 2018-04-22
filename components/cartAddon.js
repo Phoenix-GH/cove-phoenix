@@ -6,14 +6,16 @@ import styles from './cartAddon.scss';
 const CartAddon = (props) => {
   const {
     thumbSrc,
-    quantity,
     product,
     changeQuantity,
     detailAction,
+    index,
   } = props;
   const outOfStockClass = cx({
     disabled: quantity === 0,
   });
+  const quantity = props.product.quantity ? props.product.quantity : 0;
+  console.log('qtq', quantity, product)
   return (
     <div className="cartAddons">
       <Row>
@@ -26,7 +28,7 @@ const CartAddon = (props) => {
           <div className="controlCol">
             <Row>
               <Col className="productLabel" xs={12}>
-                {product.name}
+                {product.display_name}
               </Col>
             </Row>
             <Row>
@@ -51,7 +53,7 @@ const CartAddon = (props) => {
         </Col>
         <Col xs={2} className="noPaddingLeft">
           <div className="price">${product.price}</div>
-          <a href="#details" className="detailsCol" onClick={() => detailAction(product.id)}>
+          <a href="#details" className="detailsCol" onClick={() => detailAction(index)}>
             Details
           </a>
         </Col>
