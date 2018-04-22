@@ -1,9 +1,10 @@
 import Router from 'next/router';
 import _ from 'lodash';
 import normalizeState from 'us-states-normalize';
-import { getFormValues, touch, getFormMeta, getFormSyncErrors, isValid, getFormInitialValues } from 'redux-form';
+import { getFormValues, touch, destroy, getFormSyncErrors, isValid } from 'redux-form';
 import { put, call, takeLatest, takeEvery, select } from 'redux-saga/effects';
-import { validateContactR, createAccountR, createOrderR, getProductsR } from './routine';
+import { validateContactR, createAccountR, createOrderR, completeOrderR } from './routine';
+import { moveCartToOrdered } from './actions';
 import { getCart } from './selector';
 import coveAPI from '../../utils/api';
 
@@ -25,24 +26,7 @@ const fieldsToFieldNameArray = (fields) => {
   return fieldNames;
 };
 
-
-const getCreateAccountRequest = (formData, cart) => {
-  console.log('formdata', formData);
-  const accountRequest = _.cloneDeep(formData);
-  accountRequest.customer1.phone = accountRequest.customer1.phone.split('-').join('');
-  accountRequest.monitorAddress.state = normalizeState(accountRequest.monitorAddress.state);
-  accountRequest.ec1 = {};
-  accountRequest.ec1.firstName = accountRequest.customer1.firstName;
-  accountRequest.ec1.lastName = accountRequest.customer1.lastName;
-  [accountRequest.ec2.firstName, accountRequest.ec2.lastName] = accountRequest.ec2.name.split(' ');
-  accountRequest.ec2.phone = accountRequest.ec2.phone.split('-').join('');
-  if (formData.includeEc3) {
-    [accountRequest.ec3.firstName, accountRequest.ec3.lastName] = accountRequest.ec3.name.split(' ');
-    accountRequest.ec3.phone = accountRequest.ec3.phone.split('-').join('');
-  }
-  delete accountRequest.includeEc3;
-  accountRequest.shipAddress = { use: 'monitorAddress' };
-  accountRequest.billAddress = { use: 'monitorAddress' };
+const buildEquipmentList = (cart) => {
   const items = [{
     name: 'Cove Protect Package',
     price: '249.00',
@@ -62,7 +46,28 @@ const getCreateAccountRequest = (formData, cart) => {
     rmr: cart.monitoringPlans[cart.planDetails.monitoringPlan].price,
     items,
   };
-  accountRequest.cart = cartRequest;
+  return cartRequest;
+};
+
+const getCreateAccountRequest = (formData, cart) => {
+  console.log('formdata', formData);
+  const accountRequest = _.cloneDeep(formData);
+  accountRequest.customer1.phone = accountRequest.customer1.phone.split('-').join('');
+  accountRequest.monitorAddress.state = normalizeState(accountRequest.monitorAddress.state);
+  accountRequest.ec1 = {};
+  accountRequest.ec1.firstName = accountRequest.customer1.firstName;
+  accountRequest.ec1.lastName = accountRequest.customer1.lastName;
+  [accountRequest.ec2.firstName, accountRequest.ec2.lastName] = accountRequest.ec2.name.split(' ');
+  accountRequest.ec2.phone = accountRequest.ec2.phone.split('-').join('');
+  if (formData.includeEc3) {
+    [accountRequest.ec3.firstName, accountRequest.ec3.lastName] = accountRequest.ec3.name.split(' ');
+    accountRequest.ec3.phone = accountRequest.ec3.phone.split('-').join('');
+  }
+  delete accountRequest.includeEc3;
+  accountRequest.shipAddress = { use: 'monitorAddress' };
+  accountRequest.billAddress = { use: 'monitorAddress' };
+  
+  accountRequest.cart = buildEquipmentList(cart);
   console.log('select ',accountRequest)
   return accountRequest;
 };
@@ -75,12 +80,12 @@ const getCreateOrderRequest = (formData, cart) => {
     const id = cart.cartItemIds[i];
     items.push({
       name: cart.productById[id].display_name,
-      qty: cart.productById[id].qty,
+      qty: cart.productById[id].quantity,
       aspen_id: cart.productById[id].aspen_id,
     });
   }
   const orderRequest = {
-    accountGuid: '109a9b5b-8cdd-4609-9fdd-428826ca741d',
+    accountGuid: cart.checkout.accountGuid,
     shippingMethodId: formData.shippingMethod ? formData.shippingMethod : 1,
     subscriptionId: 2,
     warrantyId: formData.warranty ? 0 : 1,
@@ -92,6 +97,28 @@ const getCreateOrderRequest = (formData, cart) => {
   return orderRequest;
 };
 
+const getCompleteOrderRequest = (formData, cart) => {
+  const { monitoringPlans, planDetails, cartItemIds, productById } = cart;
+  const exp = formData.cc.exp.split('/');
+  let equipmentTotal = 249.00;
+  cartItemIds.map((val) => {
+    equipmentTotal += parseFloat(productById[val].price);
+  });
+
+  const planPrice = monitoringPlans[planDetails.monitoringPlan].price;
+  const tax = parseFloat(planDetails.tax);
+  const request = {
+    cc: {
+      number: formData.cc.number,
+      expMonth: exp[0],
+      expYear: exp[1],
+    },
+    cart: buildEquipmentList(cart),
+    total: equipmentTotal + planPrice + tax,
+    accountGuid: cart.checkout.accountGuid,
+  };
+  return request;
+};
 
 function* validateContact() {
   try {
@@ -104,9 +131,6 @@ function* validateContact() {
 
 function* createAccount() {
   try {
-    const fields =  yield select(getFormSyncErrors('checkout_customer'));
-    const fieldNames = fieldsToFieldNameArray(fields);
-    console.log('ccc',fields,fieldNames, yield select(isValid('checkout_customer')))
     yield put(createAccountR.request());
     if (yield select(isValid('checkout_customer'))) {
       const formData = yield select(getFormValues('checkout_customer'));
@@ -114,8 +138,10 @@ function* createAccount() {
       const account = yield getCreateAccountRequest(formData, cart);
       const response = yield call(coveAPI, { url: '/meliae/createAccount', method: 'POST', data: account });
       yield put(createAccountR.success(response.data));
-      yield Router.push({ pathname: '/checkout', query: { stage: 'shipping' } });
+      yield Router.push({ pathname: '/checkout/shipping', query: { stage: 'shipping' } });
     } else {
+      const fields =  yield select(getFormSyncErrors('checkout_customer'));
+      const fieldNames = fieldsToFieldNameArray(fields);
       yield put(touch('checkout_customer', ...fieldNames));
     }
   } catch (err) {
@@ -127,9 +153,6 @@ function* createAccount() {
 
 function* createOrder() {
   try {
-    const fields =  yield select(getFormSyncErrors('checkout_shipping'));
-    const fieldNames = fieldsToFieldNameArray(fields);
-    console.log('ccc',fields,fieldNames, yield select(isValid('checkout_shipping')))
     yield put(createOrderR.request());
     if (yield select(isValid('checkout_shipping'))) {
       const formData = yield select(getFormValues('checkout_shipping'));
@@ -137,9 +160,11 @@ function* createOrder() {
       const account = yield getCreateOrderRequest(formData, cart);
       const response = yield call(coveAPI, { url: '/meliae/createOrder', method: 'POST', data: account });
       yield put(createOrderR.success(response.data));
-      yield Router.push({ pathname: '/checkout', query: { stage: 'payment' } });
+      yield Router.push({ pathname: '/checkout/payment', query: { stage: 'payment' } });
     } else {
-      yield put(touch('checkout_customer', ...fieldNames));
+      const fields = yield select(getFormSyncErrors('checkout_shipping'));
+      const fieldNames = fieldsToFieldNameArray(fields);
+      yield put(touch('checkout_shipping', ...fieldNames));
     }
   } catch (err) {
     yield put(createOrderR.failure(err));
@@ -148,8 +173,33 @@ function* createOrder() {
   }
 }
 
+function* completeOrder() {
+  try {
+    yield put(completeOrderR.request());
+    if (yield select(isValid('checkout_payment'))) {
+      const formData = yield select(getFormValues('checkout_payment'));
+      const cart = yield select(state => state.checkout);
+      const order = yield getCompleteOrderRequest(formData, cart);
+      const response = yield call(coveAPI, { url: '/meliae/completeOrder', method: 'POST', data: order });
+      yield put(completeOrderR.success(response.data));
+      yield Router.push({ pathname: '/order' });
+    } else {
+      const fields = yield select(getFormSyncErrors('checkout_payment'));
+      const fieldNames = fieldsToFieldNameArray(fields);
+      yield put(touch('checkout_payment', ...fieldNames));
+    }
+  } catch (err) {
+    yield put(completeOrderR.failure(err));
+  } finally {
+    //yield put(moveCartToOrdered());
+    yield put(destroy('checkout_customer', 'checkout_shipping', 'checkout_payment'));
+    yield put(completeOrderR.fulfill());
+  }
+}
+
 export default function* () {
   yield takeEvery(validateContactR.TRIGGER, (data) => { console.log('aaaaa', data); });
   yield takeLatest(createAccountR.TRIGGER, createAccount);
   yield takeLatest(createOrderR.TRIGGER, createOrder);
+  yield takeLatest(completeOrderR.TRIGGER, completeOrder);
 }
