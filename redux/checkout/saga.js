@@ -123,7 +123,7 @@ const getCompleteOrderRequest = (formData, cart) => {
 function* validateContact() {
   try {
     yield put(validateContactR.request());
-    const response = call(coveAPI, { url: '/meliae/verifyContact', data: { phone: 8652071753 } });
+    const response = call(coveAPI, { url: '/meliae/verifyContact', data: JSON.stringify({ phone: 8652071753 }) });
   } catch (err) {
     yield put(validateContactR.failure());
   }
@@ -136,7 +136,7 @@ function* createAccount() {
       const formData = yield select(getFormValues('checkout_customer'));
       const cart = yield select(state => state.checkout);
       const account = yield getCreateAccountRequest(formData, cart);
-      const response = yield call(coveAPI, { url: '/meliae/createAccount', method: 'POST', data: account });
+      const response = yield call(coveAPI, { url: '/meliae/createAccount', method: 'POST', data: JSON.stringify(account) });
       yield put(createAccountR.success(response.data));
       yield Router.push({ pathname: '/checkout/shipping', query: { stage: 'shipping' } });
     } else {
@@ -160,7 +160,7 @@ function* createOrder() {
     if (!differentShipAddress || (differentShipAddress && formValid)) {
       const cart = yield select(state => state.checkout);
       const account = yield getCreateOrderRequest(formData, cart);
-      const response = yield call(coveAPI, { url: '/meliae/createOrder', method: 'POST', data: account });
+      const response = yield call(coveAPI, { url: '/meliae/createOrder', method: 'POST', data: JSON.stringify(account) });
       yield put(createOrderR.success(response.data));
       yield Router.push({ pathname: '/checkout/payment', query: { stage: 'payment' } });
     } else {
@@ -182,7 +182,7 @@ function* completeOrder() {
       const formData = yield select(getFormValues('checkout_payment'));
       const cart = yield select(state => state.checkout);
       const order = yield getCompleteOrderRequest(formData, cart);
-      const response = yield call(coveAPI, { url: '/meliae/completeOrder', method: 'POST', data: order });
+      const response = yield call(coveAPI, { url: '/meliae/completeOrder', method: 'POST', data: JSON.stringify(order) });
       yield put(completeOrderR.success(response.data));
       yield Router.push({ pathname: '/order' });
     } else {
