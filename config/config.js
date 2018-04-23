@@ -1,3 +1,3 @@
 export default {
-  apiUrl: 'https://wsfz3vktdl.execute-api.us-east-1.amazonaws.com/staging',
+  apiUrl: ' https://x4266rjle9.execute-api.us-east-1.amazonaws.com/staging',
 };
