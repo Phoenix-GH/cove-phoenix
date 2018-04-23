@@ -6,7 +6,7 @@ import { put, call, takeLatest, takeEvery, select } from 'redux-saga/effects';
 import { validateContactR, createAccountR, createOrderR, completeOrderR } from './routine';
 import { moveCartToOrdered } from './actions';
 import { getCart } from './selector';
-import coveAPI from '../../utils/api';
+import axios from '../../utils/api';
 
 const objectKeyToStr = (obj, resultArr, counter = 0, currentVal = '') => {
   _.each(obj, (val, key) => {
@@ -74,12 +74,7 @@ const getCreateAccountRequest = (formData, cart) => {
 
 function* getCorsHeaders() {
   const currentToken = yield select(state => state.user.auth.token);
-  const headers = {
-    'Content-Type': 'application/json',
-    Accept: 'application/json',
-    Authorization: `Bearer ${currentToken}`,
-  };
-  return headers;
+  axios.defaults.headers.common['Authorization'] = currentToken;
 }
 const getCreateOrderRequest = (formData, cart) => {
   const shipAddress = formData.differentShipAddress ? formData.shipAddress : {};
@@ -132,7 +127,7 @@ const getCompleteOrderRequest = (formData, cart) => {
 function* validateContact() {
   try {
     yield put(validateContactR.request());
-    const response = call(coveAPI, { url: '/meliae/verifyContact', headers, data: JSON.stringify({ phone: 8652071753 }) });
+    const response = call(axios, { url: '/meliae/verifyContact', headers, data: { phone: 8652071753 } });
   } catch (err) {
     yield put(validateContactR.failure());
   }
@@ -145,8 +140,8 @@ function* createAccount() {
       const formData = yield select(getFormValues('checkout_customer'));
       const cart = yield select(state => state.checkout);
       const account = yield getCreateAccountRequest(formData, cart);
-      const headers = yield getCorsHeaders();
-      const response = yield call(coveAPI, { url: '/meliae/createAccount', headers, method: 'POST', data: JSON.stringify(account) });
+      yield getCorsHeaders();
+      const response = yield call(axios.post, '/meliae/createAccount', account);
       yield put(createAccountR.success(response.data));
       yield Router.push({ pathname: '/checkout/shipping', query: { stage: 'shipping' } });
     } else {
@@ -169,9 +164,9 @@ function* createOrder() {
     const { differentShipAddress } = formData.shipAddress;
     if (!differentShipAddress || (differentShipAddress && formValid)) {
       const cart = yield select(state => state.checkout);
-      const account = yield getCreateOrderRequest(formData, cart);
+      const order = yield getCreateOrderRequest(formData, cart);
       const headers = yield getCorsHeaders();
-      const response = yield call(coveAPI, { url: '/meliae/createOrder', headers, method: 'POST', data: JSON.stringify(account) });
+      const response = yield call(axios.post, '/meliae/createOrder', order);
       yield put(createOrderR.success(response.data));
       yield Router.push({ pathname: '/checkout/payment', query: { stage: 'payment' } });
     } else {
@@ -194,7 +189,7 @@ function* completeOrder() {
       const cart = yield select(state => state.checkout);
       const order = yield getCompleteOrderRequest(formData, cart);
       const headers = yield getCorsHeaders();
-      const response = yield call(coveAPI, { url: '/meliae/completeOrder', headers, method: 'POST', data: JSON.stringify(order) });
+      const response = yield call(axios.post, '/meliae/completeOrder', order);
       yield put(completeOrderR.success(response.data));
       yield Router.push({ pathname: '/order' });
     } else {
