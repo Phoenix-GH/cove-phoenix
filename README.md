@@ -9,5 +9,5 @@ To get started with the app, simply:
 
 * clone the github repo
 * run ```yarn install``` to install js dependencies
-* run ```npm run dev```  to start the local webserver on port 3000
+* run ```yarn dev or npm run dev```  to start the local webserver on port 3000
 
