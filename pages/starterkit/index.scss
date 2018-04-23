@@ -1,0 +1,276 @@
+@import "types";
+@import "variables";
+.homeContainer {
+  font-family: $font-gotham-rounded;
+  @media screen and (max-width: $width-md) {
+    margin-left: 27px;
+    margin-right: 27px;
+  }
+  .coverSection {
+    width: 100%;
+    position: relative;
+    background-image: url('/static/images/security/security-back-1.png');
+    background-size: cover;
+    height: 80vh;
+    padding: 260px 75px 265px 75px;
+    .coverLeftArea {
+      h1 {
+        font-size: 60px;
+        width: 100%;
+        max-width: 400px;
+        font-weight: bold;
+      }
+      button {
+        background-color: $secondary-color;
+        border-radius: 5px;
+        border: none;
+        font-size: 42px;
+        font-weight: bold;
+        color: white;
+        padding: 29px 74px 29px 43px;
+        margin-top: 55px;
+      }
+    }
+    .coverRightArea {
+      margin-top: 38px; 
+    }
+    @media screen and (max-width: $width-lg) {
+      .coverRightArea {
+        h1 {
+          font-size: 60px;
+        }
+        a {
+          span {
+            font-size: 40px;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: $width-md) {
+      .coverLeftArea {
+        margin-top: 10px;
+        text-align: center;
+      }
+      .coverRightArea {
+        text-align: center;
+        margin-top: 10px;
+        h1 {
+          font-size: 40px;
+          max-width: 100%;
+        }
+        a {
+          span {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    @media screen and (max-width: $width-sm) {
+      .coverLeftArea {
+        display: none;
+      }
+      .coverRightArea {
+        margin-top: 20px;
+        h1 {
+          font-size: 30px;
+        }
+        span {
+          font-size: 20px;
+        }
+      }
+    }
+  }
+
+  .descriptionSection {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 155px;
+    padding-bottom: 193px;
+    text-align: center;
+    color: $grey-700;
+    font-family: $font-gotham-rounded;
+    background-color: #F6F2F1;
+
+    h2 {
+      font-size: 60px;
+      line-height: 60px;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .products {
+      margin-top: 109px;
+      div {       
+        
+        .imageArea {
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          min-height: 247px;
+          padding-bottom: 35px;
+          padding-left: 55px;
+          padding-right: 55px;
+        }
+
+        img {
+          width: 100%;
+        }
+
+        h3 {
+          font-size: 20px;
+          font-weight: 300;
+        }
+
+        .learnMore {
+          margin-top: 68px;
+          font-size: 20px;
+          font-weight: 300;
+        }
+      }
+    }
+    
+  }
+
+  .starterKitTabsSection {
+    width: 100%;
+    .tabHeader {
+      display: flex;
+      width: 100%;
+      padding: 0 60px;
+      border: 1px solid $grey-600;
+      .tabBarItem {
+        flex: 1;
+        border-bottom: 2px solid white;
+        padding: 59px 50px 69px 50px;
+        text-align: center;
+        p {
+          font-size: 24px;
+          line-height: 30px;
+          margin: 0;
+        }
+
+        img {
+          margin: 0 auto 30px auto;
+        }
+        &.selected {
+          border-color: $warning;
+        }
+      }
+    }
+
+    .tabBody {
+      width: 100%;
+      padding: 0 60px;
+      .tabBar {
+        display: none;
+        text-align: center;
+        .content {
+          display: flex;
+        }
+
+        .commitment {
+          font-size: 45px;
+          line-height: 50px;
+          font-weight: bold;
+          width: 65%;
+          margin-top: 116px;
+        }
+        .commitmentImg {
+          margin-top: 130px;
+        }
+        .joinBtn {
+          background-color: $warning;
+          color: white;
+          font-size: 42px;
+          font-weight: bold;
+          border-radius: 5px;
+          padding: 10px 20px;
+          margin-top: 45px;
+          &--second {
+            margin: 50px auto;
+          }
+        }
+
+        .controlSystemTitle {
+          font-weight: bold;
+          font-size: 55px;
+          margin-top: 120px;
+          line-height: 55px;
+          text-align: center;
+        }
+        .controlContent {
+          display: flex;
+          margin: 50px 0;
+          align-items: center;
+          .imageArea {
+            width: 40%;
+            display: flex;
+            justify-content: center;
+            img {
+              object-fit: cover;
+            }
+          }
+          p {
+            font-size: 40px;
+            margin: 0 0 0 15px;
+          }
+        }
+        &.selected {          
+          display: block;
+        }
+      }
+    }
+
+    @media screen and (max-width: $width-md) {
+      .tabHeader {
+        .tabBarItem {
+          padding: 25px;
+          p {
+            font-size: 18px;
+            line-height: 22px;
+            margin: 0;
+          }
+  
+          img {
+            margin: 0 auto 22px auto;
+          }
+        }
+        .tabBody {
+          .tabBar {    
+            .commitment {
+              font-size: 30px;
+              line-height: 35px;
+              margin-top: 70px;
+            }
+            .commitmentImg {
+              margin-top: 90px;
+            }
+    
+            .controlSystemTitle {
+              font-weight: bold;
+              font-size: 36px;
+              margin-top: 80px;
+              line-height: 36px;
+              text-align: center;
+            }
+            .controlContent {
+              margin: 30px 0;
+              p {
+                font-size: 28px;
+                margin: 0 0 0 15px;
+              }
+            }
+          }
+
+        }
+
+      }
+    }
+  }
+  
+  @media (max-width: $width-md) {
+    
+  }
+}

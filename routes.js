@@ -55,4 +55,6 @@ module.exports = () => ({
   '/account/phone': { page: '/phonenumber' },
   '/account/loyalty': { page: '/loyaltycredits' },
   '/account/email': { page: '/email' },
+  '/security': { page: '/security' },
+  '/starterkit': { page: '/starterkit' },
 });
