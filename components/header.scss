@@ -24,8 +24,55 @@
     font-size: 18px;
     $font-family: $font-gotham-rounded;
     font-weight: 700;
-    white-space: nowrap;
   }
+  :global(.actionLink) {
+    color: white;
+    background-color: $warning;
+    border-radius: 5px;
+    font-size: 18px;
+    $font-family: $font-gotham-rounded;
+    font-weight: 700;
+    text-align: center;
+    padding-right: 5%;
+  }
+  :global(.actionLinkMediaSmall) {
+    color: white;
+    background-color: $warning;
+    border-radius: 5px;
+    font-size: 18px;
+    $font-family: $font-gotham-rounded;
+    font-weight: 700;
+    text-align: center;
+    padding-right: 5%;    
+  }
+  
+}
+
+.hideAlways {
+  display:none;
+}
+
+.hideWhenSmall {
+  @media (max-width: 767px) {
+    display:none;
+  }
+}
+
+.hideWhenLarge {
+  @media (min-width: 767px) {
+    display:none;
+  }
+}
+
+.paddingNone {
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.stampImage {
+  padding-left: 2%;
 }
 
 .authLinks {
@@ -36,6 +83,8 @@
 }
 
 .signup {
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
   border-radius: 16px;
   height: 32px;
   width: 136px;
@@ -43,24 +92,24 @@
   margin-left:30px;
   margin-right:30px;
 }
-.toggler {
+
+
+.navbar-toggler-icon {
   border: none;
   color: #FFFFFF;
-  :global {
-    .navbar-toggler-icon {
-      height:20px;
-      width:24px;
-      background-image: url("/static/images/togglerWhite.svg");
-    }
-  }
+  height: 20px;
+  width: 24px;
 }
-.toggler.secondary {
-  :global {
-    .navbar-toggler-icon {
-      background-image: url("/static/images/togglerTeal.svg");
-    }
-  }
+
+.custom-toggler.navbar-toggler {
+  border-color: #FFF;
+  margin-left: -100px;
 }
+.custom-toggler .navbar-toggler-icon {
+background-image: url("/static/images/togglerTeal.png");
+}
+
+
 
 .popover-header {
   background: transparent;

@@ -1,0 +1,150 @@
+@import "types";
+@import "variables";
+@import "buttons";
+@import "default";
+@import "utilities";
+
+.sectionTopGreen {
+  width: 100%;
+  background-color: #01A891;
+}
+
+.containerNoPadding {
+  width: 100%;
+  padding: 0px;
+}
+
+.divBellPhoto1 {
+  margin-top: 20px; 
+  margin-left: 0px;
+  z-index: 999; 
+  position: absolute;
+}
+
+.imgBellPhoto1 {
+  height: 200px;
+}
+
+.imgBellPhoto2 {
+  height: 600px;
+}
+
+.bellTitle {
+  font-family: $font-gotham-rounded;
+  font-weight: 300;
+  color: #ffffff;
+  font-size: 14.5em;
+  margin-top: -43px;
+  z-index: 998;
+}
+
+.bellTagline {
+  font-family: $font-gotham-rounded-light;
+  font-size: 2em;
+  font-weight: 100;
+  color: #ffffff;      
+  margin-top: -35px;
+}
+
+.preOrderButton {
+    color: #01A891;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+.btnPreOrder {
+  background-color: #fff;
+  color: #01A891;
+  font-family: $font-gotham-rounded;
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+  vertical-align: middle;
+  border-radius: 5px;
+  padding-top:12px;
+  height: 50px;
+  width: 180px;
+
+  &:hover {
+    color: #fff;
+    background-color: darken($primary-color, 10%);
+  }
+}
+.bottomRow {
+    width: 100%;
+    border-bottom: 3px solid $primary--darker;
+}
+
+.divMobileIcons {
+  margin-top: -30px;
+}
+
+.txtTiny {
+  font-size: 0.5em;
+}
+
+.txtBellFeatures {
+  font-family: $font-gotham-rounded-light;
+  font-size: 2em;
+  font-weight: 100;
+  color: #01A891;      
+  margin-top: -35px;
+}
+
+.txtBellFeaturesMobile {
+  font-family: $font-gotham-rounded-light;
+  font-size: 1.5em;
+  font-weight: 100;
+  color: #01A891;      
+  margin-top: -35px;
+}
+.imgBellIcon2a {
+  position: absolute;
+}
+
+.imgBellIcon2b {
+  position: relative;
+}
+
+.imgBellIcon7 {
+  width: 140px;  
+  margin-bottom:5px;
+}
+
+.imgBellIcon8 {
+  width: 140px;  
+}
+
+.imgBellIcon9 {
+  width: 170px;  
+  margin-top:17px;
+}
+
+.divFullCenter {
+  width: 100%;
+  text-align: center;
+}
+
+.divFull {
+  width: 100%;
+}
+
+.hideAlways {
+  display:none;
+}
+
+.desktopOnly {
+  @media (max-width: 767px) {
+    display:none;
+  }
+}
+
+.mobileOnly {
+  @media (min-width: 767px) {
+    display:none;
+  }
+}
+
+.bottomSection {
+  padding-bottom: 200px;
+}
