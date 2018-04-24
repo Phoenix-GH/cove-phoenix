@@ -1,6 +1,7 @@
 module.exports = () => ({
   '/': { page: '/' },
   '/product': { page: '/product' },
+  '/medical': { page: '/medical' },
   '/login': { page: '/login' },
   '/checkout': { page: '/checkout', query: { stage: 'customer' } },
   '/checkout/customer': { page: '/checkout', query: { stage: 'customer' } },
