@@ -138,36 +138,40 @@ const Index = () => (
           <h2>Security that works. Set it. Leave it.</h2>
           <Row>
             <Col xs={12} sm={12} md={6}>
-              <GreenButton title="Cove Basic" />
-              <ul>
-                <li>
-                  No credit check required
-                </li>
-                <li>
-                  Brand new equipment
-                </li>
-                <li>
-                  Equipment is yours forever
-                </li>
-              </ul>
-              <h3>$22 per month</h3>
-              <p>($19/mo with membership)</p>
+              <div className="securityCol">
+                <GreenButton title="Cove Basic" />
+                <ul>
+                  <li>
+                    No credit check required
+                  </li>
+                  <li>
+                    Brand new equipment
+                  </li>
+                  <li>
+                    Equipment is yours forever
+                  </li>
+                </ul>
+                <h3>$22 per month</h3>
+                <p>($19/mo with membership)</p>
+              </div>
             </Col>
             <Col xs={12} sm={12} md={6}>
-              <GreenButton title="Cove Premium" />
-              <ul>
-                <li>
-                  No credit check required
-                </li>
-                <li>
-                  Brand new equipment
-                </li>
-                <li>
-                  Equipment is yours forever
-                </li>
-              </ul>
-              <h3>$22 per month</h3>
-              <p>($27/mo with membership)</p>
+              <div className="securityCol">
+                <GreenButton title="Cove Premium" />
+                <ul>
+                  <li>
+                    No credit check required
+                  </li>
+                  <li>
+                    Brand new equipment
+                  </li>
+                  <li>
+                    Equipment is yours forever
+                  </li>
+                </ul>
+                <h3>$22 per month</h3>
+                <p>($27/mo with membership)</p>
+              </div>
             </Col>
           </Row>
         </div>

@@ -226,19 +226,24 @@
       margin-bottom: 79px;
       text-align: center;
     }
-    ul {
-      margin-top: 41px;
-      padding-left: 0;
-    }
-    h3 {
-      font-size: 40px;
-      font-weight: 500;
-      margin-top: 48px;
-    }
-    p {
-      font-size: 18;
-      font-weight: 500;
-      padding-left: 40px;
+    .securityCol {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      ul {
+        margin-top: 41px;
+        padding-left: 0;
+      }
+      h3 {
+        font-size: 40px;
+        font-weight: 500;
+        margin-top: 48px;
+      }
+      p {
+        font-size: 18;
+        font-weight: 500;
+        padding-left: 40px;
+      }
     }
   }
 
