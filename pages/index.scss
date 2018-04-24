@@ -143,18 +143,6 @@
           font-size: 12px;
           font-weight: 100;
         }
-
-        .watchVideoLink {
-          img {
-            width: 20px;
-            height: 20px;
-          }
-          span {
-            color: $warning--darker;
-            font-size: 12px;
-            font-weight: 700;
-          }
-        }
       }
     }
     @media (max-width: $width-md) {

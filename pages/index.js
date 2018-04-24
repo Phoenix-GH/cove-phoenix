@@ -53,10 +53,7 @@ const Index = () => (
                   <p>With the guided installation process on the touchscreen,
                     Cove has an install process that even grandma can handle.
                   </p>
-                  <a className="watchVideoLink" href="/">
-                    <img src="/static/images/watchVideo.png" alt="" />
-                    <span>Watch install video</span>
-                  </a>
+                  <WatchVideoLink link="/" title="Watch install video" size="small" />
                 </div>
               </Col>
               <Col xs={12} sm={12} md={3}>
