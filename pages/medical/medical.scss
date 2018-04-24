@@ -1,0 +1,84 @@
+@import 'variables';
+@import 'responsive';
+
+.medical {
+    &__header {
+        background-image: url('/static/images/coveMedicalHeader.jpg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    &__header-data {
+        padding: 50px 90px;
+
+        @include media-sm {
+            padding: 20px 20px 40px 20px;
+        }
+    }
+
+    &__title {
+        font-family: "Gotham Rounded","Helvetica","Arial",sans-serif;
+        font-size: 80px;
+        color: $primary;
+
+        &--alt-font {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        @include media-sm {
+            font-size: 30px;
+        }
+    }
+
+    &__subtitle {
+        font-size: 24px;
+        font-weight: 300;
+        color: $primary;
+    }
+
+    &__button {
+        padding: 6px 30px;
+        border-radius: 5px;
+        background: $primary;
+        color: white !important;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__image {
+        width: 100%;
+
+        @include media-md {
+            position: absolute;
+        }
+
+        @include media-sm {
+            position: relative;
+        }
+    }
+
+    &__icon-wrap {
+        width: 80px;
+    }
+
+    &__icon {
+        max-height: 50px;
+    }
+
+    &__content {
+        padding: 100px 0;
+
+        @include media-sm {
+            padding: 30px 0;
+        }
+    }
+
+    &__text {
+        &--green {
+            color: $primary;
+        }
+    }
+}
