@@ -5,7 +5,7 @@ module.exports = () => ({
   '/login': { page: '/login' },
   '/homepage': { page: '/homepage' },
   '/doorbell': { page: '/bell' },
-  '/individual_product': { page: '/individual_product' },
+  '/individual_product': { page: '/products' },
   '/checkout': { page: '/checkout', query: { stage: 'customer' } },
   '/checkout/customer': { page: '/checkout', query: { stage: 'customer' } },
   '/checkout/shipping': { page: '/checkout', query: { stage: 'shipping' } },
