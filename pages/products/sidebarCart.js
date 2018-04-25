@@ -17,6 +17,7 @@ class SidebarCart extends Component {
   }
 
   render() {
+    const { productById } = this.props.checkout;
     const {
       products,
       cart,
@@ -39,8 +40,8 @@ class SidebarCart extends Component {
           Object.keys(products).map(key =>
             (<CartAddon
               key={key}
-              product={products[key]}
-              quantity={cart.quantityById[key]}
+              index={key}
+              product={productById[products[key].id]}
               detailAction={detailAction}
               changeQuantity={this.changeQuantity}
             />))
@@ -60,7 +61,6 @@ class SidebarCart extends Component {
 
 SidebarCart.propTypes = {
   headerText: PropTypes.string,
-  products: PropTypes.object,
   cart: PropTypes.object,
   detailAction: PropTypes.func,
   changeQuantity: PropTypes.func,
@@ -68,13 +68,12 @@ SidebarCart.propTypes = {
 
 SidebarCart.defaultProps = {
   headerText: '',
-  products: null,
   cart: null,
   detailAction: () => {},
   changeQuantity: () => {},
 };
 
-const mapStateToProps = ({ cart, products }) => ({ cart, products });
+const mapStateToProps = ({ checkout }) => ({ checkout });
 
 const mapDispatchToProps = dispatch => ({
   changeQuantity: bindActionCreators(changeQuantity, dispatch),

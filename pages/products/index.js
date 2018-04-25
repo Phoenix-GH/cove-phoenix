@@ -13,7 +13,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../../store';
-import { loadProducts } from '../../actions';
+import { getProductsR } from '../../redux/general/routine';
 import Layout from '../../components/minimalLayout';
 import Header from '../../components/header';
 import SidebarCart from './sidebarCart';
@@ -93,7 +93,7 @@ class ProductPage extends Component {
   }
 
   load = () => {
-    this.props.loadProducts();
+    this.props.getProductsR();
   }
 
   changeView = (index) => {
@@ -107,7 +107,7 @@ class ProductPage extends Component {
       modal,
       selectedView,
     } = this.state;
-    const { products } = this.props;
+    const products = this.props.general.products.data.sensor || [];
     const slides = items.map(item => (
       <CarouselItem
         onExiting={this.onExiting}
@@ -172,7 +172,7 @@ class ProductPage extends Component {
                 </div>
               </Col>
               <Col xl={4} lg={4} md={0} sm={0} className="no-gutters">
-                <SidebarCart detailAction={this.toggle} headerText={headerText} />
+                <SidebarCart products={products} detailAction={this.toggle} headerText={headerText} />
               </Col>
             </Row>
           </div>
@@ -195,18 +195,16 @@ class ProductPage extends Component {
 
 ProductPage.propTypes = {
   products: PropTypes.object,
-  loadProducts: PropTypes.func,
 };
 
 ProductPage.defaultProps = {
-  products: [],
-  loadProducts: () => {},
+  products: {},
 };
 
-const mapStateToProps = ({ cart, products }) => ({ cart, products });
+const mapStateToProps = ({ general }) => ({ general });
 
-const mapDispatchToProps = dispatch => ({
-  loadProducts: bindActionCreators(loadProducts, dispatch),
-});
+const mapDispatchToProps = {
+  getProductsR,
+};
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(ProductPage);
