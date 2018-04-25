@@ -11,7 +11,10 @@
 }
 
 .priceComparisonTable {
-  width: 100%;  
+  width: 100%;
+  &Row {
+    width: 100%;
+  }
   .tableRows {
     .row {
       border-bottom: 1px solid $grey-300;
@@ -59,5 +62,9 @@
     border-top: 1px solid $grey-300;
     border-top-left-radius: 16px;
     border-top-right-radius: 16px;
+  }
+
+  @media (max-width: $width-sm) {
+    display: none;
   }
 }

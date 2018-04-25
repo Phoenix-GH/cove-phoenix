@@ -10,7 +10,7 @@ import s from './index.scss';
 
 const coverSectionTitle = 'If it\'s Cove, it\'s covered.';
 const setupSectionTitle = 'A whole new simple setup process';
-const setupDescriptionText = 'Most security systems are designed for technicians to install, but you\'re not a technician. Cove Protect was design3ed for you. It\'s easy on you while still being tough on the bad guys.';
+const setupDescriptionText = 'Most security systems are designed for technicians to install, but you\'re not a technician. Cove Protect was designed for you. It\'s easy on you while still being tough on the bad guys.';
 
 const Index = () => (
   <Layout>
@@ -40,8 +40,8 @@ const Index = () => (
       </div>
       <Row>
         <div className="setupProcessSection">
-          <h2>{setupSectionTitle}</h2>
-          <p>{setupDescriptionText}</p>
+          <h2 className="squeeze">{setupSectionTitle}</h2>
+          <p className="squeeze">{setupDescriptionText}</p>
           <div className="products">
             <Row>
               <Col xs={12} sm={12} md={3}>
@@ -59,7 +59,7 @@ const Index = () => (
               <Col xs={12} sm={12} md={3}>
                 <div>
                   <div className="imageArea">
-                    <img src="/static/images/motionSensor.png" alt="" />
+                    <img className="imageArea__image" src="/static/images/motionSensor.png" alt="" />
                   </div>
                   <h3>Sensors For Everything</h3>
                   <p>Entry point sensors, motion sensors, and much more.
@@ -70,7 +70,7 @@ const Index = () => (
               <Col xs={12} sm={12} md={3}>
                 <div>
                   <div className="imageArea">
-                    <img src="/static/images/smokeAlarm.png" alt="" />
+                    <img className="imageArea__image" src="/static/images/smokeAlarm.png" alt="" />
                   </div>
                   <h3>Protect People</h3>
                   <p>Don&apos;t just protect your things, protect those you love.
@@ -81,7 +81,7 @@ const Index = () => (
               <Col xs={12} sm={12} md={3}>
                 <div>
                   <div className="imageArea">
-                    <img src="/static/images/coveApp.png" className="coveAppImg" alt="" />
+                    <img className="coveAppImg imageArea__image" src="/static/images/coveApp.png" alt="" />
                   </div>
                   <h3>Cove app</h3>
                   <p>Know what&apos;s happening anywhere you go.
@@ -95,7 +95,6 @@ const Index = () => (
       </Row>
       <Row>
         <div className="builtProductsSection">
-          <img src="/static/images/builtProductsSectionBackground.png" alt="builtProductsSectionBackground" />
           <div className="descriptionArea">
             <h2>Arming and disarming built around you.</h2>
             <p>Arm and disarm your system in a way that makes sense.
@@ -115,7 +114,7 @@ const Index = () => (
               </h3>
               <ol>
                 <li>Never worry again with Cove LiveAssist coming through the two-way
-                  intercom built right into the 7th touchscreen. (no landline necessary)
+                  intercom built right into the 7th touchscreen. <br/><span className="italicize">(no landline necessary)</span>
                 </li>
                 <li>Cove LiveAssist is smart, and if we can&apos;t communicate with you
                   directly through your two-way intercom on your panel, we will get a hold
@@ -219,7 +218,7 @@ const Index = () => (
             </Col>
             <Col xs={0} sm={0} md={4}>
               <div className="rightArea">
-                <img src="/static/images/packageBox.png" alt="" />
+                <img src="/static/images/packageBox2.png" alt="Cove Product Box" />
               </div>
             </Col>
           </Row>
