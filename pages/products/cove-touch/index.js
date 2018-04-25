@@ -4,10 +4,10 @@ import {
   Row,
   Col,
 } from 'reactstrap';
-import Layout from '../../components/minimalLayout';
-import Header from '../../components/header';
-import Footer from '../../components/footer/footer';
-import styles from './product.scss';
+import Layout from '../../../components/minimalLayout';
+import Header from '../../../components/header';
+import Footer from '../../../components/footer/footer';
+import styles from '../product-base.scss';
 
 export default class ProductPage extends Component {
   constructor(props) {
@@ -27,27 +27,27 @@ export default class ProductPage extends Component {
             </div>
           </div>
           <Container>
-            <p className="product__paragraph">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            <p className="product__paragraph product__alt-font">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
             <Row>
               <Col xs={{size: 12, order: 1}} md={{size: 4, order: 0}}>
-                <p className="product__feature-box">Short description of product feature for this product</p>
-                <p className="product__feature-box">Short description of product feature for this product</p>
-                <p className="product__feature-box">Short description of product feature for this product</p>
+                <p className="product__feature-box">3" touchscreen</p>
+                <p className="product__feature-box">Test sensors remotely</p>
+                <p className="product__feature-box">Easy to use</p>
               </Col>
               <Col xs={{size: 12, order: 0}} md={{size: 4, order: 1}}>
                 <img className="product__showcase-image" alt="Cove Touch Panel" src="/static/images/coveProduct_1.png" />
               </Col>
               <Col xs={{size: 12, order: 2}} md={{size: 4, order: 2}}>
-                <p className="product__feature-box">Short description of product feature for this product</p>
-                <p className="product__feature-box">Short description of product feature for this product</p>
-                <p className="product__feature-box">Short description of product feature for this product</p>
+                <p className="product__feature-box">Create users for each member of the family</p>
+                <p className="product__feature-box">&nbsp;</p>
+                <p className="product__feature-box">&nbsp;</p>
               </Col>
             </Row>
             <div className="product__spacer" />
             <Row>
               <Col xs={12} sm={4}>
                 <div className="product__comparison">
-                  <h2 className="product__subheading product__subheading--pad-top">Easy.</h2>
+                  <h2 className="product__subheading product__subheading--pad-top">Cove vs Them</h2>
                   <p className="product__paragraph">We put our effort into creating value for you. Not having the lowest prices and not locking you into working with us for the next 5 years. Not even the next 60 days.</p>
                   <p className="product__paragraph--no-margin">More questions?</p>
                   <a className="product__link" href="/">Chat with Us</a>
@@ -73,29 +73,18 @@ export default class ProductPage extends Component {
               </Col>
             </Row>
             <div className="product__spacer" />
+            <h2 className="product__subheading">Using your alarm just got easy</h2>
             <Row>
               <Col sm={6}>
-                <Row>
-                  <h2 className="product__subheading">You need not worry.</h2>
-                  <Col xs={6}>
-                    <ul className="product__plain-list">
-                      <li className="product__plain-list-item">Fire</li>
-                      <li className="product__plain-list-item">Flood</li>
-                      <li className="product__plain-list-item">Harmful fumes</li>
-                      <li className="product__plain-list-item">Medical emergency</li>
-                    </ul>
-                  </Col>
-                  <Col xs={6}>
-                    <ul className="product__plain-list">
-                      <li className="product__plain-list-item">Unwanted Intrusion</li>
-                      <li className="product__plain-list-item">Broken Window</li>
-                      <li className="product__plain-list-item">Infrared movement*</li>
-                    </ul>
-                  </Col>
-                </Row>
+                <ul className="product__plain-list">
+                  <li className="product__plain-list-item">Easy navigation</li>
+                  <li className="product__plain-list-item">Easy setup</li>
+                  <li className="product__plain-list-item">Easy on you</li>
+                  <li className="product__plain-list-item">Easy on the wallet</li>
+                </ul>
               </Col>
               <Col sm={6}>
-                <img className="product__image-flex" alt="Cove Touch Panel" src="/static/images/coveProduct_1.png" />
+                <img className="product__image-flex" alt="Cove Touch Panel" src="/static/images/product/cove-touch/cove-touch-angled-crop.jpg" />
               </Col>
             </Row>
             <Row>
@@ -105,52 +94,54 @@ export default class ProductPage extends Component {
             </Row>
             <div className="product__spacer" />
             <Row className="no-gutter">
-              <Col xs={{size: 12, order: 1}} sm={6}>
+              <Col xs={{size: 12, order: 2}} sm={{size: 6, order: 1}}>
                 <div className="product__column--large product__column--center">
-                  <h2 className="product__subheading">Easy.</h2>
-                  <p className="product__text">We put our effort into creating value for you. Not having the lowest prices and not locking you into working with us for the next 5 years. Not even the next 60 days.</p>
+                  <h2 className="product__subheading">Security that is elegant</h2>
+                  <p className="product__text product__alt-font">We put our effort into creating value for you. Not having the lowest prices and not locking you into working with us for the next 5 years. Not even the next 60 days.</p>
                 </div>
               </Col>
-              <Col xs={{size: 12, order: 0}} sm={6}>
-                <div className="product__column--large product__column--dark">&nbsp;</div>
+              <Col xs={{size: 12, order: 1}} sm={{size: 6, order: 2}}>
+                <div className="product__column--large product__column--dark">
+                  <img className="product__column-image" src="/static/images/product/cove-touch/cove-touch-lifestyle-wide.jpg" alt="Cove Touch Product Lifestyle" />
+                </div>
               </Col>
             </Row>
             <Row className="no-gutter">
               <Col sm={6}>
-                <div className="product__column--large">
-                  <img className="product__video" src="/static/images/videoPlaceholder.jpg" alt="How it works" />
-                  <p className="product__center product__text--green">How it works</p>
-                  <img className="product__video" src="/static/images/videoPlaceholder.jpg" alt="How it works" />
-                  <p className="product__center product__text--green">How it works</p>
+                <div className="product__column--medium">
+                  <img className="product__video" src="/static/images/product/cove-touch/cove-touch-video-placeholder.jpg" alt="How it works" />
+                  <p className="product__center product__text--green product__alt-font">How it works</p>
                 </div>
               </Col>
-              <Col sm={6}>
-                <div className="product__column--large product__column--center">
-                  <h2 className="product__subheading">Easy.</h2>
-                  <p className="product__text">We put our effort into creating value for you. Not having the lowest prices and not locking you into working with us for the next 5 years. Not even the next 60 days.</p>
+              <Col sm={6} className="d-flex align-items-center">
+                <div className="product__column--medium product__column--center">
+                  <h2 className="product__subheading">Unprecedented DIY setup process</h2>
+                  <p className="product__text product__alt-font">We put our effort into creating value for you. Not having the lowest prices and not locking you into working with us for the next 5 years. Not even the next 60 days.</p>
                 </div>
               </Col>
             </Row>
             <Row>
               <Col xs={12} sm={6}>
-                <div className="product__column--large product__column--dark">&nbsp;</div>
+                <div className="product__column--large product__column--dark">
+                  <img className="product__column-image" src="/static/images/product/cove-touch/cove-touch-square.jpg" alt="Cove Touch Product Lifestyle" />
+                </div>
               </Col>
               <Col xs={12} sm={6}>
                 <div className="product__column--large product__column--center product__column--no-pad">
                   <Row>
                     <Col xs={6}>
-                      <div className="product__grid-item" />
+                      <img className="product__column-image--small" src="/static/images/product/product-gallery/sensor.jpg" alt="Cove Sensor" />
                     </Col>
                     <Col xs={6}>
-                      <div className="product__grid-item" />
+                      <img className="product__column-image--small" src="/static/images/product/product-gallery/camera.jpg" alt="Cove Camera" />
                     </Col>
                   </Row>
                   <Row>
                     <Col xs={6}>
-                      <div className="product__grid-item" />
+                      <img className="product__column-image--small" src="/static/images/product/product-gallery/key-fob.jpg" alt="Cove Key Fob" />
                     </Col>
                     <Col xs={6}>
-                      <div className="product__grid-item" />
+                      <img className="product__column-image--small" src="/static/images/product/product-gallery/doorbell.jpg" alt="Cove Doorbell" />
                     </Col>
                   </Row>
                   <Row>
