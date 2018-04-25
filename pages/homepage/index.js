@@ -9,7 +9,7 @@ import s from './index.scss';
 
 const coverSectionTitle = 'Home security\njust found easy.';
 const setupSectionTitle = '1 2 3. simple. Installed. it works.';
-
+const descriptionText = 'We put our effort into creating value for you. Not having the lowest prices and not locking you into working with us for the next 5 years. Not even the next 60 days.';
 const Index = () => (
   <Layout>
     <Container>
@@ -172,6 +172,57 @@ const Index = () => (
             </Col>
           </Row>
         </div>
+      </Row>
+      <Row>
+        <div className="compareSection">
+          <Col sm={12} md={4} className="intro">
+            <h1>Easy.</h1>
+            <p>{descriptionText}</p>
+            <p>More questions?</p>
+            <Link href="#chat"><span className="chat">Chat with Us</span></Link>
+          </Col>
+          <Col sm={12} md={4}>
+            <h1 className="green">Cove</h1>
+            <div className="square first">
+              $20/mo
+              <div className="subtitle">Month-to-Month</div>
+            </div>
+            <div className="square">
+              Control Anywhere
+            </div>
+            <div className="square">
+              No Cancel Fees
+            </div>
+            <div className="square">
+              Free Tech Calls
+            </div>
+            <div className="square">
+              3 Year Warranty
+            </div>
+          </Col>
+          <Col sm={12} md={4}>
+            <h1 className="disabled">Not Us</h1>
+            <div className="square notus first">
+              $15~25/mo
+              <div className="subtitle">Month-to-Month</div>
+            </div>
+            <div className="square notus">
+              Control from Home
+            </div>
+            <div className="square notus">
+              $100&#39; - $1,000&#39;s
+            </div>
+            <div className="square notus">
+              $45+ / Visit
+            </div>
+            <div className="square notus">
+              3 Years-Limited
+            </div>
+          </Col>
+        </div>
+      </Row>
+      <Row>
+
       </Row>
     </div>
     <Footer />

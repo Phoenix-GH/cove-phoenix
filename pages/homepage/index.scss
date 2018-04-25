@@ -248,4 +248,54 @@
       }
     }
   }
+  .compareSection {
+    background-color: white;
+    display: flex;
+    padding-left: 153px;
+    padding-right: 153px;
+    font-weight: 500;
+    align-items: center;
+    .intro {
+      padding-right: 91px;
+    }
+    h1 {
+      font-size: 40px;
+    }
+    .green {
+      color: $primary--darker;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .disabled {
+      color: $grey-300;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .chat {
+      font-size: 24px;
+      color: $primary;
+    }
+    p {
+      font-size: 18px;
+      margin-top: 42px;
+    }
+    .square {
+      border: 1px solid $grey-500;
+      text-align: center;
+      font-size: 26px;
+      padding: 26px 0 26px 0;
+      color: $grey-900;
+      margin-bottom: 13px;
+      .subtitle {
+        font-size: 20px;
+      }
+      &.first {
+        padding: 11px 0 11px 0;
+      }
+    }
+    .notus {
+      color: $grey-300;
+      border-color: $grey-300;
+    }
+  }
 }
