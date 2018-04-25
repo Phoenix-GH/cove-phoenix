@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Layout from '../../components/minimalLayout';
 import Header from '../../components/header';
 import Footer from '../../components/footer/footer';
-
+import FooterMobile from '../../components/footer/footerMobile';
 import GreenButton from '../../components/greenButton/greenButton';
 import s from './index.scss';
 
@@ -18,6 +18,9 @@ const Index = () => (
     <div className="homeContainer">
       <div className="innerContainer">
         <Header color="secondary" />
+        <div className="promotionSection">
+          Promotional / in-context help text
+        </div>
         <div className="coverSection">
           <div className="titleRow">
             <Row>
@@ -61,7 +64,7 @@ const Index = () => (
                 </Col>
               </Row>
             </div>
-            <Link href="#tell"><span className="link">Tell your friends about us &raquo;</span></Link>
+            <Link href="#tell"><a href="#tell" className="link">Tell your friends about us &raquo;</a></Link>
           </div>
         </Row>
         <Row>
@@ -248,7 +251,47 @@ const Index = () => (
             </div>
           </div>
         </Row>
-        <Footer />
+      </div>
+      <Row>
+        <div className="faqSection">
+          <div>
+            <button>Chat Available</button>
+            <a href="#faq">Read Frequently Asked Questions &raquo;</a>
+          </div>
+        </div>
+      </Row>
+      <div className="innerContainer">
+        <Row>
+          <div className="desktopOnly">
+            <Row>
+              <Col md={12} className="d-flex justify-content-middle align-items-center">
+                <div className="divFull" >
+                  <Footer color="secondary" />
+                </div>
+              </Col>
+            </Row>
+          </div>
+          <div className="mobileOnly">
+            <FooterMobile color="secondary" />
+            <Row>
+              <Col xs={12} sm={12} md={3}>
+                <input className="email" type="textarea" name="email" id="emailText" placeholder="Enter Email for Cove news" />
+                <div className="socialMedia">
+                  <img src="/static/images/facebook.png" alt="facebook" />
+                  <img src="/static/images/twitter.png" alt="twitter" />
+                  <img src="/static/images/instagram.png" alt="instagram" />
+                  <img src="/static/images/youtube.png" alt="youtube" />
+                  <img src="/static/images/whatsapp.png" alt="whatsapp" />
+                </div>
+              </Col>
+            </Row>
+          </div>
+          <Row>
+            <div className="bottomSection">
+              &nbsp;
+            </div>
+          </Row>
+        </Row>
       </div>
     </div>
     <style jsx>{s}</style>

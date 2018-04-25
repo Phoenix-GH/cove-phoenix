@@ -10,14 +10,23 @@
     width: 100%;
     background-color: white;
     max-width: 1300px;
-    margin: 0 10px 0 10px;
+    padding: 0 10px 0 10px;
+    .promotionSection {
+      width: 100%;
+      background-color: $primary;
+      text-align: center;
+      padding: 18px 0 18px 0;
+      color: white;
+      font-size: 13px;
+    }
     .coverSection {
       width: 100%;
       background-image: url('/static/images/homepage2/homeback2-1.png');
       background-size: cover;
+      background-repeat: no-repeat;
       position: relative;
-      height: 80vw;
-      max-height: 80vh;
+      height: 70vw;
+      max-height: 70vh;
       .titleRow {
         position: absolute;
         width: 100%;
@@ -29,7 +38,7 @@
           margin: 124px 0 0 147px;
           h1 {
             font-size: 72px;
-            max-width: 543px;
+            max-width: 600px;
             font-weight: bold;
           }
           p {
@@ -55,28 +64,20 @@
           .coverLeftArea {
             text-align: center;
             margin-top: 10px;
+            height: 120vw;
+            margin: 20vw 56px 0 56px;
             h1 {
-              font-size: 40px;
+              font-size: 35px;
               max-width: 100%;
+            }
+            p {
+              max-width: 100%;
+              font-size: 20px;
             }
             a {
               span {
                 font-size: 20px;
               }
-            }
-          }
-        }
-        @media screen and (max-width: $width-sm) {
-          .coverLeftArea {
-            display: none;
-          }
-          .coverRightArea {
-            margin-top: 20px;
-            h1 {
-              font-size: 30px;
-            }
-            span {
-              font-size: 20px;
             }
           }
         }
@@ -90,7 +91,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding-top: 10vw;
+      padding: 153px 153px 0 153px;
       text-align: center;
       color: $grey-700;
       background-image: url('/static/images/homepage2/homeback2-2.png');
@@ -154,7 +155,7 @@
       position: relative;
       color: $grey-700;
       font-family: $font-gotham-rounded;
-      padding: 153px;
+      padding: 95px 153px 0 153px;
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -359,9 +360,9 @@
       @media (max-width: $width-md) {
         text-align: center;
         padding: 10px;
-        
         .square {
           font-size: 14.19px;
+          border-color: $primary;
         }
         h2 {
           font-size: 29.03px;
@@ -381,7 +382,6 @@
       display: flex;
       align-items: center;
       width: 100%;
-      margin: 10px;
       .text {
         width: 100%;
         display: flex;
@@ -406,7 +406,47 @@
       }
     }
   }
+  .faqSection {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+    font-size: 16px;
+    background-color: $primary;
+    padding: 35px 0 35px 0;
+    width: 100%;
+    div {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      button {
+        background: $primary--lightest;
+        border-radius: 5px;
+        padding: 14px 26px 14px 26px;
+        font-weight: bold;
+        color: white;
+        border: none;
+      }
+      a {
+        font-weight: 500;
+        margin-left: 20px;
+        color: white;
+      }
+    }
+  }
   @media (max-width: $width-md) {
     margin: 0;
+  }
+  
+  .desktopOnly {
+    @media (max-width: $width-md) {
+      display:none;
+    }
+  }
+  
+  .mobileOnly {
+    @media (min-width: $width-md) {
+      display:none;
+    }
   }
 }
