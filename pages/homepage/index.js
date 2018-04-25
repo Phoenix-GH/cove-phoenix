@@ -8,9 +8,11 @@ import GreenButton from '../../components/greenButton/greenButton';
 import s from './index.scss';
 
 const coverSectionTitle = 'Home security\njust found easy.';
-const setupSectionTitle = '1 2 3. simple. Installed. it works.';
+const setupSectionTitle = '1 2 3. Simple. Installed. It works.';
 const descriptionText = 'We put our effort into creating value for you. Not having the lowest prices and not locking you into working with us for the next 5 years. Not even the next 60 days.';
 const familyText = '"We forget to lock our door sometimes. Now we don\'t worry."';
+const dummyText = 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nomummy nibh euismod tincidunt ut';
+const akaText = ' Custom configured for your fury secondary alarm systems, A.K.A. pet-friendly!';
 const Index = () => (
   <Layout>
     <div className="homeContainer">
@@ -32,99 +34,116 @@ const Index = () => (
         </div>
         <Row>
           <div className="testimonialSection">
-            <h2>&ldquo;{setupSectionTitle}&rdquo;</h2>
+            <h1>&ldquo;{setupSectionTitle}&rdquo;</h1>
             <p>- Dahlia Johnson</p>
             <div className="products">
               <Row>
                 <Col xs={12} sm={12} md={4}>
                   <div>
-                    <h3>&ldquo;I wish Cove could travel with us.&rdquo;</h3>
+                    <h2>&ldquo;I wish Cove could travel with us.&rdquo;</h2>
                     <p>- Jules Endicott
                     </p>
                   </div>
                 </Col>
                 <Col xs={12} sm={12} md={4}>
                   <div>
-                    <h3>&ldquo;Finally, an alarm company watching out for us.&rdquo;</h3>
+                    <h2>&ldquo;Finally, an alarm company watching out for us.&rdquo;</h2>
                     <p>- Nick Ferse
                     </p>
                   </div>
                 </Col>
                 <Col xs={12} sm={12} md={4}>
                   <div>
-                    <h3>&ldquo;The way customer service used to be!&rdquo;</h3>
+                    <h2>&ldquo;The way customer service used to be!&rdquo;</h2>
                     <p>- Becker Family
                     </p>
                   </div>
                 </Col>
               </Row>
             </div>
-            <Link href="#tell" class="link">Tell your friends about us &raquo;</Link>
+            <Link href="#tell"><span className="link">Tell your friends about us &raquo;</span></Link>
           </div>
         </Row>
         <Row>
           <div className="builtProductsSection">
-            <h2>You need not worry</h2>
-            <ul>
-              <Col md={6}>
-                <li>Fire</li>
-                <li>Flood</li>
-                <li>Harmful fumes</li>
-                <li>Medical mergency</li>
-              </Col>
-              <Col md={6}>
-                <li>Unwanted Intrusion</li>
-                <li>Broken window</li>
-                <li>Infrared movement</li>
-              </Col>
-            </ul>
-            <p><sup>*</sup> Custom configured for your fury secondary alarm systems, A.K.A. pet-friendly!</p>
+            <Col xs={12} sm={12} md={6}>
+              <h2>You need not worry.</h2>
+              <ul>
+                <Col md={6}>
+                  <li>Fire</li>
+                  <li>Flood</li>
+                  <li>Harmful fumes</li>
+                  <li>Medical mergency</li>
+                </Col>
+                <Col md={6}>
+                  <li>Unwanted Intrusion</li>
+                  <li>Broken window</li>
+                  <li>Infrared movement</li>
+                </Col>
+              </ul>
+              <p><sup>*</sup>{akaText}</p>
+            </Col>
+            <Col xs={12} sm={12} md={6}>
+              <img src="/static/images/homepage2/homeback2-3.png" alt="homeback" />
+            </Col>
           </div>
         </Row>
         <Row>
           <div className="checkSection">
             <div className="checkRow">
-              <Col xs={12} sm={12} md={6}>
+              <Col xs={12} sm={12} md={8}>
                 <div className="leftSide">
-                  <img src="/static/images/homepage2/checkmark.png" alt="checkmark" />
-                  <h2>
-                    We trust Cove in our own homes.
-                  </h2>
+                  <Col md={12} lg={1}>
+                    <img src="/static/images/homepage2/checkmark.png" alt="checkmark" />
+                  </Col>
+                  <Col md={12} lg={10}>
+                    <h2>
+                      We trust Cove in our own homes.
+                    </h2>
+                  </Col>
                 </div>
               </Col>
-              <Col xs={12} sm={12} md={6}>
+              <Col xs={12} sm={12} md={4}>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nomummy nibh euismod tincidunt ut
+                  {dummyText}
                 </p>
               </Col>
             </div>
             <div className="checkRow">
-              <Col xs={12} sm={12} md={6}>
+              <Col xs={12} sm={12} md={8}>
                 <div className="leftSide">
-                  <img src="/static/images/homepage2/checkmark.png" alt="checkmark" />
-                  <h2>
-                    We trust Cove in our own homes.
-                  </h2>
+                  <Col md={12} lg={1}>
+                    <img src="/static/images/homepage2/checkmark.png" alt="checkmark" />
+                  </Col>
+                  <Col md={12} lg={10}>
+                    <h2>
+                      We trust Cove in our own homes.
+                    </h2>
+                  </Col>
                 </div>
               </Col>
-              <Col xs={12} sm={12} md={6}>
+              <Col xs={12} sm={12} md={4}>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nomummy nibh euismod tincidunt ut
+                  {dummyText}
                 </p>
               </Col>
             </div>
             <div className="checkRow">
-              <Col xs={12} sm={12} md={6}>
+              <Col xs={12} sm={12} md={8}>
                 <div className="leftSide">
-                  <img src="/static/images/homepage2/checkmark.png" alt="checkmark" />
-                  <h2>
-                    We trust Cove in our own homes.
-                  </h2>
+                  <Col md={12} lg={1}>
+                    <img src="/static/images/homepage2/checkmark.png" alt="checkmark" />
+                  </Col>
+                  <Col md={12} lg={10}>
+                    <h2>
+                      We trust Cove in our own homes.
+                    </h2>
+                  </Col>
                 </div>
               </Col>
-              <Col xs={12} md={6}>
+              <Col xs={12} md={4}>
                 <p>
-                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nomummy nibh euismod tincidunt ut
+                  {dummyText}
                 </p>
               </Col>
             </div>
@@ -178,11 +197,11 @@ const Index = () => (
             <Col xs={12} sm={12} md={4} className="intro">
               <h1>Easy.</h1>
               <p>{descriptionText}</p>
-              <p>More questions?</p>
+              <p className="moreQuestions">More questions?</p>
               <Link href="#chat"><span className="chat">Chat with Us</span></Link>
             </Col>
-            <Col xs={12} sm={12} md={4}>
-              <h1 className="green">Cove</h1>
+            <Col xs={6} sm={6} md={4}>
+              <h2 className="green">Cove</h2>
               <div className="square first">
                 $20/mo
                 <div className="subtitle">Month-to-Month</div>
@@ -200,8 +219,8 @@ const Index = () => (
                 3 Year Warranty
               </div>
             </Col>
-            <Col xs={12} sm={12} md={4}>
-              <h1 className="disabled">Not Us</h1>
+            <Col xs={6} sm={6} md={4}>
+              <h2 className="disabled">Not Us</h2>
               <div className="square notus first">
                 $15~25/mo
                 <div className="subtitle">Month-to-Month</div>

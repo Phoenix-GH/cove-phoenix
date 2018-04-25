@@ -6,19 +6,18 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  @media screen and (max-width: $width-md) {
-    margin-left: 27px;
-    margin-right: 27px;
-  }
   .innerContainer {
+    width: 100%;
     background-color: white;
     max-width: 1300px;
+    margin: 0 10px 0 10px;
     .coverSection {
       width: 100%;
       background-image: url('/static/images/homepage2/homeback2-1.png');
       background-size: cover;
       position: relative;
       height: 80vw;
+      max-height: 80vh;
       .titleRow {
         position: absolute;
         width: 100%;
@@ -94,37 +93,25 @@
       padding-top: 10vw;
       text-align: center;
       color: $grey-700;
-      height: 80vw;
       background-image: url('/static/images/homepage2/homeback2-2.png');
       background-size: cover;
-  
       h2, p {
         width: 84%;
       }
-  
-      h2 {
-        font-size: 55px;
-        font-weight: 500;
+      h1 {
+        font-size: 60px;
+        font-weight: bold;
         margin-bottom: 38px;
       }
   
       p {
-        font-size: 25px;
-        font-weight: 100;
+        font-size: 24px;
       }
       .products {
         div {
           padding-left: 28px;
           padding-right: 28px;
-          
-          .imageArea {
-            display: flex;
-            align-items: flex-end;
-            justify-content: center;
-            min-height: 247px;
-            padding-bottom: 20px;
-          }
-  
+            
           img {
             width: 100%;
             &.coveAppImg {
@@ -132,46 +119,52 @@
             }
           }
   
-          h3 {
-            font-size: 20px;
-            font-weight: 700;
+          h2 {
+            font-size: 32px;
+            font-weight: 500;
           }
   
           p {
-            font-size: 12px;
-            font-weight: 100;
+            font-size: 24px;
+            font-weight: 500;
           }
         }
       }
       .link {
         font-size: 16px;
         color: $primary;
+        margin: 69px 0 68px 0;
       }
       @media (max-width: $width-md) {
-        h2 {
-          font-size: 40px;
+        h1 {
+          font-size: 30px;
         }
         p {
           width: 100%;
-          font-size: 12px;
+          font-size: 20px;
+        }
+        .products {
+          display: none;
         }
       }
     }
   
     .builtProductsSection {
       width: 100%;
-      height: 80vh;
-      background-image: url('/static/images/homepage2/homeback2-3.png');
-      background-size: 100%;
-      background-repeat: no-repeat;
       position: relative;
       color: $grey-700;
       font-family: $font-gotham-rounded;
       padding: 153px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
       h2 {
         font-size: 40px;
       }
       ul {
+        margin-top: 98px;
+        width: 100%;
         display: flex;
         flex-direction: row;
         list-style: none;
@@ -183,6 +176,25 @@
         font-family: $font-open-sans;
         margin-top: 106px;
         max-width: 305px;
+      }
+      img {
+        width: 100%;
+      }
+      @media (max-width: $width-md) {
+        padding: 33px;
+        h2 {
+          font-size: 30px;
+          text-align: center;
+        }
+        ul {
+          li {
+            font-size: 14px;
+            font-family: $font-open-sans;
+          }
+        }
+        p {
+          width: 100%;
+        }
       }
     }
   
@@ -201,7 +213,8 @@
           display: flex;
           flex-direction: row;
           align-items: start;
-          max-width: 400px;
+          max-width: 420px;
+          flex-wrap: wrap;
           h2 {
             font-size: 40px;
             font-weight: 500;
@@ -212,6 +225,28 @@
         p {
           font-size: 20px;
           font-family: $font-open-sans;
+        }
+      }
+      @media (max-width: $width-md) {
+        padding: 30px 75px 30px 75px;
+        .checkRow {
+          margin-bottom: 30px;
+          .leftSide {
+            max-width: 100%;
+            :global(div) {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              h2 {
+                font-size: 26px;
+                margin-left: 0;
+                text-align: center;
+              }
+            }
+          }
+          p {
+            display: none;
+          }
         }
       }
     }
@@ -255,6 +290,18 @@
           padding-left: 40px;
         }
       }
+      @media (max-width: $width-md) {
+        padding: 40px;
+        h2 {
+          font-size: 30px;
+        }
+        h3 {
+          font-size: 26px;
+        }
+        :global(.selectableButton) {
+          border: none;
+        }
+      }
     }
     .compareSection {
       background-color: white;
@@ -269,6 +316,9 @@
       }
       h1 {
         font-size: 40px;
+      }
+      h2 {
+        font-size: 53.13px;
       }
       .green {
         color: $primary--darker;
@@ -306,9 +356,24 @@
         color: $grey-300;
         border-color: $grey-300;
       }
+      @media (max-width: $width-md) {
+        text-align: center;
+        padding: 10px;
+        
+        .square {
+          font-size: 14.19px;
+        }
+        h2 {
+          font-size: 29.03px;
+        }
+        .moreQuestions, .chat {
+          display: none;
+        }
+      }
     }
     .familySection {
       height: 80vw;
+      max-height: 80vh;
       background-image: url('/static/images/homepage2/homeback2-5.png');
       background-size: cover;
       text-align: center;
@@ -332,6 +397,16 @@
           margin-top: 36px;
         }
       }
+      @media (max-width: $width-md) {
+        .text {
+          h1 {
+            font-size: 30px;
+          }
+        }
+      }
     }
+  }
+  @media (max-width: $width-md) {
+    margin: 0;
   }
 }
