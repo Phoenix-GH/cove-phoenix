@@ -84,7 +84,7 @@ const Index = () => (
         <Row>
           <div className="checkSection">
             <div className="checkRow">
-              <Col sm={12} md={6}>
+              <Col xs={12} sm={12} md={6}>
                 <div className="leftSide">
                   <img src="/static/images/homepage2/checkmark.png" alt="checkmark" />
                   <h2>
@@ -92,14 +92,14 @@ const Index = () => (
                   </h2>
                 </div>
               </Col>
-              <Col sm={12} md={6}>
+              <Col xs={12} sm={12} md={6}>
                 <p>
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nomummy nibh euismod tincidunt ut
                 </p>
               </Col>
             </div>
             <div className="checkRow">
-              <Col sm={12} md={6}>
+              <Col xs={12} sm={12} md={6}>
                 <div className="leftSide">
                   <img src="/static/images/homepage2/checkmark.png" alt="checkmark" />
                   <h2>
@@ -107,14 +107,14 @@ const Index = () => (
                   </h2>
                 </div>
               </Col>
-              <Col sm={12} md={6}>
+              <Col xs={12} sm={12} md={6}>
                 <p>
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nomummy nibh euismod tincidunt ut
                 </p>
               </Col>
             </div>
             <div className="checkRow">
-              <Col sm={12} md={6}>
+              <Col xs={12} sm={12} md={6}>
                 <div className="leftSide">
                   <img src="/static/images/homepage2/checkmark.png" alt="checkmark" />
                   <h2>
@@ -122,7 +122,7 @@ const Index = () => (
                   </h2>
                 </div>
               </Col>
-              <Col sm={12} md={6}>
+              <Col xs={12} md={6}>
                 <p>
                   Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nomummy nibh euismod tincidunt ut
                 </p>
@@ -175,13 +175,13 @@ const Index = () => (
         </Row>
         <Row>
           <div className="compareSection">
-            <Col sm={12} md={4} className="intro">
+            <Col xs={12} sm={12} md={4} className="intro">
               <h1>Easy.</h1>
               <p>{descriptionText}</p>
               <p>More questions?</p>
               <Link href="#chat"><span className="chat">Chat with Us</span></Link>
             </Col>
-            <Col sm={12} md={4}>
+            <Col xs={12} sm={12} md={4}>
               <h1 className="green">Cove</h1>
               <div className="square first">
                 $20/mo
@@ -200,7 +200,7 @@ const Index = () => (
                 3 Year Warranty
               </div>
             </Col>
-            <Col sm={12} md={4}>
+            <Col xs={12} sm={12} md={4}>
               <h1 className="disabled">Not Us</h1>
               <div className="square notus first">
                 $15~25/mo
