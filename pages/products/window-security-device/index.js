@@ -20,32 +20,32 @@ export default class ProductPage extends Component {
     return (
       <Layout>
         <Head>
-          <title>Cove | Products | Cove Touch</title>
-          <meta name="description" content="Cove Touch Panel." />
+          <title>Cove | Products | Window Security Device</title>
+          <meta name="description" content="Protecting your windows with Cove’s window security device. One of the most commonly compromised points of entry is a window. To secure them, simply install a Cove window sensor. We monitor every Cove security device 24/7/365." />
         </Head>
         <Header color="secondary" callingPage="products" />
         <div className="product">
           <div className="product__header">
             <div className="product__header-text">
-              <h1 className="product__title">Cove Touch</h1>
-              <p className="product__subtext">If it's Cove. <br/> It's covered.</p>
+              <h1 className="product__title">Window Security Device</h1>
+              <p className="product__subtext">&nbsp;</p>
             </div>
           </div>
           <Container>
-            <p className="product__paragraph product__alt-font">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            <p className="product__paragraph product__alt-font">Cove’s window security device incorporates cutting-edge technology without all the complicated aspects of protecting what matters most to you and your loved ones.</p>
             <Row>
-              <Col xs={{size: 12, order: 1}} md={{size: 4, order: 0}}>
-                <p className="product__feature-box">3" touchscreen</p>
-                <p className="product__feature-box">Test sensors remotely</p>
-                <p className="product__feature-box">Easy to use</p>
+              <Col xs={{ size: 12, order: 1 }} md={{ size: 4, order: 0 }}>
+                <p className="product__feature-box">Extremely simple to install and setup</p>
+                <p className="product__feature-box">3-5 year battery life</p>
+                <p className="product__feature-box">Smart self-testing</p>
               </Col>
-              <Col xs={{size: 12, order: 0}} md={{size: 4, order: 1}}>
-                <img className="product__showcase-image" alt="Cove Touch Panel" src="/static/images/coveProduct_1.png" />
+              <Col xs={{ size: 12, order: 0 }} md={{ size: 4, order: 1 }}>
+                <img className="product__showcase-image" alt="Window Security Device" src="/static/images/product/window-security-device/window-security-front.jpg" />
               </Col>
-              <Col xs={{size: 12, order: 2}} md={{size: 4, order: 2}}>
-                <p className="product__feature-box">Create users for each member of the family</p>
-                <p className="product__feature-box">&nbsp;</p>
-                <p className="product__feature-box">&nbsp;</p>
+              <Col xs={{ size: 12, order: 2 }} md={{ size: 4, order: 2 }}>
+                <p className="product__feature-box">Customizable alerts & options that fit your lifestyle</p>
+                <p className="product__feature-box">Compatible with most window types</p>
+                <p className="product__feature-box">3-Year product warranty (with service)</p>
               </Col>
             </Row>
             <div className="product__spacer" />
@@ -53,7 +53,7 @@ export default class ProductPage extends Component {
               <Col xs={12} sm={4}>
                 <div className="product__comparison">
                   <h2 className="product__subheading product__subheading--pad-top">Cove vs Them</h2>
-                  <p className="product__paragraph">We put our effort into creating value for you. Not having the lowest prices and not locking you into working with us for the next 5 years. Not even the next 60 days.</p>
+                  <p className="product__paragraph">Cove window security devices are all paired with our award-winning Cove Touch panel offering the “all-around easiest” customer experience in the industry.</p>
                   <p className="product__paragraph--no-margin">More questions?</p>
                   <a className="product__link" href="/">Chat with Us</a>
                 </div>
@@ -78,18 +78,18 @@ export default class ProductPage extends Component {
               </Col>
             </Row>
             <div className="product__spacer" />
-            <h2 className="product__subheading">Using your alarm just got easy</h2>
+            <h2 className="product__subheading">Complete Window Protection</h2>
             <Row>
               <Col sm={6}>
                 <ul className="product__plain-list">
-                  <li className="product__plain-list-item">Easy navigation</li>
-                  <li className="product__plain-list-item">Easy setup</li>
-                  <li className="product__plain-list-item">Easy on you</li>
-                  <li className="product__plain-list-item">Easy on the wallet</li>
+                  <li className="product__plain-list-item">Customized for you</li>
+                  <li className="product__plain-list-item">Seamless installation</li>
+                  <li className="product__plain-list-item">Features so simple you can control them</li>
+                  <li className="product__plain-list-item">Protection on your terms</li>
                 </ul>
               </Col>
               <Col sm={6}>
-                <img className="product__image-flex" alt="Cove Touch Panel" src="/static/images/product/cove-touch/cove-touch-angled-crop.jpg" />
+                <img className="product__image-flex" alt="Window Security Device" src="/static/images/product/window-security-device/window-security-crop.jpg" />
               </Col>
             </Row>
             <Row>
@@ -99,15 +99,15 @@ export default class ProductPage extends Component {
             </Row>
             <div className="product__spacer" />
             <Row className="no-gutter">
-              <Col xs={{size: 12, order: 2}} sm={{size: 6, order: 1}}>
+              <Col xs={{ size: 12, order: 2 }} sm={{ size: 6, order: 1 }}>
                 <div className="product__column--large product__column--center">
-                  <h2 className="product__subheading">Security that is elegant</h2>
-                  <p className="product__text product__alt-font">We put our effort into creating value for you. Not having the lowest prices and not locking you into working with us for the next 5 years. Not even the next 60 days.</p>
+                  <h2 className="product__subheading">Easy to Install</h2>
+                  <p className="product__text product__alt-font">Each window sensor is pre-coupled with your Cove Touch panel. You can custom select each sensor name to help you find its place in your home. With a couple touches of the screen you confirm each sensor is setup and ready to start protecting the ones you love.</p>
                 </div>
               </Col>
-              <Col xs={{size: 12, order: 1}} sm={{size: 6, order: 2}}>
+              <Col xs={{ size: 12, order: 1 }} sm={{ size: 6, order: 2 }}>
                 <div className="product__column--large product__column--dark">
-                  <img className="product__column-image" src="/static/images/product/cove-touch/cove-touch-lifestyle-wide.jpg" alt="Cove Touch Product Lifestyle" />
+                  <img className="product__column-image" src="/static/images/product/window-security-device/window-security-lifestyle.jpg" alt="Window Security Device Lifestyle" />
                 </div>
               </Col>
             </Row>
@@ -121,15 +121,15 @@ export default class ProductPage extends Component {
               </Col>
               <Col sm={6} className="d-flex align-items-center">
                 <div className="product__column--medium product__column--center">
-                  <h2 className="product__subheading">Unprecedented DIY setup process</h2>
-                  <p className="product__text product__alt-font">We put our effort into creating value for you. Not having the lowest prices and not locking you into working with us for the next 5 years. Not even the next 60 days.</p>
+                  <h2 className="product__subheading">Easy to Use</h2>
+                  <p className="product__text product__alt-font">Arm the entire system or a single sensor - Cove is yours. You decide what it does. We’ve engineered our smart devices to work with your individual needs. If your needs change, simply change the settings. No technician needed. Adding a basement window access point? Simply order another window sensor and add it to your alarm system arsenal yourself. Easy.</p>
                 </div>
               </Col>
             </Row>
             <Row>
               <Col xs={12} sm={6}>
                 <div className="product__column--large product__column--dark">
-                  <img className="product__column-image" src="/static/images/product/cove-touch/cove-touch-square.jpg" alt="Cove Touch Product Lifestyle" />
+                  <img className="product__column-image" src="/static/images/product/cove-touch/cove-touch-square.jpg" alt="Window Security Device Lifestyle" />
                 </div>
               </Col>
               <Col xs={12} sm={6}>

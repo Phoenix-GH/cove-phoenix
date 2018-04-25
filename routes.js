@@ -2,6 +2,7 @@ module.exports = () => ({
   '/': { page: '/' },
   '/products/cove-touch': { page: '/products/cove-touch' },
   '/products/motion-sensor-alarm': { page: '/products/motion-sensor-alarm' },
+  '/products/window-security-device': { page: '/products/window-security-device' },
   '/medical': { page: '/medical' },
   '/login': { page: '/login' },
   '/homepage': { page: '/homepage' },

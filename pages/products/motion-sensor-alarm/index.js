@@ -4,7 +4,7 @@ import {
   Row,
   Col,
 } from 'reactstrap';
-import Head from 'next/head'
+import Head from 'next/head';
 import Layout from '../../../components/minimalLayout';
 import Header from '../../../components/header';
 import Footer from '../../../components/footer/footer';
@@ -41,7 +41,7 @@ export default class ProductPage extends Component {
                 <p className="product__feature-box">3-5 year battery life</p>
               </Col>
               <Col xs={{ size: 12, order: 0 }} md={{ size: 4, order: 1 }}>
-                <img className="product__showcase-image" alt="Cove Touch Panel" src="/static/images/product/motion-sensor-alarm/motion-sensor-front.jpg" />
+                <img className="product__showcase-image" alt="Motion Sensor Alarm Front" src="/static/images/product/motion-sensor-alarm/motion-sensor-front.jpg" />
               </Col>
               <Col xs={{ size: 12, order: 2 }} md={{ size: 4, order: 2 }}>
                 <p className="product__feature-box">Pet immunity up to 55 pounds</p>
@@ -75,7 +75,7 @@ export default class ProductPage extends Component {
                 <p className="product__compare-box product__compare-box--faded">Control from Home</p>
                 <p className="product__compare-box product__compare-box--faded">3 Years-Limited</p>
                 <p className="product__compare-box product__compare-box--faded">$100's - $1,000's</p>
-                <p className="product__compare-box product__compare-box--faded">$45+ / Visit</p>
+                <p className="product__compare-box product__compare-box--faded">$45+ per Visit</p>
               </Col>
             </Row>
             <div className="product__spacer" />
@@ -85,12 +85,12 @@ export default class ProductPage extends Component {
                 <ul className="product__plain-list">
                   <li className="product__plain-list-item">Customized for you</li>
                   <li className="product__plain-list-item">Seamless installation</li>
-                  <li className="product__plain-list-item">Features so simplle you can control them</li>
+                  <li className="product__plain-list-item">Features so simple you can control them</li>
                   <li className="product__plain-list-item">Protection on your terms</li>
                 </ul>
               </Col>
               <Col sm={6}>
-                <img className="product__image-flex" alt="Cove Touch Panel" src="/static/images/product/motion-sensor-alarm/motion-sensor-crop.jpg" />
+                <img className="product__image-flex" alt="Motion Sensor Alarm" src="/static/images/product/motion-sensor-alarm/motion-sensor-crop.jpg" />
               </Col>
             </Row>
             <Row>
@@ -108,10 +108,11 @@ export default class ProductPage extends Component {
               </Col>
               <Col xs={{ size: 12, order: 1 }} sm={{ size: 6, order: 2 }}>
                 <div className="product__column--large product__column--dark">
-                  <img className="product__column-image" src="/static/images/product/motion-sensor-alarm/motion-sensor-lifestyle.jpg" alt="Cove Touch Product Lifestyle" />
+                  <img className="product__column-image" src="/static/images/product/motion-sensor-alarm/motion-sensor-lifestyle.jpg" alt="Motion Sensor Alarm Lifestyle" />
                 </div>
               </Col>
             </Row>
+            <div className="product__spacer" />
             <Row className="no-gutter">
               <Col sm={6}>
                 <div className="product__column--medium">
@@ -129,7 +130,7 @@ export default class ProductPage extends Component {
             <Row>
               <Col xs={12} sm={6}>
                 <div className="product__column--large product__column--dark">
-                  <img className="product__column-image" src="/static/images/product/cove-touch/cove-touch-square.jpg" alt="Cove Touch Product Lifestyle" />
+                  <img className="product__column-image" src="/static/images/product/cove-touch/cove-touch-square.jpg" alt="Motion Sensor Alarm Alternate Product" />
                 </div>
               </Col>
               <Col xs={12} sm={6}>
