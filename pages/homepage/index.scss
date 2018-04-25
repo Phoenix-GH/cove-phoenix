@@ -446,13 +446,14 @@
 
   .desktopOnly {
     @media (max-width: $width-md) {
-      display:none;
+      display: none;
     }
   }
   
   .mobileOnly {
+    width: 100%;
     @media (min-width: $width-md) {
-      display:none;
+      display: none;
     }
   }
 }
