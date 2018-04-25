@@ -26,15 +26,15 @@ const initialState = {
 
 const checkoutHandlers = {
   [createAccountR.TRIGGER]: state => ({ ...state, loading: true }),
-  [createAccountR.SUCCESS]: (state, payload) => ({ ...state, ...payload }),
+  [createAccountR.SUCCESS]: (state, payload) => ({ ...state, account: { ...payload } }),
   [createAccountR.FAILURE]: (state, payload) => ({ ...state, error: payload }),
   [createAccountR.FULFILL]: state => ({ ...state, loading: false }),
   [createOrderR.TRIGGER]: state => ({ ...state, loading: true }),
-  [createOrderR.SUCCESS]: (state, payload) => ({ ...state, ...payload }),
+  [createOrderR.SUCCESS]: (state, payload) => ({ ...state, createOrder: { ...payload } }),
   [createOrderR.FAILURE]: (state, payload) => ({ ...state, error: payload }),
   [createOrderR.FULFILL]: state => ({ ...state, loading: false }),
   [completeOrderR.TRIGGER]: state => ({ ...state, loading: true }),
-  [completeOrderR.SUCCESS]: (state, payload) => ({ ...state, ...payload }),
+  [completeOrderR.SUCCESS]: (state, payload) => ({ ...state, completeOrder: { ...payload } }),
   [completeOrderR.FAILURE]: (state, payload) => ({ ...state, error: payload }),
   [completeOrderR.FULFILL]: state => ({ ...state, loading: false }),
 };
@@ -74,7 +74,11 @@ const planHandlers = {
     ...state,
     monitoringPlan,
   }),
-  [createAccountR.SUCCESS]: (state, payload) => ({ ...state, tax: payload.tax }),
+  [createAccountR.SUCCESS]: (state, payload) => ({
+    ...state,
+    tax: payload.tax,
+    accountGuid: payload.accountGuid,
+  }),
 };
 
 const cartItemIds = (state = initialState.cartItemIds, { type, payload }) => {

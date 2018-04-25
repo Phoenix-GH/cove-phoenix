@@ -10,10 +10,8 @@
     color: #191E2B;
     border-bottom: 1px $grey-350 solid;
   }
-  
-  :global {
-    .coveInput {
-      margin-top: 40px;
-    }
+  :global(.additionalContact) {
+    margin-bottom: 47px;
   }
 }
+

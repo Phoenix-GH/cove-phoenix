@@ -31,14 +31,17 @@ const buildEquipmentList = (cart) => {
     name: 'Cove Protect Package',
     price: '249.00',
     qty: 1,
+    aspen_id: 106,
   }];
 
   for (let i = 0; i < cart.cartItemIds.length; i += 1) {
     const id = cart.cartItemIds[i];
     items.push({
       name: cart.productById[id].display_name,
-      qty: cart.productById[id].qty,
+      qty: cart.productById[id].quantity,
       price: cart.productById[id].price,
+      id: cart.productById[id].id,
+      aspen_id: cart.productById[id].aspen_id,
     });
   }
 
@@ -78,6 +81,7 @@ function* getCorsHeaders() {
 }
 const getCreateOrderRequest = (formData, cart) => {
   const shipAddress = formData.differentShipAddress ? formData.shipAddress : {};
+  shipAddress.stateCode = shipAddress.state ? normalizeState(shipAddress.state) : null;
   const items = [];
 
   for (let i = 0; i < cart.cartItemIds.length; i += 1) {
@@ -89,7 +93,7 @@ const getCreateOrderRequest = (formData, cart) => {
     });
   }
   const orderRequest = {
-    accountGuid: cart.checkout.accountGuid,
+    accountGuid: cart.planDetails.accountGuid,
     shippingMethodId: formData.shippingMethod ? formData.shippingMethod : 1,
     subscriptionId: 2,
     warrantyId: formData.warranty ? 0 : 1,
@@ -102,24 +106,35 @@ const getCreateOrderRequest = (formData, cart) => {
 };
 
 const getCompleteOrderRequest = (formData, cart) => {
-  const { monitoringPlans, planDetails, cartItemIds, productById } = cart;
+  const {
+    monitoringPlans,
+    planDetails,
+    cartItemIds,
+    productById,
+  } = cart;
   const exp = formData.cc.exp.split('/');
-  let equipmentTotal = 249.00;
+  let equipmentTotal = 249.00; /* TODO pull from central store result from db call */
   cartItemIds.map((val) => {
     equipmentTotal += parseFloat(productById[val].price);
   });
 
-  const planPrice = monitoringPlans[planDetails.monitoringPlan].price;
+  const planPrice = parseFloat(monitoringPlans[planDetails.monitoringPlan].price);
   const tax = parseFloat(planDetails.tax);
+  
+  const billAddress = formData.billAddress.differentBillAddress ? formData.billAddress : {};
+  if (!_.isEmpty(billAddress)) {
+    billAddress.stateCode = billAddress.state ? normalizeState(billAddress.state) : null;
+  }
   const request = {
     cc: {
       number: formData.cc.number,
       expMonth: exp[0],
       expYear: exp[1],
     },
+    billAddress,
     cart: buildEquipmentList(cart),
     total: equipmentTotal + planPrice + tax,
-    accountGuid: cart.checkout.accountGuid,
+    accountGuid: cart.planDetails.accountGuid,
   };
   return request;
 };
@@ -184,14 +199,18 @@ function* createOrder() {
 function* completeOrder() {
   try {
     yield put(completeOrderR.request());
-    if (yield select(isValid('checkout_payment'))) {
-      const formData = yield select(getFormValues('checkout_payment'));
+    const formValid =  yield select(isValid('checkout_payment'));
+    const formData = yield select(getFormValues('checkout_payment')) || {};
+    const fields = yield select(getFormSyncErrors('checkout_shipping'));
+    const { differentBillAddress } = formData.billAddress || false;
+    if ((!differentBillAddress && !fields.cc) || (differentBillAddress && formValid)) {   
       const cart = yield select(state => state.checkout);
       const order = yield getCompleteOrderRequest(formData, cart);
       const headers = yield getCorsHeaders();
       const response = yield call(axios.post, '/meliae/completeOrder', order);
       yield put(completeOrderR.success(response.data));
       yield Router.push({ pathname: '/order' });
+      yield put(destroy('checkout_customer', 'checkout_shipping', 'checkout_payment'));
     } else {
       const fields = yield select(getFormSyncErrors('checkout_payment'));
       const fieldNames = fieldsToFieldNameArray(fields);
@@ -201,7 +220,6 @@ function* completeOrder() {
     yield put(completeOrderR.failure(err));
   } finally {
     //yield put(moveCartToOrdered());
-    yield put(destroy('checkout_customer', 'checkout_shipping', 'checkout_payment'));
     yield put(completeOrderR.fulfill());
   }
 }

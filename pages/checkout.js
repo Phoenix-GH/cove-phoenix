@@ -219,6 +219,7 @@ class CheckoutPage extends Component {
                 <div className={paymentPageClassName}>
                   <PaymentInfo
                     onChangeHandler={this.onChangeHandler}
+                    formData={this.props.form.checkout_payment}
                   />
                 </div>
                 <div className="footerControls">
@@ -283,6 +284,9 @@ CheckoutPage.defaultProps = {
   form: {
     customer_checkout: {
       values: {},
+    },
+    customer_payment: {
+      values: { billAddress: {} },
     },
   },
 };
