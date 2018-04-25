@@ -1,27 +1,48 @@
 @import 'variables';
 
 .footerMobileHeaderDiv {
-    border-bottom-style: solid;
-    border-bottom-color: #00C7AF;
-    border-bottom-width: 2px;
-    width: 767px;
-    padding-top: 20px;
-    margin-left: 0px;
+  border-bottom-style: solid;
+  border-bottom-color: #00C7AF;
+  border-bottom-width: 2px;
+  width: 100%;
+  margin-left: 0px;
 }
 
 .footerMobileDiv {
-    width: 767px;
+  width: 100%;
 }
 
-.divImgPlusTeal {
-    margin-left: -100px;
-    margin-bottom: 10px;
+:global(.menuRow) {
+  padding: 20px 5px 20px 5px;
 }
 
 .footerTitle {
+  font-family: $font-gotham-rounded;
+  font-weight: 400;
+  color: #000;
+  font-size: 1.4em;
+  margin-left: 20px;
+}
+
+ul {
+  li {
     font-family: $font-gotham-rounded;
-    font-weight: 400;
-    color: #000;
-    font-size: 1.4em;
-    margin-left: 20px;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 34px;
+    :global(a) {
+      color: $grey-1000;
+    }
   }
+}
+
+input[type=text] {
+  margin: 20px 0 20px 0;
+  width: 100%;
+}
+
+.socialMedia {
+  img {
+    margin-right: 10px;
+  }
+}

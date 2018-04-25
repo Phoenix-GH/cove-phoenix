@@ -12,8 +12,6 @@ import s from './index.scss';
 const coverSectionTitle = 'If it\'s Cove, it\'s covered.';
 const descriptionSectionTitle = 'What\'s in the starter kit';
 
-
-
 class Index extends Component {
   constructor(props) {
     super(props);
