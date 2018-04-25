@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Nav, NavItem, NavLink, Navbar, NavbarToggler, NavbarBrand, Collapse, Popover, PopoverBody } from 'reactstrap';
+import { Container, Row, Col, Nav, NavItem, NavLink, Navbar, NavbarBrand, Collapse, Popover, PopoverBody } from 'reactstrap';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import HeaderPopoverItem from './headerPopoverItem';
@@ -8,7 +8,6 @@ import s from './header.scss';
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
-
     this.logoPath = '/static/images/logoTeal.svg';
     this.state = {
       isOpen: false,
@@ -82,54 +81,43 @@ export default class Header extends React.Component {
       <div className="navbarContainer paddingNone">
         <Container fluid className="paddingNone">
           <Navbar color="faded" light expand="md" className="h-80 paddingNone">
-            
             <Row className="hideWhenLarge">
               <Col md={4} className="d-flex justify-content-between align-items-center">
+                <div className={this.customHeaderSmallClassNameV1(this.props.callingPage)}>
+                  <button className="navbar-toggler ml-auto custom-toggler" type="button" onClick={this.toggle} >
+                    <span className="navbar-toggler-icon" />
+                  </button>
+                </div>
+                <div className={this.customHeaderSmallClassNameV1(this.props.callingPage)}>
+                  <NavItem>
+                    <NavLink className="actionLinkMediaSmall actionLink pl-4 pr-4 pt-1 pb-1">{this.buttonActionText(this.props.callingPage)}</NavLink>
+                  </NavItem>
+                </div>
+                <div className={this.customHeaderSmallClassNameV1(this.props.callingPage)}>
+                  <NavbarBrand href="/">
+                    <img className="coveLogoCircle" src="/static/images/coveLogoCircle.png" alt="coveLogoCircle" />
+                  </NavbarBrand>
+                </div>
 
-                  <div className={this.customHeaderSmallClassNameV1(this.props.callingPage)}>
-                    <button className="navbar-toggler ml-auto custom-toggler" type="button" onClick={this.toggle} >
-                      <span className="navbar-toggler-icon" />
-                    </button>
-                  </div>
-                  <div className={this.customHeaderSmallClassNameV1(this.props.callingPage)}>
-                    <NavbarBrand href="/">
-                      <Nav navbar>
-                        <NavItem>
-                          <Link href="/"><NavLink className="actionLinkMediaSmall actionLink pl-4 pr-4 pt-1 pb-1">{this.buttonActionText(this.props.callingPage)}</NavLink></Link>
-                        </NavItem>
-                      </Nav>
-                    </NavbarBrand>
-                  </div>
-                  <div className={this.customHeaderSmallClassNameV1(this.props.callingPage)}>
-                    <NavbarBrand href="/">
-                      <img className="coveLogoCircle" src="/static/images/coveLogoCircle.png" alt="coveLogoCircle" />
-                    </NavbarBrand>
-                  </div>
+                <div className={this.customHeaderSmallClassNameV2(this.props.callingPage)}>
+                  <NavbarBrand href="/">
+                    <img className="coveLogo" src={this.logoPath} height="32" alt="Cove Logo" />
+                  </NavbarBrand>
+                </div>
 
-                  <div className={this.customHeaderSmallClassNameV2(this.props.callingPage)}>
-                    <NavbarBrand href="/">
-                      <img className="coveLogo" src={this.logoPath} height="32" alt="Cove Logo" />
-                    </NavbarBrand>
-                  </div>
-
-                  <div className={this.customHeaderSmallClassNameV2(this.props.callingPage)}>
-                    <button className="navbar-toggler ml-auto custom-toggler" type="button" onClick={this.toggle} >
-                      <span className="navbar-toggler-icon" />
-                    </button>
-                  </div>
-                  <div className={this.customHeaderSmallClassNameV2(this.props.callingPage)}>
-                    <NavbarBrand href="/">
-                      <Nav navbar>
-                        <NavItem>
-                          <Link href="/"><NavLink className="actionLinkMediaSmall actionLink pl-4 pr-4 pt-1 pb-1">{this.buttonActionText(this.props.callingPage)}</NavLink></Link>
-                        </NavItem>
-                      </Nav>
-                    </NavbarBrand>
-                  </div>
-
+                <div className={this.customHeaderSmallClassNameV2(this.props.callingPage)}>
+                  <button className="navbar-toggler ml-auto custom-toggler" type="button" onClick={this.toggle} >
+                    <span className="navbar-toggler-icon" />
+                  </button>
+                </div>
+                <div className={this.customHeaderSmallClassNameV2(this.props.callingPage)}>
+                  <NavItem>
+                    <NavLink className="actionLinkMediaSmall actionLink pl-4 pr-4 pt-1 pb-1">{this.buttonActionText(this.props.callingPage)}</NavLink>
+                  </NavItem>
+                </div>
               </Col>
             </Row>
-        </Navbar>
+          </Navbar>
         </Container>
 
         <Container fluid>
@@ -180,15 +168,14 @@ export default class Header extends React.Component {
                     </Col>
                     <Col md={2} className="d-flex align-items-center justify-content-start">
                       <div className="hideWhenSmall">
-                      <Nav navbar>
-                        <NavItem>
-                          <Link href="/"><NavLink className="actionLink pl-4 pr-4 pt-1 pb-1">{this.buttonActionText(this.props.callingPage)}</NavLink></Link>
-                        </NavItem>
-                      </Nav>
+                        <Nav navbar>
+                          <NavItem>
+                            <Link href="/"><NavLink className="actionLink pl-4 pr-4 pt-1 pb-1">{this.buttonActionText(this.props.callingPage)}</NavLink></Link>
+                          </NavItem>
+                        </Nav>
                       </div>
-
                     </Col>
-                    <Col md={1} className="d-flex align-items-center justify-content-start">                      
+                    <Col md={1} className="d-flex align-items-center justify-content-start">
                       <img className={this.imgStampClassName(this.props.callingPage)} src="/static/images/60dayStamp.png" alt="60DayStamp" />
                     </Col>
                   </Row>
