@@ -20,33 +20,30 @@ export default class ProductPage extends Component {
     return (
       <Layout>
         <Head>
-          <title>Cove | Products | Motion Sensor Alarm</title>
-          <meta name="description" content="Each Cove motion sensor alarm is specially-configured to detect human movement in all lighting conditions without triggering when your pet decides to move to a different couch. Order a motion sensor for each large living space." />
+          <title>Cove | Products | Carbon Monoxide Detector</title>
+          <meta name="description" content="Cove’s carbon monoxide detector will alert you and your loved ones to the un-distinguishable scent of deadly gas and notify authorities if the leak goes unchecked." />
         </Head>
         <Header color="secondary" callingPage="products" />
         <div className="product">
           <div className="product__header">
             <div className="product__header-text">
-              <h1 className="product__title">Motion Sensor</h1>
-              <p className="product__subtext">Motion Sensor Alarm</p>
+              <h1 className="product__title">Carbon Monoxide Detector</h1>
+              <p className="product__subtext">&nbsp;</p>
             </div>
           </div>
           <Container>
-            <p className="product__paragraph product__alt-font">Cove’s motion sensor alarms are lightweight and small enough to conceal in key living areas. Triggered by human movement, your pets can wander freely without undiresable false alarms.</p>
+            <p className="product__paragraph product__alt-font">Cove’s carbon monoxide detector will alert you and your loved ones to the un-distinguishable scent of deadly gas and notify authorities if the leak goes unchecked.</p>
             <Row>
               <Col xs={{ size: 12, order: 1 }} md={{ size: 4, order: 0 }}>
-                <p className="product__feature-box">45 feet range</p>
-                <p className="product__feature-box">Infrared detection technology</p>
-                <p className="product__feature-box">Adjustable Sensitivity Option</p>
-                <p className="product__feature-box">3-5 year battery life</p>
+                <p className="product__feature-box">Sleek design</p>
+                <p className="product__feature-box">Alerts that protect the irreplaceable</p>
               </Col>
               <Col xs={{ size: 12, order: 0 }} md={{ size: 4, order: 1 }}>
-                <img className="product__showcase-image" alt="Motion Sensor Alarm Front" src="/static/images/product/motion-sensor-alarm/motion-sensor-front.jpg" />
+                <img className="product__showcase-image" alt="Carbon Monoxide Detector" src="/static/images/product/carbon-monoxide-detector/carbon-monoxide-front.jpg" />
               </Col>
               <Col xs={{ size: 12, order: 2 }} md={{ size: 4, order: 2 }}>
-                <p className="product__feature-box">Pet immunity up to 55 pounds</p>
                 <p className="product__feature-box">Smart self-testing</p>
-                <p className="product__feature-box">90 degree field of view</p>
+                <p className="product__feature-box">Detect Lethal levels of CO poisoning</p>
               </Col>
             </Row>
             <div className="product__spacer" />
@@ -54,7 +51,7 @@ export default class ProductPage extends Component {
               <Col xs={12} sm={4}>
                 <div className="product__comparison">
                   <h2 className="product__subheading product__subheading--pad-top">Cove vs Them</h2>
-                  <p className="product__paragraph">Cove motion sensor alarms are all paired with our award-winning Cove Touch panel offering the “all-around easiest” customer experience in the industry.</p>
+                  <p className="product__paragraph">Cove carbon monoxide detectors are all paired with our award-winning Cove Touch panel offering the “all-around easiest” customer experience in the industry.</p>
                   <p className="product__paragraph--no-margin">More questions?</p>
                   <a className="product__link" href="/">Chat with Us</a>
                 </div>
@@ -63,7 +60,7 @@ export default class ProductPage extends Component {
                 <div className="product__center">
                   <img src="/static/images/logoTeal.svg" height="32" alt="Cove Logo" />
                 </div>
-                <p className="product__compare-box">$20/mo<br />Month-to-Month</p>
+                <p className="product__compare-box">$20/mo<br/>Month-to-Month</p>
                 <p className="product__compare-box">Control Anywhere</p>
                 <p className="product__compare-box">3 year warranty</p>
                 <p className="product__compare-box">No cancellation fees</p>
@@ -79,18 +76,18 @@ export default class ProductPage extends Component {
               </Col>
             </Row>
             <div className="product__spacer" />
-            <h2 className="product__subheading">Complete Motion Protection</h2>
+            <h2 className="product__subheading">Total Life Safety</h2>
             <Row>
               <Col sm={6}>
                 <ul className="product__plain-list">
-                  <li className="product__plain-list-item">Customized for you</li>
-                  <li className="product__plain-list-item">Seamless installation</li>
-                  <li className="product__plain-list-item">Features so simple you can control them</li>
-                  <li className="product__plain-list-item">Protection on your terms</li>
+                  <li className="product__plain-list-item">Easy to use</li>
+                  <li className="product__plain-list-item">Seamless Setup</li>
+                  <li className="product__plain-list-item">Convenience on your terms</li>
+                  <li className="product__plain-list-item">Alerts that save lives</li>
                 </ul>
               </Col>
               <Col sm={6}>
-                <img className="product__image-flex" alt="Motion Sensor Alarm" src="/static/images/product/motion-sensor-alarm/motion-sensor-crop.jpg" />
+                <img className="product__image-flex" alt="Carbon Monoxide Detector" src="/static/images/product/carbon-monoxide-detector/carbon-monoxide-crop.jpg" />
               </Col>
             </Row>
             <Row>
@@ -103,12 +100,12 @@ export default class ProductPage extends Component {
               <Col xs={{ size: 12, order: 2 }} sm={{ size: 6, order: 1 }}>
                 <div className="product__column--large product__column--center">
                   <h2 className="product__subheading">Easy to Install</h2>
-                  <p className="product__text product__alt-font">Each motion sensor is pre-coupled with your Cove Touch panel. You can custom select each name to help you find its place in your home. With a couple touches of the screen you confirm each sensor is setup and ready to start protecting the ones you love.</p>
+                  <p className="product__text product__alt-font">Each CO sensor is pre-coupled with your Cove Touch panel. You can custom select each name to help you identify where trouble might be afoot. With a couple touches of the screen you confirm each sensor is setup and ready to start protecting the ones you love.</p>
                 </div>
               </Col>
               <Col xs={{ size: 12, order: 1 }} sm={{ size: 6, order: 2 }}>
                 <div className="product__column--large product__column--dark">
-                  <img className="product__column-image" src="/static/images/product/motion-sensor-alarm/motion-sensor-lifestyle.jpg" alt="Motion Sensor Alarm Lifestyle" />
+                  <img className="product__column-image" src="/static/images/product/carbon-monoxide-detector/carbon-monoxide-lifestyle.jpg" alt="Carbon Monoxide Detector Lifestyle" />
                 </div>
               </Col>
             </Row>
@@ -123,14 +120,14 @@ export default class ProductPage extends Component {
               <Col sm={6} className="d-flex align-items-center">
                 <div className="product__column--medium product__column--center">
                   <h2 className="product__subheading">Easy to Use</h2>
-                  <p className="product__text product__alt-font">Arm the entire system or a single sensor - Cove is yours. You decide what it does. We’ve engineered our smart devices to work with your individual needs. If your needs change, simply change the settings. No technician needed. Adding a basement access point? Simply order another motion sensor and add it to your alarm system arsenal yourself. Easy.</p>
+                  <p className="product__text product__alt-font">The CO sensors are active 24/7. We’ve engineered our smart devices to work with your individual needs. No technician needed. Added a gas fireplace to your home and need more protection? Simply purchase another CO sensor add the equipment to your alarm system arsenal with a few steps on the Cove Touch panel. Easy.</p>
                 </div>
               </Col>
             </Row>
             <Row>
               <Col xs={12} sm={6}>
                 <div className="product__column--large product__column--dark">
-                  <img className="product__column-image" src="/static/images/product/cove-touch/cove-touch-square.jpg" alt="Motion Sensor Alarm Alternate Product" />
+                  <img className="product__column-image" src="/static/images/product/cove-touch/cove-touch-square.jpg" alt="Carbon Monoxide Detector Lifestyle" />
                 </div>
               </Col>
               <Col xs={12} sm={6}>

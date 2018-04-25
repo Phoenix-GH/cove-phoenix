@@ -3,6 +3,7 @@ module.exports = () => ({
   '/products/cove-touch': { page: '/products/cove-touch' },
   '/products/motion-sensor-alarm': { page: '/products/motion-sensor-alarm' },
   '/products/window-security-device': { page: '/products/window-security-device' },
+  '/products/carbon-monoxide-detector': { page: '/products/carbon-monoxide-detector' },
   '/medical': { page: '/medical' },
   '/login': { page: '/login' },
   '/homepage': { page: '/homepage' },

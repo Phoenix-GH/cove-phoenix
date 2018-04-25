@@ -37,15 +37,13 @@ export default class ProductPage extends Component {
               <Col xs={{size: 12, order: 1}} md={{size: 4, order: 0}}>
                 <p className="product__feature-box">3" touchscreen</p>
                 <p className="product__feature-box">Test sensors remotely</p>
-                <p className="product__feature-box">Easy to use</p>
-              </Col>
-              <Col xs={{size: 12, order: 0}} md={{size: 4, order: 1}}>
+                </Col>
+                <Col xs={{size: 12, order: 0}} md={{size: 4, order: 1}}>
                 <img className="product__showcase-image" alt="Cove Touch Panel" src="/static/images/coveProduct_1.png" />
-              </Col>
-              <Col xs={{size: 12, order: 2}} md={{size: 4, order: 2}}>
+                </Col>
+                <Col xs={{size: 12, order: 2}} md={{size: 4, order: 2}}>
+                <p className="product__feature-box">Easy to use</p>
                 <p className="product__feature-box">Create users for each member of the family</p>
-                <p className="product__feature-box">&nbsp;</p>
-                <p className="product__feature-box">&nbsp;</p>
               </Col>
             </Row>
             <div className="product__spacer" />
