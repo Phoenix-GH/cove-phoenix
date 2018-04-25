@@ -410,7 +410,6 @@
     display: flex;
     align-items: center;
     flex-direction: column;
-    
     font-size: 16px;
     background-color: $primary;
     padding: 35px 0 35px 0;
@@ -419,6 +418,7 @@
       display: flex;
       align-items: center;
       flex-direction: row;
+      flex-wrap: wrap-reverse;
       button {
         background: $primary--lightest;
         border-radius: 5px;
@@ -433,11 +433,17 @@
         color: white;
       }
     }
+    @media (max-width: $width-md) {
+      div {
+        flex-wrap: wrap-reverse;
+        flex-direction: column;
+      }
+    }
   }
   @media (max-width: $width-md) {
     margin: 0;
   }
-  
+
   .desktopOnly {
     @media (max-width: $width-md) {
       display:none;
