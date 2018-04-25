@@ -3,299 +3,333 @@
 .homeContainer {
   background-color: $primary;
   font-family: $font-gotham-rounded;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   @media screen and (max-width: $width-md) {
     margin-left: 27px;
     margin-right: 27px;
   }
-  .coverSection {
-    width: 100%;
-    background-image: url('/static/images/homepage2/homeback2-1.png');
-    background-size: cover;
-    position: relative;
-    height: 80vh;
-    .titleRow {
-      position: absolute;
+  .innerContainer {
+    background-color: white;
+    max-width: 1300px;
+    .coverSection {
       width: 100%;
-      top: 0;
-      color: white;
-      .coverLeftArea {
-        display: flex;
-        flex-direction: column;
-        margin: 124px 0 0 147px;
-        h1 {
-          font-size: 72px;
-          max-width: 543px;
-          font-weight: bold;
-        }
-        p {
-          max-width: 300px;
-          font-size: 25px;
-          font-weight: 500;
-        }
-      }
-
-      @media screen and (max-width: $width-lg) {
+      background-image: url('/static/images/homepage2/homeback2-1.png');
+      background-size: cover;
+      position: relative;
+      height: 80vh;
+      .titleRow {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        color: white;
         .coverLeftArea {
+          display: flex;
+          flex-direction: column;
+          margin: 124px 0 0 147px;
           h1 {
-            font-size: 60px;
+            font-size: 72px;
+            max-width: 543px;
+            font-weight: bold;
           }
-          a {
-            span {
-              font-size: 40px;
+          p {
+            max-width: 300px;
+            font-size: 25px;
+            font-weight: 500;
+          }
+        }
+  
+        @media screen and (max-width: $width-lg) {
+          .coverLeftArea {
+            h1 {
+              font-size: 60px;
+            }
+            a {
+              span {
+                font-size: 40px;
+              }
             }
           }
         }
-      }
-      @media screen and (max-width: $width-md) {
-        .coverLeftArea {
-          text-align: center;
-          margin-top: 10px;
-          h1 {
-            font-size: 40px;
-            max-width: 100%;
+        @media screen and (max-width: $width-md) {
+          .coverLeftArea {
+            text-align: center;
+            margin-top: 10px;
+            h1 {
+              font-size: 40px;
+              max-width: 100%;
+            }
+            a {
+              span {
+                font-size: 20px;
+              }
+            }
           }
-          a {
+        }
+        @media screen and (max-width: $width-sm) {
+          .coverLeftArea {
+            display: none;
+          }
+          .coverRightArea {
+            margin-top: 20px;
+            h1 {
+              font-size: 30px;
+            }
             span {
               font-size: 20px;
             }
           }
         }
       }
-      @media screen and (max-width: $width-sm) {
-        .coverLeftArea {
-          display: none;
-        }
-        .coverRightArea {
-          margin-top: 20px;
-          h1 {
-            font-size: 30px;
-          }
-          span {
-            font-size: 20px;
-          }
-        }
+      @media screen and (max-width: $width-md) {
       }
     }
-    @media screen and (max-width: $width-md) {
-    }
-  }
-
-  .testimonialSection {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10vw;
-    text-align: center;
-    color: $grey-700;
-    height: 80vh;
-    background-image: url('/static/images/homepage2/homeback2-2.png');
-    background-size: cover;
-
-    h2, p {
-      width: 84%;
-    }
-
-    h2 {
-      font-size: 55px;
-      font-weight: 500;
-      margin-bottom: 38px;
-    }
-
-    p {
-      font-size: 25px;
-      font-weight: 100;
-    }
-    .products {
-      div {
-        padding-left: 28px;
-        padding-right: 28px;
-        
-        .imageArea {
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
-          min-height: 247px;
-          padding-bottom: 20px;
-        }
-
-        img {
-          width: 100%;
-          &.coveAppImg {
-            width: 60%;
-          }
-        }
-
-        h3 {
-          font-size: 20px;
-          font-weight: 700;
-        }
-
-        p {
-          font-size: 12px;
-          font-weight: 100;
-        }
-      }
-    }
-    .link {
-      font-size: 16px;
-      color: $primary;
-    }
-    @media (max-width: $width-md) {
-      h2 {
-        font-size: 40px;
-      }
-      p {
-        width: 100%;
-        font-size: 12px;
-      }
-    }
-  }
-
-  .builtProductsSection {
-    width: 100%;
-    height: 80vh;
-    background-image: url('/static/images/homepage2/homeback2-3.png');
-    background-size: cover;
-    position: relative;
-    color: $grey-700;
-    font-family: $font-gotham-rounded;
-    padding: 153px;
-    h2 {
-      font-size: 40px;
-    }
-    ul {
-      display: flex;
-      flex-direction: row;
-      list-style: none;
-      font-size: 24px;
-      padding-left: 0;
-    }
-    p {
-      font-size: 14px;
-      font-family: $font-open-sans;
-      margin-top: 106px;
-      max-width: 305px;
-    }
-  }
-
-  .checkSection {
-    width: 100%;
-    position: relative;
-    background-image: url('/static/images/homepage2/homeback2-4.png');
-    background-size: cover;
-    padding: 125px 155px 3px 155px;
-    .checkRow {
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 122px;
-      .leftSide {
-        display: flex;
-        flex-direction: row;
-        align-items: start;
-        max-width: 400px;
-        h2 {
-          font-size: 40px;
-          font-weight: 500;
-          color: $grey-900;
-          margin-left: 40px;
-        }
-      }
-      p {
-        font-size: 20px;
-        font-family: $font-open-sans;
-      }
-    }
-  }
-
-  .center {
-    text-align: center;
-  }
-
-  .paySecuritySection {
-    color: $grey-1000;
-    margin-top: 107px;
-    width: 100%;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 118px 185px 145px 185px;
-    h2 {
-      font-size: 40px;
-      font-weight: bold;
-      max-width: 380px;
-      margin-bottom: 79px;
-      text-align: center;
-    }
-    .securityCol {
+  
+    .testimonialSection {
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding-top: 10vw;
+      text-align: center;
+      color: $grey-700;
+      height: 80vh;
+      background-image: url('/static/images/homepage2/homeback2-2.png');
+      background-size: cover;
+  
+      h2, p {
+        width: 84%;
+      }
+  
+      h2 {
+        font-size: 55px;
+        font-weight: 500;
+        margin-bottom: 38px;
+      }
+  
+      p {
+        font-size: 25px;
+        font-weight: 100;
+      }
+      .products {
+        div {
+          padding-left: 28px;
+          padding-right: 28px;
+          
+          .imageArea {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            min-height: 247px;
+            padding-bottom: 20px;
+          }
+  
+          img {
+            width: 100%;
+            &.coveAppImg {
+              width: 60%;
+            }
+          }
+  
+          h3 {
+            font-size: 20px;
+            font-weight: 700;
+          }
+  
+          p {
+            font-size: 12px;
+            font-weight: 100;
+          }
+        }
+      }
+      .link {
+        font-size: 16px;
+        color: $primary;
+      }
+      @media (max-width: $width-md) {
+        h2 {
+          font-size: 40px;
+        }
+        p {
+          width: 100%;
+          font-size: 12px;
+        }
+      }
+    }
+  
+    .builtProductsSection {
+      width: 100%;
+      height: 80vh;
+      background-image: url('/static/images/homepage2/homeback2-3.png');
+      background-size: 100%;
+      background-repeat: no-repeat;
+      position: relative;
+      color: $grey-700;
+      font-family: $font-gotham-rounded;
+      padding: 153px;
+      h2 {
+        font-size: 40px;
+      }
       ul {
-        margin-top: 41px;
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        font-size: 24px;
         padding-left: 0;
       }
-      h3 {
+      p {
+        font-size: 14px;
+        font-family: $font-open-sans;
+        margin-top: 106px;
+        max-width: 305px;
+      }
+    }
+  
+    .checkSection {
+      width: 100%;
+      position: relative;
+      background-image: url('/static/images/homepage2/homeback2-4.png');
+      background-size: cover;
+      padding: 125px 155px 3px 155px;
+      .checkRow {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 122px;
+        .leftSide {
+          display: flex;
+          flex-direction: row;
+          align-items: start;
+          max-width: 400px;
+          h2 {
+            font-size: 40px;
+            font-weight: 500;
+            color: $grey-900;
+            margin-left: 40px;
+          }
+        }
+        p {
+          font-size: 20px;
+          font-family: $font-open-sans;
+        }
+      }
+    }
+  
+    .center {
+      text-align: center;
+    }
+  
+    .paySecuritySection {
+      color: $grey-1000;
+      margin-top: 107px;
+      width: 100%;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 118px 185px 145px 185px;
+      h2 {
         font-size: 40px;
-        font-weight: 500;
-        margin-top: 48px;
+        font-weight: bold;
+        max-width: 380px;
+        margin-bottom: 79px;
+        text-align: center;
+      }
+      .securityCol {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        ul {
+          margin-top: 41px;
+          padding-left: 0;
+        }
+        h3 {
+          font-size: 40px;
+          font-weight: 500;
+          margin-top: 48px;
+        }
+        p {
+          font-size: 18;
+          font-weight: 500;
+          padding-left: 40px;
+        }
+      }
+    }
+    .compareSection {
+      background-color: white;
+      display: flex;
+      padding-left: 153px;
+      padding-right: 153px;
+      font-weight: 500;
+      align-items: center;
+      .intro {
+        padding-right: 91px;
+      }
+      h1 {
+        font-size: 40px;
+      }
+      .green {
+        color: $primary--darker;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .disabled {
+        color: $grey-300;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .chat {
+        font-size: 24px;
+        color: $primary;
       }
       p {
-        font-size: 18;
-        font-weight: 500;
-        padding-left: 40px;
+        font-size: 18px;
+        margin-top: 42px;
+      }
+      .square {
+        border: 1px solid $grey-500;
+        text-align: center;
+        font-size: 26px;
+        padding: 26px 0 26px 0;
+        color: $grey-900;
+        margin-bottom: 13px;
+        .subtitle {
+          font-size: 20px;
+        }
+        &.first {
+          padding: 11px 0 11px 0;
+        }
+      }
+      .notus {
+        color: $grey-300;
+        border-color: $grey-300;
       }
     }
-  }
-  .compareSection {
-    background-color: white;
-    display: flex;
-    padding-left: 153px;
-    padding-right: 153px;
-    font-weight: 500;
-    align-items: center;
-    .intro {
-      padding-right: 91px;
-    }
-    h1 {
-      font-size: 40px;
-    }
-    .green {
-      color: $primary--darker;
+    .familySection {
+      height: 80vh;
+      background-image: url('/static/images/homepage2/homeback2-5.png');
+      background-size: cover;
       text-align: center;
-      margin-bottom: 40px;
-    }
-    .disabled {
-      color: $grey-300;
-      text-align: center;
-      margin-bottom: 40px;
-    }
-    .chat {
-      font-size: 24px;
-      color: $primary;
-    }
-    p {
-      font-size: 18px;
-      margin-top: 42px;
-    }
-    .square {
-      border: 1px solid $grey-500;
-      text-align: center;
-      font-size: 26px;
-      padding: 26px 0 26px 0;
-      color: $grey-900;
-      margin-bottom: 13px;
-      .subtitle {
-        font-size: 20px;
+      color: white;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin: 10px;
+      .text {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        h1 {
+          font-size: 60px;
+          max-width: 556px;
+        }
+        p {
+          font-size: 24px;
+          max-width: 556px;
+          margin-top: 36px;
+        }
       }
-      &.first {
-        padding: 11px 0 11px 0;
-      }
-    }
-    .notus {
-      color: $grey-300;
-      border-color: $grey-300;
     }
   }
 }
