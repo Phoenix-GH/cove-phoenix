@@ -128,6 +128,18 @@ class FooterMobile extends Component {
             </Col>
           </Row>
         </div>
+        <Row>
+          <Col xs={12} sm={12} md={3}>
+            <input className="email" type="text" name="email" id="emailText" placeholder="Enter Email for Cove news" />
+            <div className="socialMedia">
+              <img src="/static/images/facebook.png" alt="facebook" />
+              <img src="/static/images/twitter.png" alt="twitter" />
+              <img src="/static/images/instagram.png" alt="instagram" />
+              <img src="/static/images/youtube.png" alt="youtube" />
+              <img src="/static/images/whatsapp.png" alt="whatsapp" />
+            </div>
+          </Col>
+        </Row>
         <style jsx>{s}</style>
       </div>
     );
