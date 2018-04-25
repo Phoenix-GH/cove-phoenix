@@ -69,7 +69,7 @@ const Index = () => (
         </Row>
         <Row>
           <div className="builtProductsSection">
-            <Col xs={12} sm={12} md={6}>
+            <Col xs={12} sm={12} md={7}>
               <h2>You need not worry.</h2>
               <ul>
                 <Col md={6}>
@@ -86,7 +86,7 @@ const Index = () => (
               </ul>
               <p><sup>*</sup>{akaText}</p>
             </Col>
-            <Col xs={12} sm={12} md={6}>
+            <Col xs={12} sm={12} md={5}>
               <img src="/static/images/homepage2/homeback2-3.png" alt="homeback" />
             </Col>
           </div>
