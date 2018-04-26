@@ -46,7 +46,7 @@ class Category extends Component {
                 <li>Includes Cove Protect Panel</li>
               </Col>
             </ul>
-            <div className="buttonRow">
+            <div className="buttonRow detailsRow">
               <div className="price">${categories[activeIndex].price}</div>
               <GreenButton title="See details" />
             </div>

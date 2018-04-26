@@ -19,14 +19,17 @@
       margin-bottom: 35px;
       font-weight: bold;
       font-size: 55px;
+      color: $grey-600;
     }
     .productDescription {
       margin-top: 43px;
       font-size: 25px;
+      color: $grey-700;
     } 
     .carouselLeft {
       padding: 47px 38px 42px 71px;
       width: 55%;
+      color: $grey-700;
       ul {
         list-style: none;
         padding-left: 0;
@@ -48,6 +51,9 @@
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+        :global(.selectableButton) {
+          margin-right: 41px;
+        }
         .price {
           font-size: 25px;
           max-width: calc(100% + 203px);
@@ -58,7 +64,6 @@
           font-weight: bold;
           border: none;
           background: none;
-          margin-left: 41px;
           color: $grey-600;
         }
       }
@@ -111,7 +116,6 @@
           margin-top: 25px;
           max-width: 100%;
         }
-        
         .navigations {
           display: flex;
           align-items: center;
@@ -119,6 +123,11 @@
             border: none;
             background: transparent;
             outline: none;
+            padding: 0;
+            img {
+              width: 100%;
+              height: 100%;
+            }
           }
           h3 {
             font-weight: bold;
@@ -132,6 +141,7 @@
       width: 40%;
       img {
         max-height: 775px;
+        width: 100%;
       }
     }
     .grey {
@@ -166,87 +176,107 @@
     }
   }
   @media screen and (max-width: $width-md) {
-      padding: 66px 10px 30px 10px;
-      .productRow {
-        margin: 0 0 35px 0;
-        padding: 38px 20px 38px 20px;
-        .carouselLeft, .carouselRight, .productLeft {
-          padding: 10px;
-          width: 100%;
-          align-items: center;
-          h1 {
-            font-size: 31px;
+    padding: 66px 10px 30px 10px;
+    .productRow {
+      margin: 0 0 35px 0;
+      padding: 38px 20px 38px 20px;
+      .carouselLeft, .carouselRight, .productLeft {
+        :global(.carouselImage) {
+          height: 50vh;
+        }
+        padding: 10px;
+        width: 100%;
+        align-items: center;
+        h1 {
+          font-size: 31px;
+        }
+        .titleRow {
+          h3 {
+            font-size: 14px;
           }
-          .titleRow {
-            h3 {
-              font-size: 14px;
-            }
-            .medium span {
-              font-size: 11px;
-              font-weight: bold;
-            }
+          .medium span {
+            font-size: 11px;
+            font-weight: bold;
           }
-          .descriptionRow {
-            .productDescription {
-              font-size: 12px;
-            }
-          }
-          .placementPhoto {
-            max-width: 100%;
-            margin-top: 100px;
-          }
-          .carouselImage {
-            height: 100vw;
-          }
-          .carouselLogo {
-            display: none;
-          }
+        }
+        .descriptionRow {
           .productDescription {
-            font-size: 16px;
+            font-size: 12px;
           }
-          .buttonRow {
+        }
+        .placementPhoto {
+          max-width: 100%;
+          margin-top: 100px;
+        }
+        .carouselImage {
+          height: 100vw;
+        }
+        .carouselLogo {
+          display: none;
+        }
+        .productDescription {
+          font-size: 16px;
+        }
+        .buttonRow {
+          :global(.selectableButton) {
+            font-size: 13px;
+          }
+          .extraButton {
+            font-size: 11px;
+          }
+          &.detailsRow {
+            flex-direction: column;
+            .price {
+              text-align: center;
+            }
             :global(.selectableButton) {
+              margin: 26px 0 0 0;
               font-size: 13px;
             }
-            .extraButton {
-              font-size: 11px;
-            }
-          }
-          .navigations {
-            button {
-              width: 14.27px;
-              height: 18.71px;
-              img {
-                width: 100%;
-                height 100%;
-              }
-            }
-            h3 {
-              font-size: 14px;
-            }
           }
         }
-        .productRight {
-          display: none;
+        .navigations {
+          button {
+            width: 14.27px;
+            height: 18.71px;
+          }
+          h3 {
+            font-size: 14px;
+          }
         }
       }
-      .tabSection {
-        .tabBars {
-          .tabBarItem {
-            width: 100%;
-            margin: 0 0 14px 0;
-            padding: 10px 0 10px 0;
-            font-size: 45px;
-            &.selected {
-              display: block;
-            }
-          }
-        }
-        .categoryPhoto {
-          display: none;
-        }
+      .productRight {
+        display: none;
       }
     }
-  
+    .tabSection {
+      .tabBars {
+        .tabBarItem {
+          width: 100%;
+          margin: 0 0 14px 0;
+          padding: 10px 0 10px 0;
+          font-size: 45px;
+          &.selected {
+            display: block;
+          }
+        }
+      }
+      .categoryPhoto {
+        display: none;
+      }
+    }
+  }
 }
 
+.desktopOnly {
+  @media (max-width: $width-md) {
+    display: none;
+  }
+}
+
+.mobileOnly {
+  width: 100%;
+  @media (min-width: $width-md) {
+    display: none;
+  }
+}
