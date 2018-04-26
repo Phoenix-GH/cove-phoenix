@@ -185,11 +185,12 @@
       margin: 140px 60px;
       h2 {
         font-size: 45px;
-        font-weight: 300;
+        font-weight: 500;
       }
       p {
         font-size: 18px;
-        font-weight: 100;
+        font-weight: 300;
+        max-width: 300px;
       }
     }
     @media screen and (max-width: $width-lg) {
@@ -436,6 +437,7 @@
       hr {
         width: 80%;
         background-color: $primary-color;
+        border-top: 2px solid rgba(0,0,0,0.1);
         margin: 30px auto;
       }
     }
@@ -524,7 +526,7 @@
     background-color: $grey-50;
     max-width: 1168px;
     width: 100%;
-    margin: 0 auto;
+    margin: 50px auto 100px auto;
     position: relative;
     color: $grey-1000;
     padding: 50px 0 25px 0;
