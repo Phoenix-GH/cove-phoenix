@@ -20,31 +20,30 @@ export default class ProductPage extends Component {
     return (
       <Layout>
         <Head>
-          <title>Cove | Products | Smoke Detector</title>
-          <meta name="description" content="Cove’s smoke detector provides monitored fire protection in addition to the typical premises awareness alarm. Protect those you love from tragic fires with Cove." />
+          <title>Cove | Products | Medical Alert Device</title>
+          <meta name="description" content="With a medical alert device from Cove, your loved ones can rest assured help will be dispatched in a medical emergency. It’s a one-button pendant on a lanyard for convenient access 24/7. " />
         </Head>
         <Header color="secondary" callingPage="products" />
         <div className="product">
           <div className="product__header">
             <div className="product__header-text">
-              <h1 className="product__title">Smoke Detector</h1>
+              <h1 className="product__title">Medical Alert Device</h1>
               <p className="product__subtext">If it's Cove.<br /> It's covered.</p>
             </div>
           </div>
           <Container>
-            <p className="product__paragraph product__alt-font">Cove’s smoke detector provides monitored fire protection in addition to the typical premises awareness alarm. This means you can focus on getting everyone out safe while the system automatically alerts authorities.</p>
+            <p className="product__paragraph product__alt-font">With a medical alert device from Cove, your loved ones can rest assured help will be dispatched in a medical emergency. It’s a one-button pendant on a lanyard for convenient help 24/7.</p>
             <Row>
               <Col xs={{ size: 12, order: 1 }} md={{ size: 4, order: 0 }}>
-                <p className="product__feature-box">Smoke alerts</p>
-                <p className="product__feature-box">Heat alerts</p>
-                <p className="product__feature-box">Freeze alerts</p>
+                <p className="product__feature-box">Water proof</p>
+                <p className="product__feature-box">Smart self-testing</p>
               </Col>
               <Col xs={{ size: 12, order: 0 }} md={{ size: 4, order: 1 }}>
-                <img className="product__showcase-image" alt="Smoke Detector" src="/static/images/product/smoke-detector/smoke-detector-front.jpg" />
+                <img className="product__showcase-image" alt="Medical Alert Device" src="/static/images/product/medical-alert-device/medical-alert-device-front.jpg" />
               </Col>
               <Col xs={{ size: 12, order: 2 }} md={{ size: 4, order: 2 }}>
-                <p className="product__feature-box">Easy install</p>
-                <p className="product__feature-box">Smart self-testing</p>
+                <p className="product__feature-box">Seamless Use</p>
+                <p className="product__feature-box">Light weight</p>
               </Col>
             </Row>
             <div className="product__spacer" />
@@ -52,7 +51,7 @@ export default class ProductPage extends Component {
               <Col xs={12} sm={4}>
                 <div className="product__comparison">
                   <h2 className="product__subheading product__subheading--pad-top">Cove vs Them</h2>
-                  <p className="product__paragraph">Cove smoke detectors are all paired with our award-winning Cove Touch panel offering the “all-around easiest” customer experience in the industry.</p>
+                  <p className="product__paragraph">Cove medical alert devices are all paired with our award-winning Cove Touch panel offering the “all-around easiest” customer experience in the industry.</p>
                   <p className="product__paragraph--no-margin">More questions?</p>
                   <a className="product__link" href="/">Chat with Us</a>
                 </div>
@@ -84,11 +83,11 @@ export default class ProductPage extends Component {
                   <li className="product__plain-list-item">Easy to use</li>
                   <li className="product__plain-list-item">Seamless Setup</li>
                   <li className="product__plain-list-item">Convenience on your terms</li>
-                  <li className="product__plain-list-item">Alerts that save $</li>
+                  <li className="product__plain-list-item">Alerts that save lives</li>
                 </ul>
               </Col>
               <Col sm={6}>
-                <img className="product__image-flex" alt="Smoke Detector" src="/static/images/product/smoke-detector/smoke-detector-crop.jpg" />
+                <img className="product__image-flex" alt="Medical Alert Device" src="/static/images/product/medical-alert-device/medical-alert-device-crop.jpg" />
               </Col>
             </Row>
             <Row>
@@ -100,13 +99,13 @@ export default class ProductPage extends Component {
             <Row className="no-gutter">
               <Col xs={{ size: 12, order: 2 }} sm={{ size: 6, order: 1 }}>
                 <div className="product__column--large product__column--center">
-                  <h2 className="product__subheading">Easy to Install</h2>
-                  <p className="product__text product__alt-font">Each smoke sensor is pre-coupled with your Cove Touch panel. You can custom select each name to help you identify where trouble might be afoot. With a couple touches of the screen you confirm each sensor is setup and ready to start protecting the ones you love.</p>
+                  <h2 className="product__subheading">Easy to Setup</h2>
+                  <p className="product__text product__alt-font">Each medical alert is pre-coupled with your Cove Touch panel. With a couple touches of the screen to confirm each Medical sensor is setup and ready to protect.</p>
                 </div>
               </Col>
               <Col xs={{ size: 12, order: 1 }} sm={{ size: 6, order: 2 }}>
                 <div className="product__column--large product__column--dark">
-                  <img className="product__column-image" src="/static/images/product/smoke-detector/smoke-detector-lifestyle.jpg" alt="Smoke Detector Lifestyle" />
+                  <img className="product__column-image" src="/static/images/product/medical-alert-device/medical-alert-device-lifestyle.jpg" alt="Medical Alert Device Lifestyle" />
                 </div>
               </Col>
             </Row>
@@ -121,14 +120,14 @@ export default class ProductPage extends Component {
               <Col sm={6} className="d-flex align-items-center">
                 <div className="product__column--medium product__column--center">
                   <h2 className="product__subheading">Easy to Use</h2>
-                  <p className="product__text product__alt-font">The smoke/heat/freeze sensors are active 24/7. We’ve engineered our smart devices to work with your individual needs. If your needs change, simply change the settings. No technician needed. Want only smoke and heat protection? Simply make those changes yourself with a few touches of the Cove Touch panel. Easy.</p>
+                  <p className="product__text product__alt-font">The medical alert is active 24/7. We’ve engineered our smart devices to work with your individual needs. If your needs change, simply change the settings. No technician needed. Need more medical alerts? Simply purchase another and add it to the system yourself. Adding equipment to the system is so simple your grandmother could do it - pun intended.</p>
                 </div>
               </Col>
             </Row>
             <Row>
               <Col xs={12} sm={6}>
                 <div className="product__column--large product__column--dark">
-                  <img className="product__column-image" src="/static/images/product/cove-touch/cove-touch-square.jpg" alt="Smoke Detector Lifestyle" />
+                  <img className="product__column-image" src="/static/images/product/cove-touch/cove-touch-square.jpg" alt="Medical Alert Device Lifestyle" />
                 </div>
               </Col>
               <Col xs={12} sm={6}>
