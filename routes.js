@@ -4,6 +4,7 @@ module.exports = () => ({
   '/products/motion-sensor-alarm': { page: '/products/motion-sensor-alarm' },
   '/products/window-security-device': { page: '/products/window-security-device' },
   '/products/carbon-monoxide-detector': { page: '/products/carbon-monoxide-detector' },
+  '/products/smoke-detector': { page: '/products/smoke-detector' },
   '/medical': { page: '/medical' },
   '/login': { page: '/login' },
   '/homepage': { page: '/homepage' },
