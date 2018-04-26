@@ -28,4 +28,12 @@
   :global(.inputBlockClass) {
     width: 100%;
   }
+  &__input-wrap {
+    width: 100%;
+  }
+}
+
+.newsletter-input {
+  width: 100%;
+  font-weight: 300;
 }
