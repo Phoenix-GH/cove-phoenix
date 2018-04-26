@@ -8,6 +8,7 @@ module.exports = () => ({
   '/products/medical-alert-device': { page: '/products/medical-alert-device' },
   '/products/glass-break-sensor': { page: '/products/glass-break-sensor' },
   '/products/doorbell-camera': { page: '/products/doorbell-camera' },
+  '/products/home-security-camera': { page: '/products/home-security-camera' },
   '/medical': { page: '/medical' },
   '/login': { page: '/login' },
   '/homepage': { page: '/homepage' },
