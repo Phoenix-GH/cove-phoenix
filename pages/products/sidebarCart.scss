@@ -22,6 +22,10 @@
       float: right;
     }  
   }
+  @media (max-width: $width-md) {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .bold {
@@ -38,7 +42,7 @@
   text-align: center;
   font-family: $font-gotham-rounded;
   font-weight: bold;
-  padding: 8px 8px 10px 10px;
+  padding: 12px 0 12px 0;
   margin: 51px 0 28px 0;
   cursor: pointer;
 }
