@@ -7,6 +7,7 @@ import { validateContactR, createAccountR, createOrderR, completeOrderR } from '
 import { moveCartToOrdered } from './actions';
 import { getCart } from './selector';
 import axios from '../../utils/api';
+import { starterPack } from '../../data';
 
 const objectKeyToStr = (obj, resultArr, counter = 0, currentVal = '') => {
   _.each(obj, (val, key) => {
@@ -33,17 +34,33 @@ const buildEquipmentList = (cart) => {
     qty: 1,
     aspen_id: 106,
   }];
-
+  /* get starter pack items if product exists in cart add to quantity */
+  const spItems = _.deepCLone(starterPack);
   for (let i = 0; i < cart.cartItemIds.length; i += 1) {
     const id = cart.cartItemIds[i];
+    let quantity = parseInt(cart.productById[id].quantity, 10);
+    if (spItems[id]) {
+      quantity += spItems[id].quantity;
+      delete spItems[id];
+    }
     items.push({
       name: cart.productById[id].display_name,
-      qty: cart.productById[id].quantity,
+      qty: quantity,
       price: cart.productById[id].price,
       id: cart.productById[id].id,
       aspen_id: cart.productById[id].aspen_id,
     });
   }
+
+  Object.keys(spItems).forEach((item) => {
+    items.push({
+      name: item.display_name,
+      qty: item.quantity,
+      price: item.price,
+      id: item.id,
+      aspen_id: item.aspen_id,
+    });
+  });
 
   const cartRequest = {
     rmr: cart.monitoringPlans[cart.planDetails.monitoringPlan].price,
@@ -71,7 +88,7 @@ const getCreateAccountRequest = (formData, cart) => {
   accountRequest.billAddress = { use: 'monitorAddress' };
 
   accountRequest.cart = buildEquipmentList(cart);
-  console.log('select ',accountRequest)
+  console.log('select ', accountRequest);
   return accountRequest;
 };
 
