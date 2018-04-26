@@ -36,18 +36,7 @@
   .green {
     color: $primary-color;
   }
-  ul {
-    list-style-position: inside;
-    padding-left: 0;
-    button {
-      border: none;
-      outline: none;
-      background: transparent
-    }
-    li {
-      font-family: $font-gotham-rounded;
-    }
-  }
+
   p {
     margin: 20px 0 20px 0;
   }
@@ -108,6 +97,7 @@
 }
 
 .productSliderThumbs {
+  max-width: 100%;
   margin-top: 58px;
   display: flex;
   flex-direction: row;
