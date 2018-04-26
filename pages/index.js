@@ -10,7 +10,7 @@ import s from './index.scss';
 
 const coverSectionTitle = 'If it\'s Cove, it\'s covered.';
 const setupSectionTitle = 'A whole new simple setup process';
-const setupDescriptionText = 'Most security systems are designed for technicians to install, but you\'re not a technician. Cove Protect was designed for you. It\'s easy on you while still being tough on the bad guys.';
+const setupDescriptionText = 'Most security systems are designed for technicians to install, but you\’re not a technician. Cove Protect was designed for you. It\'s easy on you while still being tough on the bad guys.';
 
 const Index = () => (
   <Layout>
@@ -114,15 +114,13 @@ const Index = () => (
               </h3>
               <ol>
                 <li>Never worry again with Cove LiveAssist coming through the two-way
-                  intercom built right into the 7th touchscreen. <br/><span className="italicize">(no landline necessary)</span>
+                  intercom built right into the 7th touchscreen. <br/><span className="italicize">(No landline necessary)</span>
                 </li>
-                <li>Cove LiveAssist is smart, and if we can&apos;t communicate with you
-                  directly through your two-way intercom on your panel, we will get a hold
-                  of you on your cellphone, text message, mobile app, and more.
+                <li>If we can’t communicate with you directly through your two-way intercom on your panel, we
+                  will get a hold of you on your cellphone, text message, mobile app, and more.
                 </li>
-                <li>In a real emergency, we will contact your local authorities.
-                  You can customize notifications you receive so that you aren&apos;t
-                  bothered with unnecessary alerts.
+                <li>In a real emergency, we will contact your local authorities. You can customize notifications
+                  you receive so that you aren’t bothered with unnecessary alerts.
                 </li>
               </ol>
             </div>
@@ -183,21 +181,11 @@ const Index = () => (
         <div className="jordanSayingSection d-flex justify-content-center">
           <div className="sayingTextArea">
             <hr />
-            <p className="sayingText">&quot;Cove was so much less than competitors and
-            still maintains the quality I was used to.&quot;
+            <p className="sayingText">“Cove was so much less than competitors and
+            still maintains the quality I was used to.”
             </p>
             <p className="authorName">- Jordan H.</p>
             <hr />
-          </div>
-        </div>
-      </Row>
-      <Row>
-        <div className="savingsSection d-flex align-items-center">
-          <h2>Savings so big, you can&apos;t help but love it!</h2>
-          <p className="wideText">The average consumer saves every year by choosing Cove over other alarm companies.</p>
-          <p className="shortText">Every year with Cove is more money in your pocket</p>
-          <div className="rangeRow">
-            <CustomizedRange />
           </div>
         </div>
       </Row>
@@ -222,6 +210,16 @@ const Index = () => (
               </div>
             </Col>
           </Row>
+        </div>
+      </Row>
+      <Row>
+        <div className="savingsSection d-flex align-items-center">
+          <h2>Savings so big, you can&apos;t help but love it!</h2>
+          <p className="wideText">The average consumer saves every year by choosing Cove over other alarm companies.</p>
+          <p className="shortText">Every year with Cove is more money in your pocket</p>
+          <div className="rangeRow">
+            <CustomizedRange />
+          </div>
         </div>
       </Row>
       <RiskFreeSection />
