@@ -1,11 +1,12 @@
 @import 'variables';
 
 .footerMobileHeaderDiv {
-  border-bottom-style: solid;
-  border-bottom-color: #00C7AF;
-  border-bottom-width: 2px;
+  border-bottom: 1px solid #00C7AF;
   width: 100%;
   margin-left: 0px;
+  &:first-child {
+    border-top: 1px solid #00C7AF;
+  }
 }
 
 .footerMobileDiv {
