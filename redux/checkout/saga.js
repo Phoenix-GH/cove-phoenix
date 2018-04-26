@@ -69,16 +69,12 @@ const getCreateAccountRequest = (formData, cart) => {
   delete accountRequest.includeEc3;
   accountRequest.shipAddress = { use: 'monitorAddress' };
   accountRequest.billAddress = { use: 'monitorAddress' };
-  
+
   accountRequest.cart = buildEquipmentList(cart);
   console.log('select ',accountRequest)
   return accountRequest;
 };
 
-function* getCorsHeaders() {
-  const currentToken = yield select(state => state.user.auth.token);
-  axios.defaults.headers.common['Authorization'] = currentToken;
-}
 const getCreateOrderRequest = (formData, cart) => {
   const shipAddress = formData.differentShipAddress ? formData.shipAddress : {};
   shipAddress.stateCode = shipAddress.state ? normalizeState(shipAddress.state) : null;
@@ -120,7 +116,6 @@ const getCompleteOrderRequest = (formData, cart) => {
 
   const planPrice = parseFloat(monitoringPlans[planDetails.monitoringPlan].price);
   const tax = parseFloat(planDetails.tax);
-  
   const billAddress = formData.billAddress.differentBillAddress ? formData.billAddress : {};
   if (!_.isEmpty(billAddress)) {
     billAddress.stateCode = billAddress.state ? normalizeState(billAddress.state) : null;
@@ -142,7 +137,7 @@ const getCompleteOrderRequest = (formData, cart) => {
 function* validateContact() {
   try {
     yield put(validateContactR.request());
-    const response = call(axios, { url: '/meliae/verifyContact', headers, data: { phone: 8652071753 } });
+    const response = call(axios, { url: '/meliae/verifyContact', data: { phone: 8652071753 } });
   } catch (err) {
     yield put(validateContactR.failure());
   }
@@ -155,7 +150,6 @@ function* createAccount() {
       const formData = yield select(getFormValues('checkout_customer'));
       const cart = yield select(state => state.checkout);
       const account = yield getCreateAccountRequest(formData, cart);
-      yield getCorsHeaders();
       const response = yield call(axios.post, '/meliae/createAccount', account);
       yield put(createAccountR.success(response.data));
       yield Router.push({ pathname: '/checkout/shipping', query: { stage: 'shipping' } });
@@ -180,7 +174,6 @@ function* createOrder() {
     if (!differentShipAddress || (differentShipAddress && formValid)) {
       const cart = yield select(state => state.checkout);
       const order = yield getCreateOrderRequest(formData, cart);
-      const headers = yield getCorsHeaders();
       const response = yield call(axios.post, '/meliae/createOrder', order);
       yield put(createOrderR.success(response.data));
       yield Router.push({ pathname: '/checkout/payment', query: { stage: 'payment' } });
@@ -206,11 +199,14 @@ function* completeOrder() {
     if ((!differentBillAddress && !fields.cc) || (differentBillAddress && formValid)) {   
       const cart = yield select(state => state.checkout);
       const order = yield getCompleteOrderRequest(formData, cart);
-      const headers = yield getCorsHeaders();
       const response = yield call(axios.post, '/meliae/completeOrder', order);
-      yield put(completeOrderR.success(response.data));
-      yield Router.push({ pathname: '/order' });
-      yield put(destroy('checkout_customer', 'checkout_shipping', 'checkout_payment'));
+      if (response.warning) {
+        yield put(completeOrderR.failure({ warning: response.warning }));
+      } else {
+        yield put(completeOrderR.success(response.data));
+        yield Router.push({ pathname: '/order' });
+        yield put(destroy('checkout_customer', 'checkout_shipping', 'checkout_payment'));
+      }
     } else {
       const fields = yield select(getFormSyncErrors('checkout_payment'));
       const fieldNames = fieldsToFieldNameArray(fields);

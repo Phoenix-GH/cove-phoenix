@@ -23,14 +23,72 @@ const PaymentInfo = (props) => {
   return (
     <div>
       <div className="customerInfo">
-        <div>
-          <Field
-            name="billAddress.differentBillAddress"
-            label="Billing info is different than Monitored Address."
-            component={Checkbox}
-            className="differentAddress"
-          />
-        </div>
+        <Row className="justify-content-between">
+          <Col>
+            <h3>Payment Selection</h3>
+            <h4>Credit Card</h4>
+            <p>Safe money transfer using your bank account.
+              Visa, Mastercard, Discover, American Express
+            </p>
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={8}>
+            <Field
+              name="cc.name"
+              label="Name on card"
+              type="text"
+              validate={required}
+              component={Input}
+            />
+          </Col>
+          <Col xs={4}>
+            <img src="/static/images/creditcards.png" alt="credit card icon" />
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={8}>
+            <Field
+              name="cc.number"
+              label="Card number"
+              type="text"
+              validate={required}
+              component={Input}
+            />
+          </Col>
+          <Col xs={2}>
+            <Field
+              name="cc.exp"
+              label="MM/YY"
+              type="text"
+              validate={[required, ccExp]}
+              component={Input}
+              normalize={normalizeExp}
+            />
+          </Col>
+          <Col xs={2}>
+            <Row>
+              <Field
+                name="cc.cvv"
+                label="CVV"
+                type="text"
+                validate={[required, cvv]}
+                component={Input}
+              />
+              <InfoBox />
+            </Row>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Field
+              name="billAddress.differentBillAddress"
+              label="Billing info is different than Monitored Address."
+              component={Checkbox}
+              className="differentAddress"
+            />
+          </Col>
+        </Row>
         <Collapse isOpen={billAddress && billAddress.differentBillAddress}>
           <Row>
             <Col xs={12} sm={12} md={6}>
@@ -113,62 +171,6 @@ const PaymentInfo = (props) => {
             </Col>
           </Row>
         </Collapse>
-        <Row className="justify-content-between">
-          <Col>
-            <h3>Payment Selection</h3>
-            <h4>Credit Card</h4>
-            <p>Safe money transfer using your bank account.
-              Visa, Mastercard, Discover, American Express
-            </p>
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={8}>
-            <Field
-              name="cc.name"
-              label="Name on card"
-              type="text"
-              validate={required}
-              component={Input}
-            />
-          </Col>
-          <Col xs={4}>
-            <img src="/static/images/creditcards.png" alt="credit card icon" />
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={8}>
-            <Field
-              name="cc.number"
-              label="Card number"
-              type="text"
-              validate={required}
-              component={Input}
-            />
-          </Col>
-          <Col xs={2}>
-            <Field
-              name="cc.exp"
-              label="MM/YY"
-              type="text"
-              validate={[required, ccExp]}
-              component={Input}
-              normalize={normalizeExp}
-            />
-          </Col>
-          <Col xs={2}>
-            <Row>
-              <Field
-                name="cc.cvv"
-                label="CVV"
-                type="text"
-                validate={[required, cvv]}
-                component={Input}
-              />
-              <InfoBox />
-            </Row>
-          </Col>
-        </Row>
         <Row>
           <Col>
             <h4>Terms and Conditions</h4>

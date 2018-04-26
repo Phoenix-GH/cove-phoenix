@@ -5,7 +5,7 @@
     "d": "next",
     "dev": "nodemon -e scss --ignore *.js --watch components --watch pages -x \"npm run dev-build\"",
     "dev-build": "rm -rf ./node_modules/.cache/babel-loader && node server.js",
-    "build": "rm -rf ./node_modules/.cache/babel-loader && next build && next export",
+    "build": "rm -rf ./node_modules/.cache/babel-loader && NODE_ENV=stage next build && next export",
     "start": "node start server.js"
   },
   "dependencies": {
