@@ -7,6 +7,7 @@ module.exports = () => ({
   '/products/smoke-detector': { page: '/products/smoke-detector' },
   '/products/medical-alert-device': { page: '/products/medical-alert-device' },
   '/products/glass-break-sensor': { page: '/products/glass-break-sensor' },
+  '/products/doorbell-camera': { page: '/products/doorbell-camera' },
   '/medical': { page: '/medical' },
   '/login': { page: '/login' },
   '/homepage': { page: '/homepage' },

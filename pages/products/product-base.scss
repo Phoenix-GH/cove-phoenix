@@ -234,6 +234,10 @@ h1, h2, h3, h4, h5, h6, p, li {
         @include media-sm {
             height: 300px;
         }
+
+        &--contain {
+            object-fit: contain !important;
+        }
     }
 
     &__column-image--small {
