@@ -293,19 +293,11 @@ CheckoutPage.defaultProps = {
 };
 
 const mapStateToProps = ({
-  cart,
-  products,
-  payment,
-  customer,
   checkout,
   session,
   auth,
   form,
 }) => ({
-  cart,
-  products,
-  payment,
-  customer,
   checkout,
   session,
   auth,

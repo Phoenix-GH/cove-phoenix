@@ -88,6 +88,7 @@ const getCreateOrderRequest = (formData, cart) => {
       aspen_id: cart.productById[id].aspen_id,
     });
   }
+
   const orderRequest = {
     accountGuid: cart.planDetails.accountGuid,
     shippingMethodId: formData.shippingMethod ? formData.shippingMethod : 1,

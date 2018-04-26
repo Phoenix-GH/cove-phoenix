@@ -15,8 +15,8 @@ import thunkMiddleware from 'redux-thunk';
 import { tokenR } from '../redux/user/routine';
 import { getProductsR } from '../redux/general/routine';
 import { authMiddleware } from '../utils/api';
-import rootReducer from '../reducers';
-import rootSaga from '../sagas';
+import rootReducer from '../redux/reducers';
+import rootSaga from '../redux/sagas';
 
 export default function configureStore(initialState, history) {
   const sagaMiddleware = createSagaMiddleware();

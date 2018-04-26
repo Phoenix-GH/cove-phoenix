@@ -9,7 +9,6 @@ import {
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../store';
-import { loadProducts } from '../actions';
 import Input from '../components/input';
 import Radio from '../components/radio';
 import Header from '../components/header';
@@ -22,7 +21,6 @@ const items = [
 ];
 
 class AddEquipmentPage extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
