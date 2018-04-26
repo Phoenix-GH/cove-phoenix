@@ -7,6 +7,15 @@
   .productLeft {
     max-width: 656px;
     padding-bottom: 80px;
+    .productCarousel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      .productImage {
+        max-width: 476px;
+        max-height: 476px;
+      }
+    }
   }
   h2 {
     margin-bottom: 35px;
@@ -33,6 +42,7 @@
     button {
       border: none;
       outline: none;
+      background: transparent
     }
     li {
       font-family: $font-gotham-rounded;
@@ -106,18 +116,11 @@
     border-radius: 5px;
     width: 135px;
     height: 135px;
-    button {
-      width: 100%;
-      height: 100%;
-      img {
-        border-radius: 5px;
-      }
+    margin-right: 35px;
+    img {
+      border-radius: 5px;
     }
   }
-}
-
-.link {
-  cursor: pointer;
 }
 
 .checkoutSidebar {
@@ -128,4 +131,17 @@
 
 :global(.carouselImage) {
   width: 100%;
+}
+
+.desktopOnly {
+  @media (max-width: $width-md) {
+    display: none;
+  }
+}
+
+.mobileOnly {
+  width: 100%;
+  @media (min-width: $width-md) {
+    display: none;
+  }
 }
