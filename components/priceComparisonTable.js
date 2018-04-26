@@ -44,8 +44,8 @@ export default () => (
           </Col>
           <Col xs={6} md={3} className="pcTableColRight">
             High as $2000
-            <p style={{ fontSize: '10px' }}>
-              Crazy, we know
+            <p style={{ fontSize: '12px', fontWeight: '300' }}>
+              Crazy, we know!
             </p>
           </Col>
         </Row>
