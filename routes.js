@@ -9,6 +9,7 @@ module.exports = () => ({
   '/products/glass-break-sensor': { page: '/products/glass-break-sensor' },
   '/products/doorbell-camera': { page: '/products/doorbell-camera' },
   '/products/home-security-camera': { page: '/products/home-security-camera' },
+  '/products/door-security-device': { page: '/products/door-security-device' },
   '/medical': { page: '/medical' },
   '/login': { page: '/login' },
   '/homepage': { page: '/homepage' },
