@@ -3,11 +3,6 @@ import {
   Container,
   Row,
   Col,
-  Carousel,
-  CarouselItem,
-  CarouselIndicators,
-  CarouselControl,
-  CarouselCaption,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import withRedux from 'next-redux-wrapper';
@@ -20,6 +15,7 @@ import ProductModal from '../../components/productModal';
 import Footer from '../../components/footer/footer';
 import Switcher from '../../components/switcher/switcher';
 import styles from './product.scss';
+import FooterMobile from '../../components/footer/footerMobile';
 import WatchVideoLink from '../../components/watchVideoLink/watchVideoLink';
 
 const items = [
@@ -39,7 +35,7 @@ const items = [
     caption: 'Slide 1',
   },
 ];
-const headerText = 'Cove Door sensors alow you to protect every entry point with ease. With Instant notifications and customizable sound alerts, you can know when poeple come into your home, and who checked in.';
+const headerText = 'Cove Door sensors allow you to protect every entry point with ease. With instant notifications and customizable sound alerts, you can know when poeple come into your home, and who checked in.';
 
 class ProductPage extends Component {
   static getInitialProps() {
@@ -103,7 +99,12 @@ class ProductPage extends Component {
       selectedView,
     } = this.state;
     const products = this.props.general.products.data.sensor || [];
-
+    let product = [];
+    if (products && products.length > 0) {
+      product.push(products[0]);
+      product[0].productId = '111';
+      product[0].thumbSrc = '/static/images/products/product-product.png';
+    }
     return (
       <Layout>
         <Header color="secondary" callingPage="products" />
@@ -115,22 +116,15 @@ class ProductPage extends Component {
                   <h3>Cove Door Sensor</h3>
                   <Switcher list={['Overview', 'Details']} selected={selectedView} onSelect={index => this.changeView(index)} />
                   <div className="productCarousel">
-                    <img src="/static/images/products/product-product.png" alt="product" />
+                    <img src="/static/images/products/product-product.png" alt="product" className="productImage" />
                     <Row>
                       <ul className="mx-auto list-inline productSliderThumbs">
-                        <li className="link">
-                          <img src="/static/images/arrowLeft.png" alt="arrowLeft" />
-                        </li>
-                        {items.map((item, i) => (
+                        {items.map(item => (
                           <li className="list-inline-item" key={item.src + Math.random()}>
-                            <button onClick={() => { this.goToIndex(i); }}>
-                              <img src={item.src} alt="thumb" />
-                            </button>
+                            <img src={item.src} alt="thumb" />
                           </li>
-                          ))}
-                        <li className="link">
-                          <img src="/static/images/arrowRight.png" alt="arrowRight" />
-                        </li>
+                          ))
+                        }
                       </ul>
                     </Row>
                   </div>
@@ -141,7 +135,7 @@ class ProductPage extends Component {
               </Col>
               <Col xl={4} lg={4} md={0} sm={0} className="no-gutters">
                 <SidebarCart
-                  products={products}
+                  products={product}
                   detailAction={this.toggle}
                   headerText={headerText}
                 />
@@ -149,7 +143,25 @@ class ProductPage extends Component {
             </Row>
           </div>
         </Container>
-        <Footer />
+        <Row>
+          <div className="desktopOnly">
+            <Row>
+              <Col md={12} className="d-flex justify-content-middle align-items-center">
+                <div className="divFull" >
+                  <Footer color="secondary" />
+                </div>
+              </Col>
+            </Row>
+          </div>
+          <div className="mobileOnly">
+            <FooterMobile color="secondary" />
+          </div>
+          <Row>
+            <div className="bottomSection">
+              &nbsp;
+            </div>
+          </Row>
+        </Row>
         {products[activeProduct] ?
           <ProductModal
             isOpen={modal}

@@ -11,11 +11,10 @@ const CartAddon = (props) => {
     detailAction,
     index,
   } = props;
+  const quantity = props.product.quantity ? props.product.quantity : 0;
   const outOfStockClass = cx({
     disabled: quantity === 0,
   });
-  const quantity = props.product.quantity ? props.product.quantity : 0;
-  console.log('qtq', quantity, product)
   return (
     <div className="cartAddons">
       <Row>
