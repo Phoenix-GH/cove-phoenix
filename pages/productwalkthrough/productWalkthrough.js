@@ -223,7 +223,7 @@ class ProductWalkthrough extends Component {
           </div>
           <ProductCarousel products={items} />
           <ProductCategory categories={categories} />
-          <RiskFreeSection />
+          <RiskFreeSection isContentHidden={false} />
         </div>
         <Footer />
         <style jsx>{styles}</style>

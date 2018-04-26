@@ -5,13 +5,13 @@
   width: 100%;
   color: $grey-600;
   font-family: $font-gotham-rounded;
-  
+  font-weight: 500;
   .productRow {
     margin: 0 40px 80px 40px;
     background-color: $secondary--lighter;
     border-radius: 5px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap-reverse;
     &.bordered {
       border: 1px solid #22405c;
     }
@@ -27,7 +27,6 @@
     .carouselLeft {
       padding: 47px 38px 42px 71px;
       width: 55%;
-      
       ul {
         list-style: none;
         padding-left: 0;
@@ -48,6 +47,7 @@
         margin-top: 45px;
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         .price {
           font-size: 25px;
           max-width: calc(100% + 203px);
@@ -113,8 +113,6 @@
         }
         
         .navigations {
-          position: absolute;
-          bottom: 150px;
           display: flex;
           align-items: center;
           button {
@@ -123,6 +121,7 @@
             outline: none;
           }
           h3 {
+            font-weight: bold;
             margin: 0 25px 0 25px;
           }
         }
@@ -167,34 +166,87 @@
     }
   }
   @media screen and (max-width: $width-md) {
-    .productRow {
-      .carouselLeft, .carouselRight, .productLeft, .productRight {
-        padding: 10px;
-        width: 100%;
-        align-items: center;
-        text-align: center;
-        .placementPhoto {
-          max-width: 100%;
-          margin-top: 100px;
-        }
-        .carouselImage {
-          height: 100vw;
-        }
-      }
-    }
-    .tabSection {
-      .tabBars {
-        .tabBarItem {
+      padding: 66px 10px 30px 10px;
+      .productRow {
+        margin: 0 0 35px 0;
+        padding: 38px 20px 38px 20px;
+        .carouselLeft, .carouselRight, .productLeft {
+          padding: 10px;
           width: 100%;
-          margin-left: 0;
-          padding: 10px 0 10px 0;
-          font-size: 20px;
-          &.selected {
-            display: block;
+          align-items: center;
+          h1 {
+            font-size: 31px;
+          }
+          .titleRow {
+            h3 {
+              font-size: 14px;
+            }
+            .medium span {
+              font-size: 11px;
+              font-weight: bold;
+            }
+          }
+          .descriptionRow {
+            .productDescription {
+              font-size: 12px;
+            }
+          }
+          .placementPhoto {
+            max-width: 100%;
+            margin-top: 100px;
+          }
+          .carouselImage {
+            height: 100vw;
+          }
+          .carouselLogo {
+            display: none;
+          }
+          .productDescription {
+            font-size: 16px;
+          }
+          .buttonRow {
+            :global(.selectableButton) {
+              font-size: 13px;
+            }
+            .extraButton {
+              font-size: 11px;
+            }
+          }
+          .navigations {
+            button {
+              width: 14.27px;
+              height: 18.71px;
+              img {
+                width: 100%;
+                height 100%;
+              }
+            }
+            h3 {
+              font-size: 14px;
+            }
           }
         }
+        .productRight {
+          display: none;
+        }
+      }
+      .tabSection {
+        .tabBars {
+          .tabBarItem {
+            width: 100%;
+            margin: 0 0 14px 0;
+            padding: 10px 0 10px 0;
+            font-size: 45px;
+            &.selected {
+              display: block;
+            }
+          }
+        }
+        .categoryPhoto {
+          display: none;
+        }
       }
     }
-  }
+  
 }
 
