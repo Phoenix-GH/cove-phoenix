@@ -8,13 +8,18 @@
   font-weight: 700;
 
   :global(.navLink) {
+    position: relative;
     color: $primary--darker;
     font-size: 18px;
+    margin-right: 20px;
+    cursor: pointer;
   }
 
   :global(.signinLink) {
     color: $primary--darker;
     font-size: 14px;
+    margin-right: 20px;
+    min-width: 37px;
   }
 
   :global(.shopNowLink) {
@@ -43,9 +48,9 @@
     $font-family: $font-gotham-rounded;
     font-weight: 700;
     text-align: center;
-    padding-right: 5%;    
+    padding-right: 5%;
   }
-  
+
 }
 
 .hideAlways {
@@ -119,5 +124,68 @@ background-image: url("/static/images/togglerTeal.png");
   border: none;
   div {
     border-bottom: 1px solid $sidebar-green;
+  }
+}
+
+:global(.popover) {
+  min-width: 276px !important;
+  width: auto !important;
+  max-width: auto !important;
+}
+
+.dropdown {
+  position: absolute;
+  z-index: 10;
+  background: white;
+  top: 75px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min-content;
+  border-radius: 5px;
+  padding: 25px 5px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    z-index: 0;
+    width: 50px;
+    height: 50px;
+    background: white;
+    transform: rotate(45deg);
+    left: calc(50% - 25px);
+    top: -25px;
+    box-shadow: 2px -1px 5px #aaaaaa;
+  }
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 11px;
+    left: 14px;
+    background: white;
+    width: calc(100% - 30px);
+    height: 15px;
+    border-bottom: 1px solid $primary;
+    outline: 10px solid white;
+  }
+
+  &__item {
+    background: white;
+    padding-top: 10px;
+    width: 180px;
+    height: 140px;
+    text-align: center;
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__text {
+    color: rgba(0,0,0,.7);
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 }
