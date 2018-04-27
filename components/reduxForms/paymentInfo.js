@@ -1,4 +1,4 @@
-import { Row, Col } from 'reactstrap';
+import { Row, Col, Collapse } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { Field, reduxForm } from 'redux-form';
 import Link from 'next/link';
@@ -10,12 +10,16 @@ import {
   creditCard,
   ccExp,
   normalizeExp,
-  cvv
+  zip,
+  cvv,
+  phoneNumber,
+  normalizePhone,
 } from './validate';
 import styles from './paymentInfo.scss';
 
 const PaymentInfo = (props) => {
-  const { onChangeHandler } = props;
+  const { billAddress } = props.formData.values || {};
+  console.log('form-data', props.formData)
   return (
     <div>
       <div className="customerInfo">
@@ -77,6 +81,98 @@ const PaymentInfo = (props) => {
         </Row>
         <Row>
           <Col>
+            <Field
+              name="billAddress.differentBillAddress"
+              label="Billing info is different than Monitored Address."
+              component={Checkbox}
+              className="differentAddress"
+            />
+          </Col>
+        </Row>
+        <Collapse isOpen={billAddress && billAddress.differentBillAddress}>
+          <Row>
+            <Col xs={12} sm={12} md={6}>
+              <Field
+                name="billAddress.firstName"
+                label="First name"
+                type="text"
+                validate={required}
+                component={Input}
+              />
+            </Col>
+            <Col xs={12} sm={12} md={6}>
+              <Field
+                name="billAddress.lastName"
+                label="Last name"
+                type="text"
+                validate={required}
+                component={Input}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} sm={12} md={8}>
+              <Field
+                name="billAddress.address1"
+                label="Shipping street address"
+                type="text"
+                validate={required}
+                component={Input}
+              />
+            </Col>
+            <Col md={4}>
+              <Field
+                name="billAddress.address2"
+                label="Apt/Suite #"
+                type="text"
+                component={Input}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} sm={12} md={4}>
+              <Field
+                name="billAddress.city"
+                label="City"
+                type="text"
+                validate={required}
+                component={Input}
+              />
+            </Col>
+            <Col xs={12} sm={12} md={4}>
+              <Field
+                name="billAddress.state"
+                label="State"
+                type="text"
+                validate={required}
+                component={Input}
+              />
+            </Col>
+            <Col xs={12} sm={12} md={4}>
+              <Field
+                name="billAddress.postal"
+                label="Zipcode"
+                type="text"
+                validate={[required, zip]}
+                component={Input}
+              />
+            </Col>
+          </Row>
+          <Row>
+            <Col xs={12} sm={12} md={6}>
+              <Field
+                name="billAddress.phone"
+                label="Phone"
+                type="text"
+                validate={[required, phoneNumber]}
+                normalize={normalizePhone}
+                component={Input}
+              />
+            </Col>
+          </Row>
+        </Collapse>
+        <Row>
+          <Col>
             <h4>Terms and Conditions</h4>
           </Col>
         </Row>
@@ -101,14 +197,21 @@ const PaymentInfo = (props) => {
 
 PaymentInfo.propTypes = {
   onChangeHandler: PropTypes.func,
+  formData: PropTypes.object,
 };
 
 PaymentInfo.defaultProps = {
   onChangeHandler: () => {},
+  formData: {
+    values: {},
+  },
 };
 
 export default reduxForm({
   form: 'checkout_payment',
   destroyOnUnmount: false,
+  initialValues: {
+    billAddress: {},
+  },
 })(PaymentInfo);
 

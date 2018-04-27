@@ -46,7 +46,7 @@ jobs:
           command: sudo apt-get -y -qq install awscli
       - run:
           name: Deploy to S3 if tests pass and branch is Master
-          command: aws s3 sync ~/repo/out/ s3://stage-www-covesmart-website/ --delete
+          command: aws s3 sync ~/repo/out/ s3://stage-www-covesmart-website/ --delete --cache-control no-cache
       - run:
           name: Invalidate cloudfront cache
           command:  aws configure set preview.cloudfront true && aws cloudfront create-invalidation --distribution-id=E2K9Y4VK5OYSIM --paths / 

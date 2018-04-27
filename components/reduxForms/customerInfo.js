@@ -149,6 +149,7 @@ const CustomerInfo = ({ formData }) => {
                 label="Add Addtional Contact"
                 name="includeEc3"
                 component={Checkbox}
+                className="additionalContact"
               />
             </Col>
           </Row>

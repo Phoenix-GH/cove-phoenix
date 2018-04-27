@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { Row } from 'reactstrap';
 import PropTypes from 'prop-types';
 import CartAddon from '../../components/cartAddon';
-import { changeQuantity } from '../../actions';
+import { changeQuantity } from '../../redux/checkout/actions';
 import styles from './sidebarCart.scss';
 
 class SidebarCart extends Component {

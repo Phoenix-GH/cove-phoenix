@@ -2,10 +2,10 @@ import uuidv4 from 'uuid/v4';
 import PropTypes from 'prop-types';
 import s from './checkbox.scss';
 
-const Checkbox = ({ input, label, checked, onClick = () => {}, value, onChange, formValue }) => {
+const Checkbox = ({ input, label, checked, onClick = () => {}, value, onChange, formValue, className }) => {
   const id = uuidv4();
   return (
-    <div className="checkBox">
+    <div className={`checkBox ${className}`}>
       <input id={id} type="checkbox" {...input} onClick={onClick} />
       <label htmlFor={id}>{label}</label>
       <style jsx>{s}</style>

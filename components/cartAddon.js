@@ -4,6 +4,7 @@ import cx from 'classnames';
 import styles from './cartAddon.scss';
 
 const CartAddon = (props) => {
+  const quantity = props.product.quantity ? props.product.quantity : 0;
   const {
     thumbSrc,
     product,
@@ -11,10 +12,10 @@ const CartAddon = (props) => {
     detailAction,
     index,
   } = props;
-  const quantity = props.product.quantity ? props.product.quantity : 0;
   const outOfStockClass = cx({
     disabled: quantity === 0,
   });
+
   return (
     <div className="cartAddons">
       <Row>

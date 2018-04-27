@@ -37,7 +37,7 @@ class CheckoutSidebar extends Component {
         </li>
       );
     });
-    const planPrice = monitoringPlans[planDetails.monitoringPlan].price;
+    const planPrice = parseFloat(monitoringPlans[planDetails.monitoringPlan].price);
     const tax = planDetails.tax ? parseFloat(planDetails.tax) : 0.00;
     const containerClass = cx({
       mobileContainer: mobile,

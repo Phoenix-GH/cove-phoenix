@@ -12,7 +12,7 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../../store';
-import { loadProducts } from '../../actions';
+import { getProductsR } from '../../redux/general/routine';
 import Layout from '../../components/minimalLayout';
 import Header from '../../components/header';
 import Footer from '../../components/footer/footer';
@@ -152,7 +152,7 @@ class ProductWalkthrough extends Component {
   }
 
   load = () => {
-    this.props.loadProducts();
+    this.props.getProductsR();
   }
 
   changeView = () => {
@@ -253,17 +253,17 @@ class ProductWalkthrough extends Component {
 }
 
 ProductWalkthrough.propTypes = {
-  loadProducts: PropTypes.func,
+  getProductsR: PropTypes.func,
 };
 
 ProductWalkthrough.defaultProps = {
-  loadProducts: () => {},
+  getProductsR: () => {},
 };
 
 const mapStateToProps = ({ cart, products }) => ({ cart, products });
 
-const mapDispatchToProps = dispatch => ({
-  loadProducts: bindActionCreators(loadProducts, dispatch),
-});
+const mapDispatchToProps = {
+  getProductsR,
+};
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(ProductWalkthrough);
