@@ -3,8 +3,9 @@ import _ from 'lodash';
 import normalizeState from 'us-states-normalize';
 import { getFormValues, touch, destroy, getFormSyncErrors, isValid } from 'redux-form';
 import { put, call, takeLatest, takeEvery, select } from 'redux-saga/effects';
-import { validateContactR, createAccountR, createOrderR, completeOrderR } from './routine';
+import { validateContactR, createAccountR, createOrderR, completeOrderR, orderConfirmationR } from './routine';
 import { moveCartToOrdered } from './actions';
+import types from '../actionTypes';
 import { getCart } from './selector';
 import axios from '../../utils/api';
 import { starterPack } from '../../data';
@@ -161,6 +162,7 @@ const getCompleteOrderRequest = (formData, cart) => {
       number: formData.cc.number,
       expMonth: exp[0],
       expYear: exp[1],
+      name: formData.cc.name,
     },
     billAddress,
     cart: buildInvoiceList(cart),
@@ -240,25 +242,41 @@ function* completeOrder() {
         yield put(completeOrderR.failure({ warning: response.warning }));
       } else {
         yield put(completeOrderR.success(response.data));
-        yield Router.push({ pathname: '/order' });
+        yield put(moveCartToOrdered({
+          planDetails: cart.planDetails,
+          equipment: buildEquipmentList(cart),
+          invoice: buildInvoiceList(cart),
+        }));
+        yield put({ action: types.CLEAR_CART });
+        yield Router.push({ pathname: '/order-confirmation' });
         yield put(destroy('checkout_customer', 'checkout_shipping', 'checkout_payment'));
       }
     } else {
-      const fields = yield select(getFormSyncErrors('checkout_payment'));
       const fieldNames = fieldsToFieldNameArray(fields);
       yield put(touch('checkout_payment', ...fieldNames));
     }
   } catch (err) {
     yield put(completeOrderR.failure(err));
   } finally {
-    //yield put(moveCartToOrdered());
     yield put(completeOrderR.fulfill());
   }
 }
 
+function* orderConfirmation() {
+  try {
+    yield put(orderConfirmationR.request());
+    const accountGuid = yield select(state => state.checkout.checkout.account.accountGuid);
+    const response = yield call(axios.post, '/meliae/confirmOrder', { accountGuid });
+  } catch (err) {
+    yield put(orderConfirmationR.failure(err));
+  } finally {
+    yield put(orderConfirmationR.fulfill());
+  }
+}
 export default function* () {
   yield takeEvery(validateContactR.TRIGGER, (data) => { console.log('aaaaa', data); });
   yield takeLatest(createAccountR.TRIGGER, createAccount);
   yield takeLatest(createOrderR.TRIGGER, createOrder);
   yield takeLatest(completeOrderR.TRIGGER, completeOrder);
+  yield takeEvery(orderConfirmationR.TRIGGER, orderConfirmation);
 }

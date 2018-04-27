@@ -3,13 +3,14 @@ import { Container, Row, Col } from 'reactstrap';
 import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
-import initStore from '../store';
-import Header from '../components/header';
-import Layout from '../components/minimalLayout';
-import CheckoutSidebar from '../components/checkoutSidebar/checkoutSidebar';
-import EquipmentType from '../components/equipmentType/equipmentType';
-import BackButton from '../components/backButton/backButton';
-import s from './order.scss';
+import { orderConfirmationR } from '../../redux/checkout/routine';
+import initStore from '../../store';
+import Header from '../../components/header';
+import Layout from '../../components/minimalLayout';
+import CheckoutSidebar from '../../components/checkoutSidebar/checkoutSidebar';
+import EquipmentType from '../../components/equipmentType/equipmentType';
+import BackButton from '../../components/backButton/backButton';
+import style from './orderConfirmation.scss';
 
 class OrderPage extends Component {
   render() {
@@ -120,11 +121,11 @@ class OrderPage extends Component {
                         <BackButton title="Continue Shopping" link="/checkout" />
                       </div>
                       <div className="continueColumn">
-                        <Link href="#name-sensors">
+                        <button onClick={() => this.props.orderConfirmationR()} >
                           <div className="actionBtn">
-                            Name Sensors
+                            Update Sensor Names
                           </div>
-                        </Link>
+                        </button>
                       </div>
                     </Row>
                   </Col>
@@ -138,7 +139,7 @@ class OrderPage extends Component {
             </Col>
           </Row>
         </Container>
-        <style jsx>{s}</style>
+        <style jsx>{style}</style>
       </Layout>
     );
   }
@@ -146,7 +147,8 @@ class OrderPage extends Component {
 
 const mapStateToProps = ({ cart, products }) => ({ cart, products });
 
-const mapDispatchToProps = dispatch => ({
-});
+const mapDispatchToProps = {
+  orderConfirmationR,
+};
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(OrderPage);
