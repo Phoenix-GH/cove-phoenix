@@ -30,7 +30,9 @@ class CheckoutSidebar extends Component {
     console.log('zz', monitoringPlans, planDetails, monitoringPlans[planDetails.monitoringPlan]);
     let equipmentTotal = 249.00;
     const cartList = cartItemIds.map((val) => {
-      equipmentTotal += parseFloat(productById[val].price);
+      equipmentTotal += (
+        parseFloat(productById[val].price) * parseFloat(productById[val].quantity)
+      );
       return (
         <li key={productById[val].id}>
           {productById[val].quantity} {productById[val].display_name}
