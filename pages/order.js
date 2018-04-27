@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../store';
-import { loadProducts } from '../actions';
 import Header from '../components/header';
 import Layout from '../components/minimalLayout';
 import CheckoutSidebar from '../components/checkoutSidebar/checkoutSidebar';
@@ -148,7 +147,6 @@ class OrderPage extends Component {
 const mapStateToProps = ({ cart, products }) => ({ cart, products });
 
 const mapDispatchToProps = dispatch => ({
-  loadProducts: bindActionCreators(loadProducts, dispatch),
 });
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(OrderPage);

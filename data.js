@@ -1,20 +1,17 @@
 /* Temp file for small data elements that will
 eventually come from an api call */
 
-export const startPack = {
-  price: 249.00,
+export const starterPack = {
+  package: {
+    price: 249.00,
+    name: 'Cove Protect Starter Package',
+  },
   items: [{
     category: 'sensor',
     id: '1d7a1a1a-757f-4e0d-8f2b-5ccec397ee03',
     display_name: 'Door Sensor',
     aspen_id: 81,
     quantity: 2,
-  },
-  {
-    category: 'sensor',
-    id: '79bed502-2ecb-44f9-9c39-6bb7f14e856a',
-    display_name: 'Window Sensor',
-    aspen_id: 82,
   },
   {
     category: 'sensor',

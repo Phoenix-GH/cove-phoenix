@@ -12,7 +12,6 @@ const CartAddon = (props) => {
     detailAction,
     index,
   } = props;
-  const quantity = props.product.quantity ? props.product.quantity : 0;
   const outOfStockClass = cx({
     disabled: quantity === 0,
   });

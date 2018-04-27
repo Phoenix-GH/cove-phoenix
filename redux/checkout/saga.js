@@ -27,15 +27,35 @@ const fieldsToFieldNameArray = (fields) => {
   return fieldNames;
 };
 
-const buildEquipmentList = (cart) => {
-  const items = [{
-    name: 'Cove Protect Package',
-    price: '249.00',
-    qty: 1,
-    aspen_id: 106,
-  }];
+const buildInvoiceList = (cart) => {
+  const items = [];
   /* get starter pack items if product exists in cart add to quantity */
-  const spItems = _.deepCLone(starterPack);
+  for (let i = 0; i < cart.cartItemIds.length; i += 1) {
+    const id = cart.cartItemIds[i];
+    const quantity = parseInt(cart.productById[id].quantity, 10);
+
+    items.push({
+      name: cart.productById[id].display_name,
+      qty: quantity,
+      price: cart.productById[id].price,
+      id: cart.productById[id].id,
+      aspen_id: cart.productById[id].aspen_id,
+    });
+  }
+
+  const cartRequest = {
+    rmr: cart.monitoringPlans[cart.planDetails.monitoringPlan].price,
+    package: starterPack.package,
+    items,
+  };
+  return cartRequest;
+};
+
+const buildEquipmentList = (cart) => {
+  const items = [];
+  const sp = _.cloneDeep(starterPack.items);
+  const spItems = _.keyBy(sp, 'id');
+  console.log('sp', sp, spItems)
   for (let i = 0; i < cart.cartItemIds.length; i += 1) {
     const id = cart.cartItemIds[i];
     let quantity = parseInt(cart.productById[id].quantity, 10);
@@ -53,20 +73,17 @@ const buildEquipmentList = (cart) => {
   }
 
   Object.keys(spItems).forEach((item) => {
+    console.log('item', item);
     items.push({
-      name: item.display_name,
-      qty: item.quantity,
-      price: item.price,
-      id: item.id,
-      aspen_id: item.aspen_id,
+      name: spItems[item].display_name,
+      qty: spItems[item].quantity,
+      price: spItems[item].price,
+      id: spItems[item].id,
+      aspen_id: spItems[item].aspen_id,
     });
   });
 
-  const cartRequest = {
-    rmr: cart.monitoringPlans[cart.planDetails.monitoringPlan].price,
-    items,
-  };
-  return cartRequest;
+  return items;
 };
 
 const getCreateAccountRequest = (formData, cart) => {
@@ -87,7 +104,7 @@ const getCreateAccountRequest = (formData, cart) => {
   accountRequest.shipAddress = { use: 'monitorAddress' };
   accountRequest.billAddress = { use: 'monitorAddress' };
 
-  accountRequest.cart = buildEquipmentList(cart);
+  accountRequest.cart = buildInvoiceList(cart);
   console.log('select ', accountRequest);
   return accountRequest;
 };
@@ -113,7 +130,7 @@ const getCreateOrderRequest = (formData, cart) => {
     warrantyId: formData.warranty ? 0 : 1,
     coupondCode: '',
     shipAddress,
-    items,
+    equipment: buildEquipmentList(cart),
     rmr: cart.monitoringPlans[cart.planDetails.monitoringPlan].price,
   };
   return orderRequest;
@@ -130,6 +147,7 @@ const getCompleteOrderRequest = (formData, cart) => {
   let equipmentTotal = 249.00; /* TODO pull from central store result from db call */
   cartItemIds.map((val) => {
     equipmentTotal += parseFloat(productById[val].price);
+    return true;
   });
 
   const planPrice = parseFloat(monitoringPlans[planDetails.monitoringPlan].price);
@@ -145,7 +163,7 @@ const getCompleteOrderRequest = (formData, cart) => {
       expYear: exp[1],
     },
     billAddress,
-    cart: buildEquipmentList(cart),
+    cart: buildInvoiceList(cart),
     total: equipmentTotal + planPrice + tax,
     accountGuid: cart.planDetails.accountGuid,
   };
