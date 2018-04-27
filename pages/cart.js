@@ -2,7 +2,7 @@ import { Container, Row } from 'reactstrap';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../store';
-import { loadProducts } from '../actions';
+import { getProductsR } from '../redux/general/routine';
 import Layout from '../components/minimalLayout';
 import CheckoutSidebar from '../components/checkoutSidebar/checkoutSidebar';
 import BackButton from '../components/backButton/backButton';
@@ -24,8 +24,8 @@ const ShoppingCart = () => (
 
 const mapStateToProps = ({ cart, products }) => ({ cart, products });
 
-const mapDispatchToProps = dispatch => ({
-  loadProducts: bindActionCreators(loadProducts, dispatch),
-});
+const mapDispatchToProps = {
+  getProductsR,
+};
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(ShoppingCart);
