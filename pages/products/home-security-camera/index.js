@@ -8,6 +8,7 @@ import Head from 'next/head';
 import Layout from '../../../components/minimalLayout';
 import Header from '../../../components/header';
 import Footer from '../../../components/footer/footer';
+import Video from '../../../components/video';
 import styles from '../product-base.scss';
 
 export default class ProductPage extends Component {
@@ -112,7 +113,9 @@ export default class ProductPage extends Component {
             <Row className="no-gutter">
               <Col sm={6}>
                 <div className="product__column--medium">
-                  <img className="product__video" src="/static/images/product/cove-touch/cove-touch-video-placeholder.jpg" alt="How it works" />
+                  <div className="product__video">
+                    <Video />
+                  </div>
                   <p className="product__center product__text--green product__alt-font">How it works</p>
                 </div>
               </Col>

@@ -10,6 +10,7 @@ module.exports = () => ({
   '/products/doorbell-camera': { page: '/products/doorbell-camera' },
   '/products/home-security-camera': { page: '/products/home-security-camera' },
   '/products/door-security-device': { page: '/products/door-security-device' },
+  '/products/flood-detection-sensor': { page: '/products/flood-detection-sensor' },
   '/medical': { page: '/medical' },
   '/login': { page: '/login' },
   '/homepage': { page: '/homepage' },

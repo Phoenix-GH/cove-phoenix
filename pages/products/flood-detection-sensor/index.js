@@ -21,30 +21,32 @@ export default class ProductPage extends Component {
     return (
       <Layout>
         <Head>
-          <title>Cove | Products | Doorbell Camera</title>
-          <meta name="description" content="Cove’s doorbell camera provides added security and privacy as you can see who rings your doorbell whether or not you were able to answer their call. Coming soon!" />
+          <title>Cove | Products | Flood Detection Sensor</title>
+          <meta name="description" content="Cove offers protection from flooding and freezing weather. The sensor can alert you to pooled water and we can contact you before the issue requires expensive repairs." />
         </Head>
         <Header color="secondary" callingPage="products" />
         <div className="product">
           <div className="product__header">
             <div className="product__header-text">
-              <h1 className="product__title">Doorbell Camera</h1>
+              <h1 className="product__title">Flood Detection Sensor</h1>
               <p className="product__subtext">If it's Cove.<br /> It's covered.</p>
             </div>
           </div>
           <Container>
-            <p className="product__paragraph product__alt-font">Cove’s doorbell camera provides added security and privacy as you can see who rings your doorbell whether or not you were able to answer in person. Coming soon!</p>
+            <p className="product__paragraph product__alt-font">Cove offers protection from flooding and freezing weather. The sensor can alert you to pooled water and we can contact you before the issue requires expensive repairs.</p>
             <Row>
               <Col xs={{ size: 12, order: 1 }} md={{ size: 4, order: 0 }}>
-                <p className="product__feature-box">Motion alerts</p>
-                <p className="product__feature-box">Ring alerts</p>
+                <p className="product__feature-box">Freeze alerts</p>
+                <p className="product__feature-box">Flood alerts</p>
+                <p className="product__feature-box">Easy install</p>
               </Col>
               <Col xs={{ size: 12, order: 0 }} md={{ size: 4, order: 1 }}>
-                <img className="product__showcase-image" alt="Doorbell Camera" src="/static/images/product/doorbell-camera/doorbell-camera-front.jpg" />
+                <img className="product__showcase-image" alt="Flood Detection Sensor" src="/static/images/product/flood-detection-sensor/flood-detection-sensor-front.jpg" />
               </Col>
               <Col xs={{ size: 12, order: 2 }} md={{ size: 4, order: 2 }}>
-                <p className="product__feature-box">Peak in anytime</p>
-                <p className="product__feature-box">Easy to install</p>
+                <p className="product__feature-box">Incredible design</p>
+                <p className="product__feature-box">Alerts that save $</p>
+                <p className="product__feature-box">Smart self-testing</p>
               </Col>
             </Row>
             <div className="product__spacer" />
@@ -52,7 +54,7 @@ export default class ProductPage extends Component {
               <Col xs={12} sm={4}>
                 <div className="product__comparison">
                   <h2 className="product__subheading product__subheading--pad-top">Cove vs Them</h2>
-                  <p className="product__paragraph">Cove Bell is a doorbell camera that makes your home more secure and more enjoyable. No more wondering if you missed someone while you were out of town or wondering if a package arrived, you can know with your doorbell camera.</p>
+                  <p className="product__paragraph">Cove flood detection sensors are all paired with our award-winning Cove Touch panel offering the “all-around easiest” customer experience in the industry.</p>
                   <p className="product__paragraph--no-margin">More questions?</p>
                   <a className="product__link" href="/">Chat with Us</a>
                 </div>
@@ -88,7 +90,7 @@ export default class ProductPage extends Component {
                 </ul>
               </Col>
               <Col sm={6}>
-                <img className="product__image-flex" alt="Doorbell Camera" src="/static/images/product/doorbell-camera/doorbell-camera-crop.jpg" />
+                <img className="product__image-flex" alt="Flood Detection Sensor" src="/static/images/product/flood-detection-sensor/flood-detection-sensor-crop.jpg" />
               </Col>
             </Row>
             <Row>
@@ -101,12 +103,12 @@ export default class ProductPage extends Component {
               <Col xs={{ size: 12, order: 2 }} sm={{ size: 6, order: 1 }}>
                 <div className="product__column--large product__column--center">
                   <h2 className="product__subheading">Easy to Install</h2>
-                  <p className="product__text product__alt-font">Coming soon!</p>
+                  <p className="product__text product__alt-font">Each flood/freeze sensor is pre-coupled with your Cove Touch panel. You can custom select each name to help you identify where trouble might be afoot. With a couple touches of the screen you confirm each sensor is setup and ready to start protecting the ones you love.</p>
                 </div>
               </Col>
               <Col xs={{ size: 12, order: 1 }} sm={{ size: 6, order: 2 }}>
-                <div className="product__column--large">
-                  <img className="product__column-image product__column-image--contain" src="/static/images/product/doorbell-camera/doorbell-camera-lifestyle.jpg" alt="Doorbell Camera Lifestyle" />
+                <div className="product__column--large product__column--dark">
+                  <img className="product__column-image" src="/static/images/product/flood-detection-sensor/flood-detection-sensor-lifestyle.jpg" alt="Flood Detection Sensor Lifestyle" />
                 </div>
               </Col>
             </Row>
@@ -123,14 +125,14 @@ export default class ProductPage extends Component {
               <Col sm={6} className="d-flex align-items-center">
                 <div className="product__column--medium product__column--center">
                   <h2 className="product__subheading">Easy to Use</h2>
-                  <p className="product__text product__alt-font">Coming soon!</p>
+                  <p className="product__text product__alt-font">The flood/freeze sensors are active 24/7. We’ve engineered our smart devices to work with your individual needs. If your needs change, simply change the settings. No technician needed. Want only flood protection without the freeze? Simply make those changes yourself with a few touches of the Cove Touch panel. Easy.</p>
                 </div>
               </Col>
             </Row>
             <Row>
               <Col xs={12} sm={6}>
                 <div className="product__column--large product__column--dark">
-                  <img className="product__column-image" src="/static/images/product/cove-touch/cove-touch-square.jpg" alt="Doorbell Camera Lifestyle" />
+                  <img className="product__column-image" src="/static/images/product/cove-touch/cove-touch-square.jpg" alt="Flood Detection Sensor Lifestyle" />
                 </div>
               </Col>
               <Col xs={12} sm={6}>
