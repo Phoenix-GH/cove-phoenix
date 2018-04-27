@@ -267,6 +267,7 @@ function* orderConfirmation() {
     yield put(orderConfirmationR.request());
     const accountGuid = yield select(state => state.checkout.checkout.account.accountGuid);
     const response = yield call(axios.post, '/meliae/confirmOrder', { accountGuid });
+    yield Router.push({ pathname: '/order-summary' });
   } catch (err) {
     yield put(orderConfirmationR.failure(err));
   } finally {

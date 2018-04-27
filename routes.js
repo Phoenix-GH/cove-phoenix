@@ -19,7 +19,6 @@ module.exports = () => ({
   '/checkout/customer': { page: '/checkout', query: { stage: 'customer' } },
   '/checkout/shipping': { page: '/checkout', query: { stage: 'shipping' } },
   '/checkout/payment': { page: '/checkout', query: { stage: 'payment' } },
-  '/checkout/order': { page: '/order' },
   '/checkout/products': { page: '/checkout/products' },
   '/walkthrough': { page: '/productwalkthrough/productWalkthrough' },
   '/cart': { page: '/cart' },
