@@ -1,4 +1,4 @@
-# brava-website
+# cove-website
 
 
 # Getting Started
