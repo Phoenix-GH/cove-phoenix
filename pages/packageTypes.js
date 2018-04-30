@@ -18,7 +18,7 @@ const PackageTypes = () => (
       <div className="cover-section">
         <img src="/static/images/packageTypes/coverBackground.jpg" alt="background" srcSet="/static/images/packageTypes/coverBackground.jpg 1440w, /static/images/packageTypes/coverBackground@2x.jpg 2880w" className="cover-background" />
         <div className="cover-content">
-          <img src="/static/images/downArrow.png" alt="" className="down-arrow" />
+          <a href="#intro"><img src="/static/images/downArrow.png" alt="" className="down-arrow" /></a>
           <div className="slogan">
             <h1>If it’s safe, it’s Cove.</h1>
             <div className="video-link">
@@ -29,7 +29,7 @@ const PackageTypes = () => (
       </div>
 
       <div className="package-types-content">
-        <div className="package-intro">
+        <div id="intro" className="package-intro">
           <h2>
             <span>Design your system or pick from our</span>
             <span>packages that we designed to every need.</span>

@@ -23,7 +23,7 @@ PackageBackgroundImage.propTypes = {
   imageFilename: PropTypes.string.isRequired,
   className: PropTypes.string,
   ext: PropTypes.oneOf(['jpg', 'png']),
-  children: PropTypes.arrayOf(PropTypes.component).isRequired,
+  children: PropTypes.any.isRequired,
 };
 
 PackageBackgroundImage.defaultProps = {
