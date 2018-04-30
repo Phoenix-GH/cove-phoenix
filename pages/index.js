@@ -14,9 +14,7 @@ const setupDescriptionText = 'Most security systems are designed for technicians
 
 const Index = () => (
   <Layout>
-    <Container>
-      <Header color="secondary" />
-    </Container>
+    <Header color="secondary" />
     <div className="homeContainer">
       <div className="coverSection">
         <img src="/static/images/coverBackground.png" alt="background" className="backImg" />

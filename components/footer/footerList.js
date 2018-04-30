@@ -1,37 +1,47 @@
 const footerList = [
   {
     title: 'Store',
-    width: 273,
     list: [
       {
         link: '#',
         name: 'Cove Protect',
       },
       {
-        link: '#',
+        link: '/products/cove-touch',
         name: 'Cove Touch',
       },
       {
-        link: '#',
+        link: '/products/smoke-detector',
         name: 'Cove Smoke Detector',
       },
       {
-        link: '#',
+        link: '/products/flood-detection-sensor',
         name: 'Cove Flood Detector',
       },
       {
-        link: '#',
-        name: 'Cove Carbon Monoxide',
+        link: '/products/carbon-monoxide-detector',
+        name: 'Cove CO Detector',
       },
       {
-        link: '#',
-        name: 'Cove Camera',
+        link: '/products/door-security-device',
+        name: 'Door Sensor',
+      },
+      {
+        link: '/products/window-security-device',
+        name: 'Window Sensor',
+      },
+      {
+        link: '/products/doorbell-camera',
+        name: 'Cove Bell',
+      },
+      {
+        link: '/products/home-security-camera',
+        name: 'Cove Indoor Cam',
       },
     ],
   },
   {
     title: 'Company',
-    width: 305,
     list: [
       {
         link: '#',
@@ -39,49 +49,11 @@ const footerList = [
       },
       {
         link: '#',
-        name: 'Community',
-      },
-      {
-        link: '#',
         name: 'About us',
       },
       {
         link: '#',
-        name: 'Blog',
-      },
-      {
-        link: '#',
-        name: 'Responsibility',
-      },
-      {
-        link: '#',
-        name: 'Careers',
-      },
-      {
-        link: '#',
-        name: 'Press',
-      },
-      {
-        link: '#',
         name: 'Video',
-      },
-    ],
-  },
-  {
-    title: 'Programs',
-    width: 313,
-    list: [
-      {
-        link: '#',
-        name: 'Insurance Partners',
-      },
-      {
-        link: '#',
-        name: 'Rebates and Rewards',
-      },
-      {
-        link: '#',
-        name: 'Cove for Business',
       },
     ],
   },

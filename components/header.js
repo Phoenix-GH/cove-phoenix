@@ -27,128 +27,116 @@ export default class Header extends React.Component {
     });
   }
 
-  safetyText = calledBy => (
-    calledBy === 'products' ? 'Life Safety' : 'Smoke + Flood + CO Alarm'
-  );
+  toggleDropdown = (e) => {
+    let dropdown = e.target.children[0];
+    let classes = dropdown.classList;
 
-  medicalText = calledBy => (
-    calledBy === 'products' ? 'Medical Button' : 'Medical'
-  )
-
-  buttonActionText = (calledBy) => {
-    switch (calledBy) {
-      default: {
-        return 'Protect Me';
-      }
+    if (classes.contains('visible')) {
+      dropdown.classList.remove('visible');
+      dropdown.classList.add('invisible');
+    } else {
+      document.querySelectorAll('.dropdown').forEach((item) => {
+        if (item.classList.contains('visible')) {
+          item.classList.remove('visible');
+          item.classList.add('invisible');
+        }
+      })
+      dropdown.classList.remove('invisible');
+      dropdown.classList.add('visible');
     }
   }
 
-  imgStampClassName = (calledBy) => {
-    switch (calledBy) {
-      case 'bell': {
-        return 'hideWhenSmall stampImage';
-      }
-      default: {
-        return 'hideAlways';
-      }
+  handleMenuClick = (e) => {
+    if (!e.target.classList.contains('mobile-menu__item')) {
+      e.target.classList.toggle('open');
     }
   }
 
-  customHeaderSmallClassNameV1 = (calledBy) => {
-    switch (calledBy) {
-      case 'bell': {
-        return 'hideWhenLarge';
-      }
-      default: {
-        return 'hideAlways';
-      }
-    }
-  }
-
-  customHeaderSmallClassNameV2 = (calledBy) => {
-    switch (calledBy) {
-      case 'bell': {
-        return 'hideAlways';
-      }
-      default: {
-        return 'hideWhenLarge';
-      }
-    }
+  handleMobileMenuItemClick = (id) => {
+    document.querySelector(`#${id}`).classList.toggle('open');
   }
 
   render() {
     return (
       <div className="navbarContainer paddingNone">
-        <Container fluid className="paddingNone">
-          <Navbar color="faded" light expand="md" className="h-80 paddingNone">
-            <Row className="hideWhenLarge">
-              <Col md={4} className="d-flex justify-content-between align-items-center">
-                <div className={this.customHeaderSmallClassNameV1(this.props.callingPage)}>
-                  <button className="navbar-toggler ml-auto custom-toggler" type="button" onClick={this.toggle} >
-                    <span className="navbar-toggler-icon" />
-                  </button>
-                </div>
-                <div className={this.customHeaderSmallClassNameV1(this.props.callingPage)}>
-                  <NavItem>
-                    <NavLink className="actionLinkMediaSmall actionLink pl-4 pr-4 pt-1 pb-1">{this.buttonActionText(this.props.callingPage)}</NavLink>
-                  </NavItem>
-                </div>
-                <div className={this.customHeaderSmallClassNameV1(this.props.callingPage)}>
-                  <NavbarBrand href="/">
-                    <img className="coveLogoCircle" src="/static/images/coveLogoCircle.png" alt="coveLogoCircle" />
-                  </NavbarBrand>
-                </div>
-
-                <div className={this.customHeaderSmallClassNameV2(this.props.callingPage)}>
-                  <NavbarBrand href="/">
-                    <img className="coveLogo" src={this.logoPath} height="32" alt="Cove Logo" />
-                  </NavbarBrand>
-                </div>
-
-                <div className={this.customHeaderSmallClassNameV2(this.props.callingPage)}>
-                  <button className="navbar-toggler ml-auto custom-toggler" type="button" onClick={this.toggle} >
-                    <span className="navbar-toggler-icon" />
-                  </button>
-                </div>
-                <div className={this.customHeaderSmallClassNameV2(this.props.callingPage)}>
-                  <NavItem>
-                    <NavLink className="actionLinkMediaSmall actionLink pl-4 pr-4 pt-1 pb-1">{this.buttonActionText(this.props.callingPage)}</NavLink>
-                  </NavItem>
-                </div>
-              </Col>
-            </Row>
-          </Navbar>
-        </Container>
-
         <Container fluid>
           <Navbar color="faded" light expand="md" className="h-80">
-
             <Row className="hideWhenSmall">
-              <Col md={2} className="d-flex justify-content-end align-items-center">
+              <div className="d-flex justify-content-end align-items-center">
                 <NavbarBrand className="hideWhenSmall" href="/">
                   <img className="hideWhenSmall coveLogo" src={this.logoPath} height="32" alt="Cove Logo" />
                 </NavbarBrand>
-              </Col>
-              <Col md={10}>
+              </div>
+              <Col>
                 <Collapse isOpen={this.state.isOpen} navbar>
                   <Row>
-                    <Col md={7}>
-                      <Nav className="d-flex align-items-center justify-content-between" navbar>
+                    <div>
+                      <Nav className="d-flex align-items-center justify-content-start" navbar>
                         <NavItem>
                           <Link href="/"><NavLink href="" className="navLink">Alarm System</NavLink></Link>
                         </NavItem>
                         <NavItem>
-                          <Link href="/"><NavLink href="" className="navLink">{this.safetyText(this.props.callingPage)}</NavLink></Link>
+                          <NavLink className="navLink" onClick={this.toggleDropdown}>Smoke + Flood + CO Alarm
+                            <div className="dropdown invisible">
+                              <div className="d-flex">
+                                <Col xs={4}>
+                                  <Link href="/products/smoke-detector">
+                                    <div className="dropdown__item">
+                                      <img className="dropdown__image" src="/static/images/product/smoke-detector/smoke-detector-front.jpg" />
+                                      <span className="dropdown__text">Smoke/Heat/Freeze</span>
+                                    </div>
+                                  </Link>
+                                </Col>
+                                <Col xs={4}>
+                                  <Link href="/products/flood-detection-sensor">
+                                    <div className="dropdown__item">
+                                      <img className="dropdown__image" src="/static/images/product/flood-detection-sensor/flood-detection-sensor-front.jpg" />
+                                      <span className="dropdown__text">Flood/Freeze</span>
+                                    </div>
+                                  </Link>
+                                </Col>
+                                <Col xs={4}>
+                                  <Link href="/products/carbon-monoxide-detector">
+                                    <div className="dropdown__item">
+                                      <img className="dropdown__image" src="/static/images/product/carbon-monoxide-detector/carbon-monoxide-front.jpg" />
+                                      <span className="dropdown__text">Carbon Monoxide</span>
+                                    </div>
+                                  </Link>
+                                </Col>
+                              </div>
+                            </div>
+                          </NavLink>
                         </NavItem>
                         <NavItem>
-                          <Link href="/"><NavLink href="" className="navLink">{this.medicalText(this.props.callingPage)}</NavLink></Link>
+                          <Link href="/"><NavLink href="" className="navLink">Medical</NavLink></Link>
                         </NavItem>
                         <NavItem>
-                          <Link href="/"><NavLink href="" className="navLink">Camera</NavLink></Link>
+                          <NavLink onClick={this.toggleDropdown} className="navLink">Camera
+                            <div className="dropdown invisible">
+                              <div className="d-flex">
+                                <Col xs={6}>
+                                  <Link href="/products/doorbell-camera">
+                                    <div className="dropdown__item">
+                                      <img className="dropdown__image" src="/static/images/product/doorbell-camera/doorbell-camera-front.jpg" />
+                                      <span className="dropdown__text">Cove Bell</span>
+                                    </div>
+                                  </Link>
+                                </Col>
+                                <Col xs={6}>
+                                  <Link href="/products/home-security-camera">
+                                    <div className="dropdown__item">
+                                      <img className="dropdown__image" src="/static/images/product/home-security-camera/home-security-camera-front.jpg" />
+                                      <span className="dropdown__text">Cove Cam</span>
+                                    </div>
+                                  </Link>
+                                </Col>
+                              </div>
+                            </div>
+                          </NavLink>
                         </NavItem>
                       </Nav>
-                    </Col>
-                    <Col md={2} className="d-flex align-items-center justify-content-end">
+                    </div>
+                    <Col className="d-flex align-items-center justify-content-end ml-auto">
                       <Nav navbar>
                         <NavItem>
                           <NavLink className="signinLink" id="Popover1" onClick={this.toggleSignupMenu}>Sign in</NavLink>
@@ -166,24 +154,76 @@ export default class Header extends React.Component {
                         </NavItem>
                       </Nav>
                     </Col>
-                    <Col md={2} className="d-flex align-items-center justify-content-start">
+                    <div className="d-flex align-items-center justify-content-start">
                       <div className="hideWhenSmall">
                         <Nav navbar>
                           <NavItem>
-                            <Link href="/"><NavLink className="actionLink pl-4 pr-4 pt-1 pb-1">{this.buttonActionText(this.props.callingPage)}</NavLink></Link>
+                            <Link href="/">
+                              <NavLink className="actionLink pl-4 pr-4 pt-1 pb-1">Shop Now</NavLink>
+                            </Link>
                           </NavItem>
                         </Nav>
                       </div>
-                    </Col>
-                    <Col md={1} className="d-flex align-items-center justify-content-start">
-                      <img className={this.imgStampClassName(this.props.callingPage)} src="/static/images/60dayStamp.png" alt="60DayStamp" />
-                    </Col>
+                    </div>
                   </Row>
                 </Collapse>
               </Col>
             </Row>
           </Navbar>
         </Container>
+        <div className="mobile-nav" onClick={this.handleMenuClick}>
+          <div className="d-flex align-items-center justify-content-center">
+            <div className="menu-button">
+              <span className="menu-button__bar"></span>
+              <span className="menu-button__bar"></span>
+              <span className="menu-button__bar"></span>
+            </div>
+            <div className="mobile-menu">
+              <div className="mobile-menu__column">
+                <Link href="/products/cove-touch">
+                  <a className="mobile-menu__item">
+                    <img className="mobile-menu__icon" src="/static/images/icons/alarmIcon.png" />
+                    <span className="mobile-menu__text">Alarm System</span>
+                  </a>
+                </Link>
+                <span id="smokeFlood" className="mobile-menu__item mobile-menu__item--submenu" onClick={() => this.handleMobileMenuItemClick('smokeFlood')}>
+                  <img className="mobile-menu__icon" src="/static/images/icons/fireIcon.png" />
+                  <span className="mobile-menu__text">Smoke + Flood + CO Alarm</span>
+                  <div className="mobile-menu__submenu">
+                    <Link href="/products/smoke-detector">
+                      <span className="mobile-menu__submenu-text">Smoke/Heat/Freeze</span>
+                    </Link>
+                    <Link href="/products/flood-detection-sensor">
+                      <span className="mobile-menu__submenu-text">Flood/Freeze</span>
+                    </Link>
+                    <Link href="/products/carbon-monoxide-detector">
+                      <span className="mobile-menu__submenu-text">Carbon Monoxide</span>
+                    </Link>
+                  </div>
+                </span>
+                <Link href="/products/medical-alert-device">
+                  <a className="mobile-menu__item">
+                    <img className="mobile-menu__icon" src="/static/images/icons/medicalIcon.png" />
+                    <span className="mobile-menu__text">Medical</span>
+                  </a>
+                </Link>
+                <span id="cameraItem" className="mobile-menu__item mobile-menu__item--submenu" onClick={() => this.handleMobileMenuItemClick('cameraItem')}>
+                  <img className="mobile-menu__icon" src="/static/images/icons/cameraIcon.png" />
+                  <span className="mobile-menu__text">Camera</span>
+                  <div className="mobile-menu__submenu">
+                    <Link href="/products/doorbell-camera">
+                      <span className="mobile-menu__submenu-text">Cove Doorbell</span>
+                    </Link>
+                    <Link href="/products/home-security-camera">
+                      <span className="mobile-menu__submenu-text">Cove Cam</span>
+                    </Link>
+                  </div>
+                </span>
+              </div>
+            </div>
+            <img className="coveLogo mobile-nav__logo" src={this.logoPath} height="32" alt="Cove Logo" />
+          </div>
+        </div>
         <style jsx>{s}</style>
       </div>
     );

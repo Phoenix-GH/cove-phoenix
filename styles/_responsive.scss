@@ -1,5 +1,11 @@
 @import 'variables';
 
+@mixin media-lg2 {
+  @media screen and (max-width: #{$width-lg2 - 1px}) {
+    @content;
+  }
+}
+
 @mixin media-lg {
   @media screen and (max-width: #{$width-lg - 1px}) {
     @content;
