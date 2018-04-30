@@ -54,15 +54,13 @@ export default class ProductPage extends Component {
                 <div className="product__comparison">
                   <h2 className="product__subheading product__subheading--pad-top">Cove vs Them</h2>
                   <p className="product__paragraph">Cove smoke detectors are all paired with our award-winning Cove Touch panel offering the “all-around easiest” customer experience in the industry.</p>
-                  <p className="product__paragraph--no-margin">More questions?</p>
-                  <a className="product__link" href="/">Chat with Us</a>
                 </div>
               </Col>
               <Col xs={6} sm={4}>
                 <div className="product__center">
                   <img src="/static/images/logoTeal.svg" height="32" alt="Cove Logo" />
                 </div>
-                <p className="product__compare-box">$20/mo<br/>Month-to-Month</p>
+                <p className="product__compare-box">$20/mo<br/><span className="product__compare-subtext">Month-to-Month</span></p>
                 <p className="product__compare-box">Control Anywhere</p>
                 <p className="product__compare-box">3 year warranty</p>
                 <p className="product__compare-box">No cancellation fees</p>
@@ -70,7 +68,7 @@ export default class ProductPage extends Component {
               </Col>
               <Col xs={6} sm={4}>
                 <h2 className="product__column-title">Not Us</h2>
-                <p className="product__compare-box product__compare-box--faded">$15-25/mo<br/>3-5 Year Contract</p>
+                <p className="product__compare-box product__compare-box--faded">$15-25/mo<br/><span className="product__compare-subtext">3-5 Year Contract</span></p>
                 <p className="product__compare-box product__compare-box--faded">Control from Home</p>
                 <p className="product__compare-box product__compare-box--faded">3 Years-Limited</p>
                 <p className="product__compare-box product__compare-box--faded">$100's - $1,000's</p>
@@ -79,7 +77,7 @@ export default class ProductPage extends Component {
             </Row>
             <div className="product__spacer" />
             <h2 className="product__subheading">Total Life Safety</h2>
-            <Row>
+            <Row className="no-gutter">
               <Col sm={6}>
                 <ul className="product__plain-list">
                   <li className="product__plain-list-item">Easy to use</li>
@@ -92,7 +90,7 @@ export default class ProductPage extends Component {
                 <img className="product__image-flex" alt="Smoke Detector" src="/static/images/product/smoke-detector/smoke-detector-crop.jpg" />
               </Col>
             </Row>
-            <Row>
+            <Row className="no-gutter">
               <Col sm={4}>
                 <p className="product__footnote">* Custom configured for furry secondary alarm systems, A.K.A. pet-friendly!</p>
               </Col>
@@ -100,9 +98,9 @@ export default class ProductPage extends Component {
             <div className="product__spacer" />
             <Row className="no-gutter">
               <Col xs={{ size: 12, order: 2 }} sm={{ size: 6, order: 1 }}>
-                <div className="product__column--large product__column--center">
+                <div className="product__column--large product__column--center product__column--no-pad-left">
                   <h2 className="product__subheading">Easy to Install</h2>
-                  <p className="product__text product__alt-font">Each smoke sensor is pre-coupled with your Cove Touch panel. You can custom select each name to help you identify where trouble might be afoot. With a couple touches of the screen you confirm each sensor is setup and ready to start protecting the ones you love.</p>
+                  <p className="product__paragraph product__alt-font">Each smoke sensor is pre-coupled with your Cove Touch panel. You can custom select each name to help you identify where trouble might be afoot. With a couple touches of the screen you confirm each sensor is setup and ready to start protecting the ones you love.</p>
                 </div>
               </Col>
               <Col xs={{ size: 12, order: 1 }} sm={{ size: 6, order: 2 }}>
@@ -124,11 +122,11 @@ export default class ProductPage extends Component {
               <Col sm={6} className="d-flex align-items-center">
                 <div className="product__column--medium product__column--center">
                   <h2 className="product__subheading">Easy to Use</h2>
-                  <p className="product__text product__alt-font">The smoke/heat/freeze sensors are active 24/7. We’ve engineered our smart devices to work with your individual needs. If your needs change, simply change the settings. No technician needed. Want only smoke and heat protection? Simply make those changes yourself with a few touches of the Cove Touch panel. Easy.</p>
+                  <p className="product__paragraph product__alt-font">The smoke/heat/freeze sensors are active 24/7. We’ve engineered our smart devices to work with your individual needs. If your needs change, simply change the settings. No technician needed. Want only smoke and heat protection? Simply make those changes yourself with a few touches of the Cove Touch panel. Easy.</p>
                 </div>
               </Col>
             </Row>
-            <Row>
+            <Row className="no-gutter">
               <Col xs={12} sm={6}>
                 <div className="product__column--large product__column--dark">
                   <img className="product__column-image" src="/static/images/product/cove-touch/cove-touch-square.jpg" alt="Smoke Detector Lifestyle" />

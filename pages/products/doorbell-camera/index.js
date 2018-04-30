@@ -53,15 +53,13 @@ export default class ProductPage extends Component {
                 <div className="product__comparison">
                   <h2 className="product__subheading product__subheading--pad-top">Cove vs Them</h2>
                   <p className="product__paragraph">Cove Bell is a doorbell camera that makes your home more secure and more enjoyable. No more wondering if you missed someone while you were out of town or wondering if a package arrived, you can know with your doorbell camera.</p>
-                  <p className="product__paragraph--no-margin">More questions?</p>
-                  <a className="product__link" href="/">Chat with Us</a>
                 </div>
               </Col>
               <Col xs={6} sm={4}>
                 <div className="product__center">
                   <img src="/static/images/logoTeal.svg" height="32" alt="Cove Logo" />
                 </div>
-                <p className="product__compare-box">$20/mo<br/>Month-to-Month</p>
+                <p className="product__compare-box">$20/mo<br/><span className="product__compare-subtext">Month-to-Month</span></p>
                 <p className="product__compare-box">Control Anywhere</p>
                 <p className="product__compare-box">3 year warranty</p>
                 <p className="product__compare-box">No cancellation fees</p>
@@ -69,7 +67,7 @@ export default class ProductPage extends Component {
               </Col>
               <Col xs={6} sm={4}>
                 <h2 className="product__column-title">Not Us</h2>
-                <p className="product__compare-box product__compare-box--faded">$15-25/mo<br/>3-5 Year Contract</p>
+                <p className="product__compare-box product__compare-box--faded">$15-25/mo<br/><span className="product__compare-subtext">3-5 Year Contract</span></p>
                 <p className="product__compare-box product__compare-box--faded">Control from Home</p>
                 <p className="product__compare-box product__compare-box--faded">3 Years-Limited</p>
                 <p className="product__compare-box product__compare-box--faded">$100's - $1,000's</p>
@@ -78,7 +76,7 @@ export default class ProductPage extends Component {
             </Row>
             <div className="product__spacer" />
             <h2 className="product__subheading">Total Life Safety</h2>
-            <Row>
+            <Row className="no-gutter">
               <Col sm={6}>
                 <ul className="product__plain-list">
                   <li className="product__plain-list-item">Easy to use</li>
@@ -91,7 +89,7 @@ export default class ProductPage extends Component {
                 <img className="product__image-flex" alt="Doorbell Camera" src="/static/images/product/doorbell-camera/doorbell-camera-crop.jpg" />
               </Col>
             </Row>
-            <Row>
+            <Row className="no-gutter">
               <Col sm={4}>
                 <p className="product__footnote">* Custom configured for furry secondary alarm systems, A.K.A. pet-friendly!</p>
               </Col>
@@ -99,9 +97,9 @@ export default class ProductPage extends Component {
             <div className="product__spacer" />
             <Row className="no-gutter">
               <Col xs={{ size: 12, order: 2 }} sm={{ size: 6, order: 1 }}>
-                <div className="product__column--large product__column--center">
+                <div className="product__column--large product__column--center product__column--no-pad-left">
                   <h2 className="product__subheading">Easy to Install</h2>
-                  <p className="product__text product__alt-font">Coming soon!</p>
+                  <p className="product__paragraph product__alt-font">Coming soon!</p>
                 </div>
               </Col>
               <Col xs={{ size: 12, order: 1 }} sm={{ size: 6, order: 2 }}>
@@ -123,11 +121,11 @@ export default class ProductPage extends Component {
               <Col sm={6} className="d-flex align-items-center">
                 <div className="product__column--medium product__column--center">
                   <h2 className="product__subheading">Easy to Use</h2>
-                  <p className="product__text product__alt-font">Coming soon!</p>
+                  <p className="product__paragraph product__alt-font">Coming soon!</p>
                 </div>
               </Col>
             </Row>
-            <Row>
+            <Row className="no-gutter">
               <Col xs={12} sm={6}>
                 <div className="product__column--large product__column--dark">
                   <img className="product__column-image" src="/static/images/product/cove-touch/cove-touch-square.jpg" alt="Doorbell Camera Lifestyle" />

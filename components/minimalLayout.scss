@@ -1,0 +1,15 @@
+@import "variables";
+
+.layout {
+    max-width: 1300px;
+    margin: 0 auto;
+    background: white;
+}
+
+:global(.container) {
+    background: white;
+}
+
+:global(body) {
+    background-color: $primary;
+}

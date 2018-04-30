@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import s from './minimalLayout.scss';
 
 const vwo = `<!-- Start Visual Website Optimizer Asynchronous Code -->
 var _vwo_code=(function(){
@@ -11,7 +12,7 @@ f=false,d=document;return{use_existing_jquery:function(){return use_existing_jqu
 <!-- End Visual Website Optimizer Asynchronous Code -->`;
 
 export default props => (
-  <div>
+  <div className="layout">
     <Head>
       <title>Cove</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
@@ -22,5 +23,6 @@ export default props => (
       <script type="text/javascript" dangerouslySetInnerHTML={{ __html: vwo }} />
     </Head>
     {props.children}
+    <style jsx>{s}</style>
   </div>
 );
