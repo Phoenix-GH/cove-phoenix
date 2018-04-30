@@ -1,5 +1,6 @@
 module.exports = () => ({
   '/': { page: '/' },
+  '/package-types': { page: '/packageTypes' },
   '/product': { page: '/product' },
   '/medical': { page: '/medical' },
   '/login': { page: '/login' },
