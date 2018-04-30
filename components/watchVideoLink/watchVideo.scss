@@ -22,11 +22,11 @@ a {
   }
   &.small {
     img {
-      width: 32px;
-      height: 32px;
+      width: 28px;
+      height: 28px;
     }
     span {
-      font-size: 19px;
+      font-size: 12px;
     }
   }
 }
@@ -39,6 +39,7 @@ a {
 }
 @media screen and (max-width: $width-md) {
   a {
+    text-align: center;
     span {
       font-size: 20px;
     }

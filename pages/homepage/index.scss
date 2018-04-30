@@ -2,250 +2,463 @@
 @import "variables";
 .homeContainer {
   background-color: $primary;
-  font-family: $font-gotham-rounded;
-  @media screen and (max-width: $width-md) {
-    margin-left: 27px;
-    margin-right: 27px;
-  }
-  .coverSection {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  .innerContainer {
     width: 100%;
-    background-image: url('/static/images/homepage2/homeback2-1.png');
-    background-size: cover;
-    position: relative;
-    height: 80vh;
-    .titleRow {
-      position: absolute;
+    font-family: $font-gotham-rounded;
+    background-color: white;
+    max-width: 1300px;
+    padding: 0 10px 0 10px;
+    .promotionSection {
       width: 100%;
-      top: 0;
+      background-color: $primary;
+      text-align: center;
+      padding: 18px 0 18px 0;
       color: white;
-      .coverLeftArea {
-        display: flex;
-        flex-direction: column;
-        margin: 124px 0 0 147px;
-        h1 {
-          font-size: 72px;
-          max-width: 543px;
-          font-weight: bold;
-        }
-        p {
-          max-width: 300px;
-          font-size: 25px;
-          font-weight: 500;
-        }
-      }
-
-      @media screen and (max-width: $width-lg) {
+      font-size: 13px;
+      display: none;
+    }
+    .coverSection {
+      width: 100%;
+      background-image: url('/static/images/homepage2/homeback2-1.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: relative;
+      height: 70vw;
+      max-height: 70vh;
+      .titleRow {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        color: white;
         .coverLeftArea {
+          display: flex;
+          flex-direction: column;
+          margin: 124px 0 0 147px;
           h1 {
-            font-size: 60px;
+            font-size: 72px;
+            max-width: 600px;
+            font-weight: bold;
           }
-          a {
-            span {
-              font-size: 40px;
+          p {
+            max-width: 300px;
+            font-size: 25px;
+            font-weight: 500;
+          }
+        }
+  
+        @media screen and (max-width: $width-lg) {
+          .coverLeftArea {
+            h1 {
+              font-size: 60px;
+            }
+            a {
+              span {
+                font-size: 40px;
+              }
+            }
+          }
+        }
+        @media screen and (max-width: $width-md) {
+          .coverLeftArea {
+            text-align: center;
+            margin-top: 10px;
+            height: 120vw;
+            margin: 20vw 56px 0 56px;
+            h1 {
+              font-size: 35px;
+              max-width: 100%;
+            }
+            p {
+              max-width: 100%;
+              font-size: 20px;
+            }
+            a {
+              span {
+                font-size: 20px;
+              }
             }
           }
         }
       }
       @media screen and (max-width: $width-md) {
-        .coverLeftArea {
-          text-align: center;
-          margin-top: 10px;
-          h1 {
-            font-size: 40px;
-            max-width: 100%;
-          }
-          a {
-            span {
-              font-size: 20px;
-            }
-          }
-        }
-      }
-      @media screen and (max-width: $width-sm) {
-        .coverLeftArea {
-          display: none;
-        }
-        .coverRightArea {
-          margin-top: 20px;
-          h1 {
-            font-size: 30px;
-          }
-          span {
-            font-size: 20px;
-          }
-        }
       }
     }
-    @media screen and (max-width: $width-md) {
-    }
-  }
-
-  .testimonialSection {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 10vw;
-    text-align: center;
-    color: $grey-700;
-    height: 80vh;
-    background-image: url('/static/images/homepage2/homeback2-2.png');
-    background-size: cover;
-
-    h2, p {
-      width: 84%;
-    }
-
-    h2 {
-      font-size: 55px;
-      font-weight: 500;
-      margin-bottom: 38px;
-    }
-
-    p {
-      font-size: 25px;
-      font-weight: 100;
-    }
-    .products {
-      div {
-        padding-left: 28px;
-        padding-right: 28px;
-        
-        .imageArea {
-          display: flex;
-          align-items: flex-end;
-          justify-content: center;
-          min-height: 247px;
-          padding-bottom: 20px;
-        }
-
-        img {
-          width: 100%;
-          &.coveAppImg {
-            width: 60%;
-          }
-        }
-
-        h3 {
-          font-size: 20px;
-          font-weight: 700;
-        }
-
-        p {
-          font-size: 12px;
-          font-weight: 100;
-        }
-      }
-    }
-    .link {
-      font-size: 16px;
-      color: $primary;
-    }
-    @media (max-width: $width-md) {
-      h2 {
-        font-size: 40px;
-      }
-      p {
-        width: 100%;
-        font-size: 12px;
-      }
-    }
-  }
-
-  .builtProductsSection {
-    width: 100%;
-    height: 80vh;
-    background-image: url('/static/images/homepage2/homeback2-3.png');
-    background-size: cover;
-    position: relative;
-    color: $grey-700;
-    font-family: $font-gotham-rounded;
-    padding: 153px;
-    h2 {
-      font-size: 40px;
-    }
-    ul {
-      display: flex;
-      flex-direction: row;
-      list-style: none;
-      font-size: 24px;
-      padding-left: 0;
-    }
-    p {
-      font-size: 14px;
-      font-family: $font-open-sans;
-      margin-top: 106px;
-      max-width: 305px;
-    }
-  }
-
-  .checkSection {
-    width: 100%;
-    position: relative;
-    background-image: url('/static/images/homepage2/homeback2-4.png');
-    background-size: cover;
-    padding: 125px 155px 3px 155px;
-    .checkRow {
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 122px;
-      .leftSide {
-        display: flex;
-        flex-direction: row;
-        align-items: start;
-        max-width: 400px;
-        h2 {
-          font-size: 40px;
-          font-weight: 500;
-          color: $grey-900;
-          margin-left: 40px;
-        }
-      }
-      p {
-        font-size: 20px;
-        font-family: $font-open-sans;
-      }
-    }
-  }
-
-  .center {
-    text-align: center;
-  }
-
-  .paySecuritySection {
-    color: $grey-1000;
-    margin-top: 107px;
-    width: 100%;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 118px 185px 145px 185px;
-    h2 {
-      font-size: 40px;
-      font-weight: bold;
-      max-width: 380px;
-      margin-bottom: 79px;
-      text-align: center;
-    }
-    .securityCol {
+  
+    .testimonialSection {
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      padding: 153px 153px 0 153px;
+      text-align: center;
+      color: $grey-700;
+      background-image: url('/static/images/homepage2/homeback2-2.png');
+      background-repeat: no-repeat;
+      background-size: 100%;
+      h2, p {
+        width: 84%;
+      }
+      h1 {
+        font-size: 60px;
+        font-weight: bold;
+        margin-bottom: 38px;
+      }
+  
+      p {
+        font-size: 24px;
+      }
+      .products {
+        div {
+          padding-left: 28px;
+          padding-right: 28px;
+            
+          img {
+            width: 100%;
+            &.coveAppImg {
+              width: 60%;
+            }
+          }
+  
+          h2 {
+            font-size: 32px;
+            font-weight: 500;
+          }
+  
+          p {
+            font-size: 24px;
+            font-weight: 500;
+          }
+        }
+      }
+      .link {
+        font-size: 16px;
+        color: $primary;
+        margin: 69px 0 68px 0;
+      }
+      @media (max-width: $width-md) {
+        h1 {
+          font-size: 30px;
+        }
+        p {
+          width: 100%;
+          font-size: 20px;
+        }
+        .products {
+          display: none;
+        }
+      }
+    }
+  
+    .builtProductsSection {
+      width: 100%;
+      position: relative;
+      color: $grey-700;
+      font-family: $font-gotham-rounded;
+      padding: 95px 153px 0 153px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      h2 {
+        font-size: 40px;
+      }
       ul {
-        margin-top: 41px;
+        margin-top: 98px;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        list-style: none;
+        font-size: 24px;
         padding-left: 0;
       }
-      h3 {
+      p {
+        font-size: 14px;
+        font-family: $font-open-sans;
+        margin-top: 106px;
+        max-width: 305px;
+      }
+      img {
+        width: 100%;
+      }
+      @media (max-width: $width-md) {
+        padding: 33px;
+        h2 {
+          font-size: 30px;
+          text-align: center;
+        }
+        ul {
+          li {
+            font-size: 14px;
+            font-family: $font-open-sans;
+          }
+        }
+        p {
+          width: 100%;
+        }
+      }
+    }
+  
+    .checkSection {
+      width: 100%;
+      position: relative;
+      background-image: url('/static/images/homepage2/homeback2-4.png');
+      background-size: cover;
+      padding: 125px 155px 3px 155px;
+      .checkRow {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 122px;
+        flex-wrap: wrap;
+        .leftSide {
+          display: flex;
+          flex-direction: row;
+          align-items: start;
+          max-width: 420px;
+          flex-wrap: wrap;
+          h2 {
+            font-size: 40px;
+            font-weight: 500;
+            color: $grey-900;
+            margin-left: 40px;
+          }
+        }
+        p {
+          font-size: 20px;
+          font-family: $font-open-sans;
+        }
+      }
+      @media (max-width: $width-md) {
+        padding: 30px 75px 30px 75px;
+        .checkRow {
+          margin-bottom: 30px;
+          .leftSide {
+            max-width: 100%;
+            :global(div) {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              h2 {
+                font-size: 26px;
+                margin-left: 0;
+                text-align: center;
+              }
+            }
+          }
+          p {
+            display: none;
+          }
+        }
+      }
+    }
+  
+    .center {
+      text-align: center;
+    }
+  
+    .paySecuritySection {
+      color: $grey-1000;
+      margin-top: 107px;
+      width: 100%;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 118px 185px 145px 185px;
+      h2 {
         font-size: 40px;
-        font-weight: 500;
-        margin-top: 48px;
+        font-weight: bold;
+        max-width: 380px;
+        margin-bottom: 79px;
+        text-align: center;
+      }
+      .securityCol {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        ul {
+          margin-top: 41px;
+          padding-left: 0;
+        }
+        h3 {
+          font-size: 40px;
+          font-weight: 500;
+          margin-top: 48px;
+        }
+        p {
+          font-size: 18;
+          font-weight: 500;
+          padding-left: 40px;
+        }
+      }
+      @media (max-width: $width-md) {
+        padding: 40px;
+        h2 {
+          font-size: 30px;
+        }
+        h3 {
+          font-size: 26px;
+        }
+        :global(.selectableButton) {
+          border: none;
+        }
+      }
+    }
+    .compareSection {
+      background-color: white;
+      display: flex;
+      padding-left: 153px;
+      padding-right: 153px;
+      font-weight: 500;
+      align-items: center;
+      flex-wrap: wrap;
+      .intro {
+        padding-right: 91px;
+      }
+      h1 {
+        font-size: 40px;
+      }
+      h2 {
+        font-size: 53.13px;
+      }
+      .green {
+        color: $primary--darker;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .disabled {
+        color: $grey-300;
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .chat {
+        font-size: 24px;
+        color: $primary;
       }
       p {
-        font-size: 18;
-        font-weight: 500;
-        padding-left: 40px;
+        font-size: 18px;
+        margin-top: 42px;
       }
+      .square {
+        border: 1px solid $grey-500;
+        text-align: center;
+        font-size: 26px;
+        padding: 26px 0 26px 0;
+        color: $grey-900;
+        margin-bottom: 13px;
+        .subtitle {
+          font-size: 20px;
+        }
+        &.first {
+          padding: 11px 0 11px 0;
+        }
+      }
+      .notus {
+        color: $grey-300;
+        border-color: $grey-300;
+      }
+      @media (max-width: $width-md) {
+        text-align: center;
+        padding: 10px;
+        .square {
+          font-size: 14.19px;
+          border-color: $primary;
+        }
+        h2 {
+          font-size: 29.03px;
+        }
+        .moreQuestions, .chat {
+          display: none;
+        }
+      }
+    }
+    .familySection {
+      height: 80vw;
+      max-height: 80vh;
+      background-image: url('/static/images/homepage2/homeback2-5.png');
+      background-size: cover;
+      text-align: center;
+      color: white;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      .text {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        h1 {
+          font-size: 60px;
+          max-width: 556px;
+        }
+        p {
+          font-size: 24px;
+          max-width: 556px;
+          margin-top: 36px;
+        }
+      }
+      @media (max-width: $width-md) {
+        .text {
+          h1 {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+  .faqSection {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-size: 16px;
+    background-color: $primary;
+    padding: 35px 0 35px 0;
+    width: 100%;
+    div {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      flex-wrap: wrap-reverse;
+      button {
+        background: $primary--lightest;
+        border-radius: 5px;
+        padding: 14px 26px 14px 26px;
+        font-weight: bold;
+        color: white;
+        border: none;
+      }
+      a {
+        font-weight: 500;
+        margin-left: 20px;
+        color: white;
+      }
+    }
+    @media (max-width: $width-md) {
+      div {
+        flex-wrap: wrap-reverse;
+        flex-direction: column;
+        a {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+  @media (max-width: $width-md) {
+    margin: 0;
+  }
+
+  .desktopOnly {
+    @media (max-width: $width-md) {
+      display: none;
+    }
+  }
+  
+  .mobileOnly {
+    width: 100%;
+    @media (min-width: $width-md) {
+      display: none;
     }
   }
 }

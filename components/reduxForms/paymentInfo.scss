@@ -1,7 +1,7 @@
 @import "variables";
 .customerInfo {
   h3 {
-    margin: 60px 0 30px 0;
+    margin: 30px 0 30px 0;
     font-size: 24px;
     font-family: $font-gotham-rounded;
     font-weight: bold;
@@ -28,9 +28,7 @@
   p {
     margin: 20px 0 42px 0;
   }
-  :global {
-    .coveInput {
-      margin-top: 40px;
-    }
+  :global(.differentAddress) {
+    margin-bottom: 20px;
   }
 }

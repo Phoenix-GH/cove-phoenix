@@ -16,10 +16,8 @@
   p {
     font-size: 14px;
   }
-  :global {
-    .coveInput {
-      margin-top: 40px;
-    }
+  :global(.differentAddress) {
+    margin-bottom: 20px;
   }
 }
 

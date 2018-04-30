@@ -92,7 +92,7 @@ html, body, body>div:first-child, #__next, #__next>div:first-child,#__next>div:f
 }
 .rc-slider-mark {
   position: absolute;
-  top: 18px;
+  top: 25px;
   left: 0;
   width: 100%;
   font-size: 12px;

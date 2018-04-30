@@ -8,15 +8,15 @@ import createSagaMiddleware from 'redux-saga';
 import { createLogger } from 'redux-logger';
 import { fromJS } from 'immutable';
 import storage from 'localforage';
-import { composeWithDevTools } from 'redux-devtools-extension/developmentOnly';
+import { composeWithDevTools } from 'redux-devtools-extension';
 import { persistStore, persistReducer } from 'redux-persist';
 import thunkMiddleware from 'redux-thunk';
 
 import { tokenR } from '../redux/user/routine';
 import { getProductsR } from '../redux/general/routine';
 import { authMiddleware } from '../utils/api';
-import rootReducer from '../reducers';
-import rootSaga from '../sagas';
+import rootReducer from '../redux/reducers';
+import rootSaga from '../redux/sagas';
 
 export default function configureStore(initialState, history) {
   const sagaMiddleware = createSagaMiddleware();

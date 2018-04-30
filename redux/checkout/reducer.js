@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import _ from 'lodash';
-import { createAccountR, createOrderR, completeOrderR } from './routine';
+import { createAccountR, createOrderR, completeOrderR, orderConfirmationR } from './routine';
 import { getProductsR } from '../general/routine';
 import types from '../actionTypes';
 
@@ -20,23 +20,28 @@ const initialState = {
       price: 29.99,
     },
   },
+  order: {},
   checkout: {},
 };
 
 
 const checkoutHandlers = {
   [createAccountR.TRIGGER]: state => ({ ...state, loading: true }),
-  [createAccountR.SUCCESS]: (state, payload) => ({ ...state, ...payload }),
+  [createAccountR.SUCCESS]: (state, payload) => ({ ...state, account: { ...payload } }),
   [createAccountR.FAILURE]: (state, payload) => ({ ...state, error: payload }),
   [createAccountR.FULFILL]: state => ({ ...state, loading: false }),
   [createOrderR.TRIGGER]: state => ({ ...state, loading: true }),
-  [createOrderR.SUCCESS]: (state, payload) => ({ ...state, ...payload }),
+  [createOrderR.SUCCESS]: (state, payload) => ({ ...state, createOrder: { ...payload } }),
   [createOrderR.FAILURE]: (state, payload) => ({ ...state, error: payload }),
   [createOrderR.FULFILL]: state => ({ ...state, loading: false }),
   [completeOrderR.TRIGGER]: state => ({ ...state, loading: true }),
-  [completeOrderR.SUCCESS]: (state, payload) => ({ ...state, ...payload }),
+  [completeOrderR.SUCCESS]: (state, payload) => ({ ...state, completeOrder: { ...payload } }),
   [completeOrderR.FAILURE]: (state, payload) => ({ ...state, error: payload }),
   [completeOrderR.FULFILL]: state => ({ ...state, loading: false }),
+  [orderConfirmationR.TRIGGER]: state => ({ ...state, loading: true }),
+  [orderConfirmationR.SUCCESS]: (state, payload) => ({ ...state, orderConfirmation: { ...payload } }),
+  [orderConfirmationR.FAILURE]: (state, payload) => ({ ...state, error: payload }),
+  [orderConfirmationR.FULFILL]: state => ({ ...state, loading: false }),
 };
 
 const cartHandlers = {
@@ -74,7 +79,15 @@ const planHandlers = {
     ...state,
     monitoringPlan,
   }),
-  [createAccountR.SUCCESS]: (state, payload) => ({ ...state, tax: payload.tax }),
+  [createAccountR.SUCCESS]: (state, payload) => ({
+    ...state,
+    tax: payload.tax,
+    accountGuid: payload.accountGuid,
+  }),
+};
+
+const orderHandlers = {
+  [types.MOVE_CART_TO_ORDERED]: (state, payload) => payload,
 };
 
 const cartItemIds = (state = initialState.cartItemIds, { type, payload }) => {
@@ -105,6 +118,13 @@ const planDetails = (state = initialState.planDetails, { type, payload }) => {
   return state;
 };
 
+const order = (state = initialState.order, { type, payload }) => {
+  if (orderHandlers[type]) {
+    return orderHandlers[type](state, payload);
+  }
+  return state;
+};
+
 const monitoringPlans = (state = initialState.monitoringPlans) => state;
 export default combineReducers({
   cartItemIds,
@@ -112,4 +132,5 @@ export default combineReducers({
   checkout,
   planDetails,
   monitoringPlans,
+  order,
 });
