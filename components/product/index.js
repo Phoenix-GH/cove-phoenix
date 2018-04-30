@@ -63,6 +63,7 @@ export default class Product extends Component {
       modal,
       selectedView,
     } = this.state;
+
     return (
       <Container>
         <div className="productContent" >

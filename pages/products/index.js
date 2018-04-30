@@ -84,7 +84,9 @@ class ProductPage extends Component {
     return (
       <Layout>
         <Header color="secondary" callingPage="products" />
-        <Product product={product[0]} />
+        {products.length &&
+          <Product product={product[0]} />
+        }
         <Footer color="secondary" />
         <style jsx>{styles}</style>
       </Layout>
