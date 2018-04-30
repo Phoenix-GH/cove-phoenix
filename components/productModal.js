@@ -19,7 +19,7 @@ const ProductModal = (props) => {
     className,
     changeQuantity,
   } = props;
-  console.log('P', product)
+
   return (
     <Modal isOpen={isOpen} toggle={toggle} className={className} size="lg">
       <ModalBody>

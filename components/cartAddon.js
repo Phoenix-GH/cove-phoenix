@@ -12,7 +12,6 @@ const getPriceClasses = (props) => {
 }
 
 const CartAddon = (props) => {
-  console.log('here', props)
   const quantity = props.product.quantity ? props.product.quantity : 0;
   const {
     thumbSrc,
