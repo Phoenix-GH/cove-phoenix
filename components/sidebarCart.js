@@ -68,7 +68,7 @@ class SidebarCart extends Component {
         </Row>
         <Row>
           <Col xs={12}>
-            <Link href="/coveclub">
+            <Link href="/monitoring-plan">
               <div className="addToCartBtn">
                 Add to cart
               </div>
