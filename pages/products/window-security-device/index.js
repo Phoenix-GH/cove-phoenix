@@ -63,7 +63,7 @@ export default class ProductPage extends Component {
                 <div className="product__center">
                   <img src="/static/images/logoTeal.svg" height="32" alt="Cove Logo" />
                 </div>
-                <p className="product__compare-box">$20/mo<br/>Month-to-Month</p>
+                <p className="product__compare-box">$20/mo<br/><span className="product__compare-subtext">Month-to-Month</span></p>
                 <p className="product__compare-box">Control Anywhere</p>
                 <p className="product__compare-box">3 year warranty</p>
                 <p className="product__compare-box">No cancellation fees</p>
@@ -71,7 +71,7 @@ export default class ProductPage extends Component {
               </Col>
               <Col xs={6} sm={4}>
                 <h2 className="product__column-title">Not Us</h2>
-                <p className="product__compare-box product__compare-box--faded">$15-25/mo<br/>3-5 Year Contract</p>
+                <p className="product__compare-box product__compare-box--faded">$15-25/mo<br/><span className="product__compare-subtext">3-5 Year Contract</span></p>
                 <p className="product__compare-box product__compare-box--faded">Control from Home</p>
                 <p className="product__compare-box product__compare-box--faded">3 Years-Limited</p>
                 <p className="product__compare-box product__compare-box--faded">$100's - $1,000's</p>
@@ -101,9 +101,9 @@ export default class ProductPage extends Component {
             <div className="product__spacer" />
             <Row className="no-gutter">
               <Col xs={{ size: 12, order: 2 }} sm={{ size: 6, order: 1 }}>
-                <div className="product__column--large product__column--center">
+                <div className="product__column--large product__column--center product__column--no-pad-left">
                   <h2 className="product__subheading">Easy to Install</h2>
-                  <p className="product__text product__alt-font">Each window sensor is pre-coupled with your Cove Touch panel. You can custom select each sensor name to help you find its place in your home. With a couple touches of the screen you confirm each sensor is setup and ready to start protecting the ones you love.</p>
+                  <p className="product__paragraph product__alt-font">Each window sensor is pre-coupled with your Cove Touch panel. You can custom select each sensor name to help you find its place in your home. With a couple touches of the screen you confirm each sensor is setup and ready to start protecting the ones you love.</p>
                 </div>
               </Col>
               <Col xs={{ size: 12, order: 1 }} sm={{ size: 6, order: 2 }}>
@@ -125,7 +125,7 @@ export default class ProductPage extends Component {
               <Col sm={6} className="d-flex align-items-center">
                 <div className="product__column--medium product__column--center">
                   <h2 className="product__subheading">Easy to Use</h2>
-                  <p className="product__text product__alt-font">Arm the entire system or a single sensor - Cove is yours. You decide what it does. We’ve engineered our smart devices to work with your individual needs. If your needs change, simply change the settings. No technician needed. Adding a basement window access point? Simply order another window sensor and add it to your alarm system arsenal yourself. Easy.</p>
+                  <p className="product__paragraph product__alt-font">Arm the entire system or a single sensor - Cove is yours. You decide what it does. We’ve engineered our smart devices to work with your individual needs. If your needs change, simply change the settings. No technician needed. Adding a basement window access point? Simply order another window sensor and add it to your alarm system arsenal yourself. Easy.</p>
                 </div>
               </Col>
             </Row>
