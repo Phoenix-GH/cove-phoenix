@@ -29,6 +29,9 @@ a {
       font-size: 12px;
     }
   }
+  .gotham {
+    font-family: $font-gotham-rounded;
+  }
 }
 @media screen and (max-width: $width-lg) {
   a {

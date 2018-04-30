@@ -3,7 +3,16 @@ import PropTypes from 'prop-types';
 import cx from 'classnames';
 import styles from './cartAddon.scss';
 
+const getPriceClasses = (props) => {
+  if (props.showDetails) {
+    return 'price';
+  } else {
+    return 'price price--large';
+  }
+}
+
 const CartAddon = (props) => {
+  console.log('here', props)
   const quantity = props.product.quantity ? props.product.quantity : 0;
   const {
     thumbSrc,
@@ -11,6 +20,7 @@ const CartAddon = (props) => {
     changeQuantity,
     detailAction,
     index,
+    showDetails
   } = props;
   const outOfStockClass = cx({
     disabled: quantity === 0,
@@ -18,20 +28,20 @@ const CartAddon = (props) => {
 
   return (
     <div className="cartAddons">
-      <Row>
+      <Row className="no-gutters">
         <Col xs={3} className="no-gutters noPadding">
           <div className="noPadding">
             <img src={thumbSrc} alt="thumb" />
           </div>
         </Col>
-        <Col xs={7}>
+        <Col xs={7} className="d-flex align-items-center">
           <div className="controlCol">
-            <Row>
-              <Col className="productLabel" xs={12}>
-                {product.display_name}
+            <Row className="no-gutters">
+              <Col xs={12}>
+                <span className="productLabel">{product.display_name}</span>
               </Col>
             </Row>
-            <Row>
+            <Row className="no-gutters">
               <Col xs={10}>
                 <div className="priceTab">
                   <button
@@ -51,11 +61,13 @@ const CartAddon = (props) => {
             </Row>
           </div>
         </Col>
-        <Col xs={2} className="noPaddingLeft">
-          <div className="price">${product.price}</div>
-          <a href="#details" className="detailsCol" onClick={() => detailAction(index)}>
+        <Col xs={2} className="d-flex flex-column justify-content-center">
+          <div className={getPriceClasses(props)}>${product.price}</div>
+          { props.showDetails &&
+            <a href="#details" className="detailsCol" onClick={() => detailAction(index)}>
             Details
-          </a>
+            </a>
+          }
         </Col>
       </Row>
       <style jsx>{styles}</style>
@@ -69,6 +81,7 @@ CartAddon.propTypes = {
   thumbSrc: PropTypes.string,
   changeQuantity: PropTypes.func,
   detailAction: PropTypes.func,
+  showDetails: PropTypes.bool,
 };
 
 CartAddon.defaultProps = {
@@ -77,6 +90,7 @@ CartAddon.defaultProps = {
   thumbSrc: '/static/images/placeholderThumbSquare.png',
   changeQuantity: () => {},
   detailAction: () => {},
+  showDetails: false
 };
 
 export default CartAddon;
