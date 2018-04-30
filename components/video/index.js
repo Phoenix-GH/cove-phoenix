@@ -4,7 +4,7 @@ import s from './video.scss';
 const Video = () => {
   return (
     <div className="video">
-      <iframe src="https://www.youtube.com/embed/o6oaaeHvUhw" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/o6oaaeHvUhw?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
       <style jsx>{s}</style>
     </div>
   );

@@ -17,6 +17,7 @@ import Switcher from '../../components/switcher/switcher';
 import styles from './product.scss';
 import FooterMobile from '../../components/footer/footerMobile';
 import WatchVideoLink from '../../components/watchVideoLink/watchVideoLink';
+import Product from '../../components/product';
 
 const items = [
   {
@@ -52,31 +53,6 @@ class ProductPage extends Component {
     this.load();
   }
 
-  onExiting = () => {
-    this.animating = true;
-  }
-
-  onExited = () => {
-    this.animating = false;
-  }
-
-  next = () => {
-    if (this.animating) return;
-    const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
-    this.setState({ activeIndex: nextIndex });
-  }
-
-  previous = () => {
-    if (this.animating) return;
-    const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
-    this.setState({ activeIndex: nextIndex });
-  }
-
-  goToIndex = (newIndex) => {
-    if (this.animating) return;
-    this.setState({ activeIndex: newIndex });
-  }
-
   toggle = (productId) => {
     this.setState({
       modal: !this.state.modal,
@@ -108,69 +84,10 @@ class ProductPage extends Component {
     return (
       <Layout>
         <Header color="secondary" callingPage="products" />
-        <Container>
-          <div className="productContent" >
-            <Row>
-              <Col xl={8} lg={8} md={12} xs={12}>
-                <div className="productLeft">
-                  <h3>Cove Door Sensor</h3>
-                  <Switcher list={['Overview', 'Details']} selected={selectedView} onSelect={index => this.changeView(index)} />
-                  <div className="productCarousel">
-                    <img src="/static/images/products/product-product.png" alt="product" className="productImage" />
-                    <Row>
-                      <ul className="mx-auto list-inline productSliderThumbs">
-                        {items.map(item => (
-                          <li className="list-inline-item" key={item.src + Math.random()}>
-                            <img src={item.src} alt="thumb" />
-                          </li>
-                          ))
-                        }
-                      </ul>
-                    </Row>
-                  </div>
-                  <div className="center">
-                    <WatchVideoLink title="Watch Install Video" size="medium" />
-                  </div>
-                </div>
-              </Col>
-              <Col xl={4} lg={4} md={0} sm={0} className="no-gutters">
-                <SidebarCart
-                  products={product}
-                  detailAction={this.toggle}
-                  headerText={headerText}
-                />
-              </Col>
-            </Row>
-          </div>
-        </Container>
-        <Row>
-          <div className="desktopOnly">
-            <Row>
-              <Col md={12} className="d-flex justify-content-middle align-items-center">
-                <div className="divFull" >
-                  <Footer color="secondary" />
-                </div>
-              </Col>
-            </Row>
-          </div>
-          <div className="mobileOnly">
-            <FooterMobile color="secondary" />
-          </div>
-          <Row>
-            <div className="bottomSection">
-              &nbsp;
-            </div>
-          </Row>
-        </Row>
-        {products[activeProduct] ?
-          <ProductModal
-            isOpen={modal}
-            toggle={this.toggle}
-            product={products[activeProduct]}
-            className="productModal"
-          />
-          : ''
+        {products.length &&
+          <Product product={product[0]} />
         }
+        <Footer color="secondary" />
         <style jsx>{styles}</style>
       </Layout>
     );

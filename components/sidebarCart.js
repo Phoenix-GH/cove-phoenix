@@ -45,6 +45,7 @@ class SidebarCart extends Component {
               product={productById[products[key].id]}
               detailAction={detailAction}
               changeQuantity={this.changeQuantity}
+              showDetails={this.props.showDetails}
             />))
         }
         <div className="packRow">
@@ -87,6 +88,7 @@ SidebarCart.propTypes = {
   detailAction: PropTypes.func,
   changeQuantity: PropTypes.func,
   checkout: PropTypes.object,
+  showDetails: PropTypes.bool,
 };
 
 SidebarCart.defaultProps = {
@@ -95,6 +97,7 @@ SidebarCart.defaultProps = {
   cart: {},
   detailAction: () => {},
   changeQuantity: () => {},
+  showDetails: true
 };
 
 const mapStateToProps = ({ checkout }) => ({ checkout });

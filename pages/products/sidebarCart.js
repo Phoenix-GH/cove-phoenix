@@ -44,9 +44,10 @@ class SidebarCart extends Component {
               product={productById[products[key].id]}
               detailAction={detailAction}
               changeQuantity={this.changeQuantity}
+              showDetails={false}
             />))
         }
-        <Row>
+        <Row className="justify-content-end">
           <Link href="/coveclub">
             <div className="addToCartBtn">
               Add to cart
@@ -64,6 +65,7 @@ SidebarCart.propTypes = {
   cart: PropTypes.object,
   detailAction: PropTypes.func,
   changeQuantity: PropTypes.func,
+  showDetails: PropTypes.bool,
 };
 
 SidebarCart.defaultProps = {
@@ -71,6 +73,7 @@ SidebarCart.defaultProps = {
   cart: null,
   detailAction: () => {},
   changeQuantity: () => {},
+  showDetails: false,
 };
 
 const mapStateToProps = ({ checkout }) => ({ checkout });

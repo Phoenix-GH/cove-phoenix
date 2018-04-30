@@ -7,6 +7,7 @@ import {
   ModalBody,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
+import Product from './product';
 import s from './productModal.scss';
 
 const ProductModal = (props) => {
@@ -18,12 +19,13 @@ const ProductModal = (props) => {
     className,
     changeQuantity,
   } = props;
+
   return (
     <Modal isOpen={isOpen} toggle={toggle} className={className} size="lg">
       <ModalBody>
         <Row>
           <Col xs={11}>
-            <h2 className={s.modalHeader}>{product.display_name}</h2>
+            <div />
           </Col>
           <Col xs={1}>
             <div className={s.closeIcon}>
@@ -31,55 +33,7 @@ const ProductModal = (props) => {
             </div>
           </Col>
         </Row>
-        <Row>
-          <Col xs={6}>
-            <div className={s.productImageMain}>
-              <img src="/static/images/placeholderBig.png" className="img-fluid" alt="placeholderBig" />
-            </div>
-            <ul className="list-inline productThumbs">
-              <li className="list-inline-item">
-                <img src="/static/images/placeholderThumb.png" alt="placeholderThumb" />
-              </li>
-              <li className="list-inline-item">
-                <img src="/static/images/placeholderThumb.png" alt="placeholderThumb" />
-              </li>
-              <li className="list-inline-item">
-                <img src="/static/images/placeholderThumb.png" alt="placeholderThumb" />
-              </li>
-            </ul>
-          </Col>
-          <Col xs={6}>
-            {product.description}
-            <div className={s.cartControlRow}>
-              <Row>
-                <Col xs={3}>
-                  <div className={s.productPrice}>
-                    ${product.price}
-                  </div>
-                </Col>
-                <Col xs={3}>
-                  <span className={s.quantityLabel}>Quantity</span>
-                  <ul className="list-inline quantityControls">
-                    <li className="list-inline-item">{quantity}</li>
-                    <li className="list-inline-item">
-                      <button onClick={() => changeQuantity(product.id, quantity, quantity + 1)}><img src="/static/images/plusIcon.png" alt="plus icon" /></button>
-                    </li>
-                    <li className={`list-inline-item ${quantity === 0 ? s.disabled: '' }`}>
-                      <img src="/static/images/minusIcon.png" alt="minus icon"  onClick={() => props.changeQuantity(product.id, quantity, quantity - 1)}/>
-                    </li>
-                  </ul>
-                </Col>
-                <Col xs={6}>
-                  <Link href="/coveclub">
-                    <div className={`${s.addToCartBtn} mx-auto`}>
-                      Add to cart
-                    </div>
-                  </Link>
-                </Col>
-              </Row>
-            </div>
-          </Col>
-        </Row>
+        <Product product={product} />
       </ModalBody>
     </Modal>
   );

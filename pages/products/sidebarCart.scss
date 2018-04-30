@@ -1,7 +1,7 @@
 @import 'variables';
 
 .cartColumn {
-  max-width: 368px;
+  width: 100%;
   margin: 120px 0 15px 0;
   font-family: $font-gotham-rounded;
   h4 {
@@ -21,7 +21,7 @@
       font-size: 16px;
       margin: 51px 0 141px 0;
       float: right;
-    }  
+    }
   }
   @media (max-width: $width-md) {
     width: 100%;
@@ -36,13 +36,14 @@
 .addToCartBtn {
   color: white;
   width: 100%;
+  max-width: 50%;
   height: 40px;
   border-radius: 5px;
   background: $secondary-color;
   font-size: 14px;
   text-align: center;
   font-family: $font-gotham-rounded;
-  font-weight: bold;
+  font-weight: 500;
   padding: 12px 0 12px 0;
   margin: 51px 0 28px 0;
   cursor: pointer;
