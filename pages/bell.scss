@@ -134,13 +134,13 @@
 }
 
 .desktopOnly {
-  @media (max-width: 767px) {
+  @media (max-width: $width-md) {
     display:none;
   }
 }
 
 .mobileOnly {
-  @media (min-width: 767px) {
+  @media (min-width: $width-md) {
     display:none;
   }
 }

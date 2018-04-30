@@ -13,7 +13,6 @@ import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../../store';
-import { loadProducts } from '../../actions';
 import { getProductsR } from '../../redux/general/routine';
 import Layout from '../../components/minimalLayout';
 import Header from '../../components/header';
@@ -259,7 +258,7 @@ class ProductPage extends Component {
 
 ProductPage.propTypes = {
   products: PropTypes.object,
-  loadProducts: PropTypes.func,
+  getProductsR: PropTypes.func,
 };
 
 ProductPage.defaultProps = {
@@ -267,7 +266,7 @@ ProductPage.defaultProps = {
   getProductsR: () => {},
 };
 
-const mapStateToProps = ({ cart, products, general }) => ({ cart, products, general });
+const mapStateToProps = ({ general }) => ({ general });
 
 const mapDispatchToProps = {
   getProductsR,

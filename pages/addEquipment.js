@@ -8,8 +8,8 @@ import {
 } from 'reactstrap';import Link from 'next/link';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
+import { getProductsR } from '../redux/general/routine';
 import initStore from '../store';
-import { loadProducts } from '../actions';
 import Input from '../components/input';
 import Radio from '../components/radio';
 import Header from '../components/header';
@@ -22,7 +22,6 @@ const items = [
 ];
 
 class AddEquipmentPage extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -72,7 +71,7 @@ class AddEquipmentPage extends Component {
   }
 
   load = () => {
-    this.props.loadProducts();
+    this.props.getProductsR();
   }
 
   render() {
@@ -204,12 +203,10 @@ class AddEquipmentPage extends Component {
 }
 
 
-const mapStateToProps = ({ cart, products }) => ({ cart, products});
+const mapStateToProps = ({ cart, products }) => ({ cart, products });
 
-const mapDispatchToProps = dispatch => {
-  return {
-    loadProducts: bindActionCreators(loadProducts, dispatch)
-  }
-}
+const mapDispatchToProps = {
+  getProductsR,
+};
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(AddEquipmentPage);

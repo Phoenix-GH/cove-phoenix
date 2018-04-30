@@ -82,6 +82,7 @@ class ShippingInfo extends Component {
                 name="shipAddress.differentShipAddress"
                 label="Shipping info is different than Monitored Address."
                 component={Checkbox}
+                className="differentAddress"
                 onClick={this.toggleShippingAddress}
               />
             </div>

@@ -6,17 +6,19 @@ import {
   CarouselIndicators,
   CarouselControl,
   CarouselCaption,
+  Row,
 } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import withRedux from 'next-redux-wrapper';
 import initStore from '../../store';
-import { loadProducts } from '../../actions';
+import { getProductsR } from '../../redux/general/routine';
 import Layout from '../../components/minimalLayout';
 import Header from '../../components/header';
 import Footer from '../../components/footer/footer';
 import ProductCarousel from './productCarousel';
 import ProductCategory from './category';
+import FooterMobile from '../../components/footer/footerMobile';
 import GreenButton from '../../components/greenButton/greenButton';
 import RiskFreeSection from '../../components/riskFreeSection/riskFreeSection';
 
@@ -150,7 +152,7 @@ class ProductWalkthrough extends Component {
   }
 
   load = () => {
-    this.props.loadProducts();
+    this.props.getProductsR();
   }
 
   changeView = () => {
@@ -223,9 +225,27 @@ class ProductWalkthrough extends Component {
           </div>
           <ProductCarousel products={items} />
           <ProductCategory categories={categories} />
-          <RiskFreeSection />
+          <RiskFreeSection isContentHidden={false} />
         </div>
-        <Footer />
+        <Row>
+          <div className="desktopOnly">
+            <Row>
+              <Col md={12} className="d-flex justify-content-middle align-items-center">
+                <div className="divFull" >
+                  <Footer color="secondary" />
+                </div>
+              </Col>
+            </Row>
+          </div>
+          <div className="mobileOnly">
+            <FooterMobile color="secondary" />
+          </div>
+          <Row>
+            <div className="bottomSection">
+              &nbsp;
+            </div>
+          </Row>
+        </Row>
         <style jsx>{styles}</style>
       </Layout>
     );
@@ -233,17 +253,17 @@ class ProductWalkthrough extends Component {
 }
 
 ProductWalkthrough.propTypes = {
-  loadProducts: PropTypes.func,
+  getProductsR: PropTypes.func,
 };
 
 ProductWalkthrough.defaultProps = {
-  loadProducts: () => {},
+  getProductsR: () => {},
 };
 
 const mapStateToProps = ({ cart, products }) => ({ cart, products });
 
-const mapDispatchToProps = dispatch => ({
-  loadProducts: bindActionCreators(loadProducts, dispatch),
-});
+const mapDispatchToProps = {
+  getProductsR,
+};
 
 export default withRedux(initStore, mapStateToProps, mapDispatchToProps)(ProductWalkthrough);

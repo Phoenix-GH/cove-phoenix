@@ -29,10 +29,10 @@ export default () => (
             Monthly monitoring
           </Col>
           <Col xs={6} md={3} className="pcTableColMid">
-            $19.99
+            $19.99/mo
           </Col>
           <Col xs={6} md={3} className="pcTableColRight">
-            $44.99
+            $44.99/mo
           </Col>
         </Row>
         <Row>
@@ -44,8 +44,8 @@ export default () => (
           </Col>
           <Col xs={6} md={3} className="pcTableColRight">
             High as $2000
-            <p style={{ fontSize: '10px' }}>
-              Crazy, we know
+            <p style={{ fontSize: '12px', fontWeight: '300' }}>
+              Crazy, we know!
             </p>
           </Col>
         </Row>
@@ -58,17 +58,6 @@ export default () => (
           </Col>
           <Col xs={6} md={3} className="pcTableColRight">
             1 - 3 weeks
-          </Col>
-        </Row>
-        <Row>
-          <Col xs={12} md={6} className="pcTableColLeft" >
-            Equipment payment at 0% APR
-          </Col>
-          <Col xs={6} md={3} className="pcTableColMid">
-            Yes
-          </Col>
-          <Col xs={6} md={3} className="pcTableColRight">
-            No
           </Col>
         </Row>
         <Row className="lastRow">

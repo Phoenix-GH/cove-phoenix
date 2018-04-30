@@ -219,6 +219,7 @@ class CheckoutPage extends Component {
                 <div className={paymentPageClassName}>
                   <PaymentInfo
                     onChangeHandler={this.onChangeHandler}
+                    formData={this.props.form.checkout_payment}
                   />
                 </div>
                 <div className="footerControls">
@@ -269,13 +270,14 @@ class CheckoutPage extends Component {
 CheckoutPage.propTypes = {
   stage: PropTypes.string,
   createAccount: PropTypes.func.isRequired,
-  authSession: PropTypes.func.isRequired,
   verifyContact: PropTypes.func.isRequired,
   createOrder: PropTypes.func.isRequired,
   completeOrder: PropTypes.func.isRequired,
-  url: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
   form: PropTypes.object,
+  createAccountR: PropTypes.func.isRequired,
+  createOrderR: PropTypes.func.isRequired,
+  completeOrderR: PropTypes.func.isRequired,
 };
 
 CheckoutPage.defaultProps = {
@@ -284,23 +286,18 @@ CheckoutPage.defaultProps = {
     customer_checkout: {
       values: {},
     },
+    customer_payment: {
+      values: { billAddress: {} },
+    },
   },
 };
 
 const mapStateToProps = ({
-  cart,
-  products,
-  payment,
-  customer,
   checkout,
   session,
   auth,
   form,
 }) => ({
-  cart,
-  products,
-  payment,
-  customer,
   checkout,
   session,
   auth,
