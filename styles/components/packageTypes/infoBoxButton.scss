@@ -1,0 +1,17 @@
+@import "variables";
+
+.info-box-button {
+  border: 1.5px solid $primary--lighter;
+  padding: 8.5px 28px;
+  font-size: 18px;
+  height: 40px;
+  outline: none;
+  float: right;
+  line-height: 1.35;
+  color: $primary;
+  font-weight: 700;
+  &:hover,
+  &:visited {
+    color: $primary;
+  }
+}

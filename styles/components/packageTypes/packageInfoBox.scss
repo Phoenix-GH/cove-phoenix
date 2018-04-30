@@ -1,0 +1,56 @@
+@import "variables";
+
+.package-info-box {
+  background-color: $secondary--lighter;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  display: inline-block;
+  max-width: 629px;
+  min-height: 597px;
+  margin: 0;
+  padding: 35px 70px 35px 71px;
+  @media screen and (max-width: $width-md) {
+    width: 100%;
+    border-radius: 5px;
+    min-height: 100%;
+    padding: 30px;
+  }
+
+  .price {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 1.4;
+    color: $grey-700;
+  }
+
+  h2 {
+    font-size: 55px;
+    font-weight: 700;
+    color: $grey-600;
+    line-height: 1.4;
+    margin-bottom: 45px;
+    @media screen and (max-width: $width-md) {
+      font-size: 45px;
+    }
+  }
+
+  p {
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 32px;
+    @media screen and (max-width: $width-md) {
+      font-size: 20px;
+    }
+  }
+
+  .box-footer {
+    margin-top: 45px;
+  }
+}
+
+.with-price {
+  .info-box-button {
+    float: right;
+  }
+}

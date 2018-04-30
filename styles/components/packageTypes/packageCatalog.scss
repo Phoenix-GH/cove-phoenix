@@ -1,0 +1,140 @@
+@import "variables";
+
+$border-color: #7e858b;
+
+.package-catalog-nav-tabs {
+  width: 1360px;
+  margin: 0 auto;
+  overflow: hidden;
+  @media screen and (max-width: 1360px) {
+    max-width: 100%;
+  }
+
+  :global(.catalog-tabs) {
+    border-bottom: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 0px;
+
+    @media screen and (max-width: 1360px) {
+      width: 629px;
+      overflow: hidden;
+      margin-bottom: -2px;
+    }
+
+    :global(.nav-item) {
+      margin: 0 auto -1px auto;
+      @media screen and (max-width: $width-md) {
+        margin: 0 5px -1px 5px;
+      }
+    }
+
+    :global(.nav-link) {
+      cursor: pointer;
+      height: 80px;
+      padding-left: 0;
+      padding-right: 0;
+      border: 1px solid $border-color;
+      width: 199px;
+      color: $grey-600;
+      text-align: center;
+      font-size: 45px;
+      background-color: $secondary--lighter;
+
+      @media screen and (max-width: 1360px) {
+        width: auto;
+        height: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-size: 20px;
+      }
+
+      @media screen and (max-width: $width-md) {
+        padding-left: 5px;
+        padding-right: 5px;
+        font-size: 12px;
+      }
+    }
+
+    :global(.nav-link.active) {
+      border-bottom-color: $secondary--lighter;
+      padding-bottom: 10px;
+    }
+  }
+
+  :global(.package-info-box) {
+    border-left: 1px solid $border-color;
+    height: 591.17px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    @media screen and (max-width: 1360px) {
+      max-width: 629px;
+    }
+  }
+
+  :global(.background-image) {
+    border-right: 1px solid $border-color;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+
+  :global(.package-info) {
+    border-bottom: 1px solid $border-color;
+    border-top: 1px solid $border-color;
+    border-radius: 5px;
+    padding-bottom: 1px;
+    background-color: $secondary--lighter;
+
+    @media screen and (max-width: 1360px) {
+      max-width: 100%;
+      overflow: hidden;
+    }
+
+    @media screen and (max-width: $width-md) {
+      max-width: 629px;
+      overflow: hidden;
+      border-right: 1px solid $border-color;
+    }
+  }
+}
+
+.add-sensors-container {
+  border: 3px solid $secondary--lighter;
+  border-radius: 5px;
+  width: 100%;
+  max-width: 1360px;
+  height: 469px;
+  margin-top: 100px;
+  padding: 100px 70px 70px 70px;
+
+  @media screen and (max-width: $width-md) {
+    padding: 45px;
+  }
+
+  h2 {
+    font-size: 55px;
+    color: $grey-600;
+    font-weight: 700;
+    @media screen and (max-width: $width-md) {
+      font-size: 40px;
+    }
+  }
+
+  :global(.info-box-button) {
+    margin-top: 70px;
+    font-size: 34px;
+    font-weight: 700;
+    height: 76px;
+    padding: 20px;
+    float: left;
+    line-height: 1;
+    cursor: pointer;
+    color: $primary;
+
+    &:hover,
+    &:visited {
+      color: $primary;
+    }
+  }
+}

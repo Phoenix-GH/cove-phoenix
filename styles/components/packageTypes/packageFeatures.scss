@@ -1,0 +1,12 @@
+@import "variables";
+
+.green-one-liner {
+  font-size: 25px;
+  white-space: nowrap;
+  line-height: 2;
+  font-weight: 300;
+  color: $primary;
+  @media screen and (max-width: $width-md) {
+    font-size: 20px;
+  }
+}

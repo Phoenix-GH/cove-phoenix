@@ -1,5 +1,6 @@
 module.exports = () => ({
   '/': { page: '/' },
+  '/product': { page: '/product' },
   '/products/cove-touch': { page: '/products/cove-touch' },
   '/products/motion-sensor-alarm': { page: '/products/motion-sensor-alarm' },
   '/products/window-security-device': { page: '/products/window-security-device' },
@@ -11,6 +12,7 @@ module.exports = () => ({
   '/products/home-security-camera': { page: '/products/home-security-camera' },
   '/products/door-security-device': { page: '/products/door-security-device' },
   '/products/flood-detection-sensor': { page: '/products/flood-detection-sensor' },
+  '/package-types': { page: '/packageTypes' },
   '/medical': { page: '/medical' },
   '/login': { page: '/login' },
   '/homepage': { page: '/homepage' },
