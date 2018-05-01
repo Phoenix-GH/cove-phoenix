@@ -95,6 +95,7 @@ const getCreateAccountRequest = (formData, cart) => {
   accountRequest.ec1 = {};
   accountRequest.ec1.firstName = accountRequest.customer1.firstName;
   accountRequest.ec1.lastName = accountRequest.customer1.lastName;
+  accountRequest.ec1.phone = accountRequest.customer1.phone;
   [accountRequest.ec2.firstName, accountRequest.ec2.lastName] = accountRequest.ec2.name.split(' ');
   accountRequest.ec2.phone = accountRequest.ec2.phone.split('-').join('');
   if (formData.includeEc3) {
