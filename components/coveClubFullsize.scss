@@ -169,7 +169,6 @@
 
   .firstCol {
     border-top: 1px solid  #BEC2C5;
-    border-top-right-radius: 16px;
   }
 
   .colMid {
@@ -197,9 +196,7 @@
     }
   }
 
-  .colMidLast {
-    border-radius: 0px 0px 16px 0px;
-  }
+
 
   .colSpacer {
     border-bottom: 1px solid  #BEC2C5;
@@ -215,6 +212,8 @@
     position: relative;
     text-align: center;
     font-weight: bold;
+    padding-left: 0px;
+    padding-right:0px;
     img, div {
       position: absolute;
       top: 50%;

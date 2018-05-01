@@ -26,7 +26,7 @@ module.exports = () => ({
   '/cart': { page: '/cart' },
   '/order-confirmation': { page: '/checkout/orderConfirmation' },
   '/order-summary': { page: '/checkout/orderSummary' },
-  '/coveclub': { page: '/coveclub' },
+  '/monitoring-plan': { page: '/monitoringPlan' },
   '/account': { page: '/account' },
   '/account/summary': { page: '/account/summary' },
   '/account/info': { page: '/account/info' },

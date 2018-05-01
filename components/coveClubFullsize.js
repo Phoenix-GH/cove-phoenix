@@ -52,10 +52,7 @@ class CoveClubFullsize extends Component {
       <Container className="coveClubFull">
         <Row>
           <Col className="header">
-            <h2>Cove members to Cove Pay</h2>
-            <div className="titleSubText d-none">
-              Finacing available at 0% APR for 60 months.
-            </div>
+            <h2>Select the plan that fits your needs</h2>
           </Col>
         </Row>
         <Row>
@@ -67,13 +64,13 @@ class CoveClubFullsize extends Component {
                   <Col md={5}>
                     <div className="coveClubTableHeader">
                       <h3>Basic</h3>
-                      <h4>$19.99</h4>
+                      <h4>$24.99/mo</h4>
                     </div>
                   </Col>
                   <Col md={{ size: 5, offset: 2 }}>
                     <div className="coveClubTableHeader">
-                      <h3>Premium</h3>
-                      <h4>$29.99</h4>
+                      <h3>Value</h3>
+                      <h4>$34.99/mo</h4>
                     </div>
                   </Col>
                 </Row>
@@ -97,12 +94,12 @@ class CoveClubFullsize extends Component {
             <Row className="no-gutters">
               <Col className="colLeft" md={4}>
                 <div className="colLeftContent">
-                  App Support
+                  Cove Live Assist
                 </div>
               </Col>
               <Col className="colMid row" md={8}>
                 <Col className="compareContent" xs={5}>
-                  <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
+                  <img className="img-fluid" src="/static/images/check.png" alt="check mark icon" />
                 </Col>
                 <Col className="compareContent" xs={{ size: 5, offset: 2 }}>
                   <img className="img-fluid" src="/static/images/check.png" alt="check mark icon" />
@@ -112,12 +109,12 @@ class CoveClubFullsize extends Component {
             <Row className="no-gutters">
               <Col className="colLeft" md={4}>
                 <div className="colLeftContent">
-                  Remote Control
+                  Cove InstaText
                 </div>
               </Col>
               <Col className="colMid row" md={8}>
                 <Col className="compareContent" xs={5}>
-                  <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
+                  <img className="img-fluid" src="/static/images/check.png" alt="check mark icon" />
                 </Col>
                 <Col className="compareContent" xs={{ size: 5, offset: 2 }}>
                   <img className="img-fluid" src="/static/images/check.png" alt="check mark icon" />
@@ -127,7 +124,7 @@ class CoveClubFullsize extends Component {
             <Row className="no-gutters">
               <Col className="colLeft" md={4}>
                 <div className="colLeftContent">
-                  $5/month Loyalty Credit
+                  iOS/Android App
                 </div>
               </Col>
               <Col className="colMid row" md={8}>
@@ -155,27 +152,12 @@ class CoveClubFullsize extends Component {
               </Col>
             </Row>
             <Row className="no-gutters">
-              <Col className="colLeft" md={4}>
-                <div className="colLeftContent">
-                  Live Voice Assistance
-                </div>
-              </Col>
-              <Col className="colMid row" md={8}>
-                <Col className="compareContent" xs={5}>
-                  <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
-                </Col>
-                <Col className="compareContent" xs={{ size: 5, offset: 2 }}>
-                  <img className="img-fluid" src="/static/images/check.png" alt="check icon" />
-                </Col>
-              </Col>
-            </Row>
-            <Row className="no-gutters">
               <Col className="colLeft colLeftLast" md={4}>
                 <div className="colLeftContent">
-                  Camera (something)
+                  $5/month Loyalty Credit
                 </div>
               </Col>
-              <Col className="colMid row colMidLast" md={8}>
+              <Col className="colMid colMidLast row" md={8}>
                 <Col className="compareContent" xs={5}>
                   <img className="img-fluid" src="/static/images/x.svg" alt="x icon" />
                 </Col>
@@ -195,15 +177,6 @@ class CoveClubFullsize extends Component {
                   <div className="coveClubTableFooter">
                     <Row className="buttonRow">
                       <Col xs={12}>
-                        <SelectableButton
-                          title="$19.99 per month"
-                          isSelected={selectedPlan === 'basicMonth'}
-                        />
-                      </Col>
-                    </Row>
-
-                    <Row className="buttonRow">
-                      <Col xs={12}>
                         {Select(1)}
                       </Col>
                     </Row>
@@ -211,14 +184,6 @@ class CoveClubFullsize extends Component {
                 </Col>
                 <Col md={{ size: 5, offset: 2 }}>
                   <div className="coveClubTableFooter">
-                    <Row className="buttonRow">
-                      <Col xs={12}>
-                        <SelectableButton
-                          title="$29.9 per month"
-                          isSelected={selectedPlan === 'premiumMonth'}
-                        />
-                      </Col>
-                    </Row>
                     <Row className="buttonRow">
                       <Col xs={12}>
                         {Select(2)}
