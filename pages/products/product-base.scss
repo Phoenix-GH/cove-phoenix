@@ -116,11 +116,11 @@ h1, h2, h3, h4, h5, h6, p, li {
 
     &__column-title {
         height: 32px;
+        color: $grey-600;
         font-size: 40px;
         font-weight: 700;
         line-height: 32px;
         margin-bottom: 0;
-        opacity: 0.4;
         text-align: center;
     }
 
@@ -129,7 +129,7 @@ h1, h2, h3, h4, h5, h6, p, li {
         height: 75px;
         font-size: 26px;
         font-weight: 500;
-        border: 1px solid $grey-600;
+        border: 1px solid $primary-darkest;
         text-align: center;
         padding: 10px 15px;
         display: flex;
@@ -137,17 +137,25 @@ h1, h2, h3, h4, h5, h6, p, li {
         align-items: center;
         justify-content: center;
 
+        @include media-lg {
+            font-size: 20px;
+        }
+
         &:first-of-type {
             margin-top: 20px;
         }
 
         &--faded {
-            opacity: 0.4;
+            border: 1px solid $grey-600;
         }
     }
 
     &__compare-subtext {
         font-size: 22px;
+
+        @include media-lg {
+            font-size: 16px;
+        }
     }
 
     &__center {
@@ -186,7 +194,7 @@ h1, h2, h3, h4, h5, h6, p, li {
     }
 
     &__plain-list-item {
-        font-size: 34px;
+        font-size: 24px;
         font-weight: 500;
         margin-bottom: 12px;
     }
@@ -198,10 +206,20 @@ h1, h2, h3, h4, h5, h6, p, li {
     &__footnote {
         font-family: $font-open-sans;
         font-size: 14px;
+
+        @include media-sm {
+            padding: 0 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
     }
 
     &__spacer {
         padding: 80px 0;
+
+        @include media-md {
+            padding: 20px 0;
+        }
     }
 
     &__column {
@@ -326,5 +344,6 @@ h1, h2, h3, h4, h5, h6, p, li {
 
     &__alt-font {
         font-family: $font-open-sans;
+        width: 100%;
     }
 }

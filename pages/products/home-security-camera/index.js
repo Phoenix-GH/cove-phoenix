@@ -48,13 +48,13 @@ export default class ProductPage extends Component {
             </Row>
             <div className="product__spacer" />
             <Row>
-              <Col xs={12} sm={4}>
+              <Col xs={12} md={4}>
                 <div className="product__comparison">
                   <h2 className="product__subheading product__subheading--pad-top">Cove vs Them</h2>
                   <p className="product__paragraph">Cove home security cameras are all paired with our award-winning Cove Touch panel offering the “all-around easiest” customer experience in the industry.</p>
                 </div>
               </Col>
-              <Col xs={6} sm={4}>
+              <Col xs={6} md={4}>
                 <div className="product__center">
                   <img src="/static/images/logoTeal.svg" height="32" alt="Cove Logo" />
                 </div>
@@ -64,7 +64,7 @@ export default class ProductPage extends Component {
                 <p className="product__compare-box">No cancellation fees</p>
                 <p className="product__compare-box">No service windows</p>
               </Col>
-              <Col xs={6} sm={4}>
+              <Col xs={6} md={4}>
                 <h2 className="product__column-title">Not Us</h2>
                 <p className="product__compare-box product__compare-box--faded">$15-25/mo<br/><span className="product__compare-subtext">3-5 Year Contract</span></p>
                 <p className="product__compare-box product__compare-box--faded">Control from Home</p>

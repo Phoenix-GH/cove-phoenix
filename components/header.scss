@@ -2,8 +2,20 @@
 @import "variables";
 @import "responsive";
 
+.navbarSpacer {
+  height: 60px;
+}
+
+.coveLogo {
+  margin-right: 30px;
+}
+
 .navbarContainer {
+  position: fixed;
+  z-index: 10000;
+  top: 0;
   width: 100%;
+  max-width: 1300px;
   border-bottom: 3px solid $primary--darker;
   font-family: $font-gotham-rounded;
   font-weight: 700;
@@ -18,7 +30,8 @@
   :global(.navLink) {
     position: relative;
     color: $primary--darker;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: 500;
     margin-right: 20px;
     cursor: pointer;
   }
@@ -145,7 +158,7 @@ background-image: url("/static/images/togglerTeal.png");
   position: absolute;
   z-index: 10;
   background: white;
-  top: 75px;
+  top: 55px;
   left: 50%;
   transform: translateX(-50%);
   width: min-content;
@@ -156,12 +169,12 @@ background-image: url("/static/images/togglerTeal.png");
     content: '';
     position: absolute;
     z-index: 0;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     background: white;
     transform: rotate(45deg);
-    left: calc(50% - 25px);
-    top: -25px;
+    left: calc(50% - 15px);
+    top: -15px;
     box-shadow: 2px -1px 5px #aaaaaa;
   }
 
@@ -183,18 +196,31 @@ background-image: url("/static/images/togglerTeal.png");
     width: 180px;
     height: 140px;
     text-align: center;
+
+    &--tall {
+      height: 155px;
+    }
   }
 
   &__image {
     width: 100%;
+    height: 102px;
+    object-fit: cover;
   }
 
   &__text {
-    color: rgba(0,0,0,.7);
+    color: $primary-darkest;
 
     &:hover {
-      text-decoration: underline;
+      color: $grey-900;
     }
+  }
+
+  &__footnote-text {
+    display: block;
+    color: $grey-900;
+    font-size: 14px;
+    font-weight: 100;
   }
 }
 
@@ -297,7 +323,7 @@ background-image: url("/static/images/togglerTeal.png");
   }
 
   @include media-md {
-    height: 100%;
+    height: 100vh;
   }
 
   &__column {
