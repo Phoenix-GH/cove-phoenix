@@ -15,11 +15,11 @@ const easeInOutQuad = (t, b, c, d) => {
 	return -c/2 * (t*(t-2) - 1) + b;
 }
 
-export default class ProductPage extends Component {
+export default class TermsPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      scrollActiveClass: ''
+      scrollActiveClass: '',
     };
   }
 
@@ -58,7 +58,7 @@ export default class ProductPage extends Component {
       <Layout>
         <Head>
           <title>Cove | Terms of Sale</title>
-          <meta name="description" content="Cove's terms of sale of products." />
+          <meta name="description" content="Cove terms of sale of products." />
         </Head>
         <Header color="secondary" />
         <Container>
