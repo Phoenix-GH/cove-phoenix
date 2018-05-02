@@ -55,6 +55,14 @@ const footerList = [
         link: '#',
         name: 'Video',
       },
+      {
+        link: '/privacy-policy',
+        name: 'Privacy Policy',
+      },
+      {
+        link: '/terms',
+        name: 'Terms and Conditions',
+      },
     ],
   },
 ];

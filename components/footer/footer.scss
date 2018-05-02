@@ -7,7 +7,46 @@
     width: 100%;
     padding-right: 15px;
     padding-left: 15px;
+    padding-bottom: 40px;
     margin-right: auto;
     margin-left: auto;
+  }
+
+  &__legal {
+    width: 100%;
+    text-align: center;
+    padding-top: 5px;
+    border-top: 1px solid $grey-100;
+  }
+
+  &__link {
+    position: relative;
+    font-size: 13px;
+    color: $grey-700;
+    padding: 0 10px;
+
+    &:after {
+      content: '|';
+      position: absolute;
+      top: 0;
+      right: 1px;
+      width: 1px;
+      color: $grey-700;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:last-of-type:after {
+      content: '';
+    }
+  }
+
+  &__copywrite {
+    color: $grey-300;
+    font-size: 11px;
+    font-weight: 100;
+    margin-top: 5px;
   }
 }
