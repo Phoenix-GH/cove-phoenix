@@ -75,10 +75,10 @@ export default class Header extends React.Component {
                       <div>
                         <Nav className="d-flex align-items-center justify-content-start" navbar>
                           <NavItem>
-                            <Link href="/"><NavLink href="" className="navLink">Alarm System</NavLink></Link>
+                            <Link href="/products/cove-touch"><NavLink href="" className="navLink">Alarm System</NavLink></Link>
                           </NavItem>
                           <NavItem>
-                            <NavLink className="navLink" onClick={this.toggleDropdown}>Smoke + Flood + CO Alarm
+                            <NavLink className="navLink dropdown-parent" onClick={this.toggleDropdown}>Smoke + Flood + CO Alarm
                               <div className="dropdown invisible">
                                 <div className="d-flex">
                                   <Col xs={4}>
@@ -110,33 +110,10 @@ export default class Header extends React.Component {
                             </NavLink>
                           </NavItem>
                           <NavItem>
-                            <Link href="/"><NavLink href="" className="navLink">Medical</NavLink></Link>
+                            <Link href="/products/medical-alert-device"><NavLink href="" className="navLink">Medical</NavLink></Link>
                           </NavItem>
                           <NavItem>
-                            <NavLink onClick={this.toggleDropdown} className="navLink">Camera
-                              <div className="dropdown invisible">
-                                <div className="d-flex">
-                                  <Col xs={6}>
-                                    <Link href="/products/doorbell-camera">
-                                      <div className="dropdown__item dropdown__item--tall">
-                                        <img className="dropdown__image" src="/static/images/product/doorbell-camera/doorbell-camera-front.jpg" />
-                                        <span className="dropdown__text">Cove Bell</span>
-                                        <span className="dropdown__footnote-text">Doorbell - coming soon</span>
-                                      </div>
-                                    </Link>
-                                  </Col>
-                                  <Col xs={6}>
-                                    <Link href="/products/home-security-camera">
-                                      <div className="dropdown__item dropdown__item--tall">
-                                        <img className="dropdown__image" src="/static/images/product/home-security-camera/home-security-camera-front.jpg" />
-                                        <span className="dropdown__text">Cove Cam</span>
-                                        <span className="dropdown__footnote-text">Indoor</span>
-                                      </div>
-                                    </Link>
-                                  </Col>
-                                </div>
-                              </div>
-                            </NavLink>
+                            <Link href="/products/home-security-camera"><NavLink href="" className="navLink">Camera</NavLink></Link>
                           </NavItem>
                         </Nav>
                       </div>
