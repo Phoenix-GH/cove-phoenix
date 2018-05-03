@@ -1,7 +1,8 @@
 module.exports = () => ({
   '/': { page: '/' },
-  '/terms': { page: '/terms' },
+  '/legal': { page: '/legal' },
   '/privacy-policy': { page: '/privacy-policy' },
+  '/terms': { page: '/terms' },
   '/products/cove-touch': { page: '/products/cove-touch' },
   '/products/motion-sensor-alarm': { page: '/products/motion-sensor-alarm' },
   '/products/window-security-device': { page: '/products/window-security-device' },
