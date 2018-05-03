@@ -67,6 +67,7 @@ export default class LegalPage extends Component {
         </Head>
         <Header color="secondary" />
         <Container>
+          <div className="legal__spacer" />
           <h2 className="legal__section-link" onClick={() => this.handleCustomScroll('#termsOfSale')}>Terms of Sale of Products and Services</h2>
           <h2 className="legal__section-link" onClick={() => this.handleCustomScroll('#deliveryAndReturnPolicy')}>Delivery and return Policy</h2>
           <h2 className="legal__section-link" onClick={() => this.handleCustomScroll('#refundPolicy')}>Refund Policy</h2>

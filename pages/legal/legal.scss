@@ -5,6 +5,11 @@
     font-family: $font-gotham-rounded;
     margin: 40px 0;
 
+    &__spacer {
+        display: block;
+        height: 48px;
+    }
+
     &__scroll-top {
         position: fixed;
         right: 10px;
